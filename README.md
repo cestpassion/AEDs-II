@@ -12,22 +12,22 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 <br>
 
 >### ❓ Ajuda:
-* [Guia com os principais comandos](Fonte/ajuda/README.md)
-* [Compiladores]()
-* [IDEs]()
-
+* Guia com os principais comandos: [blablabla](Fonte/ajuda/README.md)
+* Compiladores: [blablabla](blablabla)
+* IDEs: [blablabla](blablabla)
+##
 <br>
 
 >### 📁 Bibliotecas de Java:
 * [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
-
+##
 <br>
 
 >### 📚 Bibliografia:
 
-* [Livros](Bibliografia/Livros)
-* [Cheat Sheets](Bibliografia/Cheat_Sheets)
-
+* Livros: [blablabla](Bibliografia/Livros)
+* Cheat Sheets: [blablabla](Bibliografia/Cheat_Sheets)
+##
 <br>
 
 >### 🧑‍🏫 Aulas:
@@ -35,7 +35,7 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 * 📝 Anotações:
 
 * 🗃️ Unidades:
-
+##
 <br>
 
 >### 🔥 Códigos:
@@ -45,7 +45,7 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 * 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
 
 * ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
-
+##
 <br>
 
 ## 🏋️ Prática:
