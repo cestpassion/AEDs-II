@@ -2,55 +2,37 @@
 Este repositório possui arquivos disponibilizados pelos professores da disciplina de Algoritmos e Estrutura de Dados II além de resoluções de exercícios feitos pela autora Bruna Furtado.
 
 <br>
-<br>
 
 ## 📖 Exercícios e Trabalhos Resolvidos:
 
-<br>
-
-### ⚙️ Labs:
+>### ⚙️ Labs:
 * [Pasta com os exercícios de treinamento do laboratório](Labs)
 
-<br>
-
-### 🔥 TPS:
+>### 🔥 TPS:
 * [Pasta com os trabalhos práticos do laboratório](TPs)
 
-<br>
 <br>
 
 ## 📚 Bibliografia:
 
-<br>
-
 * [Livros e Cheat Sheets](Bibliografia)
 
-<br>
 <br>
 
 ## 🧑‍🏫 Arquivos Disponibilizados Pelos Professores: 
 
-<br>
-
-### ❓ Ajuda:
+>### ❓ Ajuda:
 * [Guia com os principais comandos](Fonte/ajuda/README.md)
 
-<br>
-
-### 👨‍⚕️ Slides:
+>### 👨‍⚕️ Slides:
 * [Pasta com powerpoints usados em aula](Slides)
 
-<br>
-
-### 📁 Bibliotecas de Java:
+>### 📁 Bibliotecas de Java:
 * [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
 
-<br>
-
-### 💡 Códigos:
+>### 💡 Códigos:
 * [Pasta com os algoritmos de exemplo](Fonte)
 
-<br>
 <br>
 
 ## 🏋️ Prática:
