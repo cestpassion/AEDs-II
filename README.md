@@ -1,37 +1,37 @@
-> ### ❓ AJUDA:
+# 💻 AEDS II
+Este repositório possui arquivos disponibilizados pelos professores da disciplina de Algoritmos e Estrutura de Dados II além de resoluções de exercícios feitos pela autora Bruna Furtado.
 
-Guia com os principais comandos: Fonte/ajuda/README.txt
-------------------------------------------------------------
+## 📖 Exercícios e Trabalhos Resolvidos:
 
-> ### 👨‍⚕️ SLIDES:
+### ⚙️ Labs:
+[Pasta com os exercícios de treinamento do laboratório](Labs)
 
-Pasta com powerpoints usados em aula: Slides
-------------------------------------------------------------
+### 🔥 TPS:
+[Pasta com os trabalhos práticos do laboratório](TPs)~
 
-> ### 📁 BIBLIOTECAS:
+## 📚 Bibliografia:
 
-Pasta com as bibliotecas usadas na disciplina: Fonte/ajuda/java
-------------------------------------------------------------
+[Livros e Cheat Sheets](Bibliografia)
 
-> ### 💡 CÓDIGOS:
+## 🧑‍🏫 Arquivos Disponibilizados Pelos Professores: 
 
-Pasta com os algoritmos de exemplo: Fonte
-------------------------------------------------------------
+### ❓ Ajuda:
+[Guia com os principais comandos](Fonte/ajuda/README.md)
 
-> ### ⚙️ LABS:
 
-Pasta com os exercícios de treinamento do laboratório: Labs
-------------------------------------------------------------
+### 👨‍⚕️ Slides:
+[Pasta com powerpoints usados em aula](Slides)
 
-> ### 🔥 TPS:
 
-Pasta com os trabalhos práticos do laboratório: TPs
-------------------------------------------------------------
+### 📁 Bibliotecas de Java:
+[Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
 
-> ### 🏋️ PRÁTICA:
 
-OBI: <a href="https://olimpiada.ic.unicamp.br/pratique/pu/" target="_blank">(https://olimpiada.ic.unicamp.br/pratique/pu/)</a>
+### 💡 Códigos:
+[Pasta com os algoritmos de exemplo](Fonte)
 
-CodeWars: <a href="https://www.codewars.com/dashboard" target="_blank">(https://www.codewars.com/dashboard)</a>
 
-HackerRank: <a href="https://www.hackerrank.com/dashboard" target="_blank">(https://www.hackerrank.com/dashboard)</a>
+## 🏋️ Prática:
+[OBI](https://olimpiada.ic.unicamp.br/pratique/pu/)</br>
+[CodeWars](https://www.codewars.com/dashboard)</br>
+[HackerRank](https://www.hackerrank.com/dashboard)
