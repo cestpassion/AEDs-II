@@ -1,9 +1,19 @@
 # 💻 AEDS II
-Este repositório possui arquivos disponibilizados pelos professores da disciplina de Algoritmos e Estrutura de Dados II além de resoluções de exercícios feitos pela autora Bruna Furtado.
+Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutura de Dados II; contendo códigos, exercícios e dicas.
 
 <br>
 
-## 📖 Exercícios e Trabalhos Resolvidos:
+## 💡 Dicas:
+
+* [Guia com os principais comandos](Fonte/ajuda/README.md)
+* [Pasta com dicas]()
+
+<br>
+
+## 📖 Códigos:
+
+>### Programas:
+* [Pasta com os algoritmos de exemplo](Fonte)
 
 >### ⚙️ Labs:
 * [Pasta com os exercícios de treinamento do laboratório](Labs)
@@ -11,27 +21,23 @@ Este repositório possui arquivos disponibilizados pelos professores da discipli
 >### 🔥 TPS:
 * [Pasta com os trabalhos práticos do laboratório](TPs)
 
+>### 📁 Bibliotecas de Java:
+* [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
+
 <br>
 
 ## 📚 Bibliografia:
 
-* [Livros e Cheat Sheets](Bibliografia)
+* [Livros](Bibliografia/Livros)
+* [Cheat Sheets](Bibliografia/Cheat_Sheets)
 
 <br>
 
-## 🧑‍🏫 Arquivos Disponibilizados Pelos Professores: 
+## 🧑‍🏫 Aulas:
 
->### ❓ Ajuda:
-* [Guia com os principais comandos](Fonte/ajuda/README.md)
+>### 📝 Anotações:
 
->### 👨‍⚕️ Slides:
-* [Pasta com powerpoints usados em aula](Slides)
-
->### 📁 Bibliotecas de Java:
-* [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
-
->### 💡 Códigos:
-* [Pasta com os algoritmos de exemplo](Fonte)
+>### 🗃️ Unidades:
 
 <br>
 
