@@ -3,44 +3,48 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 
 <br>
 
-## ❓ Ajuda:
+## Sobre:
 
+<br>
+
+## Sumário:
+
+<br>
+
+>### ❓ Ajuda:
 * [Guia com os principais comandos](Fonte/ajuda/README.md)
 * [Compiladores]()
-* [Pasta com dicas]()
+* [IDEs]()
 
 <br>
 
-## ⌨️ Códigos:
-
->### ⚙️ Programas:
-* [Pasta com os algoritmos de exemplo](Fonte)
-
->### 🖱️ Labs:
-* [Pasta com os exercícios de treinamento do laboratório](Labs)
-
->### 🔥 TPS:
-* [Pasta com os trabalhos práticos do laboratório](TPs)
-
-<br>
-
-## 📁 Bibliotecas de Java:
+>### 📁 Bibliotecas de Java:
 * [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
 
 <br>
 
-## 📚 Bibliografia:
+>### 📚 Bibliografia:
 
 * [Livros](Bibliografia/Livros)
 * [Cheat Sheets](Bibliografia/Cheat_Sheets)
 
 <br>
 
-## 🧑‍🏫 Aulas:
+>### 🧑‍🏫 Aulas:
 
->### 📝 Anotações:
+* 📝 Anotações:
 
->### 🗃️ Unidades:
+* 🗃️ Unidades:
+
+<br>
+
+>### 🔥 Códigos:
+
+* ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
+
+* 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
+
+* ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
 
 <br>
 
