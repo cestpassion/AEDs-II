@@ -10,8 +10,8 @@
  * suponha a chave de ciframento três. Na saída padrão, para cada linha de entrada, escreva
  * uma linha com a mensagem criptografada. */
 
- public class CiframentoCesar{
-    public static void main(){
-
-    }
- }
+public class CiframentoCesar{
+   public static void main(){
+      
+   }
+}
