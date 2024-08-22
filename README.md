@@ -1,38 +1,51 @@
 # 💻 AEDS II
-Este repositório possui arquivos disponibilizados pelos professores da disciplina de Algoritmos e Estrutura de Dados II além de resoluções de exercícios feitos pela autora Bruna Furtado.
+Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutura de Dados II; contendo códigos, exercícios e dicas.
 
 <br>
 
-## 📖 Exercícios e Trabalhos Resolvidos:
-
->### ⚙️ Labs:
-* [Pasta com os exercícios de treinamento do laboratório](Labs)
-
->### 🔥 TPS:
-* [Pasta com os trabalhos práticos do laboratório](TPs)
+## Sobre:
 
 <br>
 
-## 📚 Bibliografia:
-
-* [Livros e Cheat Sheets](Bibliografia)
+## Sumário:
 
 <br>
-
-## 🧑‍🏫 Arquivos Disponibilizados Pelos Professores: 
 
 >### ❓ Ajuda:
-* [Guia com os principais comandos](Fonte/ajuda/README.md)
-
->### 👨‍⚕️ Slides:
-* [Pasta com powerpoints usados em aula](Slides)
+* Guia com os principais comandos: [blablabla](Fonte/ajuda/README.md)
+* Compiladores: [blablabla](blablabla)
+* IDEs: [blablabla](blablabla)
+##
+<br>
 
 >### 📁 Bibliotecas de Java:
 * [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
+##
+<br>
 
->### 💡 Códigos:
-* [Pasta com os algoritmos de exemplo](Fonte)
+>### 📚 Bibliografia:
 
+* Livros: [blablabla](Bibliografia/Livros)
+* Cheat Sheets: [blablabla](Bibliografia/Cheat_Sheets)
+##
+<br>
+
+>### 🧑‍🏫 Aulas:
+
+* 📝 Anotações:
+
+* 🗃️ Unidades:
+##
+<br>
+
+>### 🔥 Códigos:
+
+* ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
+
+* 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
+
+* ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
+##
 <br>
 
 ## 🏋️ Prática:
