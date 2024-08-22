@@ -18,6 +18,13 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 ##
 <br>
 
+>### [🐧 Linux](Linux)👈:
+* Dual Boot: [Aprenda a dar um Dual Boot na sua máquina](Linux/DualBoot)
+* VMware: [Aprenda com baixar e utilizar uma máquina virtual](Linux/VMware)
+* WSL: [Aprenda com baixar e utilizar o terminal Linux](Linix/WSL)
+##
+<br>
+
 >### [📁 Bibliotecas de Java](BibliotecasJava)👈:
 * Pasta com as bibliotecas usadas na disciplina.
 ##
