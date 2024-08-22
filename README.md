@@ -11,41 +11,39 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 
 <br>
 
->### ❓ Ajuda:
-* Guia com os principais comandos: [blablabla](Fonte/ajuda/README.md)
-* Compiladores: [blablabla](blablabla)
-* IDEs: [blablabla](blablabla)
+>### [❓ Ajuda](Ajuda)👈:
+* Principais comandos (Linux, VIM, Java, C/C++, C#): [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
+* Compiladores: [JDK, MinGW](Ajuda/Compiladores)
+* IDEs: [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
 ##
 <br>
 
->### 📁 Bibliotecas de Java:
-* [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
+>### [📁 Bibliotecas de Java](BibliotecasJava)👈:
+* Pasta com as bibliotecas usadas na disciplina.
 ##
 <br>
 
->### 📚 Bibliografia:
+>### [📚 Bibliografia](Bibliografia)👈:
 
-* Livros: [blablabla](Bibliografia/Livros)
-* Cheat Sheets: [blablabla](Bibliografia/Cheat_Sheets)
+* Livros úteis para a diciplina.
 ##
 <br>
 
->### 🧑‍🏫 Aulas:
+>### [🧑‍🏫 Aulas](Aulas)👈:
 
-* 📝 Anotações:
+* 📝 Anotações: [Pasta com anotações feitas durante o aprendizado](Aulas/Anotacoes)
 
-* 🗃️ Unidades:
+* 🗃️ Unidades: [Pasta com os tópicos estudados](Aulas/Unidades)
 ##
 <br>
 
->### 🔥 Códigos:
+>### [🔥 Códigos](Codigo)👈:
 
 * ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
 
 * 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
 
 * ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
-##
 <br>
 
 ## 🏋️ Prática:
