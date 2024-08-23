@@ -4,7 +4,7 @@ Para conseguir baixar os compiladores das linguagens C/C++, primeiramente, é im
 
 Equanto no Linux é necessário apenas executar alguns comandos rápidos, no Windows o processo é mais complicado.
 
-Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se encaminhe para o diretório no qual lhe ensinarei três formas diferentes para fazer isso ([Linux](AEDs-II/Linux))
+Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se encaminhe para o diretório no qual lhe ensinarei três formas diferentes para fazer isso ([Linux]([AEDs-II/Linux](https://github.com/cestpassion/AEDs-II/tree/main/Linux)))
 
 <br>
 
