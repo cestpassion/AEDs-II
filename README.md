@@ -6,12 +6,8 @@ Seu status encontra-se em desenvolvimento pois a matéria ainda está sendo curs
 
 ## 🔸 Sobre:
 Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, neste repositório, você encontrará desde guias de comandos, compiladores, SO etc, até códigos de programas e soluções para exercícios de laboratório.<br><br>
-O conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.
-<br>
-
-## 🔸 Recursos Adicionais:
-
-Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
+O conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.<br><br>
+**❗ Recursos Adicionais:** Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
 <br>
 
 # Sumário:
