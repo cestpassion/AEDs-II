@@ -19,15 +19,24 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 >### [❓ Ajuda](Ajuda)👈:
 * **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](Ajuda/Orientacao)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
-* **Documentações oficiais:** [Java, C/C++](Ajuda/DocumentacoesOficiais)
 * **Compiladores:** [JDK, MinGW, GCC](Ajuda/Compiladores)
 * **IDEs:** [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
 ##
 <br>
 
->### [📚 Bibliografia](Bibliografia)👈:
+>### 📄 [Documentações oficiais](DocumentacoesOficiais)👈:
+* **Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**
+##
+<br>
+
+>### [📚 Livros](Bibliografia)👈:
 
 * **Livros úteis para a diciplina.**
+##
+<br>
+
+>### [📁 Bibliotecas](BibliotecasJava)👈:
+* **Pasta com as bibliotecas usadas na disciplina.**
 ##
 <br>
 
@@ -35,11 +44,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Dual Boot:** [Aprenda a dar um Dual Boot na sua máquina](Linux/DualBoot)
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](Linux/VMware)
 * **WSL:** [Aprenda com baixar e utilizar o terminal Linux](Linix/WSL)
-##
-<br>
-
->### [📁 Bibliotecas de Java](BibliotecasJava)👈:
-* **Pasta com as bibliotecas usadas na disciplina.**
+* **Dentro do Linux**: [Como conifigurar](Linux/DentrodoLinux)
 ##
 <br>
 
