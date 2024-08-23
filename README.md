@@ -4,6 +4,7 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 <br>
 
 ## Sobre:
+aaaaaaaaaaaa
 
 <br>
 
@@ -44,13 +45,15 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 ##
 <br>
 
->### [🔥 Códigos](Codigo)👈:
+>### [🔥 Códigos](Codigos)👈:
 
 * ⚙️ Programas: [Pasta com programas](Codigos/Programas)
 
 * 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Codigos/Labs)
 
 * ⌨️ TPS: [Pasta com os Trabalhos Práticos](Codigos/TPs)
+##
+##
 <br>
 
 ## 🏋️ Prática:
