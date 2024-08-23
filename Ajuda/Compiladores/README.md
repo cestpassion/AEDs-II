@@ -77,43 +77,38 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 
    <img src="fotos/caminho.png" width="800px">
     <br>
-    <br>
+
 
    * Na área de pesquisa do Windows localizada na Barra de Tarefas digite: "Variáveis de Sistema" e abra:
 
    <img src="fotos/variaveis.png" width="1000px">
-    <br>
     <br>
 
    * Selecione a opção "Variáveis de Ambiente":
 
    <img src="fotos/slcvariaveis.png" width="600px">
     <br>
-    <br>
 
    * Após os passos anteriores, você irá colar o caminho da pasta "bin" no PATH da variáveis de usuário e da variáveis de sistema:
 
    <img src="fotos/PATH.png" width="600px">
-    <br>
     <br>
 
    * Clique duas vezes na variável PATH e selecione "New":
    
    <img src="fotos/new.png" width="600px">
     <br>
-    <br>
-
+    
    * Cole o caminho da pasta "bin":
      
    <img src="fotos/colar.png" width="600px">
     <br>
-    <br>
 
    * Após esses passos aperte "ok" e aplique as mudanças.
-   <br>
-   <br>
 
 #### 6) Para verificar se o complilador está cofigurado, entre no cmd e digite:
 
 >     java -version
->     javac -version   
+>     javac -version
+
+#### Extra: Caso aconteca do compilador não funcionar mesmo após esses passos, volte nas variáveis de ambiente, selecione o caminho da pasta bin dentro do PATH e mova para cima.
