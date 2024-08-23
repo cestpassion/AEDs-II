@@ -62,38 +62,107 @@ chown [usuário]:[grupo] [arquivo]  # Altera proprietário e grupo de arquivos
 
 ## VIM
 
-Comandos básicos para edição de texto no VIM:
+VIM é um editor de texto poderoso e versátil. Aqui estão alguns comandos e técnicas essenciais para ajudá-lo a navegar e editar arquivos eficientemente.
+
+### Modos de Operação
+
+- **Modo Normal**: O modo padrão ao abrir o VIM, onde você pode executar comandos de navegação e edição.
+- **Modo de Inserção**: Usado para editar o texto.
+- **Modo Visual**: Usado para selecionar texto.
 
 ```bash
-# Modos de operação
-i                   # Entra no modo de inserção (início da edição)
-Esc                 # Sai do modo de inserção para o modo normal
-:v                 # Entra no modo visual para seleção de texto
+# Entrar em diferentes modos
+i                   # Entra no modo de inserção (antes do cursor)
+I                   # Entra no modo de inserção (no início da linha)
+a                   # Entra no modo de inserção (depois do cursor)
+A                   # Entra no modo de inserção (no final da linha)
+Esc                 # Sai do modo de inserção e volta para o modo normal
+v                   # Entra no modo visual (seleção de texto)
+V                   # Entra no modo visual em linha (seleção de linhas)
+Ctrl + v             # Entra no modo visual de bloco (seleção de bloco de texto)
+```
 
-# Salvando e saindo
+### Salvando e Saindo
+
+```bash
 :w                  # Salva o arquivo
-:q                  # Sai do editor
+:w [arquivo]        # Salva o arquivo com um nome diferente
 :wq                 # Salva e sai do editor
+:x                  # Equivalente a :wq
+:q                  # Sai do editor (se não houver alterações)
 :q!                 # Sai sem salvar as alterações
+:wq!                # Força a escrita e saída, mesmo se o arquivo estiver somente leitura
+```
 
-# Navegação
+### Navegação
+
+```bash
 h, j, k, l          # Movimenta o cursor (esquerda, baixo, cima, direita)
+0                   # Vai para o início da linha
+$                   # Vai para o final da linha
 gg                  # Vai para o início do arquivo
 G                   # Vai para o fim do arquivo
 [linha]G             # Vai para uma linha específica
+Ctrl + f            # Avança uma página
+Ctrl + b            # Retrocede uma página
+```
 
-# Edição
-dd                  # Deleta uma linha
+### Edição
+
+```bash
+dd                  # Deleta a linha atual
 d[comando]          # Deleta com base em movimento (ex: dw para deletar uma palavra)
-yy                  # Copia uma linha
+yy                  # Copia (yanka) a linha atual
+y[comando]          # Copia com base em movimento (ex: yw para copiar uma palavra)
 p                   # Cola o conteúdo copiado após o cursor
+P                   # Cola o conteúdo copiado antes do cursor
+x                   # Deleta o caractere sob o cursor
+r [caractere]       # Substitui o caractere sob o cursor por outro
 u                   # Desfaz a última ação
 Ctrl + r            # Refaz a última ação desfeita
+```
 
-# Pesquisa e substituição
-/p [termo]          # Pesquisa o termo para frente
+### Pesquisa e Substituição
+
+```bash
+/ [termo]           # Pesquisa o termo para frente
 ? [termo]           # Pesquisa o termo para trás
+n                   # Vai para a próxima ocorrência da pesquisa
+N                   # Vai para a ocorrência anterior da pesquisa
 :%s/[antigo]/[novo]/g  # Substitui todas as ocorrências no arquivo
+:%s/[antigo]/[novo]/gc # Substitui todas as ocorrências no arquivo com confirmação
+```
+
+### Seleção e Manipulação de Texto
+
+```bash
+v                   # Seleciona texto no modo visual
+V                   # Seleciona linhas no modo visual
+Ctrl + v             # Seleciona um bloco de texto no modo visual de bloco
+d                   # Deleta o texto selecionado
+y                   # Copia o texto selecionado
+p                   # Cola o texto copiado
+```
+
+### Trabalhando com Múltiplos Arquivos
+
+```bash
+:tabnew [arquivo]   # Abre um novo arquivo em uma nova aba
+:tabn              # Vai para a próxima aba
+:tabp              # Vai para a aba anterior
+:bn                # Vai para o próximo buffer
+:bp                # Vai para o buffer anterior
+:bd                # Deleta (fecha) o buffer atual
+```
+
+### Outros Comandos Úteis
+
+```bash
+:set number         # Exibe números de linha
+:set nonumber       # Oculta números de linha
+:set relativenumber # Exibe números de linha relativos
+:! [comando]        # Executa um comando do shell (ex: :!ls)
+:read [arquivo]     # Insere o conteúdo de um arquivo no cursor
 ```
 
 ## Java
