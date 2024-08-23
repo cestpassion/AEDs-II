@@ -11,41 +11,46 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 
 <br>
 
->### ❓ Ajuda:
-* Guia com os principais comandos: [blablabla](Fonte/ajuda/README.md)
-* Compiladores: [blablabla](blablabla)
-* IDEs: [blablabla](blablabla)
+>### [❓ Ajuda](Ajuda)👈:
+* Principais comandos (Linux, VIM, Java, C/C++, C#): [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
+* Compiladores: [JDK, MinGW](Ajuda/Compiladores)
+* IDEs: [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
 ##
 <br>
 
->### 📁 Bibliotecas de Java:
-* [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
+>### [🐧 Linux](Linux)👈:
+* Dual Boot: [Aprenda a dar um Dual Boot na sua máquina](Linux/DualBoot)
+* VMware: [Aprenda com baixar e utilizar uma máquina virtual](Linux/VMware)
+* WSL: [Aprenda com baixar e utilizar o terminal Linux](Linix/WSL)
 ##
 <br>
 
->### 📚 Bibliografia:
-
-* Livros: [blablabla](Bibliografia/Livros)
-* Cheat Sheets: [blablabla](Bibliografia/Cheat_Sheets)
+>### [📁 Bibliotecas de Java](BibliotecasJava)👈:
+* Pasta com as bibliotecas usadas na disciplina.
 ##
 <br>
 
->### 🧑‍🏫 Aulas:
+>### [📚 Bibliografia](Bibliografia)👈:
 
-* 📝 Anotações:
-
-* 🗃️ Unidades:
+* Livros úteis para a diciplina.
 ##
 <br>
 
->### 🔥 Códigos:
+>### [🧑‍🏫 Aulas](Aulas)👈:
+
+* 📝 Anotações: [Pasta com anotações feitas durante o aprendizado](Aulas/Anotacoes)
+
+* 🗃️ Unidades: [Pasta com os tópicos estudados](Aulas/Unidades)
+##
+<br>
+
+>### [🔥 Códigos](Codigo)👈:
 
 * ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
 
 * 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
 
 * ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
-##
 <br>
 
 ## 🏋️ Prática:
