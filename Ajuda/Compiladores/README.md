@@ -12,14 +12,14 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 
 * Para instalar:
 
->   sudo apt install build-essential
+>     sudo apt install build-essential
 
 * Para verificar a instalação:
 
     * C:
-        >   gcc --version
+        >     gcc --version
     * C++:
-        >   g++ --version
+        >     g++ --version
 
 <br>
 
@@ -33,12 +33,12 @@ GCC é uma ferramenta essencial no desenvolvimento de software para Linux. Ele �
 
 * Para instalar:
 
->   sudo apt install openjdk-17-jdk
+>     sudo apt install openjdk-17-jdk
 
 * Para verificar a instalação:
 
->   java -version
->   javac -version
+>     java -version
+>     javac -version
 
 <br>
 
@@ -56,52 +56,64 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 
 ## Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
 
-1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
+#### 1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
+<img src="fotos/SiteOracle.png" width="1000px">
+<br>
 
-<img src="fotos/SiteOracle.jpg" width="200px">
+#### 2) Selecione a opção "JDK 17", em seguida a opção "Windows" e o arquivo .exe "64x Installer:
+<img src="fotos/Installer.png" width="1000px">
+<br>
 
-2) Selecione a opção "JDK 17", em seguida a opção "Windows" e o arquivo .exe "64x Installer:
+#### 3) Next:
+<img src="fotos/Diretorio.png" width="600px">
+<br>
 
-<img src="fotos/Installer.png" width="200px">
+#### 4) Close:
+<img src="fotos/InstalacaoCompleta.png" width="600px">
+<br>
 
-3) Next:
+#### 5) Configurando as Variáveis de Sistema no PATH:
+   * Encontre a pasta "bin" dentro do diretório Java e copie seu caminho:
 
-<img src="fotos/Diretorio.png" width="100px">
+   <img src="fotos/caminho.png" width="800px">
+    <br>
+    <br>
 
-4) Close:
+   * Na área de pesquisa do Windows localizada na Barra de Tarefas digite: "Variáveis de Sistema" e abra:
 
-<img src="fotos/InstalacaoCompleta.png" width="200px">
+   <img src="fotos/variaveis.png" width="1000px">
+    <br>
+    <br>
 
-5) Configurando as Variáveis de Sistema no PATH:
-    * Encontre a pasta "bin" dentro do diretório Java e copie seu caminho:
+   * Selecione a opção "Variáveis de Ambiente":
 
-    <img src="fotos/caminho.png" width="200px">
+   <img src="fotos/slcvariaveis.png" width="600px">
+    <br>
+    <br>
 
-    * Na área de pesquisa do Windows localizada na Barra de Tarefas digite: "Variáveis de Sistema" e abra:
+   * Após os passos anteriores, você irá colar o caminho da pasta "bin" no PATH da variáveis de usuário e da variáveis de sistema:
 
-    <img src="fotos/variaveis.png" width="200px">
+   <img src="fotos/PATH.png" width="600px">
+    <br>
+    <br>
 
-    * Selecione a opção "Variáveis de Ambiente":
+   * Clique duas vezes na variável PATH e selecione "New":
+   
+   <img src="fotos/new.png" width="600px">
+    <br>
+    <br>
 
-    <img src="fotos/slcvariaveis.png" width="200px">
+   * Cole o caminho da pasta "bin":
+     
+   <img src="fotos/colar.png" width="600px">
+    <br>
+    <br>
 
-    * Após os passos anteriores, você irá colar o caminho da pasta "bin" no PATH da variáveis de usuário e da variáveis de sistema:
+   * Após esses passos aperte "ok" e aplique as mudanças.
+   <br>
+   <br>
 
-    <img src="fotos/PATH.png" width="200px">
+#### 6) Para verificar se o complilador está cofigurado, entre no cmd e digite:
 
-    * Clique duas vezes na variável PATH e selecione "New":
-
-    <img src="fotos/new.png" width="200px">
-
-    * Cole o caminho da pasta "bin":
-
-    <img src="fotos/colar.png" width="200px">
-
-    * Após esses passos aperte "ok" e aplique as mudanças.
-
-6) Para verificar se o complilador está cofigurado, entre no cmd e digite:
-
->   java -version
->   javac -version   
-
-
+>     java -version
+>     javac -version   
