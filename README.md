@@ -1,7 +1,7 @@
 # 💻 AEDs II
 Este repositório foi criado durante a minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (no semestre 2024/2), sob a orientação do professor Max do Val durantes as aulas teóricas e do professor Felipe Domingos durante as aulas práticas.<br><br>
 Aqui está reunida uma coleção abrangente de códigos, exercícios, dicas, e materiais de apoio que foram fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.<br><br>
-Seu status encontra-se em desenvolvimento pois a matéria ainda está sendo cursada.
+⚠️ O status do reposiório encontra-se em desenvolvimento pois a matéria ainda está sendo cursada.
 <br>
 
 ## 🔸 Sobre:
