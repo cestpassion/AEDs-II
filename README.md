@@ -1,22 +1,20 @@
 # 💻 AEDs II
-Este repositório foi criado durante a disciplina de Algoritmos e Estrutura de Dados II, como parte dos estudos na graduação em Ciência da Computação. Ele reúne uma coleção abrangente de códigos, exercícios, dicas, e materiais de apoio que foram fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.
-
+Este repositório foi criado durante a minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (no semestre 2024/2), sob a orientação do professor Max do Val durantes as aulas teóricas e do professor Felipe Domingos durante as aulas práticas.<br><br>
+Aqui está reunida uma coleção abrangente de códigos, exercícios, dicas, e materiais de apoio que foram fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.<br><br>
+Seu status encontra-se em desenvolvimento pois a matéria ainda está sendo cursada.
 <br>
 
-## Sobre:
-Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, neste repositório, você encontrará desde guias de comandos, compiladores, SO etc, até códigos de programas e soluções para exercícios de laboratório.
+## 🔸 Sobre:
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, neste repositório, você encontrará desde guias de comandos, compiladores, SO etc, até códigos de programas e soluções para exercícios de laboratório.<br><br>
 O conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.
-
 <br>
 
-## Recursos Adicionais:
+## 🔸 Recursos Adicionais:
 
 Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
-
 <br>
 
-## Sumário:
-
+# Sumário:
 <br>
 
 >### [❓ Ajuda](Ajuda)👈:
