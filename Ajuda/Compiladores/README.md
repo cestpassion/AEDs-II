@@ -63,51 +63,51 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 ## ➡️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
 
 #### 1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
-<img src="fotos/SiteOracle.png" width="1000px">
+<img src="fotos/SiteOracle.png" width="700px">
 <br>
 
 #### 2) Selecione a opção "JDK 17", em seguida a opção "Windows" e o arquivo .exe "64x Installer:
-<img src="fotos/Installer.png" width="1000px">
+<img src="fotos/Installer.png" width="800px">
 <br>
 
 #### 3) Next:
-<img src="fotos/Diretorio.png" width="600px">
+<img src="fotos/Diretorio.png" width="400px">
 <br>
 
 #### 4) Close:
-<img src="fotos/InstalacaoCompleta.png" width="600px">
+<img src="fotos/InstalacaoCompleta.png" width="400px">
 <br>
 
 #### 5) Configurando as Variáveis de Sistema no PATH:
    * Encontre a pasta "bin" dentro do diretório Java e copie seu caminho:
 
-   <img src="fotos/caminho.png" width="800px">
+   <img src="fotos/caminho.png" width="500px">
     <br>
 
 
    * Na área de pesquisa do Windows localizada na Barra de Tarefas digite: "Variáveis de Sistema" e abra:
 
-   <img src="fotos/variaveis.png" width="1000px">
+   <img src="fotos/variaveis.png" width="600px">
     <br>
 
    * Selecione a opção "Variáveis de Ambiente":
 
-   <img src="fotos/slcvariaveis.png" width="600px">
+   <img src="fotos/slcvariaveis.png" width="400px">
     <br>
 
    * Após os passos anteriores, você irá colar o caminho da pasta "bin" no PATH da variáveis de usuário e da variáveis de sistema:
 
-   <img src="fotos/PATH.png" width="600px">
+   <img src="fotos/PATH.png" width="400px">
     <br>
 
    * Clique duas vezes na variável PATH e selecione "New":
    
-   <img src="fotos/new.png" width="600px">
+   <img src="fotos/new.png" width="400px">
     <br>
     
    * Cole o caminho da pasta "bin":
      
-   <img src="fotos/colar.png" width="600px">
+   <img src="fotos/colar.png" width="400px">
     <br>
 
    * Após esses passos aperte "ok" e aplique as mudanças.
