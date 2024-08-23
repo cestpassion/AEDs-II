@@ -10,6 +10,14 @@ Este documento oferece uma referência abrangente dos principais comandos utiliz
 - [C/C++](#cc)
 - [C#](#csharp)
 
+## Cheat-Sheets
+
+- [C++ Cheat Sheet](CPP-Cheat-Sheet.pdf)
+- [C# Cheat Sheet](CSharp-Cheat-Sheet.pdf)
+- [Java Cheat Sheet](Java-Cheat-Sheet.pdf)
+- [Linux Cheat Sheet](Linux-Cheat-Sheet.pdf)
+- [VIM Cheat Sheet](Vim-Cheat-Sheet.pdf)
+
 ## Linux
 
 Comandos básicos para uso do terminal no Linux:
