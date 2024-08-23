@@ -12,7 +12,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 # Sumário:
-<br>
 
 >### [❓ Ajuda](Ajuda)👈:
 * Principais comandos (Linux, VIM, Java, C/C++, C#): [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
