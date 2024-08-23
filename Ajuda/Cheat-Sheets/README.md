@@ -1,95 +1,107 @@
-> ## ALGUNS ARQUIVOS INTERESSANTES:
+# Principais Comandos - AEDS II
 
-* ~/.bash_history - Lista de comandos executados
-* ~/.vimrc - Configuracoes do VIM
-* ~/.profile - Configuracoes do seu Usuario
+Este documento oferece uma referência rápida dos principais comandos utilizados durante a disciplina de Algoritmos e Estrutura de Dados II. Ele abrange comandos essenciais para Linux, VIM, e linguagens de programação como Java, C/C++, e C#.
 
-> ## PRINCIPAIS COMANDOS NO VIM:
+## Índice
 
-* i - Abre o modo de insercao
-* ESC - Fecha o modo de insercao
-* :w - Salvar
-* :q - Sair
-* :q! - Forcar saida
-* :wq! - Salvar e forcar a saida
-* ? PALAVRA - Procurar as ocorrencias de PALAVRA
-* :%s/STRING_OLD/STRING_NEW/gc - Substrituir a STRING_OLD pela STRING_NEW
-* yy - Copiar linha
-* NUMEROyy - Copiar NUMERO linhas
-* dd - Excluir linha
-* NUMEROdd - Excluir NUMERO linhas
-* dw - Excluir palavra
-* NUMEROdw - Excluir NUMERO palavras
-* p - Colar
-* :sp ARQUIVO - Abre o arquivo ARQUIVO 
-* ww - Alternar entre os arquivos abertos
-* CTRL+V - Abre o modo de visualizacao
+- [Linux](#linux)
+- [VIM](#vim)
+- [Java](#java)
+- [C/C++](#cc)
+- [C#](#csharp)
 
-> ## ALGUNS COMANDOS PARA O MODO SHELL DO LINUX:
+## Linux
 
-* man
-* exit
-* cd
-* ls
-* ls -l -t -h
-* rm
-* cp
-* mkdir
-* clear
-* grep
-* grep "PALAVRA" ARQUIVO
-* diff
-* diff ARQUIVO1 ARQUIVO2
-* ssh
-* sftp
-* wget
-* chmod
-* javac
-* java
-* tar -zcvf arquivo.tar.gz pasta
-* tar -zxvf arquivo.tar.gz
+Comandos básicos para uso do terminal no Linux:
 
-> ## COMPILAR E EXECUTAR PROGRAMA JAVA EM LINHA DE COMANDO:
+```bash
+# Navegação entre diretórios
+cd [diretório]     # Entra no diretório especificado
+cd ..              # Retorna ao diretório anterior
 
-1) Compilar: 
->      javac Programa.java
+# Listagem de arquivos
+ls                 # Lista os arquivos do diretório atual
+ls -la             # Lista com detalhes e arquivos ocultos
 
-2) Executar: 
->      java Programa
+# Manipulação de arquivos e diretórios
+cp [origem] [destino]  # Copia arquivos ou diretórios
+mv [origem] [destino]  # Move ou renomeia arquivos ou diretórios
+rm [arquivo]           # Remove arquivos
+rm -r [diretório]      # Remove diretórios recursivamente
 
-3) Executar alterando entrada padrao: 
->      java Programa < entrada.in
+# Exibição de conteúdo de arquivos
+cat [arquivo]      # Mostra o conteúdo de um arquivo
+less [arquivo]     # Exibe o conteúdo de um arquivo página por página
+```
 
-4) Executar alterando saida padrao: 
->      java Programa > saida.in
+## VIM
 
-5) Executar alterando entrada/saida padrao: 
->      java Programa < entrada.in > saida.in
+Comandos básicos para edição de texto no VIM:
 
-> ## COMPILAR E EXECUTAR PROGRAMA C++ EM LINHA DE COMANDO:
+```bash
+# Modos de operação
+i                   # Entra no modo de inserção
+Esc                 # Sai do modo de inserção para o modo normal
 
-1) Compilar: 
->      g++ fonte.cc -o objeto
+# Salvando e saindo
+:w                  # Salva o arquivo
+:q                  # Sai do editor
+:wq                 # Salva e sai do editor
+:q!                 # Sai sem salvar as alterações
 
-2) Executar: 
->       ./objeto
-      
-3) Executar alterando entrada padrao: 
->      ./objeto < entrada.in
+# Navegação
+h, j, k, l          # Movimenta o cursor (esquerda, baixo, cima, direita)
+gg                  # Vai para o início do arquivo
+G                   # Vai para o fim do arquivo
 
-4) Executar alterando saida padrao: 
->      ./objeto > saida.in
+# Edição
+dd                  # Deleta uma linha
+yy                  # Copia uma linha
+p                   # Cola o conteúdo copiado
+u                   # Desfaz a última ação
+```
 
-5) Executar alterando entrada/saida padrao: 
->      ./objeto < entrada.in > saida.in
+## Java
 
-> ## GDB
+Comandos básicos para compilação e execução de programas em Java:
 
-1) Chamar o gdb
->     gdb objeto
+```bash
+# Compilação
+javac [arquivo.java]    # Compila o arquivo Java
 
-2) Executar no gdb
->      run
+# Execução
+java [NomeDaClasse]     # Executa a classe compilada
 
-3) Acessar a pilha de chamadas
->      bt
+# Pacotes
+javac -d [diretório] [arquivo.java]   # Compila o arquivo e coloca os .class em um diretório especificado
+```
+
+## C/C++
+
+Comandos básicos para compilação e execução de programas em C e C++:
+
+```bash
+# Compilação C
+gcc [arquivo.c] -o [executável]    # Compila o arquivo C
+
+# Compilação C++
+g++ [arquivo.cpp] -o [executável]  # Compila o arquivo C++
+
+# Execução
+./[executável]                    # Executa o programa compilado
+```
+
+## C#
+
+Comandos básicos para compilação e execução de programas em C# usando o .NET CLI:
+
+```bash
+# Criação de projeto
+dotnet new console -n [NomeDoProjeto]   # Cria um novo projeto de console
+
+# Compilação
+dotnet build                            # Compila o projeto
+
+# Execução
+dotnet run                              # Executa o projeto
+```
