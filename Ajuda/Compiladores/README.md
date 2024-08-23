@@ -119,4 +119,6 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 >     java -version
 >     javac -version
 
+<br>
+
 ### ❗Extra: Caso aconteca do compilador não funcionar mesmo após esses passos, volte nas variáveis de ambiente, selecione o caminho da pasta bin dentro do PATH e mova para cima.
