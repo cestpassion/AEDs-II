@@ -45,7 +45,7 @@ aaaaaaaaaaaa
 ##
 <br>
 
->### [🔥 Códigos](Codigo)👈:
+>### [🔥 Códigos](Codigos)👈:
 
 * ⚙️ Programas: [Pasta com programas](Codigos/Programas)
 
