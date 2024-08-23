@@ -9,9 +9,10 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 ❗ **Recursos Adicionais:** Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte e documentação oficial das ferramentas utilizadas.<br>
 
 ⚠️ **Status do Repositório:** O repositório encontra-se em desenvolvimento, pois a matéria ainda está sendo cursada.
-<br>
+<br><br>
 
 # Sumário:
+<br>
 
 >### [❓ Ajuda](Ajuda)👈:
 * Principais comandos (Linux, VIM, Java, C/C++, C#): [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
