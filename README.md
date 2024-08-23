@@ -9,7 +9,7 @@ O conteúdo está organizado de forma a facilitar a navegação e o aprendizado 
 
 <br>
 
-## Recursos Adicionais
+## Recursos Adicionais:
 
 Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
 
@@ -70,6 +70,6 @@ Dentro de cada pasta, você também encontrará links para recursos externos, co
 
 <br>
 
-## 🫂 Contribuições
+## 🫂 Contribuições:
 
 Este repositório é um reflexo contínuo do aprendizado, e contribuições ou melhorias são bem-vindas. Se você identificar algo que possa ser melhorado ou tiver sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
