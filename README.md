@@ -17,10 +17,17 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 >### [❓ Ajuda](Ajuda)👈:
+* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](Ajuda/Orientacao)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
-* **Documentações oficiais:**
+* **Documentações oficiais:** [Java, C/C++](Ajuda/DocumentacoesOficiais)
 * **Compiladores:** [JDK, MinGW, GCC](Ajuda/Compiladores)
 * **IDEs:** [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
+##
+<br>
+
+>### [📚 Bibliografia](Bibliografia)👈:
+
+* **Livros úteis para a diciplina.**
 ##
 <br>
 
@@ -33,12 +40,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 >### [📁 Bibliotecas de Java](BibliotecasJava)👈:
 * **Pasta com as bibliotecas usadas na disciplina.**
-##
-<br>
-
->### [📚 Bibliografia](Bibliografia)👈:
-
-* **Livros úteis para a diciplina.**
 ##
 <br>
 
@@ -57,6 +58,8 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * 🖱️ **Labs:** [Pasta com os exercícios de treinamento do laboratório](Codigos/Labs)
 
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](Codigos/TPs)
+<br>
+
 ##
 ##
 <br>
