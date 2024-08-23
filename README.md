@@ -46,11 +46,11 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 
 >### [🔥 Códigos](Codigo)👈:
 
-* ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
+* ⚙️ Programas: [Pasta com programas](Codigos/Programas)
 
-* 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
+* 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Codigos/Labs)
 
-* ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
+* ⌨️ TPS: [Pasta com os Trabalhos Práticos](Codigos/TPs)
 <br>
 
 ## 🏋️ Prática:
