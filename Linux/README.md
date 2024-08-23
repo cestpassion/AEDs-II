@@ -22,10 +22,6 @@ Esta pasta contém guias essenciais para configurar e utilizar Linux em diferent
 2. **Siga as Instruções:** Cada guia foi elaborado para ser seguido passo a passo. Certifique-se de ler atentamente as instruções antes de iniciar o processo.
 3. **Recursos Adicionais:** Para obter mais informações ou solucionar problemas, consulte as seções de dicas e problemas comuns em cada guia.
 
-## Recursos Adicionais
-
-Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
-
 ## Contribuições
 
 Se você tiver sugestões de melhorias, identificar erros ou desejar compartilhar suas próprias dicas, contribuições são sempre bem-vindas. Sinta-se à vontade para abrir uma issue ou enviar um pull request.
