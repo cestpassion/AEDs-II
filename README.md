@@ -8,7 +8,7 @@ Aqui, foi reunida uma coleção abrangente de códigos, exercícios, dicas e mat
 
 Além disso, o conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.<br>
 
-❗ **Recursos Adicionais:** Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte e documentação oficial das ferramentas utilizadas.<br>
+❗ **Recursos Adicionais:** Dentro das pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte e documentação oficial das ferramentas utilizadas.<br>
 
 ⚠️ **Status do Repositório:** O repositório encontra-se em desenvolvimento, pois a matéria ainda está sendo cursada.
 <br><br>
