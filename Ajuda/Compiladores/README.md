@@ -1,4 +1,4 @@
-# Como Baixar os compiladores de C/C++ e Java na sua maquina:
+# 💻 Como Baixar os compiladores de C/C++ e Java na sua maquina:
 
 Para conseguir baixar os compiladores das linguagens C/C++, primeiramente, é importante saber que a forma como isso é feito nos Sistemas Operacionais Linux e Windows difere bastante.
 
@@ -8,7 +8,7 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 
 <br>
 
-## Como baixar o compilador de C/C++, GCC (GNU Compiler Collection), no Linux (Ubuntu/Debian):
+## ➡️ Como baixar o compilador de C/C++, GCC (GNU Compiler Collection), no Linux (Ubuntu/Debian):
 
 * Para instalar:
 
@@ -27,9 +27,11 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 
 GCC é uma ferramenta essencial no desenvolvimento de software para Linux. Ele é usado não só para compilar programas simples, mas também para compilar grandes projetos, bibliotecas, e até mesmo o kernel Linux. Além disso, o GCC é conhecido por sua robustez e por seguir de perto os padrões das linguagens que suporta.
 
+##
+
 <br>
 
-## Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Linux (Ubuntu/Debian):
+## ➡️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Linux (Ubuntu/Debian):
 
 * Para instalar:
 
@@ -46,15 +48,19 @@ GCC é uma ferramenta essencial no desenvolvimento de software para Linux. Ele �
 
 O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro de 2021 como uma versão de Suporte de Longo Prazo (LTS). O JDK é um conjunto completo de ferramentas que você precisa para desenvolver, compilar, depurar e executar aplicações Java.
 
+##
+
 <br>
 
-## Como baixar o compilador de C/C++, MinGW (Minimalist GNU for Windows), no Windows:
+## ➡️ Como baixar o compilador de C/C++, MinGW (Minimalist GNU for Windows), no Windows:
 
 Tutorial disponivel no repositório de [AEDs-I](...)
 
+##
+
 <br>
 
-## Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
+## ➡️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
 
 #### 1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
 <img src="fotos/SiteOracle.png" width="1000px">
@@ -111,4 +117,4 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 >     java -version
 >     javac -version
 
-#### Extra: Caso aconteca do compilador não funcionar mesmo após esses passos, volte nas variáveis de ambiente, selecione o caminho da pasta bin dentro do PATH e mova para cima.
+### ❗Extra: Caso aconteca do compilador não funcionar mesmo após esses passos, volte nas variáveis de ambiente, selecione o caminho da pasta bin dentro do PATH e mova para cima.
