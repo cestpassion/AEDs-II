@@ -13,7 +13,7 @@ Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutur
 
 >### [❓ Ajuda](Ajuda)👈:
 * Principais comandos (Linux, VIM, Java, C/C++, C#): [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
-* Compiladores: [JDK, MinGW](Ajuda/Compiladores)
+* Compiladores: [JDK, MinGW, GCC](Ajuda/Compiladores)
 * IDEs: [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
 ##
 <br>
