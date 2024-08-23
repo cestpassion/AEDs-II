@@ -1,10 +1,11 @@
 # 💻 AEDS II
-Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutura de Dados II; contendo códigos, exercícios e dicas.
+Este repositório foi criado durante a disciplina de Algoritmos e Estrutura de Dados II, como parte dos estudos na graduação em Ciência da Computação. Ele reúne uma coleção abrangente de códigos, exercícios, dicas, e materiais de apoio que foram fundamentais para o desenvolvimento das habilidades em algoritmos e estrutura de dados.
 
 <br>
 
 ## Sobre:
-aaaaaaaaaaaa
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDS II, neste repositório, você encontrará desde guias básicos de comandos e compiladores, até códigos de programas e soluções para exercícios de laboratório.
+O conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.
 
 <br>
 
@@ -47,7 +48,7 @@ aaaaaaaaaaaa
 
 >### [🔥 Códigos](Codigos)👈:
 
-* ⚙️ Programas: [Pasta com programas](Codigos/Programas)
+* ⚙️ Programas: [Programas desenvolvidos](Codigos/Programas)
 
 * 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Codigos/Labs)
 
