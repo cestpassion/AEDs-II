@@ -9,6 +9,12 @@ O conteúdo está organizado de forma a facilitar a navegação e o aprendizado 
 
 <br>
 
+## Recursos Adicionais
+
+Dentro de cada pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte, e documentação oficial das ferramentas utilizadas.
+
+<br>
+
 ## Sumário:
 
 <br>
