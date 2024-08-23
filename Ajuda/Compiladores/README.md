@@ -112,6 +112,8 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 
    * Após esses passos aperte "ok" e aplique as mudanças.
 
+<br>
+
 #### 6) Para verificar se o complilador está cofigurado, entre no cmd e digite:
 
 >     java -version
