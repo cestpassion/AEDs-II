@@ -4,7 +4,7 @@ Este repositório foi criado durante a disciplina de Algoritmos e Estrutura de D
 <br>
 
 ## Sobre:
-Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, neste repositório, você encontrará desde guias básicos de comandos compiladores, SO etc, até códigos de programas e soluções para exercícios de laboratório.
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, neste repositório, você encontrará desde guias de comandos, compiladores, SO etc, até códigos de programas e soluções para exercícios de laboratório.
 O conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.
 
 <br>
