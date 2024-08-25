@@ -4,14 +4,14 @@
 
 ## Sumário
 
-- [Leitura e Impressão de Números Inteiros](#leitura-e-impressao-de-numeros-inteiros)
-- [Leitura e Impressão de Strings](#leitura-e-impressao-de-strings)
-- [Divisão de Strings em Substrings (Tokens)](#divisao-de-strings-em-substrings-tokens)
+- [Leitura e Impressão de Números Inteiros de uma Linha em Looping](#leitura-e-impress%C3%A3o-de-n%C3%BAmeros-inteiros-de-uma-linha-em-looping)
+- [Leitura e Impressão de Strings de uma Linha em Looping](#mesmo-c%C3%B3digo-mas-lendo-strings)
+- [Divisão de Strings em Substrings (Tokens)]([#divis%C3%A3o-de-strings-em-substrings-tokens)
 
 
 <br>
 
-## Leitura e Impressão de Números Inteiros
+## Leitura e Impressão de Números Inteiros de uma Linha em Looping
 
 ```c
 #include <stdio.h>
@@ -86,7 +86,7 @@ int main () {
 <br>
 
 
-## Divisão de uma strings completa em substrings (tokens):
+## Divisão de Strings em Substrings (Tokens):
 
 ```c
 #include <stdio.h>
