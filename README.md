@@ -17,7 +17,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 >### [❓ Ajuda](Ajuda)👈:
-* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](Ajuda/Orientacao)
+* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](Ajuda/ajuda/README.md)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
 * **Compiladores:** [JDK, MinGW, GCC](Ajuda/Compiladores)
 * **IDEs:** [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
