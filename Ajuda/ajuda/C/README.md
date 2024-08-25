@@ -68,7 +68,7 @@ int main () {
 ```
 
 #### Explicando:
-* O loop para quando scanf não consegue mais ler uma string (por exemplo, quando o usuário entra com um ctrl + Z ).
+* O loop para quando scanf não consegue mais ler uma string (por exemplo, quando o usuário entra com um Ctrl+D no Unix/Linux ou Ctrl+Z no Windows para indicar o final da entrada ).
 
 ### Exemplo de entrada:
     Bom dia
