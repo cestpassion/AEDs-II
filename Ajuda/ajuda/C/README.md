@@ -1,4 +1,8 @@
-# Códigos em C Auxiliares:
+# Códigos Auxiliares em C:
+
+Este README contém exemplos de código em C projetados para auxiliar no entendimento e prática de conceitos fundamentais de programação em C. Cada exemplo é fornecido com uma explicação para ajudar a compreender o funcionamento do código e como ele pode ser utilizado em diferentes contextos.
+
+>### ⚠️ Para melhor entendimento, debug os códigos ou use ferramentas online de vizualização de execução; como por exemplo, o [Python Tutor](https://pythontutor.com/), que possue suporte para Python, Java, C, C++ e JavaScript.
 
 <br>
 
