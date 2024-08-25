@@ -8,6 +8,6 @@ public class LoopingDeEntrada {
         while(entrada.hasNext()){
             System.out.println("Token: "+entrada.next());
         }
-        entrada.close(); //Encerra o programa
+        entrada.close();
     }
 }

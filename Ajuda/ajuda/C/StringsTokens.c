@@ -4,10 +4,10 @@
 #include <string.h>
 
 int main(){
-    char str[] = "- This, a ample strings";
-    char *pch;
+    char str[] = "- Essa, e uma string completa.";
+    char *pch; // pointer to character
 
-    printf("Splitting string \"%s\" into tokens:\n", str);
+    printf("Separando a string \"%s\" em tokens:\n\n", str);
 
     pch = strtok(str, " ,.-");
 
