@@ -1,54 +1,80 @@
-# 💻 AEDS II
-Este repositório armazena estudos acerca da disciplina de Algoritmos e Estrutura de Dados II; contendo códigos, exercícios e dicas.
-
+# 💻 AEDs II
 <br>
 
-## Sobre:
+## 🔸 Sobre:
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, este repositório — criado durante minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (no semestre 2024/2), sob a orientação do professor Max do Val nas aulas teóricas e do professor Felipe Domingos nas aulas práticas — contém desde guias de comandos, compiladores, e sistemas operacionais até códigos-fonte de programas, exercícios de laboratório e trabalhos práticos.<br>
 
+Aqui, foi reunida uma coleção abrangente de códigos, exercícios, dicas e materiais de apoio fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.<br>
+
+Além disso, o conteúdo está organizado de forma a facilitar a navegação e o aprendizado contínuo.<br>
+
+❗ **Recursos Adicionais:** Dentro das pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte e documentação oficial das ferramentas utilizadas.<br><br>
+
+>### ⚠️ Status do Repositório: O repositório encontra-se em desenvolvimento, pois a matéria ainda está sendo cursada.
 <br>
 
-## Sumário:
-
+# Sumário:
 <br>
 
->### ❓ Ajuda:
-* Guia com os principais comandos: [blablabla](Fonte/ajuda/README.md)
-* Compiladores: [blablabla](blablabla)
-* IDEs: [blablabla](blablabla)
+>### [❓ Ajuda](Ajuda)👈:
+* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](Ajuda/Orientacao)
+* **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](Ajuda/Cheat-Sheets)
+* **Compiladores:** [JDK, MinGW, GCC](Ajuda/Compiladores)
+* **IDEs:** [IntelliJ, Eclipse, CLion](Ajuda/IDEs)
 ##
 <br>
 
->### 📁 Bibliotecas de Java:
-* [Pasta com as bibliotecas usadas na disciplina](Fonte/ajuda/java)
+>### 📄 [Documentações oficiais](DocumentacoesOficiais)👈:
+* **Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**
 ##
 <br>
 
->### 📚 Bibliografia:
+>### [📚 Livros](Bibliografia)👈:
 
-* Livros: [blablabla](Bibliografia/Livros)
-* Cheat Sheets: [blablabla](Bibliografia/Cheat_Sheets)
+* **Livros úteis para a diciplina.**
 ##
 <br>
 
->### 🧑‍🏫 Aulas:
-
-* 📝 Anotações:
-
-* 🗃️ Unidades:
+>### [📁 Bibliotecas](BibliotecasJava)👈:
+* **Pasta com as bibliotecas usadas na disciplina.**
 ##
 <br>
 
->### 🔥 Códigos:
+>### [🐧 Linux](Linux)👈:
+* **Dual Boot:** [Aprenda a dar um Dual Boot na sua máquina](Linux/DualBoot)
+* **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](Linux/VMware)
+* **WSL:** [Aprenda com baixar e utilizar o terminal Linux](Linix/WSL)
+* **Dentro do Linux**: [Como conifigurar](Linux/DentrodoLinux)
+##
+<br>
 
-* ⚙️ Programas: [Pasta com os algoritmos de exemplo](Fonte)
+>### [🧑‍🏫 Aulas](Aulas)👈:
 
-* 🖱️ Labs: [Pasta com os exercícios de treinamento do laboratório](Labs)
+* 📝 **Anotações:** [Pasta com anotações feitas durante o aprendizado](Aulas/Anotacoes)
 
-* ⌨️ TPS: [Pasta com os trabalhos práticos do laboratório](TPs)
+* 🗃️ **Unidades:** [Pasta com os tópicos estudados](Aulas/Unidades)
+##
+<br>
+
+>### [🔥 Códigos](Codigos)👈:
+
+* ⚙️ **Programas:** [Programas desenvolvidos](Codigos/Programas)
+
+* 🖱️ **Labs:** [Pasta com os exercícios de treinamento do laboratório](Codigos/Labs)
+
+* ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](Codigos/TPs)
+<br>
+
+##
 ##
 <br>
 
 ## 🏋️ Prática:
-* [OBI](https://olimpiada.ic.unicamp.br/pratique/pu/)</br>
-* [CodeWars](https://www.codewars.com/dashboard)</br>
-* [HackerRank](https://www.hackerrank.com/dashboard)
+* **[OBI](https://olimpiada.ic.unicamp.br/pratique/pu/)**</br>
+* **[CodeWars](https://www.codewars.com/dashboard)**</br>
+* **[HackerRank](https://www.hackerrank.com/dashboard)**
+<br>
+
+## 🫂 Contribuições:
+
+Este repositório é um reflexo contínuo do aprendizado, e contribuições ou melhorias são bem-vindas. Se você identificar algo que possa ser melhorado ou tiver sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
