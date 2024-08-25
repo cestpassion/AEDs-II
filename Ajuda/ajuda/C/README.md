@@ -4,13 +4,13 @@
 
 ## Sumário
 
-1. [Leitura e impressão de números inteiros de uma linha em looping](#leitura-e-impressao-de-numeros-inteiros-da-entrada-padrao-(teclado)-ate-que-nao-haja-mais-numeros-para-ler)
+1. [Leitura e impressão de números inteiros de uma linha em looping](#leitura-e-impressao-de-numeros-inteiros)
 2. [Leitura e impressão de strings de uma linha em looping](#mesmo-codigo-mas-lendo-strings)
 3. [Divisão de uma strings completa em substrings (tokens)](##)
 
 <br>
 
-## Leitura e impressão de números inteiros da entrada padrão (teclado) até que não haja mais números para ler:
+## Leitura e impressão de números inteiros de uma linha em looping:
 
 ```c
 #include <stdio.h>
