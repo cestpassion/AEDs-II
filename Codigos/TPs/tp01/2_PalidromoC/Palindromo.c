@@ -6,11 +6,26 @@
 #include <stdlib.h>
 #include <string.h>
 
-int isFim(char s[]){
-    return (strlen(s) == 3 && s[0] == 'F' && s[1] == 'I' && s[2] == 'M') ? 0 : 1;
+// Alocando dinâmicamente uma string
+char *string(char *str){
+    char buffer[1000]; // É declarado primeiro um buffer para definir o tamanho do malloc
+
+    scanf("%[^\n]", buffer);
+    getchar();
+
+    str = (char*)malloc((strlen(buffer) + 1) * sizeof(char));
+    strcpy(str, buffer);
+
+    return str;
 }
 
-int palindromo(char s[]){
+// Identificador a string "FIM"
+int isFim(char *s){
+    return strcmp(s, "FIM") == 0 ? 0 : 1;
+}
+
+// Identificador iterativo de palíndromos
+int palindromo(char *s){
     int tam = strlen(s);
 
     for(int i = 0; i < (tam/2); i++){
@@ -21,14 +36,15 @@ int palindromo(char s[]){
     return 0;
 }
 
+// Função principal
 int main(){
-    char str[1000];
+    char *str;
 
-    while(scanf("%[^\n]", str) == 1 && isFim(str) == 1){
-        getchar();
+    while(isFim(str = string(str)) == 1){ // Atribui o valor recebido ao ponteiro str e chama o método isFIM  
         if(palindromo(str) == 0)
             printf("SIM\n");
         else
             printf("NAO\n");
+        free(str);
     }
 }

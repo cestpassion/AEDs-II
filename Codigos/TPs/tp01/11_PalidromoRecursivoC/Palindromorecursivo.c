@@ -6,10 +6,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Identificador a string "FIM"
 int isFim(char s[]){
-    return (strlen(s) == 3 && s[0] == 'F' && s[1] == 'I' && s[2] == 'M') ? 0 : 1;
+    return strcmp(s, "FIM") == 0 ? 0 : 1;
 }
 
+// Identificador recursivo de palíndromos
 int palindromo(char s[], int left, int right){
     int bool = 0;
 
@@ -22,10 +24,11 @@ int palindromo(char s[], int left, int right){
     return bool;
 }
 
+// Função principal
 int main(){
     char str[1000];
 
-    while(scanf("%[^\n]", str) == 1 && isFim(str) == 1){
+    while(scanf("%[^\n]", str) == 1 && isFim(str) == 1){ // Atribui o valor recebido à variável str e chama o método isFIM   
         getchar();
         if(palindromo(str, 0, (strlen(str) - 1)) == 0)
             printf("SIM\n");

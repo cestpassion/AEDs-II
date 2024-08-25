@@ -1,3 +1,5 @@
+// Divitir uma string em sub strings
+
 #include <stdio.h>
 #include <string.h>
 

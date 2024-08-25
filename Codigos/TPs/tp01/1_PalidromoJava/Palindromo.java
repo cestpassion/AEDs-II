@@ -7,10 +7,12 @@
 
 public class Palindromo{
 
+    // Identificador a string "FIM"
     public static boolean isFim(String s){
         return (s.length() == 3 && s.charAt(0) == 'F' && s.charAt(1) == 'I' && s.charAt(2) == 'M');
     }
 
+    // Identificador iterativo de palíndromos
     public static boolean palindromo(String s){
         int tam = s.length();
         
@@ -21,10 +23,11 @@ public class Palindromo{
         return true;
     }
 
+    // Método principal
     public static void main(String[] args){
         String str = "";
 
-        while(isFim(str = MyIO.readLine()) == false){            
+        while(!isFim(str = MyIO.readLine())){ // Atribui o valor recebido à variável str e chama o método isFIM         
             if(palindromo(str))
                 MyIO.println("SIM");
             else

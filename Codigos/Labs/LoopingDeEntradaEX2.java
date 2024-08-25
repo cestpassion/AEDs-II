@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class teste3 {
+public class LoopingDeEntradaEX2 {
 public static void main(String[] args) {
     Scanner entrada = new Scanner(System.in);
     int n = -1; // Inicializando com um valor padrão
