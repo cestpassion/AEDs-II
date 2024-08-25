@@ -6,7 +6,7 @@
 
 - [Leitura e Impressão de Números Inteiros de uma Linha em Looping](#leitura-e-impress%C3%A3o-de-n%C3%BAmeros-inteiros-de-uma-linha-em-looping)
 - [Leitura e Impressão de Strings de uma Linha em Looping](#mesmo-c%C3%B3digo-mas-lendo-strings)
-- [Divisão de Strings em Substrings (Tokens)]([#divis%C3%A3o-de-strings-em-substrings-tokens)
+- [Divisão de Strings em Substrings (Tokens)](#divis%C3%A3o-de-strings-em-substrings-tokens)
 
 
 <br>
