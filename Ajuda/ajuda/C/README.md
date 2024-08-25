@@ -4,8 +4,8 @@
 
 ## Sumário
 
-1. [Leitura e impressão de números inteiros de uma linha em looping](##leitura-e-impressao-de-numeros-inteiros-da-entrada-padrao-(teclado)-ate-que-nao-haja-mais-numeros-para-ler)
-2. [Leitura e impressão de strings de uma linha em looping](##Mesmo)
+1. [Leitura e impressão de números inteiros de uma linha em looping](#leitura-e-impressao-de-numeros-inteiros-da-entrada-padrao-(teclado)-ate-que-nao-haja-mais-numeros-para-ler)
+2. [Leitura e impressão de strings de uma linha em looping](#mesmo-codigo-mas-lendo-strings)
 3. [Divisão de uma strings completa em substrings (tokens)](##)
 
 <br>
