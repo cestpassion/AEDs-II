@@ -1,5 +1,11 @@
-/* 1. Aquecimento Iterativo:
- * Crie um método iterativo em Java que receba como parâmetro uma string e retorne
+/**
+ * Aquecimento Iterativo
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/* 
+ * 1-b. Crie um método iterativo em Java que receba como parâmetro uma string e retorne
  * seu número de caracteres maiúsculos. Em seguida, teste o método anterior usando
  * redirecionamento de entrada e saída. A entrada padrão é composta por várias linhas
  * sendo que a última contém a palavra "FIM1". A saída padrão contém um número inteiro

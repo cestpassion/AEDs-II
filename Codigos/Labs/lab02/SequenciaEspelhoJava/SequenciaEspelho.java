@@ -1,4 +1,10 @@
-/* Sequência Espelho em Java:
+/**
+ * Sequência Espelho em Java
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/* 
 Imprimir números em sequência é uma tarefa relativamente simples. Mas, e quando se trata de uma sequência
 espelho? Trata-se de uma sequência que possui um número de início e um número de fim, e todos os números
 entre estes, inclusive estes, são dispostos em uma sequência crescente, sem espa¸cos e, em seguida, esta

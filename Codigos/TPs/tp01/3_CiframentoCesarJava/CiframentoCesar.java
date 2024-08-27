@@ -1,4 +1,10 @@
-/* Ciframento de César:
+/**
+ * Ciframento de César
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/*
  * O Imperador Júlio César foi um dos principais nomes do Império Romano. Entre suas
  * contribuições, temos um algoritmo de criptografia chamado “Ciframento de César”.
  * Segundo os historiadores, César utilizava esse algoritmo para criptografar as mensagens

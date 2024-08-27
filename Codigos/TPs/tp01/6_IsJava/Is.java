@@ -1,4 +1,10 @@
-/* Is:
+/**
+ * Is
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/* 
  * Crie um método iterativo que recebe uma string e retorna true se a mesma é composta somente por vogais.
  * Crie outro método iterativo que recebe uma string e retorna true se a mesma é composta somente por
  * consoantes. Crie um terceiro método iterativo que recebe uma string e retorna true se a mesma corresponde

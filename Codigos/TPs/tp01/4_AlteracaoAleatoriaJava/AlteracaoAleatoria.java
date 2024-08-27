@@ -1,4 +1,10 @@
-/* Alteração Aleatória:
+/**
+ * Alteração Aleatória
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/*
  * Crie um método iterativo que recebe uma string, sorteia duas letras minúsculas
  * aleatórias (código ASCII ≥ ’a’ e ≤ ’z’), substitui todas as ocorrências da primeira
  * letra na string pela segunda e retorna a string com as alteraç˜oes efetuadas. Na
@@ -12,12 +18,24 @@ import java.util.Random;
 
 public class AlteracaoAleatoria{
 
-    // Identificador a string "FIM"
+    /**
+     * Verifica se a string recebida é FIM.
+     *
+     * @param str a string digitada pelo usuário
+     * @return true / false
+     */
     public static boolean isFIM(String string){
         return (string.length() == 3 && string.charAt(0) == 'F' && string.charAt(1) == 'I' && string.charAt(2) == 'M');
     }
 
-    // Alteração das letras de forma "aleatória"
+    /**
+     * Alteração das letras de forma "aleatória".
+     *
+     * @param string string digitada pelo usuário
+     * @param letra1 "primeira" letra gerada por Random
+     * @param letra2 "segunda" letra gerada por Random
+     * @return true / false
+     */
     public static String alteracaoAleatoria(String string, char letra1, char letra2){
         String stringAlterada = "";
         int tam = string.length();

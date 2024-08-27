@@ -1,4 +1,10 @@
-/* Palíndromo Recursivo:
+/**
+ * Palíndromo Recursivo
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/*
  * Refaça a questão Palíndromo de forma recursiva.
  */
 

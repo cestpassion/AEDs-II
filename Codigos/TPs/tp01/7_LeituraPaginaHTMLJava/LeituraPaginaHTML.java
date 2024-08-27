@@ -1,4 +1,10 @@
-/* Leitura de Página HTML:
+/**
+ * Leitura de Página HTML
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/* 
  * Leia duas strings sendo que a primeira é o nome de uma página web e a segunda, seu endereço.
  * Por exemplo, “Pontifícia Universidade Cat´olica de Minas Gerais” e “www.pucminas.br”. Em seguida,
  * mostre na tela o número de vogais (sem e com acento), consoantes e dos padr˜oes “< br >” e

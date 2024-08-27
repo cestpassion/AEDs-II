@@ -1,5 +1,11 @@
-/* 2. Aquecimento Recursivo:
- * Refa¸ca a questão anterior de forma recursiva. Atente-se para os detalhes dos retornos de cada um dos métodos.
+/**
+ * Aquecimento Recursivo
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/* 
+ * 2-b. Refaça a questão anterior de forma recursiva. Atente-se para os detalhes dos retornos de cada um dos métodos.
  */
 
 import java.util.Scanner;

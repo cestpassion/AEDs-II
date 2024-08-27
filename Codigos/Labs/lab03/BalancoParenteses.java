@@ -1,4 +1,10 @@
-/* Balanço Parênteses:
+/**
+ * Balanço Parênteses
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
+
+/*
  * Dada uma expressão qualquer com parênteses, indique se a quantidade de
  * parênteses está correta ou não, sem levar em conta o restante da expressão.
  * 
