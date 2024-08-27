@@ -2,8 +2,6 @@
  * Refaça a questão Alteração Aleatória na linguagem C e de forma recursiva.
  */
 
-// ERRADO! CORRIJA!
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
