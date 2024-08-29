@@ -30,6 +30,6 @@ public class Is{
     }
 
     public static void main(String[] args){
- 
+        
     }
 }

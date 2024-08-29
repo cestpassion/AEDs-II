@@ -31,7 +31,7 @@ public class CiframentoCesarRecursivo{
       String string;
       String stringCifrada;
  
-      while(!isFIM(string = MyIO.readLine())){ // Atribui o valor recebido à variável string e chama o método isFIM
+      while(!isFIM(string = MyIO.readLine())){
          stringCifrada = ciframento(string, 0);
 
          MyIO.println(stringCifrada);

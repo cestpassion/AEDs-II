@@ -20,7 +20,7 @@ public class AlgebraBooleana{
      * @param str string digitada pelo usuário
      * @return true / false
      */
-    public static boolean isFIM(String str){
+    public static boolean is0(String str){
         return (str.length() == 1 && str.charAt(0) == '0');
     }
 
@@ -259,7 +259,7 @@ public class AlgebraBooleana{
         int qntParametros = 0;
         int [] parametros;
 
-        while(!isFIM(str = MyIO.readLine())){
+        while(!is0(str = MyIO.readLine())){
             qntParametros = parseInt(str.charAt(0));
             parametros = new int[qntParametros];
 
