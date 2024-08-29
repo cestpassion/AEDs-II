@@ -1,0 +1,259 @@
+CAMINHO DO ARQUIVO: ~/Documentos/Notas.txt 
+
+--------------------------------------LINUX------------------------------------
+
+Linux:
+
+  - Abrir o terminal: ctrl + alt + t
+  
+  - Instalar arquivos .deb
+     01. Vá até a pasta onde se localiza o arquivo
+     02. 'sudo dpkg -i <nome-do-arquivo>.deb
+     03. 'sudo apt-get install -f' (Caso haja algum problema de dependência)
+
+
+---------------------------------------VIM--------------------------------------
+
+Comandos do VIM:
+
+  - Tutorial do vim: 'vimtutor'
+  
+  - Desfazer a última alteração: 'u'
+  - Recuperar a linha inteira: 'U'
+  - Refazer o que foi desfeito: 'ctrl + R'
+
+  - Mostra os números das linhas: ':set number' OR ':set nu'
+  - Esconder os números das linhas: ':set nonumber' OR ':set nonu'
+
+  - Ativar a syntax: ':synta on'
+  - Desativar a syntax: ':syntax off'
+
+  - Navegação:         ^
+  	               k
+		 < h       l >
+		       j
+		       v
+
+  - Criar um novo arquivo: 'vim nomeDoArquivo.txt'
+
+  - Mudar o nome de um arquivo:
+     01. 'vim nomeDoArquivo.txt'
+     02. ':seveas novoNomeDoArquivo.txt' (Cria cópia do arquivo com o novo
+	  nome)
+
+  - Para mudar um arquivo de diretório:
+    ':saveas /caminho/para/novo_diretorio/nome_do_arquivo'
+
+  - Apagar um arquivo: ':!rm nomeDoArquivo.txt'
+        
+  - Achar um arquivo: ':find nomeDoArquivo.txt' OR ':e nomeDoArquivo.txt'
+  
+  - Para facilitar a localização de arquivos em diferentes diretórios, configure
+    o "path" do VIM:
+     01. 'set path+=**'
+     02. '~/.vimrc'  
+
+  - Localização do cursor e estádo do arquivo: 'ctrl + g'
+
+  - Localizar paravra: '/<palavra>'
+     > Para buscar a mesma palavra de novo, simplesmente tecle 'n'
+     > Para buscar a mesma palavra na direção oposta, tecle 'N'
+  - Localizar uma frase de trás para frente: '?<palavra>'
+  - Para voltar aonde estava: 'ctrl + o' (Repita para voltar a outras posições)
+  - Segue para posições mais recentes: 'ctrl + i' 
+	
+  - Deletar linhas: ':[start],[end]d'
+
+  - Ir para a última linha: 'shift + g' 
+  - Ir para a primeira linha: 'gg' 
+  - Ir para a linha desejada: '<numero> + shift + g' 
+
+  - Apagar uma palavra: 'dw'
+  - Apagar uma linha: 'dd' OR 'ds'
+	
+  - Movimentos:
+     > 'w' : até o início da próxima palavra, excluindo seu primeiro caractere.
+     > 'e' - até o fim da palavra atual, incluindo seu último caractere.
+     > '$' - até o fim da linha, incluindo seu último caractere.
+  - Usar um contador para um movimento:
+     > '2w' : mover o cursor duas palavras adiante.
+     > '3e' : mover o cursor para o fim da terceira palavra adiante.
+     > '0' (zero) : mover para o início da linha.
+     > '$' : mover para o final da linha
+
+  - Comando COLAR:
+     01. 'dd' : apaga a linha e a guarda num registro do Vim
+     02. 'p' : cola a linha apagada
+
+  - Comando SUBSTITUIR:
+     > Caractere:
+        'r + <caractere>' : substitui o caractere atual pelo caractere digitado
+  - Operador CHANGE (mudar):
+     > Palavra:
+        'ce' + <palavra>' : substitui a palavra atual pela palavra digitada
+	 OBS: O operador change (c) é usando com os mesmos movimentos que o
+	      delete (d) 
+
+  - Como substituir as ocorrências de uma palavra:
+     > Alterar todas as chamadas da palavra: ':%s/oldWord/newWord/g' 
+     > Confirmar antes de alterar a chamada da palavra: ':%s/oldWord/newWord/gc'
+
+  - Comparar dois arquivos:
+     > 'vimdiff arquivo1.txt arquivo2.txt'
+        * Mover entre as diferenças:
+           ']c' : Próxima diferença
+	   '[c' : Diferença anterior
+	* Sincronizar janelas: 'ctrl + w, ='
+    	* Fechar uma das janelas: ':q' (fechar a janela atual)
+	* Aplicar uma alteração de um arquivo para outro:
+	   'do' (do the change) : aplicar a mudança da janela à esquerda na
+				  direita
+	   'dp' (put the change) : aplicar a mudança da janela à direita na
+				   esquerda
+
+
+----------------------------------COMPILAÇÕES----------------------------------
+
+C :
+	-  gcc -o nomeDoArquivo nomeDoArquivo.c
+        - ./nomeDoArquivo
+        - ./nomeDoArquivo < pub.in > pub.out
+
+C++ :
+	- g++ -o nomeDoArquivo nomeDoArquivo.cpp
+        - ./nomeDoArquivo
+        - ./nomeDoArquivo < pub.in > pub.out
+
+Java :
+	- javac NomeDoArquivo.java
+        - java NomeDoArquivo
+        - java NomeDoArquivo < pub.in > pub.out
+
+
+------------------------------DOCUMENTAÇÃO DO JAVA------------------------------
+
+Exemplo:
+
+/**
+ * Representa uma pessoa.
+ * Esta classe armazena informações básicas sobre uma pessoa.
+ */
+public class Pessoa {
+
+    /**
+     * O nome da pessoa.
+     */
+    private String nome;
+
+    /**
+     * O idade da pessoa.
+     */
+    private int idade;
+
+    /**
+     * Cria uma nova pessoa com o nome e idade especificados.
+     *
+     * @param nome o nome da pessoa
+     * @param idade a idade da pessoa
+     */
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    /**
+     * Obtém o nome da pessoa.
+     *
+     * @return o nome da pessoa
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * Define o nome da pessoa.
+     *
+     * @param nome o nome da pessoa
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * Obtém a idade da pessoa.
+     *
+     * @return a idade da pessoa
+     */
+    public int getIdade() {
+        return idade;
+    }
+
+    /**
+     * Define a idade da pessoa.
+     *
+     * @param idade a idade da pessoa
+     */
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+}
+
+Gerar documentação:
+	
+	- Depois de adicionar os comentários Javadoc, você pode gerar a
+	  documentação HTML usando a ferramenta 'javadoc' incluída no JDK.
+
+	- Execute o comando a partir do diretório onde está o código fonte:
+		'javadoc -d doc nomeDoArquivo.java'
+			     -> Isso cira uma pasta "doc" contendo arquivos
+				HTML com a documentação gerada.
+
+Boas Práticas:
+
+	- Documente o propósito de cada classe:
+		Explique o que a classe representa e como deve ser usada.
+    	- Descreva o propósito e comportamento dos métodos:
+		Inclua detalhes sobre os parâmetros e valores de retorno.
+
+	- Use tags Javadoc apropriadas:
+       		@param:
+			Descreve os parâmetros do método.
+
+       		@return:
+			Descreve o valor retornado pelo método.
+
+     		@throws ou @exception:
+			Descreve exceções lançadas pelo método.
+
+		@see:
+			Faz referência a outros documentos ou classes
+			relevante
+
+		@author:
+			Especifica o nome do autor da classe ou do arquivo
+			de código
+
+		@version:
+			Documenta versão do código. Isso é útil para
+			rastrear as alterações e versões de diferentes de um
+			arquivo ou classe
+
+		@deprecated:
+			A tag @deprecated é usada para indicar que a classe,
+			método ou campo está obsoleto e que não deve mais
+			ser usado. Geralmente, você também deve fornecer uma
+			alternativa recomendada.
+		    Exemplo:
+			/**
+			 * Este método está obsoleto.
+			 * Use o método {@link #novoMetodo()} em vez disso.
+			 * 
+			 * @deprecated desde a versão 1.5
+			 */
+			@Deprecated
+			public void metodoAntigo() {
+			    // código do método
+			}
+
+
+--------------------------------------------------------------------------------
