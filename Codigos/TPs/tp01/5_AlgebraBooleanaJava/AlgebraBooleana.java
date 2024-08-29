@@ -5,31 +5,44 @@
  */
 
 /*
- * Crie um método iterativo que recebe uma string contendo uma expressão booleana e o
- * valor de suas entradas e retorna um booleano indicando se a expressão é verdadeira
- * ou falsa.
- * 
- * Cada string de entrada é composta por um número inteiro n indicando o número de
- * entradas da expressão booleana corrente.
- * 
- * Em seguida, a string contém n valores binários (um para cada entrada) e a expressão
- * booleana.
- * 
- * Na saída padrão, para cada linha de entrada, escreva uma linha de saída com 1 / 0
- * indicando se a expressão corrente é verdadeira ou falsa.
+ * Crie um método iterativo que recebe uma string contendo uma expressão booleana e o valor de suas entradas
+ * e retorna um booleano indicando se a expressão é verdadeira ou falsa. Cada string de entrada é composta 
+ * por um número inteiro n indicando o número de entradas da expressão booleana corrente. Em seguida, a string
+ * contém n valores binários (um para cada entrada) e a expressão booleana. Na saída padrão, para cada linha de
+ * entrada, escreva uma linha de saída com 1 / 0 indicando se a expressão corrente é verdadeira ou falsa.
  */
 
 public class AlgebraBooleana{
 
+    /**
+     * Verificação se a string recebida é "0".
+     *
+     * @param str string digitada pelo usuário
+     * @return true / false
+     */
     public static boolean isFIM(String str){
-        return (str.length() == 3 && str.charAt(0) == 'F' && str.charAt(1) == 'I' && str.charAt(2) == 'M');
+        return (str.length() == 1 && str.charAt(0) == '0');
     }
 
+    /**
+     * Alteração de tipo char para int.
+     *
+     * @param carac caractere contido na string recebida no método main
+     * @return número inteiro
+     */
     public static int parseInt(char carac){
         int numInt = carac - 48;
         return numInt;
     }
 
+    /**
+     * Formação de uma nova string.
+     *
+     * @param str string digitada pelo usuário
+     * @param inicio indice designado para ser o começo da string 
+     * @param fim indice designado para ser o final da string 
+     * @return nova string
+     */
     public static String subString(String str, int inicio, int fim){
         String newStr = "";
 
@@ -39,7 +52,15 @@ public class AlgebraBooleana{
         return newStr;
     }
 
-    public static String replace(String str, char expressao, int parametro){
+    /**
+     * Alteração de caracteres dentro da string.
+     *
+     * @param str string digitada pelo usuário
+     * @param alvo caractere que será alterado 
+     * @param parametro substituto do caractere alvo
+     * @return nova string com a alteração dos caracteres
+     */
+    public static String replace(String str, char alvo, int parametro){
         String newStr = "";
         int tam = str.length();
         boolean bool;
@@ -47,126 +68,179 @@ public class AlgebraBooleana{
         for(int i = 0; i < tam; i++){
             bool = false;
 
-            if(str.charAt(i) == (expressao)){
+            if(str.charAt(i) == (alvo)){
                 newStr += (parametro == 1 ? '1' : '0');
                 bool = true;
             }
-
             if(bool)
                 i += 1;
+            if(i == tam)
+                break;
             
             newStr += str.charAt(i);
         }
+
         return newStr;
     }
 
+    /**
+     * Coletor de parametros.
+     *
+     * @param str string digitada pelo usuário
+     * @param indice valor designado para ser o começo da string 
+     * @param tam tamanho da string recebida
+     * @return vetor com os parametros encontrados dentro da expressão booleana selecionada
+     */
     public static int[] parametros(String str, int indice, int tam){
         int []param;
         int cont = 0;
 
-        MyIO.println("TESTE");
-
-        for(int i = indice; i < tam; i++){
+        for(int i = indice; str.charAt(i) != ')'; i++){
             if(str.charAt(i) == '0' || str.charAt(i) == '1')
                 cont++;
-            
-            MyIO.println(str.charAt(i));
-            MyIO.println("cont" + cont);
         }
-
-        MyIO.println("TESTE");
-
+        
         param = new int [cont];
+        int j = 0;
 
-        for(int i = indice; i < tam; i++){
-            MyIO.println("i" +i);
-            if(str.charAt(i) == '0')
-                param[i] = 0;
-            else if(str.charAt(i) == '1')
-                param[i] = 1;
+        for(int i = indice; str.charAt(i) != ')'; i++){
+
+            if(str.charAt(i) == '0'){
+                param[j] = 0;
+                j++;
+            }
+            else if(str.charAt(i) == '1'){
+                param[j] = 1;
+                j++;
+            }
         }
-        MyIO.println("TESTE");
         return param;
     }
-
-    /*
-    2 0 1 and(not(A) , or(A , B))
     
+    /**
+     * Expressão Booleana NOT.
+     *
+     * @param str string digitada pelo usuário
+     * @param indice valor designado para ser o começo da string 
+     * @param tam tamanho da string recebida
+     * @param param[] vetor com os parametros contidos dentro da expressão booleana
+     * @return string formada após a realização da Álgebra Booleana
+     */
     public static String not(String str, int indice, int tam, int param[]){
-        String newStr1 = subString(str, 0, indice - 4);
-        String newStr2;
+        String strStart= "";
+        String strEnd= "";
         int qntParam = param.length;
 
-        str = subString(str, indice - 3, tam - 1);
+        strStart += subString(str, 0, indice - 3);
 
-        param[0] = param[0] == 1 ? 0 : 1;
-        newStr2 = replace(str, "not( ", param[0]);
+        for(int i = indice; i < tam; i++){
+            if(str.charAt(i) == ')'){
+                strEnd = subString(str, i + 1, tam);
+                str = subString(str, indice + 1, i);
+                break;
+            }
+        }
 
-        for(int i = 1; i < qntParam; i++){
+        for(int i = 0; i < qntParam; i++){
             param[i] = param[i] == 1 ? 0 : 1;
-            newStr2 = replace(str, param[i] == 1 ? "0" : "1", param[i]);
-        }
-        return newStr1 + newStr2;
+            str = replace(str, param[i] == 1 ? '0' : '1', param[i]);
+        }        
+
+        return strStart + str + strEnd;
     }
 
+    /**
+     * Expressão Booleana OR.
+     *
+     * @param str string digitada pelo usuário
+     * @param indice valor designado para ser o começo da string 
+     * @param tam tamanho da string recebida
+     * @param param[] vetor com os parametros contidos dentro da expressão booleana
+     * @return string formada após a realização da Álgebra Booleana
+     */
     public static String or(String str, int indice, int tam, int param[]){
-        String newStr1 = subString(str, 0, indice - 3);
-        String newStr2;
+        String strStart= "";
         int qntParam = param.length;
-        int or = 0;
+        int bool = 0;
 
-        str = subString(str, indice - 2, indice + 1);
+        strStart += subString(str, 0, indice - 2);
+
+        for(int i = indice; i < tam; i++){
+            if(str.charAt(i) == ')'){
+                str = subString(str, i + 1, tam);
+                break;
+            }
+        }
 
         for(int i = 0; i < qntParam; i++){
-            for(int j = 0; j < qntParam; j++)
-                or = (param[i] == 1) || (param[j] == 1) ? 1 : 0;
+            bool = (param[i] == 1) || (param[0] == 1) ? 1 : 0;
+            if(bool == 1)
+            break;
         }
-        newStr2 = replace(str, "or( ", or);
 
-        return newStr1 + newStr2;
+        return strStart + bool + str;
     }
 
+    /**
+     * Expressão Booleana AND.
+     *
+     * @param str string digitada pelo usuário
+     * @param indice valor designado para ser o começo da string 
+     * @param tam tamanho da string recebida
+     * @param param[] vetor com os parametros contidos dentro da expressão booleana
+     * @return string formada após a realização da Álgebra Booleana
+     */
     public static String and(String str, int indice, int tam, int param[]){
-        String newStr1 = subString(str, 0, indice - 4);
-        String newStr2;
+        String strStart= "";
         int qntParam = param.length;
-        int and = 0;
+        int bool = 0;
 
-        str = subString(str, indice - 2, indice + 1);
+        strStart += subString(str, 0, indice - 3);
 
-        for(int i = 0; i < qntParam; i++){
-            for(int j = 0; j < qntParam; j++)
-                and = (param[i] == 1) && (param[j] == 1) ? 1 : 0;
+        for(int i = indice; i < tam; i++){
+            if(str.charAt(i) == ')'){
+                str = subString(str, i + 1, tam);
+                break;
+            }
         }
-        newStr2 = replace(str, "and( ", and);
+        for(int i = 0; i < qntParam; i++){
+            bool = (param[i] == 1) && (param[0] == 1) ? 1 : 0;
+            if(bool == 0)
+                break;
+        }
 
-        return newStr1 + newStr2;
-    }*/
+        return strStart + bool + str;
+    }
 
+    /**
+     * Indentificação das expressões booleanas.
+     *
+     * @param str string digitada pelo usuário
+     * @return string formada após a realização completa da Álgebra Booleana
+     */
     public static char algebraBooleana(String str) throws Exception {
         int[] param;
         char strFinal = 'a';
 
         for(int i = str.length() - 1; i >= 0 ; i--){
-            MyIO.println(i + " " + str.length());
             if(str.charAt(i) == '('){
                 switch (str.charAt(i - 1)){
                     case 't':
-                        param = parametros(str, i, str.length() + 1);   
-                        MyIO.println(param[0] + " " + param[1]);                     
-                        /*str = not(str, i, str.length() + 1, param);*/
+                        param = parametros(str, i, str.length());                        
+                        str = not(str, i, str.length(), param);                        
+                        i = str.length();
                         break;
 
                     case 'r':
-                        param = parametros(str, i, str.length() + 1);
-                        /*str = or(str, i, str.length() + 1, param);*/
-                        MyIO.println(param[0] + " " + param[1]);  
+                        param = parametros(str, i, str.length());
+                        str = or(str, i, str.length(), param);
+                        i = str.length(); 
                         break;
 
                     case 'd':
-                        param = parametros(str, i, str.length() + 1);
-                        /*str = and(str, i, str.length() + 1, param);*/
-                        MyIO.println(param[0] + " " + param[1]);  
+                        param = parametros(str, i, str.length());
+                        str = and(str, i, str.length(), param);
+                        i = str.length();
                         break;
                 }
             }
@@ -193,12 +267,9 @@ public class AlgebraBooleana{
                 parametros[i] = parseInt(str.charAt((i + 1) * 2));
 
             str = subString(str, (qntParametros * 2 + 2), str.length());
-
             
-            for(int i = 0; i < qntParametros; i++){
+            for(int i = 0; i < qntParametros; i++)
                 str = replace(str, (char) ('A' + i), parametros[i]);
-                MyIO.println(str);
-            }
             
             MyIO.println(algebraBooleana(str));
         }

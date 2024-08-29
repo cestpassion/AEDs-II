@@ -19,9 +19,9 @@ import java.util.Random;
 public class AlteracaoAleatoria{
 
     /**
-     * Verifica se a string recebida é FIM.
+     * Verificação se a string recebida é FIM.
      *
-     * @param str a string digitada pelo usuário
+     * @param str string digitada pelo usuário
      * @return true / false
      */
     public static boolean isFIM(String string){
