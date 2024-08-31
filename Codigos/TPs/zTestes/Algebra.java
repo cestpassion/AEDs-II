@@ -108,7 +108,5 @@ public class Algebra {
 
     public static boolean verificaFim(String texto) {
         return (texto.charAt(0) == '0');
-    }
-} {
-    
+    }    
 }
