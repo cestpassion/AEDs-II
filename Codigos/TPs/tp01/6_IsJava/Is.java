@@ -14,11 +14,39 @@
  * vogais (X1); composta somente somente por consoantes (X2); um número inteiro (X3); um número real (X4).
  * Se Xi for verdadeiro, seu valor será SIM, caso contrário, NÃO. */
 
+// SIM - saida composta apenas por vogais
+
+// SIM composta apenas por consoantes
+
+// SIM numero inteiro
+
+// SIM - numero real
+
+// saida: X1 X2 X3 X4 (bool vogal; bool consoante; bool inteiro; bool real)
+
 public class Is{
 
     public static boolean isFIM(String str){
         return (str.length() == 3 && str.charAt(0) == 'F' && str.charAt(1) == 'I' && str.charAt(2) == 'M');
     }
+
+
+    public static String reconhecimento(String str){
+        String result = null;
+
+
+    }
+
+    public static boolean vogal(String str){
+
+    }
+
+    public static boolean consoate(String str){
+
+    }
+
+    public static boolean inteiro(String str)
+
 
     public static booelan is(String str){
         int tam = str.length();
@@ -30,6 +58,11 @@ public class Is{
     }
 
     public static void main(String[] args){
+        String str;
+
+        while(!isFIM(str = MyIO.readLine())){
+           reconhecimento (str);
+        }
         
     }
 }
