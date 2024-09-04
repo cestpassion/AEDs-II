@@ -11,7 +11,7 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 
 <br>
 
->## ▪️ ◽◻️ Sumário
+## ▪️ ◽◻️ Sumário
 >
 >- [C/C++](a)
 >   - [Linux (GCC)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-gcc-gnu-compiler-collection-no-linux-ubuntudebian)
