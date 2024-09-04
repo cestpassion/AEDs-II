@@ -135,4 +135,3 @@ O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro d
 <br>
 
 #### ❗Extra: Caso aconteca do compilador não funcionar mesmo após esses passos, volte nas variáveis de ambiente, selecione o caminho da pasta bin dentro do PATH e mova para cima.
-##
