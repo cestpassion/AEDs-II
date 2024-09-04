@@ -1,5 +1,8 @@
 CAMINHO DO ARQUIVO: ~/Documentos/Notas.txt 
 
+se sobre escrever um arquivo não é possivel recuperar
+dropbox
+
 --------------------------------------LINUX------------------------------------
 
 Linux:
