@@ -12,20 +12,26 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 <br>
 
 ## ▪️ ◽◻️ Sumário
->
->- [C/C++](a)
->   - [Linux (GCC)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-gcc-gnu-compiler-collection-no-linux-ubuntudebian)
->   - [Windows (MinGW)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-mingw-minimalist-gnu-for-windows-no-windows)
->- [Java](a)
->   - [Linux (JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-linux-ubuntudebian)
->   - [Windows(JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-windows)
->##
+
+- [C/C++](a)
+   - [Linux (GCC)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-gcc-gnu-compiler-collection-no-linux-ubuntudebian)
+   - [Windows (MinGW)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-mingw-minimalist-gnu-for-windows-no-windows)
+- [Java](a)
+   - [Linux (JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-linux-ubuntudebian)
+   - [Windows(JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-windows)
+
 <br>
 
-# C/C++
+# 🛠️ C/C++
 <br>
 
 ## ⚙️ Como baixar o compilador de C/C++, GCC (GNU Compiler Collection), no Linux (Ubuntu/Debian):
+
+>### ℹ️ Sobre o GCC:
+
+GCC é uma ferramenta essencial no desenvolvimento de software para Linux. Ele é usado não só para compilar programas simples, mas também para compilar grandes projetos, bibliotecas, e até mesmo o kernel Linux. Além disso, o GCC é conhecido por sua robustez e por seguir de perto os padrões das linguagens que suporta.
+
+<br>
 
 * Para instalar:
 
@@ -38,25 +44,20 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
     * C++:
         >     g++ --version
 
-<br>
-
->### ℹ️ Sobre o GCC:
-
-GCC é uma ferramenta essencial no desenvolvimento de software para Linux. Ele é usado não só para compilar programas simples, mas também para compilar grandes projetos, bibliotecas, e até mesmo o kernel Linux. Além disso, o GCC é conhecido por sua robustez e por seguir de perto os padrões das linguagens que suporta.
-
-##
-
-<br>
+<br><br>
 
 ## ⚙️ Como baixar o compilador de C/C++, MinGW (Minimalist GNU for Windows), no Windows:
 
-Tutorial disponivel no repositório de [AEDs-I](...)
-
-##
+> Tutorial disponivel no repositório de [AEDs-I](...)
 
 <br><br>
 
-# Java
+# 🛠️ Java
+
+>### ℹ️ Sobre o JDK-17:
+
+O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro de 2021 como uma versão de Suporte de Longo Prazo (LTS). O JDK é um conjunto completo de ferramentas que você precisa para desenvolver, compilar, depurar e executar aplicações Java.
+
 <br>
 
 ## ⚙️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Linux (Ubuntu/Debian):
@@ -70,15 +71,7 @@ Tutorial disponivel no repositório de [AEDs-I](...)
 >     java -version
 >     javac -version
 
-<br>
-
->### ℹ️ Sobre o JDK-17:
-
-O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro de 2021 como uma versão de Suporte de Longo Prazo (LTS). O JDK é um conjunto completo de ferramentas que você precisa para desenvolver, compilar, depurar e executar aplicações Java.
-
-##
-
-<br>
+<br><br>
 
 ## ⚙️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
 
