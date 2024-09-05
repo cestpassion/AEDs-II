@@ -32,7 +32,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Livros úteis para a diciplina.**
 <br>
 
->### [📁 Bibliotecas](bibliotecasJava)👈:
+>### [📁 Bibliotecas](bibliotecasCode)👈:
 * **Pasta com as bibliotecas usadas na disciplina.**
 <br>
 
