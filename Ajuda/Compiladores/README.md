@@ -13,10 +13,10 @@ Caso você ainda não tenha configurado o Linux na sua máquina, sugiro que se e
 
 ## ▪️ ◽◻️ Sumário
 
-- [C/C++](a)
+- [C/C++](#%EF%B8%8F-cc)
    - [Linux (GCC)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-gcc-gnu-compiler-collection-no-linux-ubuntudebian)
    - [Windows (MinGW)](#%EF%B8%8F-como-baixar-o-compilador-de-cc-mingw-minimalist-gnu-for-windows-no-windows)
-- [Java](a)
+- [Java](#%EF%B8%8F-java)
    - [Linux (JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-linux-ubuntudebian)
    - [Windows(JDK)](#%EF%B8%8F-como-baixar-o-compilador-de-java--jdk-17-java-development-kit-vers%C3%A3o-17-no-windows)
 
