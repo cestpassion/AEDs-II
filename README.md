@@ -2,7 +2,7 @@
 <br>
 
 ## 🔸 Sobre:
-Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, este repositório — criado durante minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (no semestre 2024/2), sob a orientação do professor Max do Val nas aulas teóricas e do professor Felipe Domingos nas aulas práticas — contém desde guias de comandos, compiladores, e sistemas operacionais até códigos-fonte de programas, exercícios de laboratório e trabalhos práticos.<br>
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, este repositório — criado durante minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (Pontifícia Universidade Católica de Minas Gerais) (2º/2024), sob a orientação do professor Max do Val (aulas teóricas) e do professor Felipe Domingos (aulas práticas) — contém desde guias de comandos, compiladores, e sistemas operacionais até códigos-fonte de programas, exercícios de laboratório e trabalhos práticos.<br>
 
 Aqui, foi reunida uma coleção abrangente de códigos, exercícios, dicas e materiais de apoio fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.<br>
 
@@ -21,23 +21,19 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/cheat-sheets)
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores)
 * **IDEs:** [IntelliJ, Eclipse, CLion](ajuda/ides)
-##
 <br>
 
 >### 📄 [Documentações oficiais](documentacoesOficiais)👈:
 * **Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**
-##
 <br>
 
 >### [📚 Livros](bibliografia)👈:
 
 * **Livros úteis para a diciplina.**
-##
 <br>
 
 >### [📁 Bibliotecas](bibliotecasJava)👈:
 * **Pasta com as bibliotecas usadas na disciplina.**
-##
 <br>
 
 >### [🐧 Linux](linux)👈:
@@ -45,7 +41,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/vmware)
 * **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linix/wsl)
 * **Dentro do Linux**: [Como conifigurar](linux/inLinux)
-##
 <br>
 
 >### [🗃️ Unidades](unidades)👈:
@@ -139,8 +134,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 [Unidade 08](unidades/unidade08-arvores-TRIE)
 - [aaaaa](unidades/unidade08-arvores-TRIE/u08a-)
 </details>
-
-##
 <br>
 
 >### [🔥 Códigos](codigos)👈:
@@ -152,18 +145,16 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
 <br>
 
-##
-##
-<br>
-
 ## 🏋️ Prática:
 * **[OBI](https://olimpiada.ic.unicamp.br/pratique/pu/)** </br>
 * **[CodeWars](https://www.codewars.com/dashboard)** </br>
 * **[HackerRank](https://www.hackerrank.com/dashboard)** </br>
 * **[Maratona de Programação](https://maratona.sbc.org.br)**
-  * **Questões da Maratona Resolvidas**
+  * **[Questões da Maratona Resolvidas](https://github.com/cestpassion/Maratona-de-Programacao)**
 <br>
 
 ## 🫂 Contribuições:
-
 Este repositório é um reflexo contínuo do aprendizado, e contribuições ou melhorias são bem-vindas. Se você identificar algo que possa ser melhorado ou tiver sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 🪪 License
+[MIT License](LICENSE)
