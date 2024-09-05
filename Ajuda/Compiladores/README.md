@@ -74,9 +74,11 @@ O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro d
 <br><br>
 
 ## ⚙️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
+<br>
 
 #### 1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
-<img src="fotos/SiteOracle.png" width="600px"><br>
+<img src="fotos/SiteOracle.png" width="600px">
+<br>
 
 #### 2) Selecione a opção "JDK 17", em seguida a opção "Windows" e o arquivo .exe "64x Installer:
 <img src="fotos/Installer.png" width="700px">
