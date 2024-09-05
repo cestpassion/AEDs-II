@@ -76,52 +76,46 @@ O JDK 17 é a versão 17 do Java Development Kit, que foi lançada em setembro d
 ## ⚙️ Como baixar o compilador de Java,  JDK-17 (Java Development Kit, versão 17), no Windows:
 
 #### 1) Acesse o Site do Oracle: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
-<img src="fotos/SiteOracle.png" width="700px">
-<br>
+<img src="fotos/SiteOracle.png" width="600px"><br>
 
 #### 2) Selecione a opção "JDK 17", em seguida a opção "Windows" e o arquivo .exe "64x Installer:
-<img src="fotos/Installer.png" width="800px">
+<img src="fotos/Installer.png" width="700px">
 <br>
 
 #### 3) Next:
-<img src="fotos/Diretorio.png" width="400px">
+<img src="fotos/Diretorio.png" width="350px">
 <br>
 
 #### 4) Close:
-<img src="fotos/InstalacaoCompleta.png" width="400px">
+<img src="fotos/InstalacaoCompleta.png" width="350px">
 <br>
 
 #### 5) Configurando as Variáveis de Sistema no PATH:
+<br>
+
    * Encontre a pasta "bin" dentro do diretório Java e copie seu caminho:
-
-   <img src="fotos/caminho.png" width="500px">
-    <br>
-
+   <img src="fotos/caminho.png" width="300px">
+   <br>
 
    * Na área de pesquisa do Windows localizada na Barra de Tarefas digite: "Variáveis de Sistema" e abra:
-
-   <img src="fotos/variaveis.png" width="600px">
-    <br>
+   <img src="fotos/variaveis.png" width="400px">
+   <br>
 
    * Selecione a opção "Variáveis de Ambiente":
-
-   <img src="fotos/slcvariaveis.png" width="400px">
-    <br>
+   <img src="fotos/slcvariaveis.png" width="300px">
+   <br>
 
    * Após os passos anteriores, você irá colar o caminho da pasta "bin" no PATH da variáveis de usuário e da variáveis de sistema:
-
-   <img src="fotos/PATH.png" width="400px">
-    <br>
+   <img src="fotos/PATH.png" width="350px">
+   <br>
 
    * Clique duas vezes na variável PATH e selecione "New":
-   
-   <img src="fotos/new.png" width="400px">
-    <br>
+   <img src="fotos/new.png" width="320px">
+   <br>
     
    * Cole o caminho da pasta "bin":
-     
-   <img src="fotos/colar.png" width="400px">
-    <br>
+   <img src="fotos/colar.png" width="320px">
+   <br>
 
    * Após esses passos aperte "ok" e aplique as mudanças.
 
