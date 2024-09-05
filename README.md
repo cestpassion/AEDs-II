@@ -144,8 +144,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
 <br>
-##
-<br>
 
 ## 🏋️ Prática:
 * **[OBI](https://olimpiada.ic.unicamp.br/pratique/pu/)** </br>
