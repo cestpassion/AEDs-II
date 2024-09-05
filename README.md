@@ -161,7 +161,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **[CodeWars](https://www.codewars.com/dashboard)** </br>
 * **[HackerRank](https://www.hackerrank.com/dashboard)** </br>
 * **[Maratona de Programação](https://maratona.sbc.org.br)**
-  * **Questões da Maratona Resolvidas**
+  * **[Questões da Maratona Resolvidas](https://github.com/cestpassion/Maratona-de-Programacao)**
 <br>
 
 ## 🫂 Contribuições:
