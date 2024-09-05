@@ -2,7 +2,7 @@
 <br>
 
 ## 🔸 Sobre:
-Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, este repositório — criado durante minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (no semestre 2024/2), sob a orientação do professor Max do Val nas aulas teóricas e do professor Felipe Domingos nas aulas práticas — contém desde guias de comandos, compiladores, e sistemas operacionais até códigos-fonte de programas, exercícios de laboratório e trabalhos práticos.<br>
+Destinado a estudantes e entusiastas que desejam aprimorar seus conhecimentos em AEDs II, este repositório — criado durante minha passagem pela disciplina de Algoritmos e Estrutura de Dados II na PUC Minas (Pontifícia Universidade Católica de Minas Gerais) (2º/2024), sob a orientação do professor Max do Val (aulas teóricas) e do professor Felipe Domingos (aulas práticas) — contém desde guias de comandos, compiladores, e sistemas operacionais até códigos-fonte de programas, exercícios de laboratório e trabalhos práticos.<br>
 
 Aqui, foi reunida uma coleção abrangente de códigos, exercícios, dicas e materiais de apoio fundamentais para o desenvolvimento das habilidades em Algoritmos e Estrutura de Dados.<br>
 
@@ -156,5 +156,5 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 ## 🫂 Contribuições:
 Este repositório é um reflexo contínuo do aprendizado, e contribuições ou melhorias são bem-vindas. Se você identificar algo que possa ser melhorado ou tiver sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## License
+## 🪪 License
 [MIT License](LICENSE)
