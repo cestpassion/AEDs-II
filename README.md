@@ -21,23 +21,19 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/cheat-sheets)
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores)
 * **IDEs:** [IntelliJ, Eclipse, CLion](ajuda/ides)
-##
 <br>
 
 >### 📄 [Documentações oficiais](documentacoesOficiais)👈:
 * **Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**
-##
 <br>
 
 >### [📚 Livros](bibliografia)👈:
 
 * **Livros úteis para a diciplina.**
-##
 <br>
 
 >### [📁 Bibliotecas](bibliotecasJava)👈:
 * **Pasta com as bibliotecas usadas na disciplina.**
-##
 <br>
 
 >### [🐧 Linux](linux)👈:
@@ -45,7 +41,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/vmware)
 * **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linix/wsl)
 * **Dentro do Linux**: [Como conifigurar](linux/inLinux)
-##
 <br>
 
 >### [🗃️ Unidades](unidades)👈:
@@ -139,8 +134,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 [Unidade 08](unidades/unidade08-arvores-TRIE)
 - [aaaaa](unidades/unidade08-arvores-TRIE/u08a-)
 </details>
-
-##
 <br>
 
 >### [🔥 Códigos](codigos)👈:
@@ -151,8 +144,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
 <br>
-
-##
 ##
 <br>
 
