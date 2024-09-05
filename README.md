@@ -154,5 +154,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 ## 🫂 Contribuições:
-
 Este repositório é um reflexo contínuo do aprendizado, e contribuições ou melhorias são bem-vindas. Se você identificar algo que possa ser melhorado ou tiver sugestões, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## License
+[MIT License](LICENSE)
