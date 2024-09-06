@@ -20,7 +20,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](ajuda/ajuda/README.md)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/cheat-sheets)
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores)
-* **IDEs:** [IntelliJ, Eclipse, CLion](ajuda/ides)
 <br>
 
 >### 📄 [Documentações oficiais](documentacoesOficiais)👈:
@@ -40,7 +39,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Dual Boot:** [Aprenda a realizar um Dual Boot na sua máquina](linux/DualBoot.md)
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/VMware.md)
 * **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linix/WSL.md)
-* **Dentro do Linux**: [Como conifigurar](linux/inLinux)
 <br>
 
 >### [🗃️ Unidades](unidades)👈:
