@@ -137,9 +137,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 >### [🔥 Códigos](codigos)👈:
 
 * ⚙️ **Programas:** [Programas desenvolvidos](codigos/programas)
-
 * 🖱️ **Labs:** [Pasta com os exercícios de treinamento do laboratório](codigos/labs)
-
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
 <br>
 
