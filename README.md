@@ -37,9 +37,9 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 >### [🐧 Linux](linux)👈:
-* **Dual Boot:** [Aprenda a realizar um Dual Boot na sua máquina](linux/dualBoot)
-* **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/vmware)
-* **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linix/wsl)
+* **Dual Boot:** [Aprenda a realizar um Dual Boot na sua máquina](linux/DualBoot.md)
+* **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/VMware.md)
+* **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linix/WSL.md)
 * **Dentro do Linux**: [Como conifigurar](linux/inLinux)
 <br>
 
