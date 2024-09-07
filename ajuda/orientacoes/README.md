@@ -3,10 +3,10 @@
 blablabla
 
 ## Índice
-* [Dicas](#)
-* [Códigos Auxiliares em C](https://github.com/cestpassion/AEDs-II/blob/main/Ajuda/ajuda/C/README.md)
-* [Códigos Auxiliares em Java](https://github.com/cestpassion/AEDs-II/blob/main/Ajuda/ajuda/Java/README.md)
-* [Provas](https://github.com/cestpassion/AEDs-II/blob/main/Ajuda/ajuda/Provas/README.md)
+* [Dicas](#dicas)
+* [Códigos Auxiliares em C](ajuda/orientacoes/c)
+* [Códigos Auxiliares em Java](ajuda/orientacoes/java)
+* [Provas](ajuda/orientacoes/provas)
 <br>
 
 ## Dicas
