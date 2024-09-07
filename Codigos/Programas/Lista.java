@@ -4,7 +4,7 @@ public class Lista {
 
     public static void inserirInicio(int num){
         if(n > array.length)
-            
+            throw new Exception("ERRO!");
     }
 
     public static void inserirFim(int num){
