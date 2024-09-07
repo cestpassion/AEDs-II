@@ -9,13 +9,13 @@ Este README contém exemplos de códigos em Java projetados para auxiliar no ent
 ## Sumário
 
 - [Leitura e Impressão de Números Inteiros de uma Linha em Looping](#leitura-e-impress%C3%A3o-de-strings-de-uma-linha-em-looping)
-    * Arquivo [.java](/codigos-auxiliares/LoopingDeEntrada.java) ou [.java](/codigos-auxiliares/LoopingDeEntradaEX2.java)
+    * Arquivo [.java](codigos-auxiliares/LoopingDeEntrada.java) ou [.java](codigos-auxiliares/LoopingDeEntradaEX2.java)
 
 <br>
 
 ## Leitura e Impressão de Strings de uma Linha em Looping
 
->###### Arquivo [.java](/codigos-auxiliares/LoopingDeEntrada.java) ou [.java](/codigos-auxiliares/LoopingDeEntradaEX2.java)
+>###### Arquivo [.java](codigos-auxiliares/LoopingDeEntrada.java) ou [.java](codigos-auxiliares/LoopingDeEntradaEX2.java)
 
 ```java
 import java.util.Scanner;
