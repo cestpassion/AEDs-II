@@ -20,7 +20,7 @@ Este README contém exemplos de código em C projetados para auxiliar no entendi
 
 ## Leitura e Impressão de Números Inteiros de uma Linha em Looping
 
->###### [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaInt.c)
+>###### [Arquivo .c](codigos-auxiliares/LoopingDeEntradaInt.c)
 
 ```c
 #include <stdio.h>
@@ -59,7 +59,7 @@ int main () {
 
 ## Mesmo código, mas lendo strings:
 
->###### [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaString.c)
+>###### [Arquivo .c](codigos-auxiliares/LoopingDeEntradaString.c)
 
 ```c
 #include <stdio.h>
@@ -99,7 +99,7 @@ int main () {
 
 ## Divisão de Strings em Substrings (Tokens):
 
->###### [Arquivo .c](/codigos-auxiliares/StringsTokens.c)
+>###### [Arquivo .c](codigos-auxiliares/StringsTokens.c)
 
 ```c
 #include <stdio.h>
