@@ -4,9 +4,9 @@ blablabla
 
 ## Índice
 * [Dicas](#dicas)
-* [Códigos Auxiliares em C](ajuda/orientacoes/c)
-* [Códigos Auxiliares em Java](ajuda/orientacoes/java)
-* [Provas](ajuda/orientacoes/provas)
+* [Códigos Auxiliares em C](c)
+* [Códigos Auxiliares em Java](java)
+* [Provas](provas)
 <br>
 
 ## Dicas
