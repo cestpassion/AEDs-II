@@ -9,13 +9,18 @@ Este README contém exemplos de código em C projetados para auxiliar no entendi
 ## Sumário
 
 - [Leitura e Impressão de Números Inteiros de uma Linha em Looping](#leitura-e-impress%C3%A3o-de-n%C3%BAmeros-inteiros-de-uma-linha-em-looping)
+    * [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaInt.c)
 - [Leitura e Impressão de Strings de uma Linha em Looping](#mesmo-c%C3%B3digo-mas-lendo-strings)
+    * [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaString.c)
 - [Divisão de Strings em Substrings (Tokens)](#divis%C3%A3o-de-strings-em-substrings-tokens)
+    * [Arquivo .c](/codigos-auxiliares/StringsTokens.c)
 
 
 <br>
 
 ## Leitura e Impressão de Números Inteiros de uma Linha em Looping
+
+>###### [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaInt.c)
 
 ```c
 #include <stdio.h>
@@ -54,6 +59,8 @@ int main () {
 
 ## Mesmo código, mas lendo strings:
 
+>###### [Arquivo .c](/codigos-auxiliares/LoopingDeEntradaString.c)
+
 ```c
 #include <stdio.h>
 
@@ -91,6 +98,8 @@ int main () {
 
 
 ## Divisão de Strings em Substrings (Tokens):
+
+>###### [Arquivo .c](/codigos-auxiliares/StringsTokens.c)
 
 ```c
 #include <stdio.h>

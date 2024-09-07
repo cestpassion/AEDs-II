@@ -17,9 +17,9 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <br>
 
 >### [❓ Ajuda](ajuda)👈:
-* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](ajuda/ajuda/README.md)
-* **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/cheat-sheets)
-* **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores)
+* **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](ajuda/orientacoes/README.md)
+* **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/comandos/)
+* **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores/README.md)
 <br>
 
 >### 📄 [Documentações oficiais](documentacoesOficiais)👈:
