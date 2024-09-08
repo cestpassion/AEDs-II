@@ -56,7 +56,7 @@ public class AlteracaoAleatoria{
         Random gerador = new Random() ;
         gerador.setSeed(4);
 
-        while(!isFIM(str = MyIO.readLine())){ // Atribui o valor recebido à variável string e chama o método isFIM
+        while(!isFIM(str = MyIO.readLine())){
             // Desloca o caractere 'a' a partir de um número aleatório entre 0 e 25 e converte para char
             char letra01 = (char)('a' + (Math.abs(gerador.nextInt()) % 26));
             char letra02 = (char)('a' + (Math.abs(gerador.nextInt()) % 26));
