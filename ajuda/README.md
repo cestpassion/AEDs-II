@@ -2,7 +2,7 @@
 
 blablabla
 
-## [Orientações](/orientacoes/)
+## [Orientações](orientacoes/)
 
 ### Dicas
 
@@ -15,7 +15,7 @@ blablabla
 
 <br>
 
-## [Principais Comandos de C e Java](/comandos/README.md)
+## [Principais Comandos de C e Java](comandos/README.md)
 
 ### Comandos
 
@@ -25,6 +25,6 @@ blablabla
 
 <br>
 
-## [Compiladores](/compiladores/README.md)
+## [Compiladores](compiladores/README.md)
 
 
