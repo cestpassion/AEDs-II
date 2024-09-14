@@ -23,8 +23,7 @@ public class CiframentoCesarRecursivo{
       char caractereCifrado = (char) (str.charAt(cont) + 3);
 
       return caractereCifrado + ciframento(str, ++cont);
-      
-      }
+   }
  
    // Metodo principal
    public static void main(String[] args){

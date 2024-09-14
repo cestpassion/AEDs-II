@@ -38,14 +38,23 @@
     }
 
     /**
+     * Verifica se o caractere é minúsculo e o transforma em maiúsculo.
+     *
+     * @param c caractere a ser verificado
+     * @return caractere maiúsculo
+     */
+    public static char toUpper(char c){
+        return (c >= 'a' && c <= 'z') ? ((char)(c - 32)) : c ;
+    }
+
+    /**
      * Verifica se o caractere é uma vogal.
      *
      * @param c caractere a ser verificado
      * @return true se for uma vogal, false caso contrário
      */
-    private static boolean isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    public static boolean isVowel(char c) {
+        return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     }
 
     /**
@@ -60,6 +69,7 @@
             return true;
         
         char c = str.charAt(index);
+        c = toUpper(c);
         if (!isVowel(c)) 
             return false;
         
@@ -72,9 +82,8 @@
      * @param c caractere a ser verificado
      * @return true se for uma consoante, false caso contrário
      */
-    private static boolean isConsonant(char c) {
-        return (c >= 'a' && c <= 'z' && !isVowel(c)) ||
-               (c >= 'A' && c <= 'Z' && !isVowel(c));
+    public static boolean isConsonant(char c) {
+        return (c >= 'A' && c <= 'Z' && !isVowel(c));
     }
 
     /**
@@ -88,7 +97,9 @@
         if (index == str.length()) 
             return true;
 
-        if (!isConsonant(str.charAt(index))) 
+        char c = str.charAt(index);
+        c = toUpper(c);
+        if (!isConsonant(c)) 
             return false;
 
         return consonant(str, ++index);
