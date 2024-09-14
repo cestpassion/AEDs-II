@@ -1,0 +1,59 @@
+# U00 - Nivelamento: Arquivos em Java
+
+## Definição de Arquivo
+
+- Unidade lógica utilizada para armazenar dados em disco ou em qualquer outro dispositivo externo de armazenamento.
+    - Pode-se abrir, fechar, ler, escrever ou apagar um arquivo.
+
+## Introdução
+
+- O Java tem algumas classes para leitura e escrita em arquivo
+- A classe **Arq** trabalha com arquivos em modo texto e a **RandomAccessFile**, em modo binário
+- Este material usa a classe **Arq** para acesso sequencial e a **RandomAccessFile** para acesso aleatório
+- Utiliza as classes **Formatter** e **Scanner** para a escrita e leitura de arquivos de texto, respectivamente
+- Os arquivos escritos com a **Arq** podem ser lidos com editores de texto e vice-versa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OBS:
+###java.io.RandomAccessFile
+
+Instances of this class support both reading and writing to a random access file. A random access file behaves like a
+large array of bytes stored in the file system. There is a kind of cursor, or index into the implied array, called the
+file pointer; input operations read bytes starting at the file pointer and advance the file pointer past the bytes read.
+If the random access file is created in read/write mode, then output operations are also available; output operations
+write bytes starting at the file pointer and advance the file pointer past the bytes written. Output operations that
+write past the current end of the implied array cause the array to be extended. The file pointer can be read by the
+getFilePointer method and set by the seek method.
+
+It is generally true of all the reading routines in this class that if end-of-file is reached before the desired number
+of bytes has been read, an EOFException (which is a kind of IOException) is thrown. If any byte cannot be read for any
+reason other than end-of-file, an IOException other than EOFException is thrown. In particular, an IOException may be
+thrown if the stream has been closed.
+
+
