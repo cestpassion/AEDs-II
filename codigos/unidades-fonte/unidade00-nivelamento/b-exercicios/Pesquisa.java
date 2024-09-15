@@ -21,7 +21,7 @@ public class Pesquisa{
      * @param x alvo da pesquisa
      * @return true (se encontou)/ false (se nao encontrou)
      */
-    public static boolean searchSeq(int array[], int x){
+    public static boolean searchSeq(int[] array, int x){
         boolean answer = false;
         int n = array.length;
 
@@ -41,7 +41,7 @@ public class Pesquisa{
      * @param x alvo da pesquisa
      * @return true (se encontou)/ false (se nao encontrou)
      */
-    public static boolean searchBin(int array[], int x){
+    public static boolean searchBin(int[] array, int x){
         boolean answer = false;
         int right = (array.length - 1), left = 0, middle;
 
@@ -68,7 +68,7 @@ public class Pesquisa{
      * @param index indice atual da pesquisa
      * @return true (se encontou)/ false (se nao encontrou)
      */
-    public static boolean searchSeqRec(int array[], int x, int index){
+    public static boolean searchSeqRec(int[] array, int x, int index){
         if(index == array.length)
             return false;
 
@@ -87,7 +87,7 @@ public class Pesquisa{
      * @param right fim do sub-array
      * @return true (se encontou)/ false (se nao encontrou)
      */
-    public static boolean searchBinRec(int array[], int x, int left, int right){
+    public static boolean searchBinRec(int[] array, int x, int left, int right){
         boolean answer;
         int middle = (left + right) / 2;
 
