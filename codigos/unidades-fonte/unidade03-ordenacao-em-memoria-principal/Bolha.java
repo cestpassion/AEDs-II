@@ -12,7 +12,6 @@ class Bolha extends Geracao {
       super();
    }
 
-
 	/**
 	 * Construtor.
 	 * @param int tamanho do array de numeros inteiros.
@@ -20,7 +19,6 @@ class Bolha extends Geracao {
    public Bolha(int tamanho){
       super(tamanho);
    }
-
 
 	/**
 	 * Algoritmo de ordenacao Bolha.
