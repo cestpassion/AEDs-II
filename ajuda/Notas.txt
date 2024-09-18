@@ -3,6 +3,15 @@ CAMINHO DO ARQUIVO: ~/Documentos/Notas.txt
 se sobre escrever um arquivo não é possivel recuperar
 dropbox
 
+
+------------------------------------ANOTAÇÕES----------------------------------
+- qsort em c
+- %*c no scanf de c
+- Full-Stack Developer, Java, TypeScript, .NET, SQL, Spring Framework, PHP,
+  Node.JS, React.JS, Next.JS
+- Maratona SBC de programação
+
+
 --------------------------------------LINUX------------------------------------
 
 Linux:
