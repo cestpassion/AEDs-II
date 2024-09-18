@@ -4,21 +4,21 @@ Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dado
 
 ## Sumário
 
-- ### ⚙️ [Programas](Programas)
+- ### ⚙️ [Programas](programas)
   - Esta pasta contém programas exemplares que foram desenvolvidos ao longo das aulas para ilustrar conceitos importantes da disciplina. Cada subpasta ou arquivo aqui está organizado por tópico ou semana de estudo.
 
-- ### 🖱️ [Labs](Labs):
+- ### 🖱️ [Labs](labs):
   - Esta seção reúne os exercícios de laboratório realizados para consolidar o aprendizado prático dos conceitos discutidos em sala de aula. Os exercícios variam em complexidade e abordam diferentes aspectos dos algoritmos e estruturas de dados.
-      * [lab01](Labs/lab01)
-      * [lab02](Labs/lab02)
-      * [lab03](Labs/lab03)
-      * [lab04](Labs/lab04)
+      * [lab01](labs/lab01)
+      * [lab02](labs/lab02)
+      * [lab03](labs/lab03)
+      * [lab04](labs/lab04)
 
-- ### ⌨️ [TPs](TPs):
+- ### ⌨️ [TPs](tps):
   - Nesta pasta, você encontrará os Trabalhos Práticos (TPs) completos, que representam desafios complexos e abrangentes, exigindo a aplicação de múltiplos conceitos em um único projeto. Cada TP está documentado com as especificações do problema, as estratégias de solução adotadas e os códigos-fonte.
-      * [tp01](TPs/tp01)
-      * [tp02](TPs/tp02)
-      * [tp02](TPs/tp02)
+      * [tp01](tps/tp01)
+      * [tp02](tps/tp02)
+      * [tp02](tps/tp02)
 
 ## Como Utilizar
 
