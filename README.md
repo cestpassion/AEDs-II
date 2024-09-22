@@ -16,23 +16,23 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 # Sumário:
 <br>
 
->### [❓ Ajuda](ajuda)👈:
+>### ❓ Ajuda:
 * **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](ajuda/orientacoes/README.md)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/comandos/)
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores/README.md)
 <br>
 
->### 📄 [Documentações oficiais](documentacoesOficiais)👈:
-* **Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**
+>### 📄 Documentações oficiais:
+* [**Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**](documentacoesOficiais)
 <br>
 
->### [📚 Livros](bibliografia)👈:
+>### 📚 Livros:
 
-* **Livros úteis para a diciplina.**
+* [**Livros úteis para a diciplina.**](bibliografia)
 <br>
 
->### [📁 Bibliotecas](bibliotecasCode)👈:
-* **Pasta com as bibliotecas usadas na disciplina.**
+>### 📁 Bibliotecas👈:
+* [**Pasta com as bibliotecas usadas na disciplina.**](bibliotecasCode)
 <br>
 
 >### [🐧 Linux](linux)👈:
