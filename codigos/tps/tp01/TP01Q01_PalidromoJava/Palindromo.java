@@ -33,7 +33,7 @@ public class Palindromo{
     public static void main(String[] args){
         String str = "";
 
-        while(!isFim(str = MyIO.readLine())){ // Atribui o valor recebido à variável str e chama o método isFIM         
+        while(!isFim(str = MyIO.readLine())){ 
             if(palindromo(str))
                 MyIO.println("SIM");
             else

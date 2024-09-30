@@ -35,13 +35,6 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Classe {
-    public static void main(String[] args){
-
-    }
-}
-
 class Pokemon {
     // Atributos
     private int id;
@@ -127,4 +120,34 @@ class Pokemon {
     //
 
 
+}
+
+public class Classe {
+    public static void main(String[] args){
+        Arq.openRead("/tmp/pokemon.csv");
+        String line = null;
+        List<Pokemon> pokemons = new ArrayList<>();
+
+        while((line = Arq.readLine()) != null){
+            Pokemon p = new Pokemon();
+            p.ler(line);
+            pokemons.add(p);
+        }
+
+        Arq.close();
+
+        String str;
+        int id;
+
+        while(!(str = Arq.readLine()).equals("FIM")){
+            id = Integer.parseInt(str);
+            for(Pokemon p : pokemons){
+                if(id == p.getId()){
+                    MyIO.println("[#" + p.getId() + " -> " + p.getName() + ": " + p.getDescription() + " - " + p.getTypes()
+                    + " - " + p.getAbilities() + " - " + p.getWeight() + " - " + p.getHeight() + " - " + p.getCaptureRate()
+                    + " - " + p.getIsLegendary() + " - " + p.getGeneradion() + " gen] - " + p.getCaptureDate());
+                }
+            }  
+        }
+    }
 }
