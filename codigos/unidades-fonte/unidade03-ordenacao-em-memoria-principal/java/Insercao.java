@@ -4,7 +4,7 @@
  * @version 3 01/2020
  */
 
- class Insercao extends Geracao {
+class Insercao extends Geracao {
 
 	/**
 	 * Construtor.

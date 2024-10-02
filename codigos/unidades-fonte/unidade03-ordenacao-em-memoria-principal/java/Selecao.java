@@ -4,7 +4,7 @@
  * @version 3 08/2020
  */
 
- class Selecao extends Geracao {
+class Selecao extends Geracao {
 
 	/**
 	 * Construtor.
