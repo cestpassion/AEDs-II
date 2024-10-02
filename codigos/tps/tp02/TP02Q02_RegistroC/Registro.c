@@ -77,7 +77,7 @@ int main(){
     char str[4];
     int index;
 
-    /* while(scanf("%s", str) == 1 || strcmp(str, "FIM") != 0){
+    while(scanf("%s", str) == 1 || strcmp(str, "FIM") != 0){
         index = atoi(str);
         imprimir(index);
     }
@@ -85,7 +85,7 @@ int main(){
     // Liberar memória alocada
     free(pokemon);
     
-    return 0; */
+    return 0;
 }
 
 // Função ler --------------------------------------------------------------------------------
@@ -160,7 +160,7 @@ void ler(){
     fclose(file);
 }
 
-/* // Função imprimir ---------------------------------------------------------------------------
+// Função imprimir ---------------------------------------------------------------------------
 void imprimir(searchId){
     int index = get(searchId);
 
@@ -297,7 +297,7 @@ Pokemon clone(int searchId){
 
     save();
     totalPokemons++;
-} */
+}
 
 // Função para alocar string -----------------------------------------------------------------
 char* str(char *str){
@@ -310,7 +310,7 @@ char* str(char *str){
     return info;
 }
 
-/* // Função para encontrar o tamanho de um array de strings ------------------------------------
+// Função para encontrar o tamanho de um array de strings ------------------------------------
 int sizeStringsArray(char **array){
     int size = 0;
     
@@ -318,4 +318,4 @@ int sizeStringsArray(char **array){
         size++;
     
     return size;
-} */
+}
