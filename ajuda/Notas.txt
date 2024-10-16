@@ -1,16 +1,13 @@
-CAMINHO DO ARQUIVO: ~/Documentos/Notas.txt 
-
-se sobre escrever um arquivo não é possivel recuperar
-dropbox
 
 
 ------------------------------------ANOTAÇÕES----------------------------------
 - qsort em c
 - %*c no scanf de c
-- Full-Stack Developer, Java, TypeScript, .NET, SQL, Spring Framework, PHP,
-  Node.JS, React.JS, Next.JS
+- Full-Stack Developer
+- TypeScript, .NET, SQL, Spring Framework, PHP, Node.JS, React.JS, Next.JS
 - Maratona SBC de programação
-
+- se sobre escrever um arquivo não é possivel recuperar
+- dropbox
 
 --------------------------------------LINUX------------------------------------
 
@@ -124,22 +121,43 @@ Comandos do VIM:
 				   esquerda
 
 
-----------------------------------COMPILAÇÕES----------------------------------
+----------------------------------COMPILADORES----------------------------------
 
-C :
-	-  gcc -o nomeDoArquivo nomeDoArquivo.c
-        - ./nomeDoArquivo
-        - ./nomeDoArquivo < pub.in > pub.out
+C/C++ :
 
-C++ :
-	- g++ -o nomeDoArquivo nomeDoArquivo.cpp
-        - ./nomeDoArquivo
-        - ./nomeDoArquivo < pub.in > pub.out
+  - Download:
 
-Java :
-	- javac NomeDoArquivo.java
-        - java NomeDoArquivo
-        - java NomeDoArquivo < pub.in > pub.out
+     > Para instalar: 'sudo apt install build-essential'
+     > Para verificar a instalação:
+	* C: 'gcc --version'
+	* C++: 'g++ --version'
+
+  - Compilar:
+
+     > C:
+        * 'gcc -o nomeDoArquivo nomeDoArquivo.c'
+        * './nomeDoArquivo'
+        * './nomeDoArquivo < pub.in > pub.out'
+
+     > C++:
+	* 'g++ -o nomeDoArquivo nomeDoArquivo.cpp'
+        * './nomeDoArquivo'
+        * './nomeDoArquivo < pub.in > pub.out'
+
+JAVA :
+
+  - Download:
+
+     > Para instalar: 'sudo apt install openjdk-17-jdk'
+     > Para verificar a instalação:
+	* 'java -version'
+	* 'javac -version'
+
+  - Compilar:
+
+     > javac NomeDoArquivo.java
+     > java NomeDoArquivo
+     > java NomeDoArquivo < pub.in > pub.out
 
 
 ------------------------------DOCUMENTAÇÃO DO JAVA------------------------------
