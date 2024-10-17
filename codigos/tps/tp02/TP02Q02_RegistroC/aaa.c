@@ -32,8 +32,10 @@ int main() {
     char str[10];
     int index;
 
-    scanf("%s", str);
-    while (strcmp(str, "FIM") != 0) {
+    // Corrigir a condição de parada
+    while (1) {
+        scanf("%s", str);
+        if (strcmp(str, "FIM") == 0) break; // Se "FIM", sair do loop
         index = atoi(str);  // Converte a string lida em um número
         imprimir(index);    // Chama a função imprimir
     }
