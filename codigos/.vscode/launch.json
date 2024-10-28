@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "ListaAlocacaoSequencial",
+      "request": "launch",
+      "mainClass": "tps.tp03.TP03Q01_ListaAlocacaoSequencialJava.ListaAlocacaoSequencial",
+      "projectName": "codigos_b2e2816b"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

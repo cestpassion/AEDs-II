@@ -58,8 +58,8 @@ class Pokemon {
         this.generation = 0;
         this.name = null;
         this.description = null;
-        this.types = new ArrayList<>();;
-        this.abilities = new ArrayList<>();;
+        this.types = new ArrayList<>();
+        this.abilities = new ArrayList<>();
         this.weight = 0;
         this.height = 0;
         this.captureRate = 0;
@@ -142,7 +142,7 @@ class Pokemon {
         this.setTypes(listAttributes);
 
         // abilities
-        listAttributes = Arrays.asList(lineSplitted[1].split(","));;
+        listAttributes = Arrays.asList(lineSplitted[1].split(","));
 
         for(int i = 0; i < listAttributes.size(); i++)
             listAttributes.set(i, listAttributes.get(i).trim());
