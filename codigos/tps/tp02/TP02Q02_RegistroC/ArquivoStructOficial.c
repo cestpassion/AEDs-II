@@ -160,7 +160,6 @@ void salvarcolab() {
                 colab[i].email, colab[i].salario);
     }
     fclose(arquivo);
-
 }
 
 // 1) Cadastrar colaborador:
@@ -180,8 +179,7 @@ void cadastrarColab(char *nome, char *email, double salario) {
         printf("Limite de colab atingido.\n\n");
         
         pressioneEnter();
-    }
-    
+    } 
 }
 
 int criarcodigo(){

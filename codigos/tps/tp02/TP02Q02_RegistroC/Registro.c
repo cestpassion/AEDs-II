@@ -34,51 +34,50 @@ int main() {
 
     scanf("%s", str);
     while (strcmp(str, "FIM") != 0) {
-        index = atoi(str);  // Converte a string lida em um número
-        imprimir(index);    // Chama a função imprimir
+        index = atoi(str); 
+        imprimir(index);
     }
 
-    free(pokemon); // Liberação da memória alocada
+    free(pokemon);
 }
 
 void ler() {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("pokemon.csv", "r"); // /tmp/pokemon.csv
     if (!file) {
         printf("Erro ao abrir o arquivo!\n");
         return;
     }
 
     char buffer[1000];
-    fgets(buffer, sizeof(buffer), file);
 
+    fgets(buffer, sizeof(buffer), file);
     while (fscanf(file, "%d%*c %d%*c", &pokemon[totalPokemon].id, &pokemon[totalPokemon].generation) != EOF) { // id, generation
         fscanf(file, "%[^,]%*c", buffer); // name
         pokemon[totalPokemon].name = str(buffer);
         fscanf(file, "%[^,]%*c", buffer); // description
         pokemon[totalPokemon].description = str(buffer);
 
-        // Types
+        // types
         int cont = 0;
         char *pch;
 
-        fscanf(file, "%[^\"]%*c", buffer); // captura os tipos
-        pokemon[totalPokemon].types = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 tipos
+        fscanf(file, "%[^\"]%*c", buffer); 
+        pokemon[totalPokemon].types = (char*)malloc(2 * sizeof(char)); 
 
-        pch = strtok(buffer, ",");  // Primeira tokenização por vírgula
+        pch = strtok(buffer, ",");  
         while (pch != NULL) {
-            pokemon[totalPokemon].types[cont] = str(pch); // atribui o tipo tokenizado
+            pokemon[totalPokemon].types[cont] = str(pch); 
             cont++;
-            pokemon[totalPokemon].types = (char**)realloc(pokemon[totalPokemon].types, (cont + 1) * sizeof(char*)); // realoca para mais tipos
+            pokemon[totalPokemon].types = (char*)realloc(pokemon[totalPokemon].types, (cont + 1) * sizeof(char)); 
             pch = strtok(NULL, ",");
         }
-        pokemon[totalPokemon].types[cont] = NULL; // finaliza com NULL
+        pokemon[totalPokemon].types[cont] = NULL; 
 
-        // Abilities
-        
-        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer); // captura as habilidades
-        pokemon[totalPokemon].abilities = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 habilidades
+        // abilities 
+        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer); 
+        pokemon[totalPokemon].abilities = (char*)malloc(2 * sizeof(char)); 
 
-        pch = strtok(buffer, "'"); // Primeira tokenização por vírgula
+        pch = strtok(buffer, "'"); 
 
         pokemon[totalPokemon].abilities[0] = str(pch);
         pch = strtok(NULL, "'");
@@ -89,11 +88,11 @@ void ler() {
             pokemon[totalPokemon].abilities[cont] = str(pch);
 
             cont++;
-            pokemon[totalPokemon].abilities = (char**)realloc(pokemon[totalPokemon].abilities, (cont + 1) * sizeof(char*)); // realoca para mais habilidades
+            pokemon[totalPokemon].abilities = (char*)realloc(pokemon[totalPokemon].abilities, (cont + 1) * sizeof(char)); 
             pch = strtok(NULL, "'");
             pch = strtok(NULL, "'");
         }
-        pokemon[totalPokemon].abilities[cont] = NULL; // finaliza com NULL
+        pokemon[totalPokemon].abilities[cont] = NULL; 
 
         // weight
         cont = 0;
@@ -142,13 +141,13 @@ void ler() {
         pokemon[totalPokemon].date = str(buffer);
 
         totalPokemon++;
-        pokemon = (Pokemon*)realloc(pokemon, (totalPokemon + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
+        pokemon = (Pokemon*)realloc(pokemon, (totalPokemon + 1) * sizeof(Pokemon)); 
     }
     fclose(file);  
 }
 
 char* str(char *str) {
-    char *info = (char*)malloc((strlen(str) + 1) * sizeof(char));
+    char info = (char)malloc((strlen(str) + 1) * sizeof(char));
     strcpy(info, str);
     return info;
 }
