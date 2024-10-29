@@ -268,7 +268,7 @@ class Lista {
      */
     public void inserirInicio(Pokemon pokemon) throws Exception {
         if(n >= pokemonList.length){
-            throw new Exception("Erro! Contadior maior que o array." + n);
+            throw new Exception("Erro! Contador maior que o array.");
             
         }
 
@@ -277,6 +277,19 @@ class Lista {
             pokemonList[i] = pokemonList[i - 1];
 
         pokemonList[0] = pokemon;
+        n++;
+    }
+
+    /**
+     * Insere um registro na última posição da Lista.
+     *
+     * @param pokemon pokemon a ser inserido
+     */
+    public void inserirFim(Pokemon pokemon) throws Exception {
+        if(n >= pokemonList.length)
+            throw new Exception("Erro! Contador maior que o array.");
+        
+        pokemonList[n] = pokemon;
         n++;
     }
 
@@ -290,7 +303,7 @@ class Lista {
      */
     public void inserir(Pokemon pokemon, int pos) throws Exception {
         if(n >= pokemonList.length)
-            throw new Exception("Erro! Contadior maior que o array.");
+            throw new Exception("Erro! Contador maior que o array.");
         else if(pos < 0 || pos > n)
             throw new Exception("Erro! Posição inválida.");
         
@@ -299,19 +312,6 @@ class Lista {
             pokemonList[i] = pokemonList[i - 1];
 
         pokemonList[pos] = pokemon;
-        n++;
-    }
-
-    /**
-     * Insere um registro na última posição da Lista.
-     *
-     * @param pokemon pokemon a ser inserido
-     */
-    public void inserirFim(Pokemon pokemon) throws Exception {
-        if(n >= pokemonList.length)
-            throw new Exception("Erro! Contadior maior que o array.");
-        
-        pokemonList[n] = pokemon;
         n++;
     }
 
@@ -334,6 +334,18 @@ class Lista {
     }
 
     /**
+     * Remove e retorna o último registro cadastrado na lista.
+     *
+     * @return pokemon removido
+     */
+    Pokemon removerFim() throws Exception {
+        if(n == 0)
+            throw new Exception("Erro! Não há pokemons para remover.");
+        
+        return pokemonList[--n];
+    }
+
+    /**
      * Remove e retorna o registro cadastrado na p-ésima posição da Lista e remaneja os demais.
      *
      * @param pos posição onde na qual será removido o pokemon
@@ -352,26 +364,6 @@ class Lista {
             pokemonList[i] = pokemonList[i + 1];
 
         return removedPokemon;
-    }
-
-    /**
-     * Remove e retorna o último registro cadastrado na lista.
-     *
-     * @return pokemon removido
-     */
-    Pokemon removerFim() throws Exception {
-        if(n == 0)
-            throw new Exception("Erro! Não há pokemons para remover.");
-        
-        return pokemonList[--n];
-    }
-
-    public void mostrarId(int id){
-        for(int i = 0; i < n; ++i){    
-            if(id == pokemonList[i].getId()){
-                pokemonList[i].imprimir();
-            }
-        }
     }
 
     public void mostrar(){
@@ -412,15 +404,13 @@ public class ListaAlocacaoSequencial {
         String str;
         Lista pokemon = new Lista();
 
-        while(!(str = MyIO.readLine()).equals("FIM")){
-            pokemon.inserirFim(search(Integer.parseInt(str)));
-            //search(Integer.parseInt(str)).imprimir();     
-        }
+        while(!(str = MyIO.readLine()).equals("FIM"))
+            pokemon.inserirFim(search(Integer.parseInt(str)));  
 
-        int newPokemons = MyIO.readInt(); // quantidade de registros a serem inseridos/removidos
+        int operations = MyIO.readInt(); // quantidade de registros a serem inseridos/removidos
         int cont = 0;
 
-        while(cont < newPokemons){
+        while(cont < operations){
             str = MyIO.readLine();
 
             String[] subString = str.split(" ");

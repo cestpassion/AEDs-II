@@ -1,6 +1,7 @@
 
 
 ------------------------------------ANOTAÇÕES----------------------------------
+- `//TODO` - comentário em java - "to do" = para fazer
 - qsort em c
 - %*c no scanf de c
 - Full-Stack Developer
