@@ -155,11 +155,34 @@ int main() {
             printf("(R) %s", remover(atoi(subString[1])).name); 
         }
         cont++;
+        free(pch);
+        free(subString);
     }
     mostrar();
 
     // Liberação da memória alocada
+    free(pokemonStorage->name);
+    free(pokemonStorage->description);
+    for (int i = 0; pokemonStorage->types[i] != NULL; i++)
+        free(pokemonStorage->types[i]);
+    free(pokemonStorage->types);
+    for (int i = 0; pokemonStorage->abilities[i] != NULL; i++)
+        free(pokemonStorage->abilities[i]);
+    free(pokemonStorage->abilities);
+    free(pokemonStorage->isLegendary);
+    free(pokemonStorage->date);
     free(pokemonStorage); 
+    
+    free(pokemonList->name);
+    free(pokemonList->description);
+    for (int i = 0; pokemonList->types[i] != NULL; i++)
+        free(pokemonList->types[i]);
+    free(pokemonList->types);
+    for (int i = 0; pokemonList->abilities[i] != NULL; i++)
+        free(pokemonList->abilities[i]);
+    free(pokemonList->abilities);
+    free(pokemonList->isLegendary);
+    free(pokemonList->date);
     free(pokemonList);
 }
 
@@ -328,11 +351,11 @@ void imprimir(Pokemon pokemon) {
 // INSERIR:
 // Função para inserir no início da lista
 void inserirInicio(Pokemon pokemon) {
-    if (n >= tamPokemonList)
+    if(n >= tamPokemonList)
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 2) * sizeof(Pokemon));
 
     // Realoca os elementos para o fim do array
-    for (int i = n; i > 0; --i)
+    for(int i = n; i > 0; --i)
         pokemonList[i] = pokemonList[i - 1];
     
     pokemonList[0] = pokemon;
@@ -342,7 +365,7 @@ void inserirInicio(Pokemon pokemon) {
 
 // Função para inserir no fim da lista
 void inserirFim(Pokemon pokemon) {
-    if (n >= tamPokemonList)
+    if(n >= tamPokemonList)
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
     
     pokemonList[n] = pokemon;
@@ -352,14 +375,14 @@ void inserirFim(Pokemon pokemon) {
 
 // Função para inserir na p-ésima posição  da lista
 void inserir(Pokemon pokemon, int pos) {
-    if (n >= tamPokemonList)
+    if(n >= tamPokemonList)
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon)); else if(pos < 0 || pos > n){
         printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", n, pos);
         exit(1);
     }
 
     // Realoca os elementos para o fim do array
-    for (int i = n; i > pos; --i)
+    for(int i = n; i > pos; --i)
         pokemonList[i] = pokemonList[i - 1];
     
     pokemonList[pos] = pokemon;
@@ -370,7 +393,7 @@ void inserir(Pokemon pokemon, int pos) {
 // REMOVER:
 // Função para remover no início da lista
 Pokemon removerInicio() {
-    if (n == tamPokemonList){
+    if(n == tamPokemonList){
         printf("Erro! Não há pokemons para remover.");
         exit(1);
     }
@@ -378,7 +401,7 @@ Pokemon removerInicio() {
     Pokemon removedPokemon = pokemonList[0];
     n--;
     
-    for (int i = 0; i < n; ++i)
+    for(int i = 0; i < n; ++i)
         pokemonList[i] = pokemonList[i + 1];
     
     return removedPokemon;
@@ -386,7 +409,7 @@ Pokemon removerInicio() {
 
 // Função para remover no fim da lista
 Pokemon removerFim() {
-    if (n >= tamPokemonList){
+    if(n >= tamPokemonList){
         printf("Erro! Não há pokemons para remover.");
         exit(1);
     }
@@ -394,17 +417,21 @@ Pokemon removerFim() {
     return pokemonList[--n];
 }
 
-// Função para remover na p-ésima posição  da lista
+// Função para remover na p-ésima posição da lista
 Pokemon remover(int pos) {
-    if (n == tamPokemonList){
+    if(n == tamPokemonList){
         printf("Erro! Não há pokemons para remover.");
         exit(1);
     }
+    if(pos < 0 || pos > n){
+        printf("Erro! Posição inválida.");
+        exit(1);
+    }   
     
     Pokemon removedPokemon = pokemonList[pos];
     n--;
     
-    for (int i = pos; i < n; ++i)
+    for(int i = pos; i < n; ++i)
         pokemonList[i] = pokemonList[i + 1];
     
     return removedPokemon;

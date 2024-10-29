@@ -354,7 +354,7 @@ class Lista {
     Pokemon remover(int pos) throws Exception {
         if(n == 0)
             throw new Exception("Erro! Não há pokemons para remover.");
-        else if(pos < 0 || pos > n)
+        if(pos < 0 || pos > n)
             throw new Exception("Erro! Posição inválida.");
 
         Pokemon removedPokemon = pokemonList[pos];
