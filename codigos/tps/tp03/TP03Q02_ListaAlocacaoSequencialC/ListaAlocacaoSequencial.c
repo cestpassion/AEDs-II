@@ -154,7 +154,6 @@ int main() {
         }
         cont++;
         free(pch);
-        free(subString);
     }
     mostrar();
 
