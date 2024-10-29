@@ -119,20 +119,18 @@ int main() {
     int cont = 0;
     int infos;
     char *pch;
-    char **subString;
+    char subString[3][10];
     scanf("%d", &operations);
 
     while(cont < operations){
         infos = 0;
-        subString = (char**)malloc(1 * sizeof(char*));
 
         scanf("%s", input);    
 
         pch = strtok(input, " ");  // Primeira tokenização por vírgula
         while (pch != NULL) {
-            subString[infos] = str(pch); // atribui o tipo tokenizado
+            strcpy(subString[infos], pch); // atribui o tipo tokenizado
             cont++;
-            subString = (char**)realloc(subString, (infos + 1) * sizeof(char*)); // realoca para mais tipos
             pch = strtok(NULL, " ");
         }
 
@@ -351,8 +349,8 @@ void imprimir(Pokemon pokemon) {
 // INSERIR:
 // Função para inserir no início da lista
 void inserirInicio(Pokemon pokemon) {
-    if(n >= tamPokemonList)
-        pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 2) * sizeof(Pokemon));
+    if(n > tamPokemonList)
+        pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
 
     // Realoca os elementos para o fim do array
     for(int i = n; i > 0; --i)
@@ -365,7 +363,7 @@ void inserirInicio(Pokemon pokemon) {
 
 // Função para inserir no fim da lista
 void inserirFim(Pokemon pokemon) {
-    if(n >= tamPokemonList)
+    if(n > tamPokemonList)
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
     
     pokemonList[n] = pokemon;
@@ -375,7 +373,7 @@ void inserirFim(Pokemon pokemon) {
 
 // Função para inserir na p-ésima posição  da lista
 void inserir(Pokemon pokemon, int pos) {
-    if(n >= tamPokemonList)
+    if(n > tamPokemonList)
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon)); else if(pos < 0 || pos > n){
         printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", n, pos);
         exit(1);
