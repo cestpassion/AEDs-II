@@ -83,7 +83,7 @@ Pokemon *pokemonList;
 int n;
 
 // Potótipos das funções
-void start();
+//void start();
 void ler();
 char* str(char *);
 Pokemon searchIdStorage(int);
@@ -105,7 +105,10 @@ void mostrar();
 
 // FUNÇÃO PRINCIPAL
 int main() {
-    start();
+    //start();
+    pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
+    pokemonList = (Pokemon*)malloc(1 * sizeof(Pokemon));
+
     ler();
 
     char input[20];
@@ -184,14 +187,14 @@ int main() {
 }
 
 // Função para inicializar e alocar os atributos
-void start(){
+/* void start(){
     totalPokemonStorage = 0;
     tamPokemonList = 0;
     n = 0;
 
     pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
     pokemonList = (Pokemon*)malloc(1 * sizeof(Pokemon));
-}
+} */
 
 // Função para a leitura do csv
 void ler() {
