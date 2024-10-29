@@ -263,7 +263,7 @@ class Lista {
      *
      * @param pokemon pokemon a ser inserido
      */
-    void inserirInicio(Pokemon pokemon) throws Exception {
+    public void inserirInicio(Pokemon pokemon) throws Exception {
         if(n >= pokemonList.length){
             throw new Exception("Erro! Contadior maior que o array." + n);
             
@@ -285,7 +285,7 @@ class Lista {
      * @param pokemon pokemon a ser inserido
      * @param pos posição em que o pokemon será inserido
      */
-    void inserir(Pokemon pokemon, int pos) throws Exception {
+    public void inserir(Pokemon pokemon, int pos) throws Exception {
         if(n >= pokemonList.length)
             throw new Exception("Erro! Contadior maior que o array.");
         else if(pos < 0 || pos > n)
@@ -304,7 +304,7 @@ class Lista {
      *
      * @param pokemon pokemon a ser inserido
      */
-    void inserirFim(Pokemon pokemon) throws Exception {
+    public void inserirFim(Pokemon pokemon) throws Exception {
         if(n >= pokemonList.length)
             throw new Exception("Erro! Contadior maior que o array.");
         
@@ -363,7 +363,7 @@ class Lista {
         return pokemonList[--n];
     }
 
-    void mostrarId(int id){
+    public void mostrarId(int id){
         for(int i = 0; i < n; ++i){    
             if(id == pokemonList[i].getId()){
                 pokemonList[i].imprimir();
@@ -371,7 +371,7 @@ class Lista {
         }
     }
 
-    void mostrar(){
+    public void mostrar(){
         for(int i = 0; i < n; ++i){
             System.out.print("[" + i + "] ");
             pokemonList[i].imprimir();
@@ -381,30 +381,29 @@ class Lista {
 
 public class ListaAlocacaoSequencial {
     public static void main(String[] args){
-        Arq.openRead("/tmp/pokemon.csv"); // verde.icei.pucminas.br/tmp/pokemon.csv
+        Arq.openRead("pokemon.csv"); // verde.icei.pucminas.br/tmp/pokemon.csv
         String line = null;
-        Lista pokemon = new Lista();
-        
+        List<Pokemon> pokemonStorage = new ArrayList<>();
+
         Arq.readLine(); // Lê a primeira linha
         while(Arq.hasNext()){
             line = Arq.readLine();
             Pokemon p = new Pokemon();
             p.ler(line);
-            try {
-                pokemon.inserirFim(p);
-            } catch (Exception e) {
-                System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-            }
+            pokemonStorage.add(p);
         }
         Arq.close();
-
         String str;
         int id;
+        Lista pokemon = new Lista();
 
-        // Pesquisar pokemon por id
         while(!(str = MyIO.readLine()).equals("FIM")){
             id = Integer.parseInt(str);
-            pokemon.mostrarId(id);
+            for(Pokemon p : pokemonStorage){
+                if(id == p.getId()){
+                    pokemon.inserirFim(p.clone());
+                }
+            }
         }
 
         int newPokemons = MyIO.readInt(); // quantidade de registros a serem inseridos/removidos
@@ -415,38 +414,22 @@ public class ListaAlocacaoSequencial {
             str = MyIO.readLine();
 
             String[] subString = str.split(" ");
+            
+            if(subString[0].equals("II")){
+                try {
+                    pokemon.inserirInicio(p);
+                } catch (Exception e) {
+                    System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
+                }
+            }
+            else if ()subString[0].equals("IF"){
+                try {
+                    pokemon.inserirFim(p);
+                } catch (Exception e) {
+                    System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
+                }
+            }
 
-            if(subString[0].equals("II") || subString[0].equals("IF")){
-                Arq.openRead("/tmp/" + subString[1] + ".csv");
-                
-                Arq.readLine(); // Lê a primeira linha
-                while(Arq.hasNext()){
-                    line = Arq.readLine();
-                    Pokemon p = new Pokemon();
-                    p.ler(line);
-
-                    try {
-                        cadastros.inserirFim(p);
-                    } catch (Exception e) {
-                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                    }
-                    
-                    if(str.equals("II")){
-                        try {
-                            pokemon.inserirInicio(p);
-                        } catch (Exception e) {
-                            System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                        }
-                    }
-                    else{
-                        try {
-                            pokemon.inserirFim(p);
-                        } catch (Exception e) {
-                            System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                        }
-                    }
-                }          
-                Arq.close();
             }
             else if(subString[0].equals("I*")){
                 Arq.openRead("/tmp/" + subString[2] + ".csv");
@@ -456,12 +439,6 @@ public class ListaAlocacaoSequencial {
                     line = Arq.readLine();
                     Pokemon p = new Pokemon();
                     p.ler(line);
-                    
-                    try {
-                        cadastros.inserirFim(p);
-                    } catch (Exception e) {
-                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                    }
 
                     try {
                         pokemon.inserir(p, Integer.parseInt(subString[1]));
@@ -492,6 +469,6 @@ public class ListaAlocacaoSequencial {
             }
             cont++;
         }
-        cadastros.mostrar();
+        pokemon.mostrar();
     }
 }
