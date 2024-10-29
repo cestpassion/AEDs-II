@@ -414,22 +414,25 @@ public class ListaAlocacaoSequencial {
             str = MyIO.readLine();
 
             String[] subString = str.split(" ");
-            
-            if(subString[0].equals("II")){
-                try {
-                    pokemon.inserirInicio(p);
-                } catch (Exception e) {
-                    System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                }
-            }
-            else if ()subString[0].equals("IF"){
-                try {
-                    pokemon.inserirFim(p);
-                } catch (Exception e) {
-                    System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                }
-            }
 
+            if(subString[0].equals("II") || subString[0].equals("IF"))
+                
+                if(subString[0].equals("II")){
+                    try {
+                        pokemon.inserirInicio(p);
+                    } catch (Exception e) {
+                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
+                    }
+                }
+                else{
+                    try {
+                        pokemon.inserirFim(p);
+                    } catch (Exception e) {
+                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
+                    }
+                }
+                        
+                Arq.close();
             }
             else if(subString[0].equals("I*")){
                 Arq.openRead("/tmp/" + subString[2] + ".csv");
