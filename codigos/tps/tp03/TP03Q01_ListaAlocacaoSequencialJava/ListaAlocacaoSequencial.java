@@ -49,6 +49,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 class Pokemon {
     // Atributos
@@ -380,95 +383,75 @@ class Lista {
 }
 
 public class ListaAlocacaoSequencial {
-    public static void main(String[] args){
-        Arq.openRead("pokemon.csv"); // verde.icei.pucminas.br/tmp/pokemon.csv
-        String line = null;
-        List<Pokemon> pokemonStorage = new ArrayList<>();
+    public static List<Pokemon> pokemonStorage;
 
-        Arq.readLine(); // Lê a primeira linha
-        while(Arq.hasNext()){
-            line = Arq.readLine();
-            Pokemon p = new Pokemon();
-            p.ler(line);
-            pokemonStorage.add(p);
+    public static Pokemon search(int id){
+        for(Pokemon p : pokemonStorage){
+            if(id == p.getId()){
+                return p;
+            }
         }
-        Arq.close();
+        return null;
+    }
+
+    public static void main(String[] args) throws NumberFormatException, Exception{
+        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+            String line;
+            pokemonStorage = new ArrayList<>();
+
+            br.readLine(); // Lê a primeira linha (cabeçalho)
+            while ((line = br.readLine()) != null) {
+                Pokemon p = new Pokemon();
+                p.ler(line);
+                pokemonStorage.add(p);
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+
         String str;
-        int id;
         Lista pokemon = new Lista();
 
         while(!(str = MyIO.readLine()).equals("FIM")){
-            id = Integer.parseInt(str);
-            for(Pokemon p : pokemonStorage){
-                if(id == p.getId()){
-                    pokemon.inserirFim(p.clone());
-                }
-            }
+            pokemon.inserirFim(search(Integer.parseInt(str)));
+            //search(Integer.parseInt(str)).imprimir();     
         }
 
         int newPokemons = MyIO.readInt(); // quantidade de registros a serem inseridos/removidos
         int cont = 0;
-        Lista cadastros = new Lista();
 
         while(cont < newPokemons){
             str = MyIO.readLine();
 
             String[] subString = str.split(" ");
 
-            if(subString[0].equals("II") || subString[0].equals("IF"))
-                
-                if(subString[0].equals("II")){
-                    try {
-                        pokemon.inserirInicio(p);
-                    } catch (Exception e) {
-                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                    }
-                }
-                else{
-                    try {
-                        pokemon.inserirFim(p);
-                    } catch (Exception e) {
-                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                    }
-                }
-                        
-                Arq.close();
-            }
-            else if(subString[0].equals("I*")){
-                Arq.openRead("/tmp/" + subString[2] + ".csv");
+            switch (subString[0]) {
+                case "II":
+                    pokemon.inserirInicio(search(Integer.parseInt(subString[1])));
+                    break;
 
-                Arq.readLine(); // Lê a primeira linha
-                while(Arq.hasNext()){
-                    line = Arq.readLine();
-                    Pokemon p = new Pokemon();
-                    p.ler(line);
+                case "IF":
+                    pokemon.inserirFim(search(Integer.parseInt(subString[1])));
+                    break;
 
-                    try {
-                        pokemon.inserir(p, Integer.parseInt(subString[1]));
-                    } catch (Exception e) {
-                        System.err.println("Erro ao inserir Pokémon: " + e.getMessage());
-                    }
-                }  
-                Arq.close();        
-            }
-            else if(subString[0].equals("RI")){
-                try {
+                case "I*":
+                    pokemon.inserir(search(Integer.parseInt(subString[2])), Integer.parseInt(subString[1]));
+                    break;
+
+                case "RI":
                     System.out.println("(R) " + pokemon.removerInicio().getName());
-                } catch (Exception e) {
-                    System.err.println("Erro ao remover Pokémon do início: " + e.getMessage());
-                }
-            } else if(subString[0].equals("RF")){
-                try {
+                    break;
+
+                case "RF":
                     System.out.println("(R) " + pokemon.removerFim().getName());
-                } catch (Exception e) {
-                    System.err.println("Erro ao remover Pokémon do fim: " + e.getMessage());
-                }
-            } else if(subString[0].equals("R*")){
-                try {
+                    break;
+
+                case "R*":
                     System.out.println("(R) " + pokemon.remover(Integer.parseInt(subString[1])).getName());
-                } catch (Exception e) {
-                    System.err.println("Erro ao remover Pokémon da posição " + subString[1] + ": " + e.getMessage());
-                }
+                    break;
+
+                default:
+                    break;
             }
             cont++;
         }
