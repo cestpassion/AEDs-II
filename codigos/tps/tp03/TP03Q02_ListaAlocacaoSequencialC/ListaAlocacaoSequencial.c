@@ -132,7 +132,7 @@ int main() {
         while (pch != NULL) {
             subString[infos] = str(pch); // atribui o tipo tokenizado
             cont++;
-            subString = (char**)realloc(subString, (cont + 1) * sizeof(char*)); // realoca para mais tipos
+            subString = (char**)realloc(subString, (infos + 1) * sizeof(char*)); // realoca para mais tipos
             pch = strtok(NULL, " ");
         }
 
