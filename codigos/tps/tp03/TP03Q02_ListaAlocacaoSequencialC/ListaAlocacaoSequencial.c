@@ -1,14 +1,14 @@
 /*
-Lista com Alocação Sequencial em C
+Fila Circular com Alocação Sequencial em C
 
 author: Bruna Furtado da Fonseca
 version: 2024-07-16
 */
 
 /*
-Crie uma Lista de registros baseada na de inteiros vista na sala de aula. Sua lista deve conter todos os atributos e
-métodos existentes na lista de inteiros, contudo, adaptados para a classe Pokémon. Lembre-se que, na verdade, temos uma
-lista de ponteiros (ou referências) e cada um deles aponta para um registo.
+Crie uma Lista de registros baseada na de inteiros vista na sala de aula.
+Sua lista deve conter todos os atributos e métodos existentes na lista de inteiros, contudo, adaptados para a classe
+Pokémon. Lembre-se que, na verdade, temos uma lista de ponteiros (ou referências) e cada um deles aponta para um registo.
 
 Neste exercício, faremos inserções, remoções e mostraremos os elementos de nossa lista. Os métodos de inserir e remover
 devem operar conforme descrito a seguir, respeitando parâmetros e retornos:
@@ -27,12 +27,12 @@ A entrada padrão é composta por duas partes:
     inseridos/removidos.
   > Nas próximas n linhas, tem-se n comandos de inserção/remoção a serem processados neste exercício. Cada uma dessas
     linhas tem uma palavra de comando: 
-    - II inserir no início,
-    - I* inserir em qualquer posição,
-    - IF inserir no fim,
-    - RI remover no início,
-    - R* remover em qualquer posição e
-    - RF remover no fim.
+    • II inserir no início,
+    • I* inserir em qualquer posição,
+    • IF inserir no fim,
+    • RI remover no início,
+    • R* remover em qualquer posição e
+    • RF remover no fim.
 
 No caso dos comandos de inserir, temos também o nome do arquivo que contém o registro a ser inserido.
 No caso dos comandos de “em qualquer posição”, temos também esse nome. 
@@ -45,9 +45,25 @@ remoção.
 */
 
 /*
-AÇÕES A FAZER:
+INFO: 
 
-- void mostrar();
+- As listas são um Tipo Abstrato de Dados (TAD) no qual podemos inserir e remover elementos em qualquer posição
+
+- Variáveis:
+    > array (de elementos)
+    > n (contador)
+
+- Métodos:
+    > Construtores
+    > Inserção de elemento
+        • void inserirInicio(elemento)
+        • void inserirFim(elemento)
+        • void inserir(elemento, posição)
+    > Remoção de elementos
+        • elemento removerInicio()
+        • elemento removerFim()
+        • elemento remover(posição)
+    > Mostrar, pesquisar, ordenar, ...
 */
 
 // -----------------------------
@@ -110,36 +126,8 @@ int main() {
 
     char input[50];
 
-/*     // Usar fgets para ler a entrada
-    while (fgets(input, 19, stdin) != NULL) {
-        input[strcspn(input, "\n")] = '\0';  // Remove o '\n' no final de cada linha
-        if (strcmp(input, "FIM") == 0) {
-            break;
-        }
-        inserirFim(searchIdStorage(atoi(input))); 
-    } */
-
-/*    int puts = 0;
-
-    fgets(input, 19, stdin);
-    input[strcspn(input, "\r\n")] = '\0';   
-
-    while (strcmp(input, "FIM") != 0){
-        printf("\n%d\n",atoi(input));
-        //printf("%s\n",input);
-        inserirFim(searchIdStorage(atoi(input))); 
-        fgets(input, 19, stdin);
-        input[strcspn(input, "\r\n")] = '\0';
-
-        puts++;
-        if(puts == 34){
-            return 1;
-        }
-    } */
-
     scanf("%s", input);
-
-    while (strcmp(input, "FIM") != 0){
+    while(strcmp(input, "FIM") != 0){
         inserirFim(searchIdStorage(atoi(input))); 
         scanf("%s", input);
     }
@@ -325,11 +313,12 @@ Pokemon searchIdStorage(int id){
         }
     }
     printf("Pokemon com o id = %d não encontrado no armazenamento\n", id);
+    exit(1);
 }
 
 // Função para imprimir os pokemons
 void imprimir(Pokemon pokemon) {
-    printf("[#%d -> %s: %s ", pokemon.id, pokemon.name, pokemon.description);
+    printf("[#%d -> %s: %s - ", pokemon.id, pokemon.name, pokemon.description);
 
     // Types
     int cont = 0;
@@ -358,8 +347,15 @@ void imprimir(Pokemon pokemon) {
 // INSERIR:
 // Função para inserir no início da lista
 void inserirInicio(Pokemon pokemon) {
-    if(n > tamPokemonList)
+    if(n >= tamPokemonList){
+        tamPokemonList++;
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
+        if (!pokemonList) {
+            printf("Erro de memória na realocação\n");
+            tamPokemonList--;
+            exit(1);
+        }
+    }
 
     // Realoca os elementos para o fim do array
     for(int i = n; i > 0; --i)
@@ -367,23 +363,36 @@ void inserirInicio(Pokemon pokemon) {
     
     pokemonList[0] = pokemon;
     n++;
-    tamPokemonList++;
 }
 
 // Função para inserir no fim da lista
 void inserirFim(Pokemon pokemon) {
-    if(n > tamPokemonList)
+    if(n >= tamPokemonList){
+        tamPokemonList++;
         pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
+        if (!pokemonList) {
+            printf("Erro de memória na realocação\n");
+            tamPokemonList--;
+            exit(1);
+        }
+    }
     
     pokemonList[n] = pokemon;
     n++;
-    tamPokemonList++;
 }
 
 // Função para inserir na p-ésima posição  da lista
 void inserir(Pokemon pokemon, int pos) {
-    if(n > tamPokemonList)
-        pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon)); else if(pos < 0 || pos > n){
+    if(n >= tamPokemonList){
+        tamPokemonList++;
+        pokemonList = (Pokemon*)realloc(pokemonList, (tamPokemonList + 1) * sizeof(Pokemon));
+        if (!pokemonList) {
+            printf("Erro de memória na realocação\n");
+            tamPokemonList--;
+            exit(1);
+        }
+    }
+    if(pos < 0 || pos > n){
         printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", n, pos);
         exit(1);
     }

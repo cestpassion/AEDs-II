@@ -26,12 +26,12 @@
  *     inseridos/removidos.
  *   > Nas próximas n linhas, tem-se n comandos de inserção/remoção a serem processados neste exercício. Cada uma dessas
  *     linhas tem uma palavra de comando: 
- *     - II inserir no início,
- *     - I* inserir em qualquer posição,
- *     - IF inserir no fim,
- *     - RI remover no início,
- *     - R* remover em qualquer posição e
- *     - RF remover no fim.
+ *     • II inserir no início,
+ *     • I* inserir em qualquer posição,
+ *     • IF inserir no fim,
+ *     • RI remover no início,
+ *     • R* remover em qualquer posição e
+ *     • RF remover no fim.
  * 
  * No caso dos comandos de inserir, temos também o nome do arquivo que contém o registro a ser inserido.
  * No caso dos comandos de “em qualquer posição”, temos também esse nome. 
@@ -41,6 +41,28 @@
  * o atributo name.
  * No final, a saída mostra os atributos relativos a cada registro cadastrado na lista após as operações de inserção e
  * remoção.
+ */
+
+/*
+ * INFO: 
+ * 
+ * - As listas são um Tipo Abstrato de Dados (TAD) no qual podemos inserir e remover elementos em qualquer posição
+ *
+ * - Variáveis:
+ *     > array (de elementos)
+ *     > n (contador)
+ *  
+ *  - Métodos:
+ *      > Construtores
+ *      > Inserção de elemento
+ *          • void inserirInicio(elemento)
+ *          • void inserirFim(elemento)
+ *          • void inserir(elemento, posição)
+ *      > Remoção de elementos
+ *          • elemento removerInicio()
+ *          • elemento removerFim()
+ *          • elemento remover(posição)
+ *      > Mostrar, pesquisar, ordenar, ...
  */
 
 import java.util.Date;
