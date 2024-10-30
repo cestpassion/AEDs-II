@@ -83,7 +83,7 @@ Pokemon *pokemonList;
 int n;
 
 // Potótipos das funções
-//void start();
+void start();
 void ler();
 char* str(char *);
 Pokemon searchIdStorage(int);
@@ -105,36 +105,65 @@ void mostrar();
 
 // FUNÇÃO PRINCIPAL
 int main() {
-    //start();
-    pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
-    pokemonList = (Pokemon*)malloc(1 * sizeof(Pokemon));
-
+    start();
     ler();
 
-    char input[20];
+    char input[50];
+
+/*     // Usar fgets para ler a entrada
+    while (fgets(input, 19, stdin) != NULL) {
+        input[strcspn(input, "\n")] = '\0';  // Remove o '\n' no final de cada linha
+        if (strcmp(input, "FIM") == 0) {
+            break;
+        }
+        inserirFim(searchIdStorage(atoi(input))); 
+    } */
+
+/*    int puts = 0;
+
+    fgets(input, 19, stdin);
+    input[strcspn(input, "\r\n")] = '\0';   
+
+    while (strcmp(input, "FIM") != 0){
+        printf("\n%d\n",atoi(input));
+        //printf("%s\n",input);
+        inserirFim(searchIdStorage(atoi(input))); 
+        fgets(input, 19, stdin);
+        input[strcspn(input, "\r\n")] = '\0';
+
+        puts++;
+        if(puts == 34){
+            return 1;
+        }
+    } */
 
     scanf("%s", input);
 
-    while (strcmp(input, "FIM") != 0)
+    while (strcmp(input, "FIM") != 0){
         inserirFim(searchIdStorage(atoi(input))); 
+        scanf("%s", input);
+    }
 
     int operations; // quantidade de registros a serem inseridos/removidos
     int cont = 0;
-    int infos;
+    int infos = 0;
     char *pch;
     char subString[3][10];
+
     scanf("%d", &operations);
+    getchar();
 
     while(cont < operations){
         infos = 0;
 
-        scanf("%s", input);    
+        scanf("%[^\n]", input);
+        getchar();
 
-        pch = strtok(input, " ");  // Primeira tokenização por vírgula
+        pch = strtok(input, " ");
         while (pch != NULL) {
             strcpy(subString[infos], pch); // atribui o tipo tokenizado
-            cont++;
             pch = strtok(NULL, " ");
+            infos++;
         }
 
         if(strcmp(subString[0], "II") == 0){
@@ -147,54 +176,32 @@ int main() {
             inserir(searchIdStorage(atoi(subString[2])), atoi(subString[1]));            
         }
         else if(strcmp(subString[0], "RI") == 0){
-            printf("(R) %s", removerInicio().name);   
+            printf("(R) %s\n", removerInicio().name);   
         }
         else if(strcmp(subString[0], "RF") == 0){
-            printf("(R) %s", removerFim().name); 
+            printf("(R) %s\n", removerFim().name); 
         }
         else if(strcmp(subString[0], "R*") == 0){
-            printf("(R) %s", remover(atoi(subString[1])).name); 
+            printf("(R) %s\n", remover(atoi(subString[1])).name); 
         }
         cont++;
-        free(pch);
     }
     mostrar();
 
     // Liberação da memória alocada
-    free(pokemonStorage->name);
-    free(pokemonStorage->description);
-    for (int i = 0; pokemonStorage->types[i] != NULL; i++)
-        free(pokemonStorage->types[i]);
-    free(pokemonStorage->types);
-    for (int i = 0; pokemonStorage->abilities[i] != NULL; i++)
-        free(pokemonStorage->abilities[i]);
-    free(pokemonStorage->abilities);
-    free(pokemonStorage->isLegendary);
-    free(pokemonStorage->date);
-    free(pokemonStorage); 
-    
-    free(pokemonList->name);
-    free(pokemonList->description);
-    for (int i = 0; pokemonList->types[i] != NULL; i++)
-        free(pokemonList->types[i]);
-    free(pokemonList->types);
-    for (int i = 0; pokemonList->abilities[i] != NULL; i++)
-        free(pokemonList->abilities[i]);
-    free(pokemonList->abilities);
-    free(pokemonList->isLegendary);
-    free(pokemonList->date);
+    free(pokemonStorage);   
     free(pokemonList);
 }
 
 // Função para inicializar e alocar os atributos
-/* void start(){
+void start(){
     totalPokemonStorage = 0;
     tamPokemonList = 0;
     n = 0;
 
     pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
     pokemonList = (Pokemon*)malloc(1 * sizeof(Pokemon));
-} */
+}
 
 // Função para a leitura do csv
 void ler() {
@@ -317,7 +324,7 @@ Pokemon searchIdStorage(int id){
             return pokemonStorage[i];
         }
     }
-    printf("Pokemon com o id = %d não encontrado no armazenamento", id);
+    printf("Pokemon com o id = %d não encontrado no armazenamento\n", id);
 }
 
 // Função para imprimir os pokemons
@@ -393,8 +400,8 @@ void inserir(Pokemon pokemon, int pos) {
 // REMOVER:
 // Função para remover no início da lista
 Pokemon removerInicio() {
-    if(n == tamPokemonList){
-        printf("Erro! Não há pokemons para remover.");
+    if(n == 0){
+        printf("Erro! Não há pokemons para remover.\n");
         exit(1);
     }
     
@@ -409,8 +416,8 @@ Pokemon removerInicio() {
 
 // Função para remover no fim da lista
 Pokemon removerFim() {
-    if(n >= tamPokemonList){
-        printf("Erro! Não há pokemons para remover.");
+    if(n == 0){
+        printf("Erro! Não há pokemons para remover.\n");
         exit(1);
     }
 
@@ -419,12 +426,12 @@ Pokemon removerFim() {
 
 // Função para remover na p-ésima posição da lista
 Pokemon remover(int pos) {
-    if(n == tamPokemonList){
-        printf("Erro! Não há pokemons para remover.");
+    if(n == 0){
+        printf("Erro! Não há pokemons para remover.\n");
         exit(1);
     }
     if(pos < 0 || pos > n){
-        printf("Erro! Posição inválida.");
+        printf("Erro! Posição inválida.\n");
         exit(1);
     }   
     
