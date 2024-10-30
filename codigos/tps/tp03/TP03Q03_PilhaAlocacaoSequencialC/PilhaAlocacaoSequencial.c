@@ -2,7 +2,7 @@
 Pilha com Alocação Sequencial em C
 
 author: Bruna Furtado da Fonseca
-version: 2024-07-16
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 /*
