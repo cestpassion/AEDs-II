@@ -79,6 +79,7 @@ void imprimir(Pokemon);                       // Função para imprimir os pokem
 // Potótipos das funções - Lista Flexível
 void inserirInicio(FlexList *, Pokemon); // Função para inserir no início da Lista Flexível
 void inserirFim(FlexList *, Pokemon);    // Função para inserir no fim da Lista Flexível
+int sizeFlexList(FlexList);
 void inserir(FlexList *, Pokemon, int);  // Função para inserir na p-ésima posição  da Lista Flexível
 Pokemon removerInicio(FlexList *);       // Função para remover no início da Lista Flexível
 Pokemon removerFim(FlexList *);          // Função para remover no fim da Lista Flexível
@@ -179,7 +180,7 @@ void start(PokemonStorage *storage, FlexList *list)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("/tmp/pokemon.csv", "r");
+    FILE *file = fopen("pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -379,8 +380,7 @@ void inserirFim(FlexList *list, Pokemon pokemon)
 int sizeFlexList(FlexList list)
 {
     int size = 0;
-    Celula *i;
-    for (i = list.primeiro; i != list.ultimo; i = i->prox, size++);
+    for (Celula *i = list.primeiro; i != list.ultimo; i = i->prox, size++);
 
     return size;
 }
@@ -391,18 +391,18 @@ void inserir(FlexList *list, Pokemon pokemon, int pos)
     int size = sizeFlexList(*list); /* O ponteiro (*) na chamada da função serve para desreferenciar
                                     o ponteiro list, convertendo-o de um ponteiro para uma estrutura
                                     FlexList em uma estrutura FlexList direta. */
-    if (pos < 0 || pos > size)
+    if (pos < 0 || pos >= size)
     {
         printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", size, pos);
         exit(1);
     }
     else if (pos == 0)
     {
-        inserirInicio(&list, pokemon);
+        inserirInicio(list, pokemon);
     }
     else if (pos == size)
     {
-        inserirFim(&list, pokemon);
+        inserirFim(list, pokemon);
     }
     else
     {
@@ -431,8 +431,6 @@ Pokemon removerInicio(FlexList *list)
     Celula *tmp = list->primeiro;
     list->primeiro = list->primeiro->prox;
     Pokemon removedPokemon = list->primeiro->pokemon;
-
-    tmp->prox = NULL;
     free(tmp);
 
     return removedPokemon;
@@ -448,37 +446,53 @@ Pokemon removerFim(FlexList *list)
     }
 
     Celula *i;
-    for(i = list->primeiro; i->prox != list->ultimo; i = i->prox);
+    for (i = list->primeiro; i->prox != list->ultimo; i = i->prox);
     
     Pokemon removedPokemon = list->ultimo->pokemon;
     list->ultimo = i;
+    i = list->ultimo->prox = NULL;  
 
-    free(list->ultimo->prox);
-    i = list->ultimo->prox = NULL;
-
-    
+    return removedPokemon;
 }
 
 // Função para remover na p-ésima posição da Lista Flexível
 Pokemon remover(FlexList *list, int pos)
 {
-    if (list->n == 0)
+    int size = sizeFlexList(*list);
+    Pokemon removedPokemon;
+
+    if (list->primeiro == list->ultimo)
     {
         printf("Erro! Não há pokemons para remover.\n");
         exit(1);
     }
-    if (pos < 0 || pos > list->n)
+    else if (pos < 0 || pos >= size)
     {
-        printf("Erro! Posição inválida.\n");
+        printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", size, pos);
         exit(1);
     }
+    else if (pos == 0)
+    {
+        removedPokemon = removerInicio(list);
+    }
+    else if (pos == size - 1)
+    {
+        removedPokemon = removerFim(list);
+    }
+    else
+    {
+        // Caminhar ate a posicao anterior a insercao
+        Celula *i = list->primeiro;
+        int j;
+        for (j = 0; j < pos; j++, i = i->prox);
 
-    Pokemon removedPokemon = list->pokemonFlexList[pos];
-    list->n--;
+        Celula *tmp = i->prox;
+        removedPokemon = tmp->pokemon;
+        i->prox = tmp->prox;
 
-    for (int i = pos; i < list->n; ++i)
-        list->pokemonFlexList[i] = list->pokemonFlexList[i + 1];
-
+        tmp->prox = NULL;
+        i = tmp = NULL;
+    }
     return removedPokemon;
 }
 
@@ -486,10 +500,13 @@ Pokemon remover(FlexList *list, int pos)
 // Função para imprimir os pokemon presentes na Lista Flexível
 void mostrar(FlexList list)
 {
-    for (int i = 0; i < list.n; ++i)
+    int size = sizeFlexList(list);
+    Celula *i = list.primeiro;
+
+    for (int j = 0; j < size; j++, i = i->prox)
     {
-        printf("[%d] ", i);
-        imprimir(list.pokemonFlexList[i]);
+        printf("[%d] ", j);
+        imprimir(i->pokemon);
     }
 }
 
