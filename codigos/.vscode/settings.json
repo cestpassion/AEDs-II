@@ -60,6 +60,7 @@
     "string.h": "c",
     "stdio.h": "c",
     "stdbool.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "sss": "cpp"
   }
 }

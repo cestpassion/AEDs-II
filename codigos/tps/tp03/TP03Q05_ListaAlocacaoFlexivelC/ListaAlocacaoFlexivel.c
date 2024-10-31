@@ -180,7 +180,7 @@ void start(PokemonStorage *storage, FlexList *list)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("/tmp/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -500,15 +500,14 @@ Pokemon remover(FlexList *list, int pos)
 // Função para imprimir os pokemon presentes na Lista Flexível
 void mostrar(FlexList list)
 {
-    int size = sizeFlexList(list);
-    Celula *i = list.primeiro;
-
-    for (int j = 0; j < size; j++, i = i->prox)
+    int index = 0;
+    for (Celula *i = list.primeiro->prox; i != NULL; i = i->prox)
     {
-        printf("[%d] ", j);
+        printf("[%d] ", index++);
         imprimir(i->pokemon);
     }
 }
+
 
 // -----------------------------
 // LISTA FLEXÍVEL: Fim
