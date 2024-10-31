@@ -5,7 +5,7 @@
  */
 
 /*
- * 
+ * Refaça a questão 8 deste TP na linguagem Java. O nome do arquivo de log será matrícula_quicksort3.txt.
  */
 
 /*

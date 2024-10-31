@@ -5,7 +5,7 @@
  */
 
 /*
- * 
+ * Refaça a questão 6 deste TP
  */
 
 /*

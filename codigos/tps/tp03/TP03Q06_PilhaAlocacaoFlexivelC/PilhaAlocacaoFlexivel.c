@@ -6,7 +6,7 @@ version: Ubuntu 13.2.0-23ubuntu4
 */
 
 /*
-
+Refazer a Questão 3 “Pilha com Alocação Sequencial".
 */
 
 /*
