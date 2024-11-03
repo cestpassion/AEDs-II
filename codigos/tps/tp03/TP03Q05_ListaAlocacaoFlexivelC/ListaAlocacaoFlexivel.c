@@ -180,7 +180,7 @@ void start(PokemonStorage *storage, FlexList *list)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("/tmp/pokemon.csv", "r");
+    FILE *file = fopen("pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");

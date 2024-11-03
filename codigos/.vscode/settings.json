@@ -61,6 +61,7 @@
     "stdio.h": "c",
     "stdbool.h": "c",
     "stdlib.h": "c",
-    "sss": "cpp"
+    "sss": "cpp",
+    "typeinfo": "c"
   }
 }
