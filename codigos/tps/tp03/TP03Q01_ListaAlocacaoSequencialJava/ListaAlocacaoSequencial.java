@@ -74,6 +74,7 @@ import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 class Pokemon {
     // Atributos
@@ -90,7 +91,7 @@ class Pokemon {
     private Date captureDate;
 
     // Contrutor 1
-    public Pokemon(){
+    public Pokemon() {
         this.id = 0;
         this.generation = 0;
         this.name = null;
@@ -106,7 +107,7 @@ class Pokemon {
 
     // Contrutor 2
     public Pokemon(int id, int generation, String name, String description, List<String> types, List<String> abilities,
-                    double weight, double height, int captureRate, boolean isLegendary, Date captureDate){
+            double weight, double height, int captureRate, boolean isLegendary, Date captureDate) {
         this.id = id;
         this.generation = generation;
         this.name = name;
@@ -121,46 +122,111 @@ class Pokemon {
     }
 
     // Métodos get
-    public int getId() { return this.id; }
-    public int getGeneration() { return this.generation; }
-    public String getName() { return this.name; }
-    public String getDescription() { return this.description; }
-    public List<String> getTypes() { return this.types; }
-    public List<String> getAbilities() { return this.abilities; }
-    public double getWeight() { return this.weight; }
-    public double getHeight() { return this.height; }
-    public int getCaptureRate() { return this.captureRate; }
-    public boolean getIsLegendary() { return this.isLegendary; }
-    public Date getCaptureDate() { return this.captureDate; }
+    public int getId() {
+        return this.id;
+    }
+
+    public int getGeneration() {
+        return this.generation;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public List<String> getTypes() {
+        return this.types;
+    }
+
+    public List<String> getAbilities() {
+        return this.abilities;
+    }
+
+    public double getWeight() {
+        return this.weight;
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public int getCaptureRate() {
+        return this.captureRate;
+    }
+
+    public boolean getIsLegendary() {
+        return this.isLegendary;
+    }
+
+    public Date getCaptureDate() {
+        return this.captureDate;
+    }
 
     // Métodos set
-    public void setId(int id) { this.id = id; }
-    public void setGeneradion(int generation) { this.generation = generation; }
-    public void setName(String name) { this.name = name; }
-    public void setDescription(String description) { this.description = description; }
-    public void setTypes(List<String> types) { this.types = types; }
-    public void setAbilities(List<String> abilities) { this.abilities = abilities; }
-    public void setWeight(double weight) { this.weight = weight; }
-    public void setHeight(double height) { this.height = height; }
-    public void setCaptureRate(int captureRate) { this.captureRate = captureRate; }
-    public void setIsLegendary(boolean isLegendary) { this.isLegendary = isLegendary; }
-    public void setCaptureDate(Date captureDate) { this.captureDate = captureDate; }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGeneradion(int generation) {
+        this.generation = generation;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTypes(List<String> types) {
+        this.types = types;
+    }
+
+    public void setAbilities(List<String> abilities) {
+        this.abilities = abilities;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setCaptureRate(int captureRate) {
+        this.captureRate = captureRate;
+    }
+
+    public void setIsLegendary(boolean isLegendary) {
+        this.isLegendary = isLegendary;
+    }
+
+    public void setCaptureDate(Date captureDate) {
+        this.captureDate = captureDate;
+    }
 
     /**
      * Lê uma linha do arquivo pokemon.csv e armazena os objetos:
-     * id, generation, name, description, types, abilities, weight, height, captureRate,
+     * id, generation, name, description, types, abilities, weight, height,
+     * captureRate,
      * isLegendary e captureDate.
      *
      * @param line String com linha a ser lida
      */
-    public void ler(String line){
+    public void ler(String line) {
         line = line.replaceAll("\"", "");
         String[] lineSplitted = line.split("[\\[\\]]");
         lineSplitted[2] = lineSplitted[2].substring(1);
 
         // id, generation, name, descripstion
         int comma = lineSplitted[0].indexOf(",");
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
             comma = lineSplitted[0].indexOf(",", ++comma);
 
         String subString = lineSplitted[0].substring(0, comma);
@@ -173,13 +239,13 @@ class Pokemon {
 
         // types
         int start = comma + 1;
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
             comma = lineSplitted[0].indexOf(",", ++comma);
 
         subString = lineSplitted[0].substring(start, comma);
         List<String> listAttributes = Arrays.asList(subString.split(","));
 
-        for(int i = 0; i < listAttributes.size(); i++)
+        for (int i = 0; i < listAttributes.size(); i++)
             listAttributes.set(i, "'" + listAttributes.get(i) + "'");
 
         this.setTypes(listAttributes);
@@ -187,7 +253,7 @@ class Pokemon {
         // abilities
         listAttributes = Arrays.asList(lineSplitted[1].split(","));
 
-        for(int i = 0; i < listAttributes.size(); i++)
+        for (int i = 0; i < listAttributes.size(); i++)
             listAttributes.set(i, listAttributes.get(i).trim());
 
         this.setAbilities(listAttributes);
@@ -195,8 +261,12 @@ class Pokemon {
         // weight, height, captureRate, isLegendary, captureDate
         attributes = lineSplitted[2].split(",");
 
-        if(attributes[0] != "") { this.setWeight(Double.parseDouble(attributes[0])); }
-        if(attributes[1] != "") { this.setHeight(Double.parseDouble(attributes[1])); }
+        if (attributes[0] != "") {
+            this.setWeight(Double.parseDouble(attributes[0]));
+        }
+        if (attributes[1] != "") {
+            this.setHeight(Double.parseDouble(attributes[1]));
+        }
         this.setCaptureRate(Integer.parseInt(attributes[2]));
         this.setIsLegendary(convertBool(attributes[3]));
         this.setCaptureDate(convertDate(attributes[4]));
@@ -208,8 +278,8 @@ class Pokemon {
      * @param str String com um número inteiro 0 ou 1
      * @return true / false
      */
-    public boolean convertBool(String str){
-        if(str.equals("1"))
+    public boolean convertBool(String str) {
+        if (str.equals("1"))
             return true;
         else
             return false;
@@ -234,13 +304,15 @@ class Pokemon {
     /**
      * Imprime o pokemon selecionado
      */
-    public void imprimir(){
+    public void imprimir() {
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = outputFormat.format(this.getCaptureDate());
 
-        System.out.println("[#" + this.getId() + " -> " + this.getName() + ": " + this.getDescription() + " - " + this.getTypes()
-                    + " - " + this.getAbilities() + " - " + this.getWeight() + "kg - " + this.getHeight() + "m - " + this.getCaptureRate()
-                    + "% - " + this.getIsLegendary() + " - " + this.getGeneration() + " gen] - " + formattedDate);
+        System.out.println(
+                "[#" + this.getId() + " -> " + this.getName() + ": " + this.getDescription() + " - " + this.getTypes()
+                        + " - " + this.getAbilities() + " - " + this.getWeight() + "kg - " + this.getHeight() + "m - "
+                        + this.getCaptureRate()
+                        + "% - " + this.getIsLegendary() + " - " + this.getGeneration() + " gen] - " + formattedDate);
     }
 
     /**
@@ -248,7 +320,7 @@ class Pokemon {
      *
      * @return pokemon clonado
      */
-    public Pokemon clone(){
+    public Pokemon clone() {
         Pokemon clone = new Pokemon();
 
         clone.id = this.id;
@@ -273,29 +345,29 @@ class Lista {
     private int n;
 
     // Construtor 1
-    public Lista(){
+    public Lista() {
         this(1000);
     }
 
     // Construtor 2
-    public Lista(int size){
+    public Lista(int size) {
         this.pokemonList = new Pokemon[size];
         this.n = 0;
     }
-    
+
     /**
      * Insere um registro na primeira posição da Lista e remaneja os demais
      *
      * @param pokemon pokemon a ser inserido
      */
     public void inserirInicio(Pokemon pokemon) throws Exception {
-        if(n >= pokemonList.length){
+        if (n >= pokemonList.length) {
             throw new Exception("Erro! Contador maior que o array.");
-            
+
         }
 
         // Realoca os elementos para o fim do array
-        for(int i = n; i > 0; --i)
+        for (int i = n; i > 0; --i)
             pokemonList[i] = pokemonList[i - 1];
 
         pokemonList[0] = pokemon;
@@ -308,9 +380,9 @@ class Lista {
      * @param pokemon pokemon a ser inserido
      */
     public void inserirFim(Pokemon pokemon) throws Exception {
-        if(n >= pokemonList.length)
+        if (n >= pokemonList.length)
             throw new Exception("Erro! Contador maior que o array.");
-        
+
         pokemonList[n] = pokemon;
         n++;
     }
@@ -321,16 +393,16 @@ class Lista {
      * registros.
      *
      * @param pokemon pokemon a ser inserido
-     * @param pos posição em que o pokemon será inserido
+     * @param pos     posição em que o pokemon será inserido
      */
     public void inserir(Pokemon pokemon, int pos) throws Exception {
-        if(n >= pokemonList.length)
+        if (n >= pokemonList.length)
             throw new Exception("Erro! Contador maior que o array.");
-        else if(pos < 0 || pos > n)
+        else if (pos < 0 || pos > n)
             throw new Exception("Erro! Posição inválida.");
-        
+
         // Realoca os elementos para o fim do array
-        for(int i = n; i > pos; --i)
+        for (int i = n; i > pos; --i)
             pokemonList[i] = pokemonList[i - 1];
 
         pokemonList[pos] = pokemon;
@@ -338,18 +410,19 @@ class Lista {
     }
 
     /**
-     * Remove e retorna o primeiro registro cadastrado na Lista e remaneja os demais.
+     * Remove e retorna o primeiro registro cadastrado na Lista e remaneja os
+     * demais.
      * 
      * @return pokemon removido
      */
     Pokemon removerInicio() throws Exception {
-        if(n == 0)
+        if (n == 0)
             throw new Exception("Erro! Não há pokemons para remover.");
 
         Pokemon removedPokemon = pokemonList[0];
         n--;
 
-        for(int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i)
             pokemonList[i] = pokemonList[i + 1];
 
         return removedPokemon;
@@ -361,35 +434,36 @@ class Lista {
      * @return pokemon removido
      */
     Pokemon removerFim() throws Exception {
-        if(n == 0)
+        if (n == 0)
             throw new Exception("Erro! Não há pokemons para remover.");
-        
+
         return pokemonList[--n];
     }
 
     /**
-     * Remove e retorna o registro cadastrado na p-ésima posição da Lista e remaneja os demais.
+     * Remove e retorna o registro cadastrado na p-ésima posição da Lista e remaneja
+     * os demais.
      *
      * @param pos posição onde na qual será removido o pokemon
      * @return pokemon removido
      */
     Pokemon remover(int pos) throws Exception {
-        if(n == 0)
+        if (n == 0)
             throw new Exception("Erro! Não há pokemons para remover.");
-        if(pos < 0 || pos > n)
+        if (pos < 0 || pos > n)
             throw new Exception("Erro! Posição inválida.");
 
         Pokemon removedPokemon = pokemonList[pos];
         n--;
 
-        for(int i = pos; i < n; ++i)
+        for (int i = pos; i < n; ++i)
             pokemonList[i] = pokemonList[i + 1];
 
         return removedPokemon;
     }
 
-    public void mostrar(){
-        for(int i = 0; i < n; ++i){
+    public void mostrar() {
+        for (int i = 0; i < n; ++i) {
             System.out.print("[" + i + "] ");
             pokemonList[i].imprimir();
         }
@@ -399,16 +473,16 @@ class Lista {
 public class ListaAlocacaoSequencial {
     public static List<Pokemon> pokemonStorage;
 
-    public static Pokemon search(int id){
-        for(Pokemon p : pokemonStorage){
-            if(id == p.getId()){
+    public static Pokemon search(int id) {
+        for (Pokemon p : pokemonStorage) {
+            if (id == p.getId()) {
                 return p;
             }
         }
         return null;
     }
 
-    public static void main(String[] args) throws NumberFormatException, Exception{
+    public static void main(String[] args) throws NumberFormatException, Exception {
         try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
             String line;
             pokemonStorage = new ArrayList<>();
@@ -423,17 +497,19 @@ public class ListaAlocacaoSequencial {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
 
+        Scanner sc = new Scanner(System.in);
         String str;
         Lista pokemon = new Lista();
 
-        while(!(str = MyIO.readLine()).equals("FIM"))
-            pokemon.inserirFim(search(Integer.parseInt(str)));  
+        while (!(str = sc.nextLine()).equals("FIM"))
+            pokemon.inserirFim(search(Integer.parseInt(str)));
 
-        int operations = MyIO.readInt(); // quantidade de registros a serem inseridos/removidos
+        int operations = sc.nextInt(); // Quantidade de registros a serem inseridos/removidos
+        sc.nextLine(); // Lê o quebralinha
         int cont = 0;
 
-        while(cont < operations){
-            str = MyIO.readLine();
+        while (cont < operations) {
+            str = sc.nextLine();
 
             String[] subString = str.split(" ");
 
@@ -468,5 +544,6 @@ public class ListaAlocacaoSequencial {
             cont++;
         }
         pokemon.mostrar();
+        sc.close();
     }
 }
