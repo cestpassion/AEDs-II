@@ -21,10 +21,10 @@ class Principal {
       soma.print();
 
       //Multiplicar duas matrizes e salvar o resultado na matriz multiplicacao
-      multiplicacao = m3.multiplicacao(m4); //verifique se eh possivel multiplicar
+      multiplicao = m3.multiplicacao(m4); //verifique se eh possivel multiplicar
 
       //Imprimir a matriz 1
-      multiplicacao.print();
+      multiplicao.print();
 
    }
 }
