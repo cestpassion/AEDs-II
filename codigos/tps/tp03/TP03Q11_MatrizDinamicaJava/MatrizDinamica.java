@@ -1,9 +1,3 @@
-/**
- * Matriz Dinâmica em Java
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /*
  * Complete o código da classe matriz dinâmica visto na sala de aula.
  * 
@@ -53,6 +47,12 @@
 /*
  * INFO:
  * 
+ */
+
+/**
+ * Matriz Dinâmica em Java
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
  */
 
 import java.util.Scanner;

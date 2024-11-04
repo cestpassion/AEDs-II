@@ -1,83 +1,37 @@
-/**
- * Pilha com Alocação Flexível em Java
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /*
- * Refaça a questão 6 deste TP
- */
+ * Refazer a Questão 6 “Pilha com Alocação Flexível em C".
+*/
 
 /*
  * INFO:
  * 
+ * - As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que entra é o último a sair
+ *     > First In, Last Out (FILO)
+ * 
+ * - Tem basicamente os métodos de inserir (empilhar, pop) e remover (desempilhar, push)
+ * 
+ * - Primeira solução IF e RF
+ *     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
+ *                     7                               X   X
+ *                 5   5                               5   X
+ *             3   3   3                               3   3
+ *         1   1   1   1                               1   1
+ * 
+ * - Segunda solução II e RI (inserção e remoção não eficientes)
+ *     > Em cada inserção ou remoção, movemos todos os elementos
+ *     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
+ *                     1                       • Primeira remoção: Retorna o 7 e move todos os demais
+ *                 1   3                       • Segunda remoção: Retorna o 5 e move todos os demais
+ *             1   3   5                               X   X
+ *         1   3   5   7                               1   X
+ *                                                     3   1
+ *                                                     5   3
  */
 
 /**
-* Lista com Alocação Sequencial em Java
-* @author Bruna Furtado da Fonseca
-* @version 2024-07-16
-*/
-
-/* 
- * Crie uma Lista de registros baseada na de inteiros vista na sala de aula. Sua lista deve conter todos os atributos e
- * métodos existentes na lista de inteiros, contudo, adaptados para a classe Pokémon. Lembre-se que, na verdade, temos uma
- * lista de ponteiros (ou referências) e cada um deles aponta para um registo.
- * 
- * Neste exercício, faremos inserções, remoções e mostraremos os elementos de nossa lista. Os métodos de inserir e remover
- * devem operar conforme descrito a seguir, respeitando parâmetros e retornos:
- * - Primeiro, o void inserirInicio(Pokemon pokemon) insere um registro na primeira posição da Lista e remaneja os demais.
- * - Segundo, o void inserir(Pokemon pokemon, int posição) insere um registro na posição p da Lista, onde p < n e n é o
- *   número de registros cadastrados. Em seguida, esse método remaneja os demais registros.
- * - O void inserirFim(Pokemon pokemon) insere um registro na última posição da Lista.
- * - O Pokemon removerInicio() remove e retorna o primeiro registro cadastrado na Lista e remaneja os demais.
- * - O Pokemon remover(int posição) remove e retorna o registro cadastrado na p-ésima posição da Lista e remaneja os demais.
- * - O Pokemon removerFim() remove e retorna o último registro cadastrado na lista. 
- * 
- * A entrada padrão é composta por duas partes:
- * - A primeira é igual a entrada da primeira questão.
- * - As demais linhas correspondem a segunda parte.
- *   > A primeira linha da segunda parte tem um número inteiro n indicando a quantidade de registros a serem
- *     inseridos/removidos.
- *   > Nas próximas n linhas, tem-se n comandos de inserção/remoção a serem processados neste exercício. Cada uma dessas
- *     linhas tem uma palavra de comando: 
- *     • II inserir no início,
- *     • I* inserir em qualquer posição,
- *     • IF inserir no fim,
- *     • RI remover no início,
- *     • R* remover em qualquer posição e
- *     • RF remover no fim.
- * 
- * No caso dos comandos de inserir, temos também o nome do arquivo que contém o registro a ser inserido.
- * No caso dos comandos de “em qualquer posição”, temos também esse nome. 
- * No Inserir, a posição fica imediatamente após a palavra de comando.
- * 
- * A saída padrão tem uma linha para cada registro removido sendo que essa informação será constituída pela palavra “(R)” e
- * o atributo name.
- * No final, a saída mostra os atributos relativos a cada registro cadastrado na lista após as operações de inserção e
- * remoção.
- */
-
-/*
- * INFO: 
- * 
- * - As listas são um Tipo Abstrato de Dados (TAD) no qual podemos inserir e remover elementos em qualquer posição
- *
- * - Variáveis:
- *     > array (de elementos)
- *     > n (contador)
- *  
- *  - Métodos:
- *      > Construtores
- *      > Inserção de elemento
- *          • void inserirInicio(elemento)
- *          • void inserirFim(elemento)
- *          • void inserir(elemento, posição)
- *      > Remoção de elementos
- *          • elemento removerInicio()
- *          • elemento removerFim()
- *          • elemento remover(posição)
- *      > Mostrar, pesquisar, ordenar, ...
+ * Pilha com Alocação Flexível em Java
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
  */
 
 import java.util.Date;

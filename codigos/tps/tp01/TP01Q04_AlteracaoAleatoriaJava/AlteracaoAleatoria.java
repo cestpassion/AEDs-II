@@ -1,9 +1,3 @@
-/**
- * Alteração Aleatória
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /*
  * Crie um método iterativo que recebe uma string, sorteia duas letras minúsculas
  * aleatórias (código ASCII ≥ ’a’ e ≤ ’z’), substitui todas as ocorrências da primeira
@@ -12,6 +6,12 @@
  * questão e mostre a string retornada como uma linha de saída. Abaixo, observamos um
  * exemplo de entrada supondo que para a primeira linha as letras sorteados foram o ’a’
  * e o ’q’. Para a segunda linha, foram o ’e’ e o ’k’.
+ */
+
+/**
+ * Alteração Aleatória
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
  */
 
 import java.util.Random;

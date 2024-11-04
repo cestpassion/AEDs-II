@@ -1,9 +1,3 @@
-/**
- * Lista com Alocação Sequencial em Java
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /* 
  * Crie uma Lista de registros baseada na de inteiros vista na sala de aula. Sua lista deve conter todos os atributos e
  * métodos existentes na lista de inteiros, contudo, adaptados para a classe Pokémon. Lembre-se que, na verdade, temos uma
@@ -63,6 +57,12 @@
  *          • elemento removerFim()
  *          • elemento remover(posição)
  *      > Mostrar, pesquisar, ordenar, ...
+ */
+
+/**
+ * Lista com Alocação Sequencial em Java
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
  */
 
 import java.util.Date;

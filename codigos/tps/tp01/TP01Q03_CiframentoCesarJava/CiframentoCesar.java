@@ -1,9 +1,3 @@
-/**
- * Ciframento de César
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /*
  * O Imperador Júlio César foi um dos principais nomes do Império Romano. Entre suas
  * contribuições, temos um algoritmo de criptografia chamado “Ciframento de César”.
@@ -15,6 +9,12 @@
  * string como parâmetro e retorna outra contendo a entrada de forma cifrada. Neste exercício,
  * suponha a chave de ciframento três. Na saída padrão, para cada linha de entrada, escreva
  * uma linha com a mensagem criptografada. */
+
+/**
+ * Ciframento de César
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
+ */
 
 public class CiframentoCesar{
 

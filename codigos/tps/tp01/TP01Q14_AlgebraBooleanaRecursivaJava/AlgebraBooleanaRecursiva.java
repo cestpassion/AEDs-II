@@ -1,15 +1,14 @@
+/*
+* Refaça a questão Álgebra Booleana de forma recursiva.
+*/
+
 /**
  * Álgebra Booleana Recursiva
  * @author Bruna Furtado da Fonseca
  * @version 2024-07-16
  */
 
- /* AINDA NÃO ESTÁ FEITA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  * Refaça a questão Álgebra Booleana de forma recursiva.
-  */
-
-  public class AlgebraBooleanaRecursiva{
-
+public class AlgebraBooleanaRecursiva{
     /**
      * Verificação se a string recebida é "0".
      *
@@ -105,7 +104,7 @@
         }
         return param;
     }
-    
+
     /**
      * Expressão Booleana NOT.
      *

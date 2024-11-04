@@ -1,15 +1,14 @@
+/*
+* Refaça a questão Is de forma recursiva.
+*/
+
 /**
  * Is Recursivo
  * @author Bruna Furtado da Fonseca
  * @version 2024-07-16
  */
 
- /*
-  * Refaça a questão Is de forma recursiva.
-  */
-
-  public class IsRecursivo{
-    
+public class IsRecursivo{    
     /**
      * Verificação se a string recebida é FIM.
      *
