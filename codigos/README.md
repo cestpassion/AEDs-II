@@ -16,29 +16,29 @@ Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dado
 
 - ### ⌨️ [TPs](tps):
   - Nesta pasta, você encontrará os Trabalhos Práticos (TPs) completos, que representam desafios complexos e abrangentes, exigindo a aplicação de múltiplos conceitos em um único projeto. Cada TP está documentado com as especificações do problema, as estratégias de solução adotadas e os códigos-fonte.
-      * [tp01](tps/tp01)
-        * [matéria - Nivelamento](/AEDs-II/unidades/unidade00-nivelamento)
-        * [fonte](unidades-fonte/unidade00-nivelamento/)
+#### [tp01](tps/tp01)
+  * **Matéria -** [Nivelamento](/AEDs-II/unidades/unidade00-nivelamento)
+    * [fonte](unidades-fonte/unidade00-nivelamento/)
         
-      * [tp02](tps/tp02)
-        * [matéria - Ordenação em Memória Principal](/AEDs-II/unidades/unidade03-ordenacao-em-memoria-principal)
-        * [fonte](unidades-fonte/unidade03-ordenacao-em-memoria-principal/)
+#### [tp02](tps/tp02)
+  * **Matéria -** [Ordenação em Memória Principal](/AEDs-II/unidades/unidade03-ordenacao-em-memoria-principal)
+    * [fonte](unidades-fonte/unidade03-ordenacao-em-memoria-principal/)
 
-      * [tp03](tps/tp03)
-        * [matéria - Tipos Abstratos de Dados Lineares](/AEDs-II/unidades/unidade02-estruturas-de-dados-basicas-lineares)
-        * [fonte](unidades-fonte/unidade02-estruturas-de-dados-basicas-lineares/)
-        * [matéria - Tipos Abstratos de Dados Flexíveis](/AEDs-II/unidades/unidade04-estrutura-de-dados-basicos-flexiveis)
-        * [fonte](unidades-fonte/unidade04-estrutura-de-dados-basicos-flexiveis/)
+#### [tp03](tps/tp03)
+  * **Matéria -** [Tipos Abstratos de Dados Lineares](/AEDs-II/unidades/unidade02-estruturas-de-dados-basicas-lineares)
+    * [fonte](unidades-fonte/unidade02-estruturas-de-dados-basicas-lineares/)
+  * **Matéria -** [Tipos Abstratos de Dados Flexíveis](/AEDs-II/unidades/unidade04-estrutura-de-dados-basicos-flexiveis)
+    * [fonte](unidades-fonte/unidade04-estrutura-de-dados-basicos-flexiveis/)
 
-      * [tp04](tps/tp04)
-        * [matéria - Árvores Bínarias](/AEDs-II/unidades/unidade05-arvores-binarias)
-        * [fonte](unidades-fonte/unidade05-arvores-binarias/)
-        * [matéria - Árvores Bínarias](/AEDs-II/unidade06-balanceamento-de-arvores)
-        * [fonte](unidades-fonte/unidade06-balanceamento-de-arvores/)
-        * [matéria - Árvores Bínarias](/AEDs-II/unidades/unidade07-tabelas-e-dicionarios)
-        * [fonte](unidades-fonte/unidade07-tabelas-e-dicionarios/)
-        * [matéria - Árvores Bínarias](/AEDs-II/unidades/unidade08-arvores-TRIE)
-        * [fonte](unidades-fonte/unidade08-arvores-TRIE/)
+#### [tp04](tps/tp04)
+  * **Matéria -** [Árvores Bínarias](/AEDs-II/unidades/unidade05-arvores-binarias)
+    * [fonte](unidades-fonte/unidade05-arvores-binarias/)
+  * **Matéria -** [Árvores Bínarias](/AEDs-II/unidade06-balanceamento-de-arvores)
+    * [fonte](unidades-fonte/unidade06-balanceamento-de-arvores/)
+  * **Matéria -** [Árvores Bínarias](/AEDs-II/unidades/unidade07-tabelas-e-dicionarios)
+    * [fonte](unidades-fonte/unidade07-tabelas-e-dicionarios/)
+  * **Matéria -** [Árvores Bínarias](/AEDs-II/unidades/unidade08-arvores-TRIE)
+    * [fonte](unidades-fonte/unidade08-arvores-TRIE/)
 
 ## Como Utilizar
 
