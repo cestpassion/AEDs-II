@@ -62,6 +62,7 @@
     "stdbool.h": "c",
     "stdlib.h": "c",
     "sss": "cpp",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "numbers": "c"
   }
 }
