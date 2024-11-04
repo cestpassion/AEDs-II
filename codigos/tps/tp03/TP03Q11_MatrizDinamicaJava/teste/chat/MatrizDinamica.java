@@ -1,3 +1,4 @@
+package teste.chat;
 /**
  * Matriz Dinâmica em Java
  * @author Bruna Furtado da Fonseca
@@ -56,6 +57,8 @@
  */
 
 import java.util.Scanner;
+
+import teste.vitor.Celula;
 
 /**
  * Classe que representa uma célula da matriz com ponteiros para células

@@ -1,7 +1,7 @@
 class Principal {
 
    public static void main(String[] args){
-      Matriz m1, m2, soma, m3, m4, multiplicacao;
+      Matriz m1, m2, soma, m3, m4, multiplicao;
 
       m1 = new Matriz(MyIO.readInt("Digite o numero de linhas (M1): "), MyIO.readInt("Digite o numero de colunas (M1): "));
       m2 = new Matriz(MyIO.readInt("Digite o numero de linhas (M2): "), MyIO.readInt("Digite o numero de colunas (M2): "));
@@ -21,10 +21,10 @@ class Principal {
       soma.print();
 
       //Multiplicar duas matrizes e salvar o resultado na matriz multiplicacao
-      multiplicacao = m3.multiplicacao(m4); //verifique se eh possivel multiplicar
+      multiplicao = m3.multiplicacao(m4); //verifique se eh possivel multiplicar
 
       //Imprimir a matriz 1
-      multiplicacao.print();
+      multiplicao.print();
 
    }
 }
