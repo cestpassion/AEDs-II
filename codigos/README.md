@@ -1,7 +1,7 @@
 # 🧑‍💻 Códigos - AEDS II
 
 Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dados II. Aqui você encontrará a implementação de programas, exercícios de laboratório e trabalhos práticos desenvolvidos durante o curso.
-<br>
+<br><br>
 
 ## ⚙️ [Programas](programas)
   - Esta pasta contém programas exemplares que foram desenvolvidos ao longo das aulas para ilustrar conceitos importantes da disciplina. Cada subpasta ou arquivo aqui está organizado por tópico ou semana de estudo.
@@ -17,7 +17,6 @@ Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dado
 
 ## ⌨️ [TPs](tps):
   - Nesta pasta, você encontrará os Trabalhos Práticos (TPs) completos, que representam desafios complexos e abrangentes, exigindo a aplicação de múltiplos conceitos em um único projeto. Cada TP está documentado com as especificações do problema, as estratégias de solução adotadas e os códigos-fonte.
-  <br>
 
 - ### [tp01](tps/tp01)
   * **Matéria -** [Nivelamento](/AEDs-II/unidades/unidade00-nivelamento)
