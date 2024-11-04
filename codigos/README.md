@@ -1,9 +1,11 @@
 # 🧑‍💻 Códigos - AEDS II
 
 Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dados II. Aqui você encontrará a implementação de programas, exercícios de laboratório e trabalhos práticos desenvolvidos durante o curso.
+<br>
 
 ## ⚙️ [Programas](programas)
   - Esta pasta contém programas exemplares que foram desenvolvidos ao longo das aulas para ilustrar conceitos importantes da disciplina. Cada subpasta ou arquivo aqui está organizado por tópico ou semana de estudo.
+<br>
 
 ## 🖱️ [Labs](labs):
   - Esta seção reúne os exercícios de laboratório realizados para consolidar o aprendizado prático dos conceitos discutidos em sala de aula. Os exercícios variam em complexidade e abordam diferentes aspectos dos algoritmos e estruturas de dados.
@@ -11,24 +13,27 @@ Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dado
       * [lab02](labs/lab02)
       * [lab03](labs/lab03)
       * [lab04](labs/lab04)
+<br>
 
 ## ⌨️ [TPs](tps):
   - Nesta pasta, você encontrará os Trabalhos Práticos (TPs) completos, que representam desafios complexos e abrangentes, exigindo a aplicação de múltiplos conceitos em um único projeto. Cada TP está documentado com as especificações do problema, as estratégias de solução adotadas e os códigos-fonte.
-### [tp01](tps/tp01)
+  <br>
+
+- ### [tp01](tps/tp01)
   * **Matéria -** [Nivelamento](/AEDs-II/unidades/unidade00-nivelamento)
     * [fonte](unidades-fonte/unidade00-nivelamento/)
         
-### [tp02](tps/tp02)
+- ### [tp02](tps/tp02)
   * **Matéria -** [Ordenação em Memória Principal](/AEDs-II/unidades/unidade03-ordenacao-em-memoria-principal)
     * [fonte](unidades-fonte/unidade03-ordenacao-em-memoria-principal/)
 
-### [tp03](tps/tp03)
+- ### [tp03](tps/tp03)
   * **Matéria -** [Tipos Abstratos de Dados Lineares](/AEDs-II/unidades/unidade02-estruturas-de-dados-basicas-lineares)
     * [fonte](unidades-fonte/unidade02-estruturas-de-dados-basicas-lineares/)
   * **Matéria -** [Tipos Abstratos de Dados Flexíveis](/AEDs-II/unidades/unidade04-estrutura-de-dados-basicos-flexiveis)
     * [fonte](unidades-fonte/unidade04-estrutura-de-dados-basicos-flexiveis/)
 
-### [tp04](tps/tp04)
+- ### [tp04](tps/tp04)
   * **Matéria -** [Árvores Bínarias](/AEDs-II/unidades/unidade05-arvores-binarias)
     * [fonte](unidades-fonte/unidade05-arvores-binarias/)
   * **Matéria -** [Árvores Bínarias](/AEDs-II/unidade06-balanceamento-de-arvores)
@@ -37,6 +42,7 @@ Bem-vindo à pasta de Códigos do repositório de Algoritmos e Estrutura de Dado
     * [fonte](unidades-fonte/unidade07-tabelas-e-dicionarios/)
   * **Matéria -** [Árvores Bínarias](/AEDs-II/unidades/unidade08-arvores-TRIE)
     * [fonte](unidades-fonte/unidade08-arvores-TRIE/)
+<br>
 
 ## Como Utilizar
 
