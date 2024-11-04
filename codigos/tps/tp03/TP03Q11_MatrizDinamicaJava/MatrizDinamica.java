@@ -6,7 +6,10 @@
 
 /*
  * Complete o código da classe matriz dinâmica visto na sala de aula.
- * A primeira tarefa consiste em, no construtor da classe Matriz, dados os números de linha e coluna, fazer as devidas alocações de células.
+ * 
+ * A primeira tarefa consiste em, no construtor da classe Matriz, dados os números de linha e coluna, fazer as devidas
+ * alocações de células.
+ * 
  * As demais tarefas são as implementações dos métodos:
  *  - Matriz soma(Matriz)
  *  - Matriz multiplicacao(Matriz)
@@ -14,22 +17,37 @@
  *  - void mostrarDiagonalSecundaria(). 
  * 
  * ENTRADA:
- * - A entrada padrão é composta por vários casos de teste sendo que o número de casos é um inteiro contido na primeira linha da entrada. 
+ * 
+ * - A entrada padrão é composta por vários casos de teste sendo que o número de casos é um inteiro contido na primeira
+ *   linha da entrada. 
+ * 
  * - Em seguida, temos cada um dos casos de teste. Cada caso é composto por duas matrizes.
- * - Para cada caso de teste, temos que suas duas primeiras linhas contêm um número inteiro cada representando os números de linhas e de colunas
- *   da primeira matriz, respectivamente.
- * - Em seguida, temos os elementos da primeira matriz que estão representados nas próximas l linhas onde l é o número de linhas dessa matriz.
+ * 
+ * - Para cada caso de teste, temos que suas duas primeiras linhas contêm um número inteiro cada um representando os
+ *   números de linhas e de colunas da primeira matriz, respectivamente.
+ * 
+ * - Em seguida, temos os elementos da primeira matriz que estão representados nas próximas l linhas onde l é o número de
+ *   linhas dessa matriz.
+ * 
  * - Cada uma dessas linhas têm c colunas onde c é o número de colunas dessa matriz.
+ * 
  * - Nas duas linhas seguintes, temos os números de linhas e colunas da segunda matriz do caso de teste.
+ * 
  * - As l2 linhas seguintes têm c2 colunas contendo os elementos da segunda matriz.
+ * 
  * - l2 e c2 correspondem aos números de linhas e colunas da segunda matriz do caso de teste, respectivamente.
  * 
  * SAÍDA:
+ * 
  * - A saída padrão contém várias linhas para cada caso de teste.
- *   > As duas primeiras linhas de saída de um caso de teste correspondem às diagonais principal e secundaria da primeira matriz, respectivamente.
- *   > As demais ls linhas de um caso de teste correspondem as linhas matriz obtida pela soma das duas matrizes do caso de teste sendo que essas
- *   linhas contêm cs colunas referentes às colunas da matriz de soma. Da mesma forma, as linhas seguintes do caso teste contêm lm linhas com cm
- *   colunas representando os elementos da matriz de multiplicação onde lm e cm são os números de linhas e colunas da matriz de multiplicação.
+ * 
+ *   > As duas primeiras linhas de saída de um caso de teste correspondem às diagonais principal e secundaria da primeira
+ *     matriz, respectivamente.
+ *
+ *   > As demais ls linhas de um caso de teste correspondem as linhas matriz obtida pela soma das duas matrizes do caso
+ *     de teste sendo que essas linhas contêm cs colunas referentes às colunas da matriz de soma. Da mesma forma, as
+ *     linhas seguintes do caso teste contêm lm linhas com cm colunas representando os elementos da matriz de
+ *     multiplicação onde lm e cm são os números de linhas e colunas da matriz de multiplicação.
  */
 
 /*
@@ -185,12 +203,12 @@ class Pokemon {
 
     /**
      * Lê uma linha do arquivo pokemon.csv e armazena os objetos:
-    * id, generation, name, description, types, abilities, weight, height,
-    * captureRate,
-    * isLegendary e captureDate.
-    *
-    * @param line String com linha a ser lida
-    */
+     * id, generation, name, description, types, abilities, weight, height,
+     * captureRate,
+     * isLegendary e captureDate.
+     *
+     * @param line String com linha a ser lida
+     */
     public void ler(String line) {
         line = line.replaceAll("\"", "");
         String[] lineSplitted = line.split("[\\[\\]]");
@@ -246,10 +264,10 @@ class Pokemon {
 
     /**
      * Converte uma String com um número inteiro 0 ou 1 em tipo boolean
-    *
-    * @param str String com um número inteiro 0 ou 1
-    * @return true / false
-    */
+     *
+     * @param str String com um número inteiro 0 ou 1
+     * @return true / false
+     */
     public boolean convertBool(String str) {
         if (str.equals("1"))
             return true;
@@ -259,10 +277,10 @@ class Pokemon {
 
     /**
      * Converte uma String com uma data para o tipo Date
-    *
-    * @param str String com uma data
-    * @return data tipo Date / null
-    */
+     *
+     * @param str String com uma data
+     * @return data tipo Date / null
+     */
     public Date convertDate(String str) {
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
         try {
@@ -275,7 +293,7 @@ class Pokemon {
 
     /**
      * Imprime o pokemon selecionado
-    */
+     */
     public void imprimir() {
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = outputFormat.format(this.getCaptureDate());
@@ -289,9 +307,9 @@ class Pokemon {
 
     /**
      * Clona o pokemon selecionado
-    *
-    * @return pokemon clonado
-    */
+     *
+     * @return pokemon clonado
+     */
     public Pokemon clone() {
         Pokemon clone = new Pokemon();
 
@@ -311,188 +329,102 @@ class Pokemon {
     }
 }
 
+/**
+ * Classe que representa uma célula da matriz com ponteiros para células
+ * adjacentes (cima, baixo, esquerda e direita).
+ * Cada célula armazena um valor int.
+ */
 class Celula {
-    public Pokemon pokemon; // Elemento inserido na celula.
-    public Celula prox; // Aponta a celula prox.
+    public int elemento; // valor armazenado na célula
+    public Celula inf; // Ponteiro para a célula inferior
+    public Celula sup; // Ponteiro para a célula superior
+    public Celula esq; // Ponteiro para a célula à esquerda
+    public Celula dir; // Ponteiro para a célula à direita
 
     /**
-     * Construtor da classe.
-    */
+     * Construtor padrão que inicializa o elemento da célula como null.
+     */
     public Celula() {
-        this(null);
+        this(0);
     }
 
     /**
-     * Construtor da classe.
-    * 
-    * @param pokemon pokemon inserido na celula.
-    */
-    public Celula(Pokemon pokemon) {
-        this.pokemon = pokemon;
-        this.prox = null;
+     * Construtor que inicializa o valor da célula com o valor fornecido.
+     * 
+     * @param elemento valor a ser armazenado na célula.
+     */
+    public Celula(int elemento) {
+        this(elemento, null, null, null, null);
+    }
+
+    /**
+     * Construtor completo que inicializa todos os valores e os ponteiros da célula.
+     * 
+     * @param elemento valor a ser armazenado na célula.
+     * @param inf      Ponteiro para a célula inferior.
+     * @param sup      Ponteiro para a célula superior.
+     * @param esq      Ponteiro para a célula à esquerda.
+     * @param dir      Ponteiro para a célula à direita.
+     */
+    public Celula(int elemento, Celula inf, Celula sup, Celula esq, Celula dir) {
+        this.elemento = elemento;
+        this.inf = inf;
+        this.sup = sup;
+        this.esq = esq;
+        this.dir = dir;
     }
 }
 
+/**
+ * Classe que representa uma matriz bidimensional utilizando células duplamente
+ * encadeadas.
+ * Permite operações de soma e multiplicação de matrizes, além de exibir as
+ * diagonais principal e secundária.
+ */
 class DinamicMatriz {
-    // Atributos
-    private Celula top;
+    private Celula start; // Célula inicial da matriz, localizada no canto superior esquerdo
+    private int row; // Número de linhas da matriz
+    private int column; // Número de colunas da matriz
 
-    // Construtor 1
+    /**
+     * Construtor padrão que cria uma matriz 3x3 com células inicializadas.
+     */
     public DinamicMatriz() {
-        top = null;
+        this(3, 3);
     }
 
     /**
-     * Insere um pokemon na pilha (politica FILO).
-    *
-    * @param pokemon pokemon a ser inserido
-    */
-    public void push(Pokemon pokemon) {
-        Celula tmp = new Celula(pokemon);
-        tmp.prox = top;
-        top = tmp;
+     * Construtor que cria uma matriz com o número de linhas e colunas especificado.
+     * As células da matriz são duplamente encadeadas em todas as direções.
+     * 
+     * @param row  Número de linhas da matriz.
+     * @param column Número de colunas da matriz.
+     */
+    public DinamicMatriz(int row, int column) {
+        this.row = row;
+        this.column = column;
 
-        tmp = null;
-    }
+        // Alocar a matriz com this.row linhas e this.column colunas
+        // Criação e ligação das células
+        start = new Celula(); // Inicializa a célula de início
+        Celula rowCurrent = start; // Controla a célula inicial de cada linha
 
-    /**
-     * Remove um pokemon da pilha (politica FILO).
-    * 
-    * @return pokemon removido.
-    * @trhows Exception se a sequencia nao conter pokemons.
-    */
-    Pokemon pop() throws Exception {
-        if (top == null)
-            throw new Exception("Erro! Não há pokemons para remover.");
+        for (int i = 0; i < row; i++) { // Percorre todas as linhas
+            Celula columnCurrent = rowCurrent; // Controla a célula de cada coluna dentro da linha
 
-        Pokemon removedPokemon = top.pokemon;
-        Celula tmp = top;
-        top = top.prox;
-
-        tmp.prox = null;
-        tmp = null;
-
-        return removedPokemon;
-    }
-
-    /**
-     * Mostra os pokemon numerados por [index], comecando do topo.
-    */
-    public void mostrar() {
-        int index = 0;
-        for (Celula i = top; i != null; i = i.prox) {
-            System.out.print("[" + index++ + "] ");
-            i.pokemon.imprimir();
+            for (int j = 1; j < column; j++) { // Cria e liga células na linha
+                columnCurrent.dir = new Celula(); // Cria célula à direita
+                columnCurrent.dir.esq = columnCurrent; // Liga célula à esquerda
+                columnCurrent = columnCurrent.dir; // Avança para a próxima célula na linha
+            }
+            if (i < row - 1) { // Caso não seja a última linha, cria uma nova linha
+                rowCurrent.inf = new Celula(); // Cria célula inferior para a próxima linha
+                rowCurrent.inf.sup = rowCurrent; // Liga célula superior
+                rowCurrent = rowCurrent.inf; // Avança para a próxima linha
+            }
         }
     }
 
-    /**
-     * Mostra os pokemon numerados por [index], invertendo a impressão. De forma
-    * recursiva.
-    */
-    public void mostraRecursivo() {
-        int index = getSizeStack();
-        mostraRecursivo(top, index);
-    }
-
-    private void mostraRecursivo(Celula i, int index) {
-        if (i != null) {
-            mostraRecursivo(i.prox, --index);
-            System.out.print("[" + index + "] ");
-            i.pokemon.imprimir();
-        }
-    }
-
-    /**
-     * Encontra o tamanho da Pilha Flexível.
-    */
-    public int getSizeStack() {
-        int size = 0;
-        for (Celula i = top; i != null; i = i.prox, size++)
-            ;
-
-        return size;
-    }
-
-    /**
-     * Soma o peso de todos os pokemon, comecando do topo.
-    */
-    public double getSumWeight() {
-        return getSumWeight(top);
-    }
-
-    public double getSumWeight(Celula i) {
-        double result = 0;
-
-        if (i != null)
-            result += i.pokemon.getWeight() + getSumWeight(i.prox);
-
-        return result;
-    }
-
-    /**
-     * Soma a altura de todos os pokemon, comecando do topo.
-    */
-    public double getSumHeight() {
-        return getSumHeight(top);
-    }
-
-    public double getSumHeight(Celula i) {
-        double result = 0;
-
-        if (i != null)
-            result += i.pokemon.getHeight() + getSumHeight(i.prox);
-
-        return result;
-    }
-
-    /**
-     * Encontra o pokemon mais pesado.
-    */
-    public Pokemon getHeavier() {
-        Pokemon heavier = top.pokemon;
-        for (Celula i = top.prox; i != null; i = i.prox) {
-            if (i.pokemon.getWeight() > heavier.getWeight())
-                heavier = i.pokemon;
-        }
-        return heavier;
-    }
-
-    /**
-     * Encontra o pokemon mais leve.
-    */
-    public Pokemon getLighter() {
-        Pokemon lighter = top.pokemon;
-        for (Celula i = top.prox; i != null; i = i.prox) {
-            if (i.pokemon.getWeight() < lighter.getWeight())
-                lighter = i.pokemon;
-        }
-        return lighter;
-    }
-
-    /**
-     * Encontra o pokemon mais alto.
-    */
-    public Pokemon getHigher() {
-        Pokemon higher = top.pokemon;
-        for (Celula i = top.prox; i != null; i = i.prox) {
-            if (i.pokemon.getWeight() > higher.getWeight())
-                higher = i.pokemon;
-        }
-        return higher;
-    }
-
-    /**
-     * Encontra o pokemon mais baixo.
-    */
-    public Pokemon getLower() {
-        Pokemon lower = top.pokemon;
-        for (Celula i = top.prox; i != null; i = i.prox) {
-            if (i.pokemon.getWeight() < lower.getWeight())
-                lower = i.pokemon;
-        }
-        return lower;
-    }
 }
 
 public class MatrizDinamica {
