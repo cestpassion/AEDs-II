@@ -37,6 +37,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 class Pokemon {
     // Atributos
@@ -53,7 +57,7 @@ class Pokemon {
     private Date captureDate;
 
     // Contrutor 1
-    public Pokemon(){
+    public Pokemon() {
         this.id = 0;
         this.generation = 0;
         this.name = null;
@@ -69,7 +73,7 @@ class Pokemon {
 
     // Contrutor 2
     public Pokemon(int id, int generation, String name, String description, List<String> types, List<String> abilities,
-                    double weight, double height, int captureRate, boolean isLegendary, Date captureDate){
+            double weight, double height, int captureRate, boolean isLegendary, Date captureDate) {
         this.id = id;
         this.generation = generation;
         this.name = name;
@@ -84,40 +88,111 @@ class Pokemon {
     }
 
     // Métodos get
-    public int getId() { return this.id; }
-    public int getGeneradion() { return this.generation; }
-    public String getName() { return this.name; }
-    public String getDescription() { return this.description; }
-    public List<String> getTypes() { return this.types; }
-    public List<String> getAbilities() { return this.abilities; }
-    public double getWeight() { return this.weight; }
-    public double getHeight() { return this.height; }
-    public int getCaptureRate() { return this.captureRate; }
-    public boolean getIsLegendary() { return this.isLegendary; }
-    public Date getCaptureDate() { return this.captureDate; }
+    public int getId() {
+        return this.id;
+    }
+
+    public int getGeneration() {
+        return this.generation;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public List<String> getTypes() {
+        return this.types;
+    }
+
+    public List<String> getAbilities() {
+        return this.abilities;
+    }
+
+    public double getWeight() {
+        return this.weight;
+    }
+
+    public double getHeight() {
+        return this.height;
+    }
+
+    public int getCaptureRate() {
+        return this.captureRate;
+    }
+
+    public boolean getIsLegendary() {
+        return this.isLegendary;
+    }
+
+    public Date getCaptureDate() {
+        return this.captureDate;
+    }
 
     // Métodos set
-    public void setId(int id) { this.id = id; }
-    public void setGeneradion(int generation) { this.generation = generation; }
-    public void setName(String name) { this.name = name; }
-    public void setDescription(String description) { this.description = description; }
-    public void setTypes(List<String> types) { this.types = types; }
-    public void setAbilities(List<String> abilities) { this.abilities = abilities; }
-    public void setWeight(double weight) { this.weight = weight; }
-    public void setHeight(double height) { this.height = height; }
-    public void setCaptureRate(int captureRate) { this.captureRate = captureRate; }
-    public void setIsLegendary(boolean isLegendary) { this.isLegendary = isLegendary; }
-    public void setCaptureDate(Date captureDate) { this.captureDate = captureDate; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    // Método ler
-    public void ler(String line){
+    public void setGeneradion(int generation) {
+        this.generation = generation;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTypes(List<String> types) {
+        this.types = types;
+    }
+
+    public void setAbilities(List<String> abilities) {
+        this.abilities = abilities;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setCaptureRate(int captureRate) {
+        this.captureRate = captureRate;
+    }
+
+    public void setIsLegendary(boolean isLegendary) {
+        this.isLegendary = isLegendary;
+    }
+
+    public void setCaptureDate(Date captureDate) {
+        this.captureDate = captureDate;
+    }
+
+    /**
+     * Lê uma linha do arquivo pokemon.csv e armazena os objetos:
+     * id, generation, name, description, types, abilities, weight, height,
+     * captureRate,
+     * isLegendary e captureDate.
+     *
+     * @param line String com linha a ser lida
+     */
+    public void ler(String line) {
         line = line.replaceAll("\"", "");
         String[] lineSplitted = line.split("[\\[\\]]");
         lineSplitted[2] = lineSplitted[2].substring(1);
 
         // id, generation, name, descripstion
         int comma = lineSplitted[0].indexOf(",");
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
             comma = lineSplitted[0].indexOf(",", ++comma);
 
         String subString = lineSplitted[0].substring(0, comma);
@@ -130,13 +205,13 @@ class Pokemon {
 
         // types
         int start = comma + 1;
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
             comma = lineSplitted[0].indexOf(",", ++comma);
 
         subString = lineSplitted[0].substring(start, comma);
         List<String> listAttributes = Arrays.asList(subString.split(","));
 
-        for(int i = 0; i < listAttributes.size(); i++)
+        for (int i = 0; i < listAttributes.size(); i++)
             listAttributes.set(i, "'" + listAttributes.get(i) + "'");
 
         this.setTypes(listAttributes);
@@ -144,7 +219,7 @@ class Pokemon {
         // abilities
         listAttributes = Arrays.asList(lineSplitted[1].split(","));
 
-        for(int i = 0; i < listAttributes.size(); i++)
+        for (int i = 0; i < listAttributes.size(); i++)
             listAttributes.set(i, listAttributes.get(i).trim());
 
         this.setAbilities(listAttributes);
@@ -152,22 +227,36 @@ class Pokemon {
         // weight, height, captureRate, isLegendary, captureDate
         attributes = lineSplitted[2].split(",");
 
-        if(attributes[0] != "") { this.setWeight(Double.parseDouble(attributes[0])); }
-        if(attributes[1] != "") { this.setHeight(Double.parseDouble(attributes[1])); }
+        if (attributes[0] != "") {
+            this.setWeight(Double.parseDouble(attributes[0]));
+        }
+        if (attributes[1] != "") {
+            this.setHeight(Double.parseDouble(attributes[1]));
+        }
         this.setCaptureRate(Integer.parseInt(attributes[2]));
         this.setIsLegendary(convertBool(attributes[3]));
         this.setCaptureDate(convertDate(attributes[4]));
     }
 
-    // Método converter para booleano
-    public boolean convertBool(String str){
-        if(str.equals("1"))
+    /**
+     * Converte uma String com um número inteiro 0 ou 1 em tipo boolean
+     *
+     * @param str String com um número inteiro 0 ou 1
+     * @return true / false
+     */
+    public boolean convertBool(String str) {
+        if (str.equals("1"))
             return true;
         else
             return false;
     }
 
-    // Método converter para Date
+    /**
+     * Converte uma String com uma data para o tipo Date
+     *
+     * @param str String com uma data
+     * @return data tipo Date / null
+     */
     public Date convertDate(String str) {
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
         try {
@@ -178,18 +267,26 @@ class Pokemon {
         }
     }
 
-    // Método imprimir
-    public void imprimir(){
+    /**
+     * Imprime o pokemon selecionado
+     */
+    public void imprimir() {
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = outputFormat.format(this.getCaptureDate());
 
-        MyIO.println("[#" + this.getId() + " -> " + this.getName() + ": " + this.getDescription() + " - " + this.getTypes()
-                    + " - " + this.getAbilities() + " - " + this.getWeight() + "kg - " + this.getHeight() + "m - " + this.getCaptureRate()
-                    + "% - " + this.getIsLegendary() + " - " + this.getGeneradion() + " gen] - " + formattedDate);
+        System.out.println(
+                "[#" + this.getId() + " -> " + this.getName() + ": " + this.getDescription() + " - " + this.getTypes()
+                        + " - " + this.getAbilities() + " - " + this.getWeight() + "kg - " + this.getHeight() + "m - "
+                        + this.getCaptureRate()
+                        + "% - " + this.getIsLegendary() + " - " + this.getGeneration() + " gen] - " + formattedDate);
     }
 
-    // Método clone
-    public Pokemon clone(){
+    /**
+     * Clona o pokemon selecionado
+     *
+     * @return pokemon clonado
+     */
+    public Pokemon clone() {
         Pokemon clone = new Pokemon();
 
         clone.id = this.id;
@@ -210,22 +307,25 @@ class Pokemon {
 
 public class Classe {
     public static void main(String[] args){
-        Arq.openRead("pokemon.csv"); // verde.icei.pucminas.br/tmp/pokemon.csv
-        String line = null;
         List<Pokemon> pokemon = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+            String line;
 
-        Arq.readLine(); // Lê a primeira linha
-        while(Arq.hasNext()){
-            line = Arq.readLine();
-            Pokemon p = new Pokemon();
-            p.ler(line);
-            pokemon.add(p);
+            br.readLine(); // Lê a primeira linha (cabeçalho)
+            while ((line = br.readLine()) != null) {
+                Pokemon p = new Pokemon();
+                p.ler(line);
+                pokemon.add(p);
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
-        Arq.close();
+
+        Scanner sc = new Scanner(System.in);
         String str;
         int id;
 
-        while(!(str = MyIO.readLine()).equals("FIM")){
+        while(!(str = sc.nextLine()).equals("FIM")){
             id = Integer.parseInt(str);
             for(Pokemon p : pokemon){
                 if(id == p.getId()){
@@ -234,5 +334,7 @@ public class Classe {
                 }
             }  
         }
+
+        sc.close();
     }
 }
