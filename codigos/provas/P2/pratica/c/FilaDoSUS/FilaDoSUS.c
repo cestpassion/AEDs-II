@@ -22,5 +22,72 @@ paciente da linha i + 1. E 0 ≤C ≤ 720 o número de minutos antes do paciente
 
 - Saída
 
-Para cada caso de teste pede-se que se imprima em uma linha única o número de pacientes que atingiram a condição crítica ainda na fila de atendimento.
+Para cada caso de teste pede-se que se imprima em uma linha única o número de pacientes que atingiram a condição crítica ainda
+na fila de atendimento.
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct Paciente{
+    int horarioChegada;
+    int minCritico;
+} Paciente;
+typedef struct Celula{
+    Paciente paci;
+    struct Celula *prox;
+} Celula;
+
+Celula *newCelula(Paciente paci){
+    Celula *new = (Celula*)malloc(sizeof(Celula));
+    new->paci = paci;
+    new->prox = NULL;
+
+    return new;
+}
+
+// IF RI
+typedef struct Fila{
+    Celula *primeiro;
+    Celula *ultimo;
+} Fila;
+
+void start(Fila *fi){
+    Paciente tmp = {-1, -1};
+    fi->primeiro = newCelula(tmp);
+    fi->ultimo = fi->primeiro;
+}
+
+void inserirFila(Fila *fi, Paciente paci){
+    if(fi->primeiro != fi->ultimo){
+        fi->ultimo->prox = newCelula(paci);
+        fi->ultimo = fi->ultimo->prox;
+    }else{}
+}
+
+Paciente removerFila(Fila *fi){
+    Paciente removedPaci = fi->primeiro->paci;
+    Celula *tmp = fi->primeiro;
+
+    fi->primeiro = fi->primeiro->prox;
+    tmp->prox = NULL;
+    free(tmp);
+
+    return removedPaci;
+}
+
+int main(){
+
+}
+
+
+
+
+// ATOÇAÂO MAX: a passagem de parametros na linguagem c sempre será por valor
+// Nas linguagens C++ e C# temos a passagem de parametros por valor E por referencia. na declaração, de uma função em C++
+// indentificamos a passagem por referencia usando o simbulo de &. na passagem d eparametros por referencia, nós não criamos
+// uma nova variável. nós reaproveitamos o espaço de memória
+
+

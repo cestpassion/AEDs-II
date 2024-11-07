@@ -400,8 +400,7 @@ int sizeStack(FlexStack stack)
     Celula *i = stack.top;
     int index;
 
-    for (index = 0; i != NULL; i = i->prox, index++)
-        ;
+    for (index = 0; i != NULL; i = i->prox, index++);
     free(i);
 
     return index;

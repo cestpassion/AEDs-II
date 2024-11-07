@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Pokemon {
+// Estrutura para armazenar informações do Pokemon
+typedef struct Pokemon
+{
     int id;
     int generation;
     char *name;
@@ -16,36 +18,65 @@ typedef struct Pokemon {
     char *date;
 } Pokemon;
 
-int totalPokemon = 0;
-Pokemon *pokemon;
+// Estrutura para armazenar um conjunto de Pokémons
+typedef struct PokemonStorage
+{
+    int tamPokStorage;
+    Pokemon *pokStorage;
+} PokemonStorage;
 
-void ler();
-char* str(char *);
-void imprimir(int);
-void clone(int);
+// Definição da estrutura da Lista
+typedef struct Lista
+{
+    int tamPokemonList;
+    Pokemon *pokemonList;
+    int n;
+} Lista;
 
-int main() {
-    pokemon = (Pokemon*)malloc(1 * sizeof(Pokemon));
-   
-    ler();
+// Potótipos das funções
+void start(PokemonStorage *);                 // Função para inicializar e alocar os atributos
+void ler(PokemonStorage *);                   // Função para a leitura do csv
+char *str(char *);                            // Função para alocação dinâmica de string
+Pokemon searchIdStorage(PokemonStorage, int); // Função para pesquisar pokemon por id no armazenamento
+void imprimir(Pokemon);                       // Função para imprimir os pokemons
+// void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
+
+int main()
+{
+    PokemonStorage storage;
+    Pokemon pokemon;
+
+    start(&storage);
+    ler(&storage);
 
     char str[10];
     int index;
 
     scanf("%s", str);
 
-    while (strcmp(str, "FIM") != 0) {
-        index = atoi(str); 
-        imprimir(index); 
-        scanf("%s", str);  
+    while (strcmp(str, "FIM") != 0)
+    {
+        index = atoi(str);
+        imprimir(searchIdStorage(storage, index));
+        scanf("%s", str);
     }
 
-    free(pokemon); // Liberação da memória alocada
+    free(storage.pokStorage); // Liberação da memória alocada
 }
 
-void ler() {
+// Função para inicializar e alocar os atributos
+void start(PokemonStorage *storage)
+{
+    storage->tamPokStorage = 0;
+    storage->pokStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
+}
+
+// Função para a leitura do csv
+void ler(PokemonStorage *s)
+{
     FILE *file = fopen("pokemon.csv", "r");
-    if (!file) {
+    if (!file)
+    {
         printf("Erro ao abrir o arquivo!\n");
         return;
     }
@@ -53,133 +84,163 @@ void ler() {
     char buffer[1000];
     fgets(buffer, sizeof(buffer), file);
 
-    while (fscanf(file, "%d%*c %d%*c", &pokemon[totalPokemon].id, &pokemon[totalPokemon].generation) != EOF) { // id, generation
+    while (fscanf(file, "%d%*c %d%*c", &s->pokStorage[s->tamPokStorage].id, &s->pokStorage[s->tamPokStorage].generation) != EOF)
+    {                                     // id, generation
         fscanf(file, "%[^,]%*c", buffer); // name
-        pokemon[totalPokemon].name = str(buffer);
+        s->pokStorage[s->tamPokStorage].name = str(buffer);
         fscanf(file, "%[^,]%*c", buffer); // description
-        pokemon[totalPokemon].description = str(buffer);
+        s->pokStorage[s->tamPokStorage].description = str(buffer);
 
         // Types
         int cont = 0;
         char *pch;
 
-        fscanf(file, "%[^\"]%*c", buffer); // captura os tipos
-        pokemon[totalPokemon].types = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 tipos
+        fscanf(file, "%[^\"]%*c", buffer);                                           // captura os tipos
+        s->pokStorage[s->tamPokStorage].types = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 tipos
 
-        pch = strtok(buffer, ",");  // Primeira tokenização por vírgula
-        while (pch != NULL) {
-            pokemon[totalPokemon].types[cont] = str(pch); // atribui o tipo tokenizado
+        pch = strtok(buffer, ","); // Primeira tokenização por vírgula
+        while (pch != NULL)
+        {
+            s->pokStorage[s->tamPokStorage].types[cont] = str(pch); // atribui o tipo tokenizado
             cont++;
-            pokemon[totalPokemon].types = (char**)realloc(pokemon[totalPokemon].types, (cont + 1) * sizeof(char*)); // realoca para mais tipos
+            s->pokStorage[s->tamPokStorage].types = (char **)realloc(s->pokStorage[s->tamPokStorage].types, (cont + 1) * sizeof(char *)); // realoca para mais tipos
             pch = strtok(NULL, ",");
         }
-        pokemon[totalPokemon].types[cont] = NULL; // finaliza com NULL
+        s->pokStorage[s->tamPokStorage].types[cont] = NULL; // finaliza com NULL
 
         // Abilities
-        
-        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer); // captura as habilidades
-        pokemon[totalPokemon].abilities = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 habilidades
+
+        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer);                                    // captura as habilidades
+        s->pokStorage[s->tamPokStorage].abilities = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 habilidades
 
         pch = strtok(buffer, "'"); // Primeira tokenização por vírgula
 
-        pokemon[totalPokemon].abilities[0] = str(pch);
+        s->pokStorage[s->tamPokStorage].abilities[0] = str(pch);
         pch = strtok(NULL, "'");
         pch = strtok(NULL, "'");
 
         cont = 1;
-        while (pch != NULL) {
-            pokemon[totalPokemon].abilities[cont] = str(pch);
+        while (pch != NULL)
+        {
+            s->pokStorage[s->tamPokStorage].abilities[cont] = str(pch);
 
             cont++;
-            pokemon[totalPokemon].abilities = (char**)realloc(pokemon[totalPokemon].abilities, (cont + 1) * sizeof(char*)); // realoca para mais habilidades
+            s->pokStorage[s->tamPokStorage].abilities = (char **)realloc(s->pokStorage[s->tamPokStorage].abilities, (cont + 1) * sizeof(char *)); // realoca para mais habilidades
             pch = strtok(NULL, "'");
             pch = strtok(NULL, "'");
         }
-        pokemon[totalPokemon].abilities[cont] = NULL; // finaliza com NULL
+        s->pokStorage[s->tamPokStorage].abilities[cont] = NULL; // finaliza com NULL
 
         // weight
         cont = 0;
         int comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
-                pokemon[totalPokemon].weight = 0.0;
+                s->pokStorage[s->tamPokStorage].weight = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
-            pokemon[totalPokemon].weight = atof(buffer);
+            s->pokStorage[s->tamPokStorage].weight = atof(buffer);
         }
 
         // height
         cont = 0;
         comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
-                pokemon[totalPokemon].height = 0.0;
+                s->pokStorage[s->tamPokStorage].height = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
-            pokemon[totalPokemon].height = atof(buffer);
+            s->pokStorage[s->tamPokStorage].height = atof(buffer);
         }
 
-        fscanf(file, "%d%*c", &pokemon[totalPokemon].captureRate); // captureRate
+        fscanf(file, "%d%*c", &s->pokStorage[s->tamPokStorage].captureRate); // captureRate
 
         fscanf(file, "%[^,]%*c", buffer); // isLegendary
-        pokemon[totalPokemon].isLegendary = strcmp(buffer, "0") == 0 ? str("false") : str("true");
+        s->pokStorage[s->tamPokStorage].isLegendary = strcmp(buffer, "0") == 0 ? str("false") : str("true");
 
         fscanf(file, "%[^\n]", buffer); // date
-        pokemon[totalPokemon].date = str(buffer);
+        s->pokStorage[s->tamPokStorage].date = str(buffer);
 
-        totalPokemon++;
-        pokemon = (Pokemon*)realloc(pokemon, (totalPokemon + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
+        s->tamPokStorage++;
+        s->pokStorage = (Pokemon *)realloc(s->pokStorage, (s->tamPokStorage + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
     }
-    fclose(file);  
+    fclose(file);
 }
 
-char* str(char *str) {
-    char *info = (char*)malloc((strlen(str) + 1) * sizeof(char));
+// Função para alocação dinâmica de string
+char *str(char *str)
+{
+    char *info = (char *)malloc((strlen(str) + 1) * sizeof(char));
     strcpy(info, str);
     return info;
 }
 
-void imprimir(int searchId) {
-    for (int i = 0; i < totalPokemon; ++i) {
-        if (searchId == pokemon[i].id) {
-            printf("[#%d -> %s: %s ", pokemon[i].id, pokemon[i].name, pokemon[i].description);
-
-            // Types
-            int cont = 0;
-            printf("[");
-            while (pokemon[i].types[cont] != NULL) {
-                if (cont > 0) printf(", ");
-                printf("'%s'", pokemon[i].types[cont]);
-                cont++;
-            }
-            printf("] - [");
-
-            // Abilities
-            cont = 0;
-            while (pokemon[i].abilities[cont] != NULL) {
-                if (cont > 0) printf(", ");
-                printf("'%s'", pokemon[i].abilities[cont]);
-                cont++;
-            }
-            printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon[i].weight, pokemon[i].height, pokemon[i].captureRate, pokemon[i].isLegendary, pokemon[i].generation, pokemon[i].date);
-
-            break;
+// Função para pesquisar pokemon por id no armazenamento
+Pokemon searchIdStorage(PokemonStorage s, int id)
+{
+    for (int i = 0; i < s.tamPokStorage; ++i)
+    {
+        if (id == s.pokStorage[i].id)
+        {
+            return s.pokStorage[i];
         }
     }
+    printf("Pokemon com o id = %d não encontrado no armazenamento\n", id);
+    exit(1);
+}
+
+// Função para imprimir os pokemons
+void imprimir(Pokemon pokemon)
+{
+    printf("[#%d -> %s: %s - ", pokemon.id, pokemon.name, pokemon.description);
+
+    // Types
+    int cont = 0;
+    printf("[");
+    while (pokemon.types[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
+        printf("'%s'", pokemon.types[cont]);
+        cont++;
+    }
+    printf("] - [");
+
+    // Abilities
+    cont = 0;
+    while (pokemon.abilities[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
+        printf("'%s'", pokemon.abilities[cont]);
+        cont++;
+    }
+    printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate,
+           pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
