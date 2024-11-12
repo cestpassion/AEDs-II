@@ -6,6 +6,9 @@
  * tenham pilhas do mesmo tamanho, retornar a primeira que aparece.
  */
 
+import java.util.Scanner;
+import java.util.Random;
+
 class CelulaPilha{
     public int elemento;
     public CelulaPilha prox;
@@ -147,7 +150,6 @@ class Lista{
         inicio = inicio.prox;
         Pilha pilhaRemov = inicio.pilha;
 
-        inicio.pilha = null;
         tmp.prox = null;
         tmp = null;
 
@@ -196,25 +198,30 @@ class Lista{
     public void mostrar(){
         int indice = 0;
         for(CelulaLista i = inicio.prox; i != null; i = i.prox){
-            System.out.println("Posição " + indice++ + " da Lista.\n| ");
+            System.out.print("\n\nPosicao " + indice++ + " da Lista:\n| ");
             i.pilha.mostrar();
         }
     }
 
+    public void mostrarNo(CelulaLista noPilha){
+        System.out.println("| ");
+        noPilha.pilha.mostrar();;
+    }
+
     public int tamLista(){
         int tam = 0;
-        for(CelulaLista i = inicio; i != fim; i = i.prox, tam++);
+        for(CelulaLista i = inicio.prox; i != null; i = i.prox, tam++);
 
         return tam;
     }
 
     public CelulaLista maiorPilha(){
-        int maior = inicio.pilha.tamPilha();
+        int maior = inicio.prox.pilha.tamPilha();
         int atual;
         CelulaLista maiorCelula = new CelulaLista();
 
         CelulaLista i;
-        for(i = inicio; i != null; i = i.prox){
+        for(i = inicio.prox; i != null; i = i.prox){
             atual = i.pilha.tamPilha();
 
             if(atual > maior){
@@ -228,5 +235,37 @@ class Lista{
 }
 
 public class MaiorPilha {
-    public static void main
+    public static Random rand = new Random();
+
+    public static void addPilhaNaLista(int qnt, Lista lista){
+        Pilha pilha;
+        int limit;
+
+        for(int i = 0; i < qnt; i++){
+            pilha = new Pilha();
+            limit = rand.nextInt(10) + 5;
+            
+            for(int j = 0; j < limit; j++){
+                pilha.push(rand.nextInt(100));
+            }
+            lista.inserirFim(pilha);
+        }
+    }
+    public static void main(String[] args){
+        Lista lista = new Lista();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\nInsira a quantidade de pilhas deseja inserir na lista: ");
+        int qnt = sc.nextInt(); sc.nextLine();
+        
+        addPilhaNaLista(qnt, lista);
+
+        System.out.print("\nLISTA:");
+        lista.mostrar();
+
+        System.out.println("\nMAIOR PILHA PRESENTE NA LISTA: ");
+        lista.mostrarNo(lista.maiorPilha());
+
+        sc.close();
+    }
 }
