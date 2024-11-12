@@ -52,11 +52,11 @@ class Lista {
 			throw new Exception("Erro ao remover (vazia)!");
 		}
 
-      Celula tmp = primeiro;
+      	Celula tmp = primeiro;
 		primeiro = primeiro.prox;
 		int resp = primeiro.elemento;
-      tmp.prox = null;
-      tmp = null;
+		tmp.prox = null;
+		tmp = null;
 		return resp;
 	}
 
