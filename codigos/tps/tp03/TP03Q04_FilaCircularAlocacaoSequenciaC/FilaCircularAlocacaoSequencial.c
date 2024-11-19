@@ -340,7 +340,7 @@ void start(PokemonStorage *storage, Fila *fila)
     storage->totalPokemonStorage = 0;
     storage->pokemonStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
-    fila->pokemonFila = (Pokemon *)malloc((TAMFILA + 1) * sizeof(Pokemon));
+    fila->pokemonFila = (Pokemon *)malloc((TAMFILA) * sizeof(Pokemon));
     fila->primeiro = fila->ultimo = 0;
 }
 

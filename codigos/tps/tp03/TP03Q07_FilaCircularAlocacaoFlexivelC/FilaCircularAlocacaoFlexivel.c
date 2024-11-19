@@ -6,40 +6,184 @@ version: Ubuntu 13.2.0-23ubuntu4
 */
 
 /*
-Crie uma classe Fila Circular de Pokémon.
-- Essa fila deve ter tamanho cinco. 
-- Em seguida, faça um programa que leia vários registros e insira seus atributos na fila.
-- Quando o programa tiver que inserir um registro e a fila estiver cheia, antes, ele deve fazer uma remoção.
-
-ENTRADA: 
-- A entrada padrão será igual à da questão anterior.
-
-SAÍDA:
-- A saída padrão será um número inteiro para cada registro inserido na fila. Esse número corresponde à média
-  arredondada do captureRate dos registros contidos na fila após cada inserção.
-- Além disso, para cada registro removido da fila, a saída padrão também apresenta a palavra “(R)” e alguns atributos
-  desse registro.
-- Por último, a saída padrão mostra os registros existentes na fila seguindo o padrão da questão anterior.
+Refazer a Questão 4 “Fila Circular com Alocação Sequencial”. Lembre-se que essa fila terá tamanho máximo
+igual a cinco.
 */
 
-/*
-INFOS:
+/* INFOS:
 
 - As filas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que entra é o primeiro a sair
     > First In, First Out (FIFO)
 
-- Tem basicamente os métodos de inserir (enfileirar, enqueue) e remover (desenfileirar, dequeue)
-    > II, IF, I, RI, RF e R
+- Tem basicamente os métodos de...
+    > inserir (enfileirar, enqueue) - I
+    > e remover (desenfileirar, dequeue) - R
 
-- Primeira solução IF e RI (remoção não é eficiente)
+- Primeira solução IF e RI (REMOÇÃO não é eficiente)
+    > Cada remoção: Move todos os elementos já cadastrados
     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                                        Primeira remoção: Retorna o 1 e move todos os demais
-        1 2 3 4 5                                   
+                                            • Primeira remoção: Retorna o 1 e move todos os demais
+       |1| |3| |5| |7|                          P:  3   5   7   X
+                                            • Segunda remoção: Retorna o 3 e move todos os demais
+                                                S:  5   7   X   X
 
-- Segunda solução II e RF (inserção não é eficiente)
-
+- Segunda solução II e RF (INSERÇÃO não é eficiente)
+    > Cada inserção: Move todos os elementos já cadastrados
+    > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
+                                            • Primeira remoção: Retorna o 1
+       |1|                                      P:  7   5   3   X
+       |3|  1                               • Segunda remoção: Retorna o 3
+       |5|  3   1                               S:  7   5   X   X
+       |7|  5   3   1
 
 */
+/* - Como implementar uma fila sem que uma das operações desloque todos os elementos?
+    > Fazendo uma fila circular, ou seja, depois da última posição, retornamos para a primeira
+    > IF RI
+         ___________________                      0
+        |   |   |   |   |   |                    ___
+        '---'---'---'---'---'             5  ___|   |___  1
+          0   1   2   4   5                 |   |---|   |
+                                            |---|   |---|
+                                            |   |___|   |
+                                          4 '---|   |---' 2
+                                                '---'
+    > Variáveis:                                  3
+        • array (de elementos);
+        • int primeiro, ultimo;
+    > Métodos:
+        • Construtores
+            =>  Fila() { ... }
+            =>  Fila(int tamanho){ ... }
+        • Inserção de elemento
+            =>  void inserir(elemento){ ... }
+        • Remoção de elementos
+            =>  elemento remover(){ ... }
+        • Mostrar, pesquisar, ordenar, ...
+
+    > Vamos criar uma fila com tamanho cinco e efetuar as operações I(1), I(3), I(5), I(7), I(9),
+      I(2), R(), R(), I(4), I(6), R(), I(8), M()
+
+        class Fila{
+            private int[] array;
+            private int primeiro, ultimo;
+
+            public Fila(){
+                this(5)
+            }
+
+            public Fila(int tamanho){
+                array = new int[tamanho+1]; // Vamos reservar uma unidade a mais, contudo, nossa
+                primeiro = ultimo = 0;      // fila caberá somente a quantidade solicitada
+            }
+        }
+             pu                                  0 pu
+             ___________________                ___
+            |   |   |   |   |   |        5  ___|   |___  1
+            '---'---'---'---'---'          |   |---|   |
+              0   1   2   4   5            |---|   |---|
+                                           |   |___|   |
+                                         4 '---|   |---' 2
+                                               '---'
+                                                 3
+-------------------
+        // Método Inserir (final) (1, 3, 5, 7, 9, 2)
+        public void inserir(int x) throws Exception{
+            if (((ultimo + 1) % array.length) == primeiro)
+                throw new Exception("Erro! Fila cheia.");
+
+            array[ultimo] = x;
+            ultimo = (ultimo + 1) % array.length;
+        }
+
+     (1) p    u                           0 p         (3) p       u                          0 p
+        _______________________           ___             _______________________           ___
+       | 1 |   |   |   |   |   |   5  ___| 1 |___  1 u   | 1 | 3 |   |   |   |   |   5  ___| 1 |___  1
+       '---'---'---'---'---'---'     |   |---|   |       '---'---'---'---'---'---'     |   |---| 3 |
+         0   1   2   3   4   5       |---|   |---|         0   1   2   3   4   5       |---|   |---|
+                                     |   |___|   |                                     |   |___|   |
+                                   4 '---|   |---' 2                                 4 '---|   |---' 2 u
+       if: false: 0 + 1 % 6 == 0         '---'           if: false: 1 + 1 % 6 == 0         '---'
+                                           3                                                 3
+
+     (5) p           u                     0 p         (7) p                u                 0 p
+        _______________________           ___             _______________________           ___
+       | 1 | 3 | 5 |   |   |   |   5  ___| 1 |___  1     | 1 | 3 | 5 | 7 |   |   |   5  ___| 1 |___  1
+       '---'---'---'---'---'---'     |   |---| 3 |       '---'---'---'---'---'---'     |   |---| 3 |
+         0   1   2   3   4   5       |---|   |---|         0   1   2   3   4   5       |---|   |---|
+                                     |   |___| 5 |                                     |   |___| 5 |
+                                   4 '---|   |---' 2                                 4 '---| 7 |---' 2
+       if: false: 2 + 1 % 6 == 0         '---'           if: false: 3 + 1 % 6 == 0   u     '---'
+                                           3 u                                               3
+
+     (9) p                   u             0 p        (2)
+        _______________________    u      ___             if (((ultimo + 1) % array.length) == primeiro)
+       | 1 | 3 | 5 | 7 | 9 |   |   5  ___| 1 |___  1
+       '---'---'---'---'---'---'     |   |---| 3 |                  true: 5 + 1 % 6 == 0
+         0   1   2   3   4   5       |---|   |---|
+                                     | 9 |___| 5 |        Como nossa fila tem tamanho cinco, não conseguimos
+                                   4 '---| 7 |---' 2      alocar mais elementos
+       if: false: 4 + 1 % 6 == 0         '---'
+                                           3
+-------------------
+        // Método Remover (início) (R, R)
+        public int remover() throws Exception{
+            if(primeiro == ultimo)
+                throw new Exception("Erro, não há elementos para remover!");
+
+            int resp = array[primeiro];
+            primeiro = (primeiro + 1) % array.lenght;
+            return resp;
+        }
+
+     (R)     p               u             0           (R)         p           u             0
+        _______________________    u      ___      p      _______________________    u      ___
+       | X | 3 | 5 | 7 | 9 |   |   5  ___| X |___  1     | X | X | 5 | 7 | 9 |   |   5  ___| X |___  1
+       '---'---'---'---'---'---'     |   |---| X |       '---'---'---'---'---'---'     |   |---| X |
+         0   1   2   3   4   5       |---|   |---|         0   1   2   3   4   5       |---|   |---|
+              ___                    | 9 |___| 5 |             ___                     | 9 |___| 5 |
+       resp: | 1 |                 4 '---| 7 |---' 2     resp | 3 |                  4 '---| 7 |---' 2
+             '---'                       '---'                '---'                        '---'     p
+       if: false: 1 == 5                   3             if: false: 2 == 5                   3
+
+-------------------
+        // Método Inserir (final) (4, 6)
+
+     (4) u       p                         0 u         (6)     u   p                         0
+        _______________________           ___             _______________________           ___
+       | X | X | 5 | 7 | 9 | 4 |   5  ___| X |___  1     | 6 | X | 5 | 7 | 9 | 4 |   5  ___| 6 |___  1 u
+       '---'---'---'---'---'---'     | 4 |---| X |       '---'---'---'---'---'---'     | 4 |---| X |
+         0   1   2   3   4   5       |---|   |---|         0   1   2   3   4   5       |---|   |---|
+                                     | 9 |___| 5 |                                     | 9 |___| 5 |
+                                   4 '---| 7 |---' 2 p                               4 '---| 7 |---' 2 p
+       if: false: 5 + 1 % 6 == 2         '---'           if: false: 0 + 1 % 6 == 2         '---'
+                                           3                                                 3
+-------------------                             -------------------
+        // Método Remover (início) (R)                  // Método Inserir (final) (8)
+
+     (R)     u       p                     0 u         (8)         u   p                     0
+        _______________________           ___             _______________________           ___
+       | 6 | X | X | 7 | 9 | 4 |   5  ___| X |___  1     | 6 | 8 | X | 7 | 9 | 4 |   5  ___| 6 |___  1
+       '---'---'---'---'---'---'     | 4 |---| X |       '---'---'---'---'---'---'     | 4 |---| 8 |
+         0   1   2   3   4   5       |---|   |---|         0   1   2   3   4   5       |---|   |---|
+              ___                    | 9 |___| X |                                     | 9 |___| X |
+       resp: | 5 |                 4 '---| 7 |---' 2                                 4 '---| 7 |---' 2 u
+             '---'                       '---'           if: false: 1 + 1 % 6 == 3         '---'
+       if: false: 1 == 5                   3 p                                               3 p
+
+-------------------
+        // Método Mostrar
+        public void mostrar(){                  Tela : [7 9 4 6 8]
+            int i = primeiro;
+
+            System.out.print("[");
+            while(i != iltimo){
+                System.out.print(array[i] + " ");
+                i = (i + 1) % array.length;
+            }
+        }
+*/
+
 
 // -----------------------------
 // HEADER - Início
@@ -74,41 +218,31 @@ typedef struct PokemonStorage{
     Pokemon *pokemonStorage;
 } PokemonStorage;
 
-// Definição da estrutura da Fila Circular CircularQueue
+// Tipo Celula
 typedef struct Celula{
     Pokemon pokemon;
     struct Celula* prox;
 
 }Celula;
 
-Celula* construtorCelulaCabeca(){
-    Celula* tmp = (Celula*) malloc(sizeof(Celula));
-    tmp->prox = NULL;
-
-    return tmp;
+Celula* newCelula(Pokemon pokemon){
+    Celula *new = (Celula*)malloc(sizeof(Celula));
+    new->pokemon = pokemon;
+    new->prox = NULL;
+    return new;
 }
 
-Celula* construtorCelula(Pokemon pokemon){
-    Celula* tmp = (Celula*) malloc(sizeof(Celula));
-    tmp->pokemon = pokemon;
-    tmp->prox = NULL;
-
-    return tmp;
-}
-
+// Definição da estrutura da Fila Circular - CircularQueue
 typedef struct Fila{
-    Celula* cabeca;
+    Celula* primeiro;
     Celula* ultimo;
-    int tamanho;
 
 }Fila;
 
-Fila* construtorFila(){
+Fila* newFila(){
     Fila* fila = (Fila*) malloc(sizeof(Fila));
-
-    fila->cabeca = construtorCelulaCabeca();
-    fila->ultimo = fila->cabeca;
-    fila->tamanho = 0;
+    fila->primeiro = newCelula();
+    fila->ultimo = fila->primeiro;
 
     return fila;
 }
@@ -120,6 +254,9 @@ char* str(char *);
 Pokemon searchIdStorage(int, PokemonStorage);
 void imprimir(Pokemon);
 //void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
+
+// Potótipos das funções da Fila Circular - CircularQueue
+
 
 // -----------------------------
 // HEADER - Fim
@@ -134,7 +271,7 @@ int calcularMediaCaptureRate(Fila* fila) {
     int soma = 0;
     int contador = 0;
     
-    for (Celula* i = fila->cabeca->prox; i != NULL; i = i->prox) {
+    for (Celula* i = fila->primeiro->prox; i != NULL; i = i->prox) {
         soma += i->pokemon.captureRate;
         contador++;
     }
@@ -154,14 +291,14 @@ Pokemon remover(Fila* fila){
     if(fila->tamanho <= 0){
         printf("Fila Vazia");
     }else{
-        Celula* tmp = fila->cabeca;
-        fila->cabeca = fila->cabeca->prox;
+        Celula* tmp = fila->primeiro;
+        fila->primeiro = fila->primeiro->prox;
 
         tmp->prox = NULL;
         tmp = NULL;
         free(tmp);
 
-        pokemon = fila->cabeca->pokemon;
+        pokemon = fila->primeiro->pokemon;
         fila->tamanho--;
     }
 
@@ -169,7 +306,7 @@ Pokemon remover(Fila* fila){
 }
 
 void inserir(Fila* fila, Pokemon pokemon){
-    if(fila->tamanho >= 5){
+    if(((fila->ultimo + 1) % TAMFILA) == fila->primeiro){ // Validar inserção
         remover(fila);
     }
         fila->ultimo->prox = construtorCelula(pokemon);
@@ -184,7 +321,7 @@ void inserir(Fila* fila, Pokemon pokemon){
 void mostrar(Fila* fila){
     int contador = 0;
 
-    for(Celula* i = fila->cabeca->prox; i != NULL; i = i->prox){
+    for(Celula* i = fila->primeiro->prox; i != NULL; i = i->prox){
         printf("[%d] ", contador);
         imprimir(i->pokemon);
         contador++;
@@ -217,27 +354,19 @@ void mostrar(Fila* fila){
 // FUNÇÃO PRINCIPAL
 int main() {
 
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+    //setlocale(LC_ALL, "pt_BR.UTF-8");
     PokemonStorage storage;
     Pokemon pokemon;
-    Fila* fila = construtorFila();
+    Fila* fila = newFila();
     
     start(&storage, fila);
     ler(&storage);
-
-
-    /*imprimir(searchIdStorage(181, storage));
-    imprimir(searchIdStorage(791, storage));
-    imprimir(searchIdStorage(453, storage));
-    imprimir(searchIdStorage(46, storage));
-    imprimir(searchIdStorage(137, storage));*/
-
     char input[50];
 
     scanf("%s", input);
     while(strcmp(input, "FIM") != 0){
         inserir(fila, searchIdStorage(atoi(input), storage));
-        //imprimir(searchIdStorage(atoi(input), storage));
+
         printf("Média: %d\n", calcularMediaCaptureRate(fila));
         scanf("%s", input);
     }
@@ -266,8 +395,6 @@ int main() {
             infos++;
         }
 
-        
-
         if(strcmp(subString[0], "I") == 0){
             inserir(fila, searchIdStorage(atoi(subString[1]), storage));
             printf("Média: %d\n", calcularMediaCaptureRate(fila));
@@ -290,17 +417,15 @@ void start(PokemonStorage *storage, Fila *fila) {
     storage->totalPokemonStorage = 0;
     storage->pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
 
-    Pokemon emptyPokemon = {0, 0, NULL, NULL, NULL, NULL, 0.0, 0.0, 0, NULL, NULL};
-    //fila->cabeca = 0;
-    //fila->ultimo = 0;
+    fila = newFila();
 }
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s) {
-    FILE *file = fopen("/tmp/pokemon.csv", "r");
+    FILE *file = fopen("pokemon.csv", "r");
     if (!file) {
         printf("Erro ao abrir o arquivo!\n");
-        return;
+        exit(1);
     }
 
     char buffer[1000];
