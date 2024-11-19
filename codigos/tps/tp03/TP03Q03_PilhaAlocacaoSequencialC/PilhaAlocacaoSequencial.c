@@ -167,7 +167,6 @@ void start(PokemonStorage *storage, Stack *stack)
     storage->totalPokemonStorage = 0;
     storage->pokemonStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
-    stack->top = 0;
     stack->top = -1;
     stack->pokemonStack = (Pokemon *)malloc(1 * sizeof(Pokemon));
 }
