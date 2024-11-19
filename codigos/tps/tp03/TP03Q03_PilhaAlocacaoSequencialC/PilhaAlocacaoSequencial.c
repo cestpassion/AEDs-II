@@ -23,20 +23,22 @@ INFO:
 
 - Primeira solução IF e RF
     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                    7                               X   X
-                5   5                               5   X
-            3   3   3                               3   3
-        1   1   1   1                               1   1
+                                            • Na primeira remoção, retiramos o número 7        
+                   |7|                      • Na segunda remoção, retiramos o número 5   
+               |5|  5                            P: X    S: X
+           |3|  3   3                               5       X
+       |1|  1   1   1                               3       3
+                                                    1       1
 
 - Segunda solução II e RI (inserção e remoção não eficientes)
     > Em cada inserção ou remoção, movemos todos os elementos
     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                    1                       • Primeira remoção: Retorna o 7 e move todos os demais
-                1   3                       • Segunda remoção: Retorna o 5 e move todos os demais
-            1   3   5                               X   X
-        1   3   5   7                               1   X
-                                                    3   1
-                                                    5   3
+                                            • Primeira remoção: Retorna o 7 e move todos os demais
+                    1                       • Segunda remoção: Retorna o 5 e move todos os demais
+                1   3                           P:  X   S:  X
+            1   3   5                               1       X
+       |1| |3| |5| |7|                              3       1
+                                                    5       3 
 */
 
 // -----------------------------
