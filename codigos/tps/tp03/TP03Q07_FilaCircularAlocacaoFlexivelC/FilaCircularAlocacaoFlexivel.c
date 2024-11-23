@@ -184,7 +184,6 @@ igual a cinco.
         }
 */
 
-
 // -----------------------------
 // HEADER - Início
 // -----------------------------
@@ -198,7 +197,8 @@ igual a cinco.
 #define TAMFILA 6
 
 // Estrutura para armazenar informações do Pokemon
-typedef struct Pokemon {
+typedef struct Pokemon
+{
     int id;
     int generation;
     char *name;
@@ -213,165 +213,87 @@ typedef struct Pokemon {
 } Pokemon;
 
 // Estrutura para armazenar um conjunto de Pokémons
-typedef struct PokemonStorage{
+typedef struct PokemonStorage
+{
     int totalPokemonStorage;
     Pokemon *pokemonStorage;
 } PokemonStorage;
 
 // Tipo Celula
-typedef struct Celula{
+typedef struct Celula
+{
     Pokemon pokemon;
-    struct Celula* prox;
+    struct Celula *prox;
 
-}Celula;
+} Celula;
 
-Celula* newCelula(Pokemon pokemon){
-    Celula *new = (Celula*)malloc(sizeof(Celula));
+Celula *newCelula(Pokemon pokemon)
+{
+    Celula *new = (Celula *)malloc(sizeof(Celula));
     new->pokemon = pokemon;
     new->prox = NULL;
     return new;
 }
 
 // Definição da estrutura da Fila Circular - CircularQueue
-typedef struct Fila{
-    Celula* primeiro;
-    Celula* ultimo;
+typedef struct Fila
+{
+    Celula *primeiro;
+    Celula *ultimo;
+    int tamanho;
+} Fila;
 
-}Fila;
-
-Fila* newFila(){
+/* Fila* newFila(){
     Fila* fila = (Fila*) malloc(sizeof(Fila));
-    fila->primeiro = newCelula();
+    Pokemon emptyPokemon = {0, 0, NULL, NULL, NULL, NULL, 0.0, 0.0, 0, NULL, NULL};
+
+    fila->primeiro = newCelula(emptyPokemon);
     fila->ultimo = fila->primeiro;
 
     return fila;
-}
+} */
 
 // Potótipos das funções
-void start(PokemonStorage*, Fila*);
-void ler(PokemonStorage*);
-char* str(char *);
+void start(PokemonStorage *, Fila *);
+void ler(PokemonStorage *);
+char *str(char *);
 Pokemon searchIdStorage(int, PokemonStorage);
 void imprimir(Pokemon);
-//void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
+// void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
 // Potótipos das funções da Fila Circular - CircularQueue
-
+void inserir(Fila*, Pokemon);
+Pokemon remover(Fila*);
+void mostrar(Fila);
+int mediaCaptureRate(Fila);
 
 // -----------------------------
 // HEADER - Fim
 // -----------------------------
 
-// -----------------------------
-// FILA CIRCULAR: Início
-// -----------------------------
-
-// Função para calcular a média do captureRate
-int calcularMediaCaptureRate(Fila* fila) {
-    int soma = 0;
-    int contador = 0;
-    
-    for (Celula* i = fila->primeiro->prox; i != NULL; i = i->prox) {
-        soma += i->pokemon.captureRate;
-        contador++;
-    }
-    
-    if (contador == 0) return 0;
-    return (int)round((double)soma / contador);
-}
-
-
-
-
-// Função para remover da Fila Circular
-
-
-Pokemon remover(Fila* fila){
-    Pokemon pokemon;
-    if(fila->tamanho <= 0){
-        printf("Fila Vazia");
-    }else{
-        Celula* tmp = fila->primeiro;
-        fila->primeiro = fila->primeiro->prox;
-
-        tmp->prox = NULL;
-        tmp = NULL;
-        free(tmp);
-
-        pokemon = fila->primeiro->pokemon;
-        fila->tamanho--;
-    }
-
-    return pokemon;
-}
-
-void inserir(Fila* fila, Pokemon pokemon){
-    if(((fila->ultimo + 1) % TAMFILA) == fila->primeiro){ // Validar inserção
-        remover(fila);
-    }
-        fila->ultimo->prox = construtorCelula(pokemon);
-        fila->ultimo = fila->ultimo->prox;
-        //imprimir(fila->ultimo->pokemon);
-        fila->tamanho++;
-    
-}
-
-// Função para imprimir os pokemon presentes na Fila Circular
-
-void mostrar(Fila* fila){
-    int contador = 0;
-
-    for(Celula* i = fila->primeiro->prox; i != NULL; i = i->prox){
-        printf("[%d] ", contador);
-        imprimir(i->pokemon);
-        contador++;
-    }
-
-}
-
-/*void mostrar(Fila fila) {
-    if (fila.primeiro == fila.ultimo) { // Fila vazia
-        printf("Fila está vazia.\n");
-        return;
-    }
-
-    int contador = 0;
-    int i = fila.primeiro;
-    while (i != fila.ultimo) { // Iterar pelos elementos ativos na fila
-        printf("[%d] ", contador);
-        imprimir(fila.pokemonFila[i]); // Imprimir o Pokémon
-        i = (i + 1) % TAMFILA;   // Avançar no índice circular
-        contador++;
-    }
-    printf("\n");
-}*/
-
-
-// -----------------------------
-// FILA CIRCULAR: - Fim
-// -----------------------------
-
 // FUNÇÃO PRINCIPAL
-int main() {
+int main()
+{
 
-    //setlocale(LC_ALL, "pt_BR.UTF-8");
+    // setlocale(LC_ALL, "pt_BR.UTF-8");
     PokemonStorage storage;
     Pokemon pokemon;
-    Fila* fila = newFila();
-    
-    start(&storage, fila);
+    Fila fila;
+
+    start(&storage, &fila);
     ler(&storage);
     char input[50];
 
     scanf("%s", input);
-    while(strcmp(input, "FIM") != 0){
-        inserir(fila, searchIdStorage(atoi(input), storage));
+    while (strcmp(input, "FIM") != 0)
+    {
+        inserir(&fila, searchIdStorage(atoi(input), storage));
 
-        printf("Média: %d\n", calcularMediaCaptureRate(fila));
+        printf("Média: %d\n", mediaCaptureRate(fila));
         scanf("%s", input);
     }
 
-    //mostrar(fila);
+    // mostrar(fila);
 
     int operations; // quantidade de registros a serem inseridos/removidos
     int cont = 0;
@@ -382,25 +304,29 @@ int main() {
     scanf("%d", &operations);
     getchar();
 
-    while(cont < operations){
+    while (cont < operations)
+    {
         infos = 0;
 
         scanf("%[^\n]", input);
         getchar();
 
         pch = strtok(input, " ");
-        while (pch != NULL) {
+        while (pch != NULL)
+        {
             strcpy(subString[infos], pch); // atribui o tipo tokenizado
             pch = strtok(NULL, " ");
             infos++;
         }
 
-        if(strcmp(subString[0], "I") == 0){
-            inserir(fila, searchIdStorage(atoi(subString[1]), storage));
-            printf("Média: %d\n", calcularMediaCaptureRate(fila));
+        if (strcmp(subString[0], "I") == 0)
+        {
+            inserir(&fila, searchIdStorage(atoi(subString[1]), storage));
+            printf("Média: %d\n", mediaCaptureRate(fila));
         }
-        else if(strcmp(subString[0], "R") == 0){
-            printf("(R) %s\n", remover(fila).name);   
+        else if (strcmp(subString[0], "R") == 0)
+        {
+            printf("(R) %s\n", remover(&fila).name);
         }
         cont++;
     }
@@ -408,22 +334,27 @@ int main() {
     mostrar(fila);
 
     // Liberação da memória alocada
-    free(storage.pokemonStorage);   
-    //free(fila.pokemonFila);
+    free(storage.pokemonStorage);
+    // free(fila.pokemonFila);
 }
 
 // Função para inicializar e alocar os atributos
-void start(PokemonStorage *storage, Fila *fila) {
+void start(PokemonStorage *storage, Fila *fila)
+{
     storage->totalPokemonStorage = 0;
-    storage->pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
+    storage->pokemonStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
-    fila = newFila();
+    fila->primeiro = NULL;
+    fila->ultimo = fila->primeiro;
+    fila->tamanho = 0;
 }
 
 // Função para a leitura do csv
-void ler(PokemonStorage *s) {
+void ler(PokemonStorage *s)
+{
     FILE *file = fopen("pokemon.csv", "r");
-    if (!file) {
+    if (!file)
+    {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
     }
@@ -431,7 +362,8 @@ void ler(PokemonStorage *s) {
     char buffer[1000];
     fgets(buffer, sizeof(buffer), file);
 
-    while (fscanf(file, "%d%*c %d%*c", &s->pokemonStorage[s->totalPokemonStorage].id, &s->pokemonStorage[s->totalPokemonStorage].generation) != EOF) { // id, generation
+    while (fscanf(file, "%d%*c %d%*c", &s->pokemonStorage[s->totalPokemonStorage].id, &s->pokemonStorage[s->totalPokemonStorage].generation) != EOF)
+    {                                     // id, generation
         fscanf(file, "%[^,]%*c", buffer); // name
         s->pokemonStorage[s->totalPokemonStorage].name = str(buffer);
         fscanf(file, "%[^,]%*c", buffer); // description
@@ -441,22 +373,23 @@ void ler(PokemonStorage *s) {
         int cont = 0;
         char *pch;
 
-        fscanf(file, "%[^\"]%*c", buffer); // captura os tipos
-        s->pokemonStorage[s->totalPokemonStorage].types = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 tipos
+        fscanf(file, "%[^\"]%*c", buffer);                                                     // captura os tipos
+        s->pokemonStorage[s->totalPokemonStorage].types = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 tipos
 
-        pch = strtok(buffer, ",");  // Primeira tokenização por vírgula
-        while (pch != NULL) {
+        pch = strtok(buffer, ","); // Primeira tokenização por vírgula
+        while (pch != NULL)
+        {
             s->pokemonStorage[s->totalPokemonStorage].types[cont] = str(pch); // atribui o tipo tokenizado
             cont++;
-            s->pokemonStorage[s->totalPokemonStorage].types = (char**)realloc(s->pokemonStorage[s->totalPokemonStorage].types, (cont + 1) * sizeof(char*)); // realoca para mais tipos
+            s->pokemonStorage[s->totalPokemonStorage].types = (char **)realloc(s->pokemonStorage[s->totalPokemonStorage].types, (cont + 1) * sizeof(char *)); // realoca para mais tipos
             pch = strtok(NULL, ",");
         }
         s->pokemonStorage[s->totalPokemonStorage].types[cont] = NULL; // finaliza com NULL
 
         // Abilities
-        
-        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer); // captura as habilidades
-        s->pokemonStorage[s->totalPokemonStorage].abilities = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 habilidades
+
+        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer);                                              // captura as habilidades
+        s->pokemonStorage[s->totalPokemonStorage].abilities = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 habilidades
 
         pch = strtok(buffer, "'"); // Primeira tokenização por vírgula
 
@@ -465,11 +398,12 @@ void ler(PokemonStorage *s) {
         pch = strtok(NULL, "'");
 
         cont = 1;
-        while (pch != NULL) {
+        while (pch != NULL)
+        {
             s->pokemonStorage[s->totalPokemonStorage].abilities[cont] = str(pch);
 
             cont++;
-            s->pokemonStorage[s->totalPokemonStorage].abilities = (char**)realloc(s->pokemonStorage[s->totalPokemonStorage].abilities, (cont + 1) * sizeof(char*)); // realoca para mais habilidades
+            s->pokemonStorage[s->totalPokemonStorage].abilities = (char **)realloc(s->pokemonStorage[s->totalPokemonStorage].abilities, (cont + 1) * sizeof(char *)); // realoca para mais habilidades
             pch = strtok(NULL, "'");
             pch = strtok(NULL, "'");
         }
@@ -478,18 +412,23 @@ void ler(PokemonStorage *s) {
         // weight
         cont = 0;
         int comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
                 s->pokemonStorage[s->totalPokemonStorage].weight = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
             s->pokemonStorage[s->totalPokemonStorage].weight = atof(buffer);
         }
@@ -497,18 +436,23 @@ void ler(PokemonStorage *s) {
         // height
         cont = 0;
         comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
                 s->pokemonStorage[s->totalPokemonStorage].height = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
             s->pokemonStorage[s->totalPokemonStorage].height = atof(buffer);
         }
@@ -522,22 +466,26 @@ void ler(PokemonStorage *s) {
         s->pokemonStorage[s->totalPokemonStorage].date = str(buffer);
 
         s->totalPokemonStorage++;
-        s->pokemonStorage = (Pokemon*)realloc(s->pokemonStorage, (s->totalPokemonStorage + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
+        s->pokemonStorage = (Pokemon *)realloc(s->pokemonStorage, (s->totalPokemonStorage + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
     }
-    fclose(file);  
+    fclose(file);
 }
 
 // Função para alocação dinâmica de string
-char* str(char *str) {
-    char *info = (char*)malloc((strlen(str) + 1) * sizeof(char));
+char *str(char *str)
+{
+    char *info = (char *)malloc((strlen(str) + 1) * sizeof(char));
     strcpy(info, str);
     return info;
 }
 
 // Função para pesquisar pokemon por id no armazenamento
-Pokemon searchIdStorage(int id, PokemonStorage s){
-    for(int i = 0; i < s.totalPokemonStorage; ++i){
-        if(id == s.pokemonStorage[i].id){
+Pokemon searchIdStorage(int id, PokemonStorage s)
+{
+    for (int i = 0; i < s.totalPokemonStorage; ++i)
+    {
+        if (id == s.pokemonStorage[i].id)
+        {
             return s.pokemonStorage[i];
         }
     }
@@ -546,14 +494,17 @@ Pokemon searchIdStorage(int id, PokemonStorage s){
 }
 
 // Função para imprimir os pokemons
-void imprimir(Pokemon pokemon) {
+void imprimir(Pokemon pokemon)
+{
     printf("[#%d -> %s: %s - ", pokemon.id, pokemon.name, pokemon.description);
 
     // Types
     int cont = 0;
     printf("[");
-    while (pokemon.types[cont] != NULL) {
-        if (cont > 0) printf(", ");
+    while (pokemon.types[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
         printf("'%s'", pokemon.types[cont]);
         cont++;
     }
@@ -561,11 +512,94 @@ void imprimir(Pokemon pokemon) {
 
     // Abilities
     cont = 0;
-    while (pokemon.abilities[cont] != NULL) {
-        if (cont > 0) printf(", ");
+    while (pokemon.abilities[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
         printf("'%s'", pokemon.abilities[cont]);
         cont++;
     }
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate, pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
 
+// -----------------------------
+// FILA CIRCULAR: Início
+// -----------------------------
+
+// Função para remover da Fila Circular
+
+Pokemon remover(Fila *fila)
+{
+    Pokemon pokemon;
+    if (fila->tamanho <= 0)
+    {
+        printf("Fila Vazia");
+    }
+    else
+    {
+        Celula *tmp = fila->primeiro;
+        fila->primeiro = fila->primeiro->prox;
+
+        tmp->prox = NULL;
+        tmp = NULL;
+        free(tmp);
+
+        pokemon = fila->primeiro->pokemon;
+        fila->tamanho--;
+    }
+
+    return pokemon;
+}
+
+void inserir(Fila *fila, Pokemon pokemon)
+{
+    if(fila->tamanho >= 5) // Validar inserção
+    {
+        remover(fila);
+
+        /* printf("Erro! A Fila está cheia.");
+        exit(1); */
+    }
+
+    fila->ultimo->prox = newCelula(pokemon);
+    fila->ultimo = fila->ultimo->prox;
+    fila->tamanho++;
+}
+
+// Função para imprimir os pokemon presentes na Fila Circular
+void mostrar(Fila fila)
+{
+    if (fila.primeiro == fila.ultimo) { // Fila vazia
+        printf("Fila está vazia.\n");
+        return;
+    }
+
+    int index = 0;
+    for (Celula *i = fila.primeiro->prox; i != NULL; i = i->prox)
+    {
+        printf("[%d] ", index);
+        imprimir(i->pokemon);
+        index++;
+    }
+}
+
+// Função para calcular a média do captureRate
+int mediaCaptureRate(Fila fila)
+{
+    int soma = 0;
+    int tamanho = 0;
+
+    for (Celula *i = fila.primeiro->prox; i != NULL; i = i->prox)
+    {
+        soma += i->pokemon.captureRate;
+        tamanho++;
+    }
+
+    if (tamanho == 0)
+        return 0;
+    return (int)round((double)soma / tamanho);
+}
+
+// -----------------------------
+// FILA CIRCULAR: - Fim
+// -----------------------------
