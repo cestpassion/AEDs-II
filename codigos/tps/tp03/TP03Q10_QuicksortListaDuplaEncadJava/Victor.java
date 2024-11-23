@@ -560,7 +560,7 @@ class Lista{
 
 }
  
- public class QuickSortListaflexivel {
+ public class Victor {
      public static List<Pokemon> pokemonStorage;
  
      public static Pokemon search(int id) {

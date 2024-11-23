@@ -1,11 +1,4 @@
 /*
-Fila Circular com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Crie uma classe Fila Circular de Pokémon.
 - Essa fila deve ter tamanho cinco.
 - Em seguida, faça um programa que leia vários registros e insira seus atributos na fila.
@@ -206,6 +199,13 @@ SAÍDA:
        |   |___|   |
        '---|   |---'
            '---'
+*/
+
+/*
+Fila Circular com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 // -----------------------------

@@ -1,44 +1,18 @@
 /*
-Fila Circular com Alocação Sequencial em C
+Refaça a Questão “Quicksort” 10 do Trabalho Prático II - com lista duplamente encadeada. O nome do
+arquivo de log será matrícula_quicksort2.txt.
+*/
+
+/*
+INFO:
+
+*/
+
+/*
+Quicksort com LISTA DINÂMICA DUPLAMENTE ENCADEADA em C
 
 author: Bruna Furtado da Fonseca
 version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
-Crie uma classe Fila Circular de Pokémon.
-- Essa fila deve ter tamanho cinco. 
-- Em seguida, faça um programa que leia vários registros e insira seus atributos na fila.
-- Quando o programa tiver que inserir um registro e a fila estiver cheia, antes, ele deve fazer uma remoção.
-
-ENTRADA: 
-- A entrada padrão será igual à da questão anterior.
-
-SAÍDA:
-- A saída padrão será um número inteiro para cada registro inserido na fila. Esse número corresponde à média
-  arredondada do captureRate dos registros contidos na fila após cada inserção.
-- Além disso, para cada registro removido da fila, a saída padrão também apresenta a palavra “(R)” e alguns atributos
-  desse registro.
-- Por último, a saída padrão mostra os registros existentes na fila seguindo o padrão da questão anterior.
-*/
-
-/*
-INFOS:
-
-- As filas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que entra é o primeiro a sair
-    > First In, First Out (FIFO)
-
-- Tem basicamente os métodos de inserir (enfileirar, enqueue) e remover (desenfileirar, dequeue)
-    > II, IF, I, RI, RF e R
-
-- Primeira solução IF e RI (remoção não é eficiente)
-    > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                                        Primeira remoção: Retorna o 1 e move todos os demais
-        1 2 3 4 5                                   
-
-- Segunda solução II e RF (inserção não é eficiente)
-
-
 */
 
 // -----------------------------
@@ -48,11 +22,10 @@ INFOS:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
-#include <locale.h>
 
 // Estrutura para armazenar informações do Pokemon
-typedef struct Pokemon {
+typedef struct Pokemon
+{
     int id;
     int generation;
     char *name;
@@ -67,232 +40,149 @@ typedef struct Pokemon {
 } Pokemon;
 
 // Estrutura para armazenar um conjunto de Pokémons
-typedef struct PokemonStorage{
-    int totalPokemonStorage;
-    Pokemon *pokemonStorage;
+typedef struct PokemonStorage
+{
+    int tamPokStorage;
+    Pokemon *pokStorage;
 } PokemonStorage;
 
-// Definição da estrutura da Fila Circular CircularQueue
-typedef struct Celula{
-    Pokemon pokemon;
-    struct Celula* prox;
-    struct Celula* ant;
+// Tipo Celula
+typedef struct Celula
+{
+    Pokemon pokemon;     // Elemento inserido na celula.
+    struct Celula *prox; // Aponta a celula prox.
+} Celula;
 
-}Celula;
-
-Celula* construtorCelulaPrimeira(){
-    Celula* tmp = (Celula*) malloc(sizeof(Celula));
-    tmp->prox = NULL;
-    tmp->ant = NULL;
-
-    return tmp;
+Celula *newCelula(Pokemon pokemon)
+{
+    Celula *new = (Celula *)malloc(sizeof(Celula));
+    new->pokemon = pokemon;
+    new->prox = NULL;
+    return new;
 }
 
-Celula* construtorCelula(Pokemon pokemon){
-    Celula* tmp = (Celula*) malloc(sizeof(Celula));
-    tmp->pokemon = pokemon;
-    tmp->prox = NULL;
-    tmp->ant = NULL;
-
-    return tmp;
-}
-
-typedef struct Lista{
-    Celula* primeiro;
-    Celula* ultimo;
-    int tamanho;
-
-}Lista;
-
-Lista* construtorLista(){
-    Lista* lista = (Lista*) malloc(sizeof(Lista));
-
-    lista->primeiro = construtorCelulaPrimeira();
-    lista->ultimo = lista->primeiro;
-    lista->tamanho = 0;
-
-    return lista;
-}
-
-void inserirFim(Lista* lista, Pokemon pokemon){
-
-        Celula* tmp = construtorCelula(pokemon);
-        lista->ultimo->prox = tmp;
-        tmp->ant = lista->ultimo;
-        lista->ultimo = tmp;
-        tmp = NULL;
-        lista->tamanho++;
-}
-
-void inserirInicio(Lista* lista, Pokemon pokemon){
-        
-        Celula* tmp = construtorCelula(pokemon);
-
-        tmp->prox = lista->primeiro->prox;
-        lista->primeiro->prox->ant = tmp;
-
-        lista->primeiro->prox = tmp;
-        tmp->ant = lista->primeiro;
-        tmp = NULL;
-        lista->tamanho++;
-}
-
-void inserir(Lista* lista, Pokemon pokemon, int pos){
-        if(pos > lista->tamanho || pos < 0){
-            printf("Posicao invalida\n");
-        }else if(pos == 0) inserirInicio(lista, pokemon);
-        else if(pos == lista->tamanho) inserirFim(lista, pokemon);
-        else{
-            Celula* i = lista->primeiro;
-            for(int j = 0; j < pos; i = i->prox, j++);
-
-            Celula* tmp = construtorCelula(pokemon);
-            tmp->prox = i->prox;
-            i->prox->ant = tmp;
-
-            i->prox = tmp;
-            tmp->ant = i;
-
-            tmp = NULL;
-            i = NULL;
-            free(tmp);
-            free(i);
-
-            lista->tamanho++;
-        }
-}
+// Construtor da classe que cria uma lista sem elementos
+typedef struct FlexList
+{
+    Celula *primeiro;
+    Celula *ultimo;
+} FlexList;
 
 // Potótipos das funções
-void start(PokemonStorage*, Lista*);
-void ler(PokemonStorage*);
-char* str(char *);
-Pokemon searchIdStorage(int, PokemonStorage);
-void imprimir(Pokemon);
-//void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
+void start(PokemonStorage *, FlexList *);     // Função para inicializar e alocar os atributos
+void ler(PokemonStorage *);                   // Função para a leitura do csv
+char *str(char *);                            // Função para alocação dinâmica de string
+Pokemon searchIdStorage(PokemonStorage, int); // Função para pesquisar pokemon por id no armazenamento
+void imprimir(Pokemon);                       // Função para imprimir os pokemons
+// void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
-int compare(Pokemon a, Pokemon b){
+// Potótipos das funções - Lista Flexível
+void inserirInicio(FlexList *, Pokemon); // Função para inserir no início da Lista Flexível
+void inserirFim(FlexList *, Pokemon);    // Função para inserir no fim da Lista Flexível
+int sizeFlexList(FlexList);
+void inserir(FlexList *, Pokemon, int);  // Função para inserir na p-ésima posição  da Lista Flexível
+Pokemon removerInicio(FlexList *);       // Função para remover no início da Lista Flexível
+Pokemon removerFim(FlexList *);          // Função para remover no fim da Lista Flexível
+Pokemon remover(FlexList *, int);        // Função para remover na p-ésima posição da Lista Flexível
+void mostrar(FlexList);                  // Função para imprimir os pokemon presentes na Lista Flexível
 
-    int Comparison = a.generation - b.generation;
-    if(Comparison != 0) {
-        return Comparison;
-    }else {
-        return strcmp(a.name, b.name);
-    }
-    return Comparison;
-}
-
-Pokemon getOnList(Lista* lista, int pos){
-        Celula* i = lista->primeiro;
-        for(int j = 0; j <= pos; i = i->prox, j++);
-        Pokemon tmp = i->pokemon;
-
-        return tmp;
-}
-
-void swap(Lista* lista, int i, int j){
-    Pokemon pokemonTmp = getOnList(lista, i);
-
-        Celula* tmp = lista->primeiro->prox;
-        for(int k = 0; k < i; tmp = tmp->prox, k++);
-        tmp->pokemon = getOnList(lista, j);
-
-        tmp = lista->primeiro->prox;
-        for(int k = 0; k < j; tmp = tmp->prox, k++);
-        tmp->pokemon = pokemonTmp;
-}
-
-void ordena(Lista* lista, int esq, int dir){
-    int i = esq;
-        int j = dir;
-
-        Pokemon pivot = getOnList(lista, (esq+dir)/2);
-
-        while(i <= j){
-
-            while(compare(pivot, getOnList(lista, i)) > 0){
-                i++;
-            }
-            while(compare(pivot, getOnList(lista, j)) < 0){
-                j--;
-            }
-
-            if(i <= j){
-                swap(lista, i, j);
-                i++;
-                j--;
-            }
-            
-        }
-
-        if (esq < j) {
-            ordena(lista, esq, j);
-        }
-        if (dir > i) {
-            ordena(lista, i, dir);
-        }
-}
-
-void mostra(Lista* lista){
-
-    for(Celula* i = lista->primeiro->prox; i != NULL; i = i->prox){
-        imprimir(i->pokemon);
-    }
-
-}
-
-
+// -----------------------------
+// HEADER - Fim
+// -----------------------------
 
 // FUNÇÃO PRINCIPAL
-int main() {
-
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+int main()
+{
     PokemonStorage storage;
-    Pokemon pokemon;
-    Lista* lista = construtorLista();
-    
-    start(&storage, lista);
+    FlexList list;
+
+    start(&storage, &list);
     ler(&storage);
-
-
-    /*imprimir(searchIdStorage(181, storage));
-    imprimir(searchIdStorage(791, storage));
-    imprimir(searchIdStorage(453, storage));
-    imprimir(searchIdStorage(46, storage));
-    imprimir(searchIdStorage(137, storage));*/
 
     char input[50];
 
     scanf("%s", input);
-    while(strcmp(input, "FIM") != 0){
-        inserirFim(lista, searchIdStorage(atoi(input), storage));
-        //imprimir(searchIdStorage(atoi(input), storage));
+    while (strcmp(input, "FIM") != 0)
+    {
+        inserirFim(&list, searchIdStorage(storage, atoi(input)));
         scanf("%s", input);
     }
 
- 
-    //printf("\n");
-    ordena(lista, 0, lista->tamanho - 1);
-    mostra(lista);
+    int operations; // quantidade de registros a serem inseridos/removidos
+    int cont = 0;
+    int infos = 0;
+    char *pch;
+    char subString[3][10];
+
+    scanf("%d", &operations);
+    getchar();
+
+    while (cont < operations)
+    {
+        infos = 0;
+
+        scanf("%[^\n]", input);
+        getchar();
+
+        pch = strtok(input, " ");
+        while (pch != NULL)
+        {
+            strcpy(subString[infos], pch); // atribui o tipo tokenizado
+            pch = strtok(NULL, " ");
+            infos++;
+        }
+
+        if (strcmp(subString[0], "II") == 0)
+        {
+            inserirInicio(&list, searchIdStorage(storage, atoi(subString[1])));
+        }
+        else if (strcmp(subString[0], "IF") == 0)
+        {
+            inserirFim(&list, searchIdStorage(storage, atoi(subString[1])));
+        }
+        else if (strcmp(subString[0], "I*") == 0)
+        {
+            inserir(&list, searchIdStorage(storage, atoi(subString[2])), atoi(subString[1]));
+        }
+        else if (strcmp(subString[0], "RI") == 0)
+        {
+            printf("(R) %s\n", removerInicio(&list).name);
+        }
+        else if (strcmp(subString[0], "RF") == 0)
+        {
+            printf("(R) %s\n", removerFim(&list).name);
+        }
+        else if (strcmp(subString[0], "R*") == 0)
+        {
+            printf("(R) %s\n", remover(&list, atoi(subString[1])).name);
+        }
+        cont++;
+    }
+    mostrar(list);
 
     // Liberação da memória alocada
-    free(storage.pokemonStorage);   
-    //free(fila.pokemonFila);
+    free(storage.pokStorage);
+    free(list.primeiro);
+    free(list.ultimo);
 }
 
 // Função para inicializar e alocar os atributos
-void start(PokemonStorage *storage, Lista *lista) {
-    storage->totalPokemonStorage = 0;
-    storage->pokemonStorage = (Pokemon*)malloc(1 * sizeof(Pokemon));
+void start(PokemonStorage *storage, FlexList *list)
+{
+    storage->tamPokStorage = 0;
+    storage->pokStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
     Pokemon emptyPokemon = {0, 0, NULL, NULL, NULL, NULL, 0.0, 0.0, 0, NULL, NULL};
-    //fila->cabeca = 0;
-    //fila->ultimo = 0;
+    list->primeiro = newCelula(emptyPokemon);
+    list->ultimo = list->primeiro;
 }
 
 // Função para a leitura do csv
-void ler(PokemonStorage *s) {
-    FILE *file = fopen("/tmp/pokemon.csv", "r");
-    if (!file) {
+void ler(PokemonStorage *s)
+{
+    FILE *file = fopen("pokemon.csv", "r");
+    if (!file)
+    {
         printf("Erro ao abrir o arquivo!\n");
         return;
     }
@@ -300,114 +190,131 @@ void ler(PokemonStorage *s) {
     char buffer[1000];
     fgets(buffer, sizeof(buffer), file);
 
-    while (fscanf(file, "%d%*c %d%*c", &s->pokemonStorage[s->totalPokemonStorage].id, &s->pokemonStorage[s->totalPokemonStorage].generation) != EOF) { // id, generation
+    while (fscanf(file, "%d%*c %d%*c", &s->pokStorage[s->tamPokStorage].id, &s->pokStorage[s->tamPokStorage].generation) != EOF)
+    {                                     // id, generation
         fscanf(file, "%[^,]%*c", buffer); // name
-        s->pokemonStorage[s->totalPokemonStorage].name = str(buffer);
+        s->pokStorage[s->tamPokStorage].name = str(buffer);
         fscanf(file, "%[^,]%*c", buffer); // description
-        s->pokemonStorage[s->totalPokemonStorage].description = str(buffer);
+        s->pokStorage[s->tamPokStorage].description = str(buffer);
 
         // Types
         int cont = 0;
         char *pch;
 
-        fscanf(file, "%[^\"]%*c", buffer); // captura os tipos
-        s->pokemonStorage[s->totalPokemonStorage].types = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 tipos
+        fscanf(file, "%[^\"]%*c", buffer);                                           // captura os tipos
+        s->pokStorage[s->tamPokStorage].types = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 tipos
 
-        pch = strtok(buffer, ",");  // Primeira tokenização por vírgula
-        while (pch != NULL) {
-            s->pokemonStorage[s->totalPokemonStorage].types[cont] = str(pch); // atribui o tipo tokenizado
+        pch = strtok(buffer, ","); // Primeira tokenização por vírgula
+        while (pch != NULL)
+        {
+            s->pokStorage[s->tamPokStorage].types[cont] = str(pch); // atribui o tipo tokenizado
             cont++;
-            s->pokemonStorage[s->totalPokemonStorage].types = (char**)realloc(s->pokemonStorage[s->totalPokemonStorage].types, (cont + 1) * sizeof(char*)); // realoca para mais tipos
+            s->pokStorage[s->tamPokStorage].types = (char **)realloc(s->pokStorage[s->tamPokStorage].types, (cont + 1) * sizeof(char *)); // realoca para mais tipos
             pch = strtok(NULL, ",");
         }
-        s->pokemonStorage[s->totalPokemonStorage].types[cont] = NULL; // finaliza com NULL
+        s->pokStorage[s->tamPokStorage].types[cont] = NULL; // finaliza com NULL
 
         // Abilities
-        
-        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer); // captura as habilidades
-        s->pokemonStorage[s->totalPokemonStorage].abilities = (char**)malloc(2 * sizeof(char*)); // aloca espaço inicial para 2 habilidades
+
+        fscanf(file, "%*c%*c%[^]]%*c%*c%*c", buffer);                                    // captura as habilidades
+        s->pokStorage[s->tamPokStorage].abilities = (char **)malloc(2 * sizeof(char *)); // aloca espaço inicial para 2 habilidades
 
         pch = strtok(buffer, "'"); // Primeira tokenização por vírgula
 
-        s->pokemonStorage[s->totalPokemonStorage].abilities[0] = str(pch);
+        s->pokStorage[s->tamPokStorage].abilities[0] = str(pch);
         pch = strtok(NULL, "'");
         pch = strtok(NULL, "'");
 
         cont = 1;
-        while (pch != NULL) {
-            s->pokemonStorage[s->totalPokemonStorage].abilities[cont] = str(pch);
+        while (pch != NULL)
+        {
+            s->pokStorage[s->tamPokStorage].abilities[cont] = str(pch);
 
             cont++;
-            s->pokemonStorage[s->totalPokemonStorage].abilities = (char**)realloc(s->pokemonStorage[s->totalPokemonStorage].abilities, (cont + 1) * sizeof(char*)); // realoca para mais habilidades
+            s->pokStorage[s->tamPokStorage].abilities = (char **)realloc(s->pokStorage[s->tamPokStorage].abilities, (cont + 1) * sizeof(char *)); // realoca para mais habilidades
             pch = strtok(NULL, "'");
             pch = strtok(NULL, "'");
         }
-        s->pokemonStorage[s->totalPokemonStorage].abilities[cont] = NULL; // finaliza com NULL
+        s->pokStorage[s->tamPokStorage].abilities[cont] = NULL; // finaliza com NULL
 
         // weight
         cont = 0;
         int comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
-                s->pokemonStorage[s->totalPokemonStorage].weight = 0.0;
+                s->pokStorage[s->tamPokStorage].weight = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
-            s->pokemonStorage[s->totalPokemonStorage].weight = atof(buffer);
+            s->pokStorage[s->tamPokStorage].weight = atof(buffer);
         }
 
         // height
         cont = 0;
         comma = 0;
-        while(comma < 1){
+        while (comma < 1)
+        {
             buffer[cont] = fgetc(file);
-            if(buffer[cont] == ','){
+            if (buffer[cont] == ',')
+            {
                 comma++;
-                s->pokemonStorage[s->totalPokemonStorage].height = 0.0;
+                s->pokStorage[s->tamPokStorage].height = 0.0;
                 break;
-            }else{
+            }
+            else
+            {
                 cont++;
             }
         }
 
-        if(cont > 1){
+        if (cont > 1)
+        {
             buffer[cont + 1] = '\0';
-            s->pokemonStorage[s->totalPokemonStorage].height = atof(buffer);
+            s->pokStorage[s->tamPokStorage].height = atof(buffer);
         }
 
-        fscanf(file, "%d%*c", &s->pokemonStorage[s->totalPokemonStorage].captureRate); // captureRate
+        fscanf(file, "%d%*c", &s->pokStorage[s->tamPokStorage].captureRate); // captureRate
 
         fscanf(file, "%[^,]%*c", buffer); // isLegendary
-        s->pokemonStorage[s->totalPokemonStorage].isLegendary = strcmp(buffer, "0") == 0 ? str("false") : str("true");
+        s->pokStorage[s->tamPokStorage].isLegendary = strcmp(buffer, "0") == 0 ? str("false") : str("true");
 
         fscanf(file, "%[^\n]", buffer); // date
-        s->pokemonStorage[s->totalPokemonStorage].date = str(buffer);
+        s->pokStorage[s->tamPokStorage].date = str(buffer);
 
-        s->totalPokemonStorage++;
-        s->pokemonStorage = (Pokemon*)realloc(s->pokemonStorage, (s->totalPokemonStorage + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
+        s->tamPokStorage++;
+        s->pokStorage = (Pokemon *)realloc(s->pokStorage, (s->tamPokStorage + 1) * sizeof(Pokemon)); // realoca memória para o próximo Pokémon
     }
-    fclose(file);  
+    fclose(file);
 }
 
 // Função para alocação dinâmica de string
-char* str(char *str) {
-    char *info = (char*)malloc((strlen(str) + 1) * sizeof(char));
+char *str(char *str)
+{
+    char *info = (char *)malloc((strlen(str) + 1) * sizeof(char));
     strcpy(info, str);
     return info;
 }
 
 // Função para pesquisar pokemon por id no armazenamento
-Pokemon searchIdStorage(int id, PokemonStorage s){
-    for(int i = 0; i < s.totalPokemonStorage; ++i){
-        if(id == s.pokemonStorage[i].id){
-            return s.pokemonStorage[i];
+Pokemon searchIdStorage(PokemonStorage s, int id)
+{
+    for (int i = 0; i < s.tamPokStorage; ++i)
+    {
+        if (id == s.pokStorage[i].id)
+        {
+            return s.pokStorage[i];
         }
     }
     printf("Pokemon com o id = %d não encontrado no armazenamento\n", id);
@@ -415,14 +322,17 @@ Pokemon searchIdStorage(int id, PokemonStorage s){
 }
 
 // Função para imprimir os pokemons
-void imprimir(Pokemon pokemon) {
+void imprimir(Pokemon pokemon)
+{
     printf("[#%d -> %s: %s - ", pokemon.id, pokemon.name, pokemon.description);
 
     // Types
     int cont = 0;
     printf("[");
-    while (pokemon.types[cont] != NULL) {
-        if (cont > 0) printf(", ");
+    while (pokemon.types[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
         printf("'%s'", pokemon.types[cont]);
         cont++;
     }
@@ -430,11 +340,180 @@ void imprimir(Pokemon pokemon) {
 
     // Abilities
     cont = 0;
-    while (pokemon.abilities[cont] != NULL) {
-        if (cont > 0) printf(", ");
+    while (pokemon.abilities[cont] != NULL)
+    {
+        if (cont > 0)
+            printf(", ");
         printf("'%s'", pokemon.abilities[cont]);
         cont++;
     }
-    printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate, pokemon.isLegendary, pokemon.generation, pokemon.date);
+    printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate,
+           pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
 
+// -----------------------------
+// LISTA FLEXÍVEL: Início
+// -----------------------------
+
+// INSERIR:
+// Função para inserir no início da Lista Flexível
+void inserirInicio(FlexList *list, Pokemon pokemon)
+{
+    Celula *tmp = newCelula(pokemon);
+
+    tmp->prox = list->primeiro->prox;
+    list->primeiro->prox = tmp;
+
+    if (list->primeiro == list->ultimo)
+        list->ultimo = tmp;
+
+    tmp = NULL;
+}
+
+// Função para inserir no fim da Lista Flexível
+void inserirFim(FlexList *list, Pokemon pokemon)
+{
+    list->ultimo->prox = newCelula(pokemon);
+    list->ultimo = list->ultimo->prox;
+}
+
+int sizeFlexList(FlexList list)
+{
+    int size = 0;
+    for (Celula *i = list.primeiro; i != list.ultimo; i = i->prox, size++);
+
+    return size;
+}
+
+// Função para inserir na p-ésima posição  da Lista Flexível
+void inserir(FlexList *list, Pokemon pokemon, int pos)
+{
+    int size = sizeFlexList(*list); /* O ponteiro (*) na chamada da função serve para desreferenciar
+                                    o ponteiro list, convertendo-o de um ponteiro para uma estrutura
+                                    FlexList em uma estrutura FlexList direta. */
+    if (pos < 0 || pos >= size)
+    {
+        printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", size, pos);
+        exit(1);
+    }
+    else if (pos == 0)
+    {
+        inserirInicio(list, pokemon);
+    }
+    else if (pos == size)
+    {
+        inserirFim(list, pokemon);
+    }
+    else
+    {
+        // Caminhar ate a posicao anterior a insercao
+        Celula *i = list->primeiro;
+        for (int j = 0; j < pos; j++, i = i->prox);
+
+        Celula *tmp = newCelula(pokemon);
+
+        tmp->prox = i->prox;
+        i->prox = tmp;
+        tmp = i = NULL;
+    }
+}
+
+// REMOVER:
+// Função para remover no início da Lista Flexível
+Pokemon removerInicio(FlexList *list)
+{
+    if (list->primeiro == list->ultimo)
+    {
+        printf("Erro! Não há pokemons para remover.\n");
+        exit(1);
+    }
+
+    Celula *tmp = list->primeiro;
+    list->primeiro = list->primeiro->prox;
+    Pokemon removedPokemon = list->primeiro->pokemon;
+
+    tmp->prox = NULL;
+    free(tmp);
+
+    return removedPokemon;
+}
+
+// Função para remover no fim da Lista Flexível
+Pokemon removerFim(FlexList *list)
+{
+    if (list->primeiro == list->ultimo)
+    {
+        printf("Erro! Não há pokemons para remover.\n");
+        exit(1);
+    }
+
+    Celula *i;
+    for (i = list->primeiro; i->prox != list->ultimo; i = i->prox);
+    
+    Pokemon removedPokemon = list->ultimo->pokemon;
+    list->ultimo = i;
+
+    free(list->ultimo->prox);
+    i = list->ultimo->prox = NULL;  
+
+    return removedPokemon;
+}
+
+// Função para remover na p-ésima posição da Lista Flexível
+Pokemon remover(FlexList *list, int pos)
+{
+    int size = sizeFlexList(*list);
+    Pokemon removedPokemon;
+
+    if (list->primeiro == list->ultimo)
+    {
+        printf("Erro! Não há pokemons para remover.\n");
+        exit(1);
+    }
+    else if (pos < 0 || pos >= size)
+    {
+        printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", size, pos);
+        exit(1);
+    }
+    else if (pos == 0)
+    {
+        removedPokemon = removerInicio(list);
+    }
+    else if (pos == size - 1)
+    {
+        removedPokemon = removerFim(list);
+    }
+    else
+    {
+        // Caminhar ate a posicao anterior a insercao
+        Celula *i = list->primeiro;
+        int j;
+        for (j = 0; j < pos; j++, i = i->prox);
+
+        Celula *tmp = i->prox;
+        removedPokemon = tmp->pokemon;
+        i->prox = tmp->prox;
+
+        tmp->prox = NULL;
+        free(tmp);
+        i = NULL;
+    }
+    return removedPokemon;
+}
+
+// MOSTRAR:
+// Função para imprimir os pokemon presentes na Lista Flexível
+void mostrar(FlexList list)
+{
+    int index = 0;
+    for (Celula *i = list.primeiro->prox; i != NULL; i = i->prox)
+    {
+        printf("[%d] ", index++);
+        imprimir(i->pokemon);
+    }
+}
+
+
+// -----------------------------
+// LISTA FLEXÍVEL: Fim
+// -----------------------------

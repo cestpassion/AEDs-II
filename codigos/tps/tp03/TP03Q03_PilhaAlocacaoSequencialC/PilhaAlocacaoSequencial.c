@@ -1,11 +1,4 @@
 /*
-Pilha com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Crie uma Pilha de registros baseada na pilha de inteiros vista na sala de aula.
 Neste exercício, faremos inserções, remoções e mostraremos os elementos de nossa pilha.
 
@@ -39,6 +32,13 @@ INFO:
             1   3   5                               1       X
        |1| |3| |5| |7|                              3       1
                                                     5       3 
+*/
+
+/*
+Pilha com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 // -----------------------------

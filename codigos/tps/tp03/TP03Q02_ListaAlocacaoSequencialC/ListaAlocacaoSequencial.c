@@ -1,11 +1,4 @@
 /*
-Fila Circular com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Crie uma Lista de registros baseada na de inteiros vista na sala de aula.
 Sua lista deve conter todos os atributos e métodos existentes na lista de inteiros, contudo, adaptados para a classe
 Pokémon. Lembre-se que, na verdade, temos uma lista de ponteiros (ou referências) e cada um deles aponta para um registo.
@@ -64,6 +57,13 @@ INFO:
         • elemento removerFim()
         • elemento remover(posição)
     > Mostrar, pesquisar, ordenar, ...
+*/
+
+/*
+Fila Circular com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 // -----------------------------

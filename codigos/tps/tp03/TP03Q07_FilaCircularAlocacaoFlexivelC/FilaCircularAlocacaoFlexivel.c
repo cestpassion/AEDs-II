@@ -1,11 +1,4 @@
 /*
-Fila Circular com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Refazer a Questão 4 “Fila Circular com Alocação Sequencial”. Lembre-se que essa fila terá tamanho máximo
 igual a cinco.
 */
@@ -184,6 +177,13 @@ igual a cinco.
         }
 */
 
+/*
+Fila Circular com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
+*/
+
 // -----------------------------
 // HEADER - Início
 // -----------------------------
@@ -236,12 +236,12 @@ Celula *newCelula(Pokemon pokemon)
 }
 
 // Definição da estrutura da Fila Circular - CircularQueue
-typedef struct Fila
+typedef struct FilaFlex
 {
     Celula *primeiro;
     Celula *ultimo;
     int tamanho;
-} Fila;
+} FilaFlex;
 
 /* Fila* newFila(){
     Fila* fila = (Fila*) malloc(sizeof(Fila));
@@ -254,7 +254,7 @@ typedef struct Fila
 } */
 
 // Potótipos das funções
-void start(PokemonStorage *, Fila *);
+void start(PokemonStorage *, FilaFlex *);
 void ler(PokemonStorage *);
 char *str(char *);
 Pokemon searchIdStorage(int, PokemonStorage);
@@ -262,10 +262,10 @@ void imprimir(Pokemon);
 // void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
 // Potótipos das funções da Fila Circular - CircularQueue
-void inserir(Fila*, Pokemon);
-Pokemon remover(Fila*);
-void mostrar(Fila);
-int mediaCaptureRate(Fila);
+void inserir(FilaFlex *, Pokemon);
+Pokemon remover(FilaFlex *);
+void mostrar(FilaFlex);
+int mediaCaptureRate(FilaFlex);
 
 // -----------------------------
 // HEADER - Fim
@@ -274,57 +274,48 @@ int mediaCaptureRate(Fila);
 // FUNÇÃO PRINCIPAL
 int main()
 {
-
     // setlocale(LC_ALL, "pt_BR.UTF-8");
     PokemonStorage storage;
-    Pokemon pokemon;
-    Fila fila;
+    FilaFlex fila;
 
     start(&storage, &fila);
     ler(&storage);
+
     char input[50];
 
     scanf("%s", input);
     while (strcmp(input, "FIM") != 0)
     {
         inserir(&fila, searchIdStorage(atoi(input), storage));
-
         printf("Média: %d\n", mediaCaptureRate(fila));
         scanf("%s", input);
     }
 
-    // mostrar(fila);
-
     int operations; // quantidade de registros a serem inseridos/removidos
     int cont = 0;
-    int infos = 0;
     char *pch;
-    char subString[3][10];
+    char subString[6];
 
     scanf("%d", &operations);
     getchar();
 
     while (cont < operations)
     {
-        infos = 0;
-
         scanf("%[^\n]", input);
         getchar();
 
         pch = strtok(input, " ");
-        while (pch != NULL)
-        {
-            strcpy(subString[infos], pch); // atribui o tipo tokenizado
-            pch = strtok(NULL, " ");
-            infos++;
-        }
+        strcpy(subString, pch); // atribui o tipo tokenizado
 
-        if (strcmp(subString[0], "I") == 0)
+        if (strcmp(subString, "I") == 0)
         {
-            inserir(&fila, searchIdStorage(atoi(subString[1]), storage));
+            pch = strtok(NULL, " ");
+            strcpy(subString, pch);
+
+            inserir(&fila, searchIdStorage(atoi(subString), storage));
             printf("Média: %d\n", mediaCaptureRate(fila));
         }
-        else if (strcmp(subString[0], "R") == 0)
+        else if (strcmp(subString, "R") == 0)
         {
             printf("(R) %s\n", remover(&fila).name);
         }
@@ -335,16 +326,17 @@ int main()
 
     // Liberação da memória alocada
     free(storage.pokemonStorage);
-    // free(fila.pokemonFila);
+    free(fila.primeiro);
 }
 
 // Função para inicializar e alocar os atributos
-void start(PokemonStorage *storage, Fila *fila)
+void start(PokemonStorage *storage, FilaFlex *fila)
 {
     storage->totalPokemonStorage = 0;
     storage->pokemonStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
-    fila->primeiro = NULL;
+    Pokemon emptyPokemon = {0, 0, NULL, NULL, NULL, NULL, 0.0, 0.0, 0, NULL, NULL};
+    fila->primeiro = newCelula(emptyPokemon);
     fila->ultimo = fila->primeiro;
     fila->tamanho = 0;
 }
@@ -523,37 +515,33 @@ void imprimir(Pokemon pokemon)
 }
 
 // -----------------------------
-// FILA CIRCULAR: Início
+// FILA CIRCULAR FLEXÍVEL: Início
 // -----------------------------
 
-// Função para remover da Fila Circular
-
-Pokemon remover(Fila *fila)
+// Função para remover (no início) da Fila Circular
+Pokemon remover(FilaFlex *fila)
 {
-    Pokemon pokemon;
     if (fila->tamanho <= 0)
     {
-        printf("Fila Vazia");
+        printf("Erro! Fila Vazia.");
+        exit(1);
     }
-    else
-    {
-        Celula *tmp = fila->primeiro;
-        fila->primeiro = fila->primeiro->prox;
 
-        tmp->prox = NULL;
-        tmp = NULL;
-        free(tmp);
+    Celula *tmp = fila->primeiro;
+    fila->primeiro = fila->primeiro->prox;
+    Pokemon pokemon = fila->primeiro->pokemon;
 
-        pokemon = fila->primeiro->pokemon;
-        fila->tamanho--;
-    }
+    tmp->prox = NULL;
+    free(tmp);
+    fila->tamanho--;
 
     return pokemon;
 }
 
-void inserir(Fila *fila, Pokemon pokemon)
+// Função para inserir (no fim) da Fila Circular
+void inserir(FilaFlex *fila, Pokemon pokemon)
 {
-    if(fila->tamanho >= 5) // Validar inserção
+    if (fila->tamanho >= 5) // Validar inserção
     {
         remover(fila);
 
@@ -567,9 +555,10 @@ void inserir(Fila *fila, Pokemon pokemon)
 }
 
 // Função para imprimir os pokemon presentes na Fila Circular
-void mostrar(Fila fila)
+void mostrar(FilaFlex fila)
 {
-    if (fila.primeiro == fila.ultimo) { // Fila vazia
+    if (fila.primeiro == fila.ultimo) // Fila vazia
+    {
         printf("Fila está vazia.\n");
         return;
     }
@@ -577,29 +566,24 @@ void mostrar(Fila fila)
     int index = 0;
     for (Celula *i = fila.primeiro->prox; i != NULL; i = i->prox)
     {
-        printf("[%d] ", index);
+        printf("[%d] ", index++);
         imprimir(i->pokemon);
-        index++;
     }
 }
 
 // Função para calcular a média do captureRate
-int mediaCaptureRate(Fila fila)
+int mediaCaptureRate(FilaFlex fila)
 {
     int soma = 0;
-    int tamanho = 0;
-
     for (Celula *i = fila.primeiro->prox; i != NULL; i = i->prox)
-    {
         soma += i->pokemon.captureRate;
-        tamanho++;
-    }
 
-    if (tamanho == 0)
+    if (fila.tamanho == 0)
         return 0;
-    return (int)round((double)soma / tamanho);
+
+    return (int)round((double)soma / fila.tamanho);
 }
 
 // -----------------------------
-// FILA CIRCULAR: - Fim
+// FILA CIRCULAR FLEXÍVEL - Fim
 // -----------------------------
