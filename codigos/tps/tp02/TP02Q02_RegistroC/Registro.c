@@ -1,3 +1,18 @@
+/*
+Repita a questão anterior criando o registro Pokémon na linguagem C
+*/
+
+/*
+Registro em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
+*/
+
+// -----------------------------
+// HEADER - Início
+// -----------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,6 +56,10 @@ Pokemon searchIdStorage(PokemonStorage, int); // Função para pesquisar pokemon
 void imprimir(Pokemon);                       // Função para imprimir os pokemons
 // void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
+// -----------------------------
+// HEADER - Fim
+// -----------------------------
+
 int main()
 {
     PokemonStorage storage;
@@ -50,14 +69,11 @@ int main()
     ler(&storage);
 
     char str[10];
-    int index;
 
     scanf("%s", str);
-
     while (strcmp(str, "FIM") != 0)
     {
-        index = atoi(str);
-        imprimir(searchIdStorage(storage, index));
+        imprimir(searchIdStorage(storage, atoi(str)));
         scanf("%s", str);
     }
 
