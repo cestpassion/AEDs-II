@@ -1,10 +1,10 @@
 /*
- * Refaça a questão 8 deste TP na linguagem Java. O nome do arquivo de log será matrícula_quicksort3.txt.
+ * Refaça a questão 8 deste TP na linguagem Java.
+ * O nome do arquivo de log será matrícula_quicksort3.txt.
  */
 
 /*
- * INFO:
- * 
+ * INFO: 
  */
 
 /**
@@ -24,6 +24,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe Pokémon
+ */
 class Pokemon {
     // Atributos
     private int id;
@@ -287,24 +290,28 @@ class Pokemon {
     }
 }
 
-class Lista {
+/**
+ * Classe Lista Dupla Encadeada
+ */
+
+class ListaDuplaEncad {
     // Atributos
     private Pokemon[] pokemonList;
     private int n;
 
     // Construtor 1
-    public Lista() {
+    public ListaDuplaEncad() {
         this(1000);
     }
 
     // Construtor 2
-    public Lista(int size) {
+    public ListaDuplaEncad(int size) {
         this.pokemonList = new Pokemon[size];
         this.n = 0;
     }
 
     /**
-     * Insere um registro na primeira posição da Lista e remaneja os demais
+     * Insere um registro na primeira posição da Lista Dupla e remaneja os demais
      *
      * @param pokemon pokemon a ser inserido
      */
@@ -323,7 +330,7 @@ class Lista {
     }
 
     /**
-     * Insere um registro na última posição da Lista.
+     * Insere um registro na última posição da Lista Dupla.
      *
      * @param pokemon pokemon a ser inserido
      */
@@ -336,7 +343,7 @@ class Lista {
     }
 
     /**
-     * Insere um registro na posição p da Lista, onde p < n e n é o número
+     * Insere um registro na posição p da Lista Dupla, onde p < n e n é o número
      * de registros cadastrados. Em seguida, esse método remaneja os demais
      * registros.
      *
@@ -358,7 +365,7 @@ class Lista {
     }
 
     /**
-     * Remove e retorna o primeiro registro cadastrado na Lista e remaneja os
+     * Remove e retorna o primeiro registro cadastrado na Lista Dupla e remaneja os
      * demais.
      * 
      * @return pokemon removido
@@ -377,7 +384,7 @@ class Lista {
     }
 
     /**
-     * Remove e retorna o último registro cadastrado na lista.
+     * Remove e retorna o último registro cadastrado na Lista Dupla.
      *
      * @return pokemon removido
      */
@@ -389,7 +396,7 @@ class Lista {
     }
 
     /**
-     * Remove e retorna o registro cadastrado na p-ésima posição da Lista e remaneja
+     * Remove e retorna o registro cadastrado na p-ésima posição da Lista Dupla e remaneja
      * os demais.
      *
      * @param pos posição onde na qual será removido o pokemon
@@ -418,6 +425,16 @@ class Lista {
     }
 }
 
+/**
+ * Classe Ordenação (Quicksort)
+ */
+class Ordenacao{
+
+}
+
+/**
+ * Classe Principal
+ */
 public class QuicksortListaDuplaEncad {
     public static List<Pokemon> pokemonStorage;
 
@@ -447,7 +464,7 @@ public class QuicksortListaDuplaEncad {
 
         Scanner sc = new Scanner(System.in);
         String str;
-        Lista pokemon = new Lista();
+        ListaDuplaEncad pokemon = new ListaDuplaEncad();
 
         while (!(str = sc.nextLine()).equals("FIM"))
             pokemon.inserirFim(search(Integer.parseInt(str)));

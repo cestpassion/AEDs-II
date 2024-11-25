@@ -42,6 +42,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe Pokémon
+ */
 class Pokemon {
     // Atributos
     private int id;
@@ -305,6 +308,9 @@ class Pokemon {
     }
 }
 
+/**
+ * Classe principal
+ */
 public class Classe {
     public static void main(String[] args){
         List<Pokemon> pokemon = new ArrayList<>();

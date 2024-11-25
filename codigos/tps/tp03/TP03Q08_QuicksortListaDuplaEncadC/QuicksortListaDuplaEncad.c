@@ -1,6 +1,6 @@
 /*
-Refaça a Questão “Quicksort” 10 do Trabalho Prático II - com lista duplamente encadeada. O nome do
-arquivo de log será matrícula_quicksort2.txt.
+Refaça a Questão “Quicksort” 10 do Trabalho Prático II - com lista duplamente encadeada.
+O nome do arquivo de log será matrícula_quicksort2.txt.
 */
 
 /*
@@ -177,6 +177,10 @@ void start(PokemonStorage *storage, FlexList *list)
     list->ultimo = list->primeiro;
 }
 
+// -----------------------------
+// POKÉMON: Início
+// -----------------------------
+
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
@@ -352,7 +356,11 @@ void imprimir(Pokemon pokemon)
 }
 
 // -----------------------------
-// LISTA FLEXÍVEL: Início
+// POKÉMON: Fim
+// -----------------------------
+
+// -----------------------------
+// LISTA DUPLA ENCADEADA: Início
 // -----------------------------
 
 // INSERIR:
@@ -512,8 +520,16 @@ void mostrar(FlexList list)
         imprimir(i->pokemon);
     }
 }
+// -----------------------------
+// LISTA DUPLA ENCADEADA: Início
+// -----------------------------
+
+// -----------------------------
+// ORDENAÇÃO QUICKSORT: Início
+// -----------------------------
+
 
 
 // -----------------------------
-// LISTA FLEXÍVEL: Fim
+// ORDENAÇÃO - QUICKSORT: Fim
 // -----------------------------

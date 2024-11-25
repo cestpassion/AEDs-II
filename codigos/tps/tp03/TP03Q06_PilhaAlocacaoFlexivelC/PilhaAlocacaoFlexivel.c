@@ -178,6 +178,10 @@ void start(PokemonStorage *storage, FlexStack *stack)
     stack->top = NULL;
 }
 
+// -----------------------------
+// POKÉMON: Início
+// -----------------------------
+
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
@@ -350,6 +354,10 @@ void imprimir(Pokemon pokemon)
     }
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate, pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
+
+// -----------------------------
+// POKÉMON: Fim
+// -----------------------------
 
 // -----------------------------
 // PILHA: Início

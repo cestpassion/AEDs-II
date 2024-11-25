@@ -40,14 +40,6 @@ typedef struct PokemonStorage
     Pokemon *pokStorage;
 } PokemonStorage;
 
-// Definição da estrutura da Lista
-typedef struct Lista
-{
-    int tamPokemonList;
-    Pokemon *pokemonList;
-    int n;
-} Lista;
-
 // Potótipos das funções
 void start(PokemonStorage *);                 // Função para inicializar e alocar os atributos
 void ler(PokemonStorage *);                   // Função para a leitura do csv
@@ -60,6 +52,7 @@ void imprimir(Pokemon);                       // Função para imprimir os pokem
 // HEADER - Fim
 // -----------------------------
 
+// FUNÇÃO PRINCIPAL
 int main()
 {
     PokemonStorage storage;
@@ -86,6 +79,10 @@ void start(PokemonStorage *storage)
     storage->tamPokStorage = 0;
     storage->pokStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 }
+
+// -----------------------------
+// POKÉMON - Início
+// -----------------------------
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
@@ -260,3 +257,7 @@ void imprimir(Pokemon pokemon)
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate,
            pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
+
+// -----------------------------
+// POKÉMON - Fim
+// -----------------------------
