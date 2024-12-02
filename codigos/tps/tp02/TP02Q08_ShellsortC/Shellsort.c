@@ -353,6 +353,25 @@ void selecaoRecursivo(Pokemon *pokemonArray, int tam, int i, int *comparacoes, i
     selecaoRecursivo(pokemonArray, tam, i + 1, comparacoes, movimentacoes);
 }
 
+void insercao() {
+    for (int i = 1; i < n; i++) {
+        Pokemon tmp = array[i];
+        int j = i - 1;
+
+        comparacoes++;
+        while ((j >= 0) && (array[j].getCaptureDate().compareTo(tmp.getCaptureDate()) > 0)) {
+            movimentacoes++;
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = tmp;
+    }
+}
+
+shellsort(){
+    
+}
+
 // -----------------------------
 // ORDENAÇÃO - Fim
 // -----------------------------
