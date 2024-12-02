@@ -1,3 +1,18 @@
+/*
+Repita a questão anterior criando o registro Pokémon na linguagem C
+*/
+
+/*
+Registro em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
+*/
+
+// -----------------------------
+// HEADER - Início
+// -----------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,14 +40,6 @@ typedef struct PokemonStorage
     Pokemon *pokStorage;
 } PokemonStorage;
 
-// Definição da estrutura da Lista
-typedef struct Lista
-{
-    int tamPokemonList;
-    Pokemon *pokemonList;
-    int n;
-} Lista;
-
 // Potótipos das funções
 void start(PokemonStorage *);                 // Função para inicializar e alocar os atributos
 void ler(PokemonStorage *);                   // Função para a leitura do csv
@@ -41,6 +48,11 @@ Pokemon searchIdStorage(PokemonStorage, int); // Função para pesquisar pokemon
 void imprimir(Pokemon);                       // Função para imprimir os pokemons
 // void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
+// -----------------------------
+// HEADER - Fim
+// -----------------------------
+
+// FUNÇÃO PRINCIPAL
 int main()
 {
     PokemonStorage storage;
@@ -50,14 +62,11 @@ int main()
     ler(&storage);
 
     char str[10];
-    int index;
 
     scanf("%s", str);
-
     while (strcmp(str, "FIM") != 0)
     {
-        index = atoi(str);
-        imprimir(searchIdStorage(storage, index));
+        imprimir(searchIdStorage(storage, atoi(str)));
         scanf("%s", str);
     }
 
@@ -70,6 +79,10 @@ void start(PokemonStorage *storage)
     storage->tamPokStorage = 0;
     storage->pokStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 }
+
+// -----------------------------
+// POKÉMON - Início
+// -----------------------------
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
@@ -244,3 +257,7 @@ void imprimir(Pokemon pokemon)
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate,
            pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
+
+// -----------------------------
+// POKÉMON - Fim
+// -----------------------------

@@ -1,18 +1,16 @@
 /*
+Refazer a Questão 1 “Lista com Alocação Sequencial” usando lista dinâmica simples.
+*/
+
+/* INFO:
+
+*/
+
+/*
 Lista com Alocação Flexível em C
 
 author: Bruna Furtado da Fonseca
 version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
-Refazer a Questão 1 “Lista com Alocação Sequencial” usando lista dinâmica simples.
-*/
-
-/*
-INFO:
-
-
 */
 
 // -----------------------------
@@ -176,6 +174,10 @@ void start(PokemonStorage *storage, FlexList *list)
     list->primeiro = newCelula(emptyPokemon);
     list->ultimo = list->primeiro;
 }
+
+// -----------------------------
+// POKÉMON: Início
+// -----------------------------
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
@@ -352,6 +354,10 @@ void imprimir(Pokemon pokemon)
 }
 
 // -----------------------------
+// POKÉMON: Fim
+// -----------------------------
+
+// -----------------------------
 // LISTA FLEXÍVEL: Início
 // -----------------------------
 
@@ -431,6 +437,8 @@ Pokemon removerInicio(FlexList *list)
     Celula *tmp = list->primeiro;
     list->primeiro = list->primeiro->prox;
     Pokemon removedPokemon = list->primeiro->pokemon;
+
+    tmp->prox = NULL;
     free(tmp);
 
     return removedPokemon;
@@ -450,6 +458,8 @@ Pokemon removerFim(FlexList *list)
     
     Pokemon removedPokemon = list->ultimo->pokemon;
     list->ultimo = i;
+
+    free(list->ultimo->prox);
     i = list->ultimo->prox = NULL;  
 
     return removedPokemon;
@@ -491,7 +501,8 @@ Pokemon remover(FlexList *list, int pos)
         i->prox = tmp->prox;
 
         tmp->prox = NULL;
-        i = tmp = NULL;
+        free(tmp);
+        i = NULL;
     }
     return removedPokemon;
 }

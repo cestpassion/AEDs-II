@@ -1,9 +1,3 @@
-/**
- * Classe
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
-
 /*
  * Crie uma classe Pokémon seguindo todas as regras apresentadas no slide
  * unidade00l_conceitosBasicos_introducaoOO.pdf .
@@ -20,8 +14,8 @@
  * Atenção para o arquivo de entrada, pois em alguns registros faltam valores e esse foi substituído
  * pelo valor 0 (zero) ou vazio.
  * 
- * A entrada padrão é composta por várias linhas e cada uma contém um n ́umero inteiro indicando o id do
- * Pokémon a ser lido. A ́ultima linha da entrada contém a palavra FIM.
+ * A entrada padrão é composta por várias linhas e cada uma contém um número inteiro indicando o id do
+ * Pokémon a ser lido. A última linha da entrada contém a palavra FIM.
  * 
  * A saída padrão também contém várias linhas, uma para cada registro contido em uma linha da entrada
  * padrão, no seguinte formato:
@@ -29,6 +23,12 @@
  * [#id -> name: description - [types] - [abilities] - weight - height - captureRate - isLegendary - generation] - captureDate].
  * 
  * Exemplo: [#181 -> Ampharos: Light Pokémon - [’electric’] - [’Static’, ’Plus’] - 61.5kg - 1.4m - 45% - false - 2 gen] - 25/05/1999
+ */
+
+/**
+ * Classe
+ * @author Bruna Furtado da Fonseca
+ * @version 2024-07-16
  */
 
 import java.util.Date;
@@ -42,6 +42,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe Pokémon
+ */
 class Pokemon {
     // Atributos
     private int id;
@@ -305,6 +308,9 @@ class Pokemon {
     }
 }
 
+/**
+ * Classe principal
+ */
 public class Classe {
     public static void main(String[] args){
         List<Pokemon> pokemon = new ArrayList<>();

@@ -1,11 +1,4 @@
 /*
-Fila Circular com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Crie uma Lista de registros baseada na de inteiros vista na sala de aula.
 Sua lista deve conter todos os atributos e métodos existentes na lista de inteiros, contudo, adaptados para a classe
 Pokémon. Lembre-se que, na verdade, temos uma lista de ponteiros (ou referências) e cada um deles aponta para um registo.
@@ -64,6 +57,13 @@ INFO:
         • elemento removerFim()
         • elemento remover(posição)
     > Mostrar, pesquisar, ordenar, ...
+*/
+
+/*
+Fila Circular com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 // -----------------------------
@@ -212,6 +212,10 @@ void start(PokemonStorage *storage, Lista *list)
     list->n = 0;
     list->pokemonList = (Pokemon *)malloc(1 * sizeof(Pokemon));
 }
+
+// -----------------------------
+// POKÉMON: Início
+// -----------------------------
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
@@ -386,6 +390,10 @@ void imprimir(Pokemon pokemon)
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate,
            pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
+
+// -----------------------------
+// POKÉMON: Fim
+// -----------------------------
 
 // -----------------------------
 // LISTA: Início

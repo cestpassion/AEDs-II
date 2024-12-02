@@ -1,11 +1,4 @@
 /*
-Pilha com Alocação Sequencial em C
-
-author: Bruna Furtado da Fonseca
-version: Ubuntu 13.2.0-23ubuntu4
-*/
-
-/*
 Crie uma Pilha de registros baseada na pilha de inteiros vista na sala de aula.
 Neste exercício, faremos inserções, remoções e mostraremos os elementos de nossa pilha.
 
@@ -23,20 +16,29 @@ INFO:
 
 - Primeira solução IF e RF
     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                    7                               X   X
-                5   5                               5   X
-            3   3   3                               3   3
-        1   1   1   1                               1   1
+                                            • Na primeira remoção, retiramos o número 7        
+                   |7|                      • Na segunda remoção, retiramos o número 5   
+               |5|  5                            P: X    S: X
+           |3|  3   3                               5       X
+       |1|  1   1   1                               3       3
+                                                    1       1
 
 - Segunda solução II e RI (inserção e remoção não eficientes)
     > Em cada inserção ou remoção, movemos todos os elementos
     > Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
-                    1                       • Primeira remoção: Retorna o 7 e move todos os demais
-                1   3                       • Segunda remoção: Retorna o 5 e move todos os demais
-            1   3   5                               X   X
-        1   3   5   7                               1   X
-                                                    3   1
-                                                    5   3
+                                            • Primeira remoção: Retorna o 7 e move todos os demais
+                    1                       • Segunda remoção: Retorna o 5 e move todos os demais
+                1   3                           P:  X   S:  X
+            1   3   5                               1       X
+       |1| |3| |5| |7|                              3       1
+                                                    5       3 
+*/
+
+/*
+Pilha com Alocação Sequencial em C
+
+author: Bruna Furtado da Fonseca
+version: Ubuntu 13.2.0-23ubuntu4
 */
 
 // -----------------------------
@@ -165,10 +167,13 @@ void start(PokemonStorage *storage, Stack *stack)
     storage->totalPokemonStorage = 0;
     storage->pokemonStorage = (Pokemon *)malloc(1 * sizeof(Pokemon));
 
-    stack->top = 0;
     stack->top = -1;
     stack->pokemonStack = (Pokemon *)malloc(1 * sizeof(Pokemon));
 }
+
+// -----------------------------
+// POKÉMON: Início
+// -----------------------------
 
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
@@ -342,6 +347,10 @@ void imprimir(Pokemon pokemon)
     }
     printf("] - %.1fkg - %.1fm - %d%% - %s - %d gen] - %s\n", pokemon.weight, pokemon.height, pokemon.captureRate, pokemon.isLegendary, pokemon.generation, pokemon.date);
 }
+
+// -----------------------------
+// POKÉMON: Fim
+// -----------------------------
 
 // -----------------------------
 // PILHA: Início
