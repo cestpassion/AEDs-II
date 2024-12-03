@@ -30,7 +30,9 @@ class Shellsort extends Geracao {
    public void sort() {
       int h = 1;
 
-      do { h = (h * 3) + 1; } while (h < n);
+      do {
+         h = (h * 3) + 1;
+      } while (h < n);
 
       do {
          h /= 3;

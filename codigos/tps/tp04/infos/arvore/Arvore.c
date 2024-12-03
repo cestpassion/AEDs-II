@@ -407,12 +407,13 @@ void inserirPai(int x) {
         raiz = novoNo(x);
     } else if(x < raiz->elemento) {
         inserirPaiRec(x, raiz->esq, raiz);
-    } else if(x > raiz.elemento) {
+    } else if(x > raiz->elemento) {
         inserirPaiRec(x, raiz->dir, raiz);
     } else {
         errx(1, "Erro ao inserir!");   
     }
 }
+
 void inserirPaiRec(int x, No* i, No* pai) {
     if (i == NULL) {
         if(x <pai->elemento){ pai->esq = novoNo(x);
@@ -426,4 +427,8 @@ void inserirPaiRec(int x, No* i, No* pai) {
     } else {  
         errx(1, "Erro ao inserir!");
     }   
+
+    int remov(int elemento){
+        
+    }
 }

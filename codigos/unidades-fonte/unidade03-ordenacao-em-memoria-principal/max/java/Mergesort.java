@@ -38,6 +38,7 @@ class Mergesort extends Geracao {
    private void mergesort(int esq, int dir) {
       if (esq < dir){
          int meio = (esq + dir) / 2;
+
          mergesort(esq, meio);
          mergesort(meio + 1, dir);
          intercalar(esq, meio, dir);
@@ -61,21 +62,18 @@ class Mergesort extends Geracao {
       int[] a2 = new int[n2+1];
 
       //Inicializar primeiro subarray
-      for(i = 0; i < n1; i++){
+      for(i = 0; i < n1; i++)
          a1[i] = array[esq+i];
-      }
 
       //Inicializar segundo subarray
-      for(j = 0; j < n2; j++){
+      for(j = 0; j < n2; j++)
          a2[j] = array[meio+j+1];
-      }
 
       //Sentinela no final dos dois arrays
       a1[i] = a2[j] = 0x7FFFFFFF;
 
       //Intercalacao propriamente dita
-      for(i = j = 0, k = esq; k <= dir; k++){
+      for(i = j = 0, k = esq; k <= dir; k++)
          array[k] = (a1[i] <= a2[j]) ? a1[i++] : a2[j++];
-      }
    }
 }

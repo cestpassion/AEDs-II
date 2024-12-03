@@ -32,15 +32,17 @@ class Quicksort extends Geracao {
 
 	/**
 	 * Algoritmo de ordenacao Quicksort.
-    * @param int esq inicio do array a ser ordenado
-    * @param int dir fim do array a ser ordenado
+    * @param esq inicio do array a ser ordenado
+    * @param dir fim do array a ser ordenado
 	 */
     private void quicksort(int esq, int dir) {
         int i = esq, j = dir;
         int pivo = array[(dir+esq)/2];
+
         while (i <= j) {
             while (array[i] < pivo) i++;
             while (array[j] > pivo) j--;
+
             if (i <= j) {
                 swap(i, j);
                 i++;

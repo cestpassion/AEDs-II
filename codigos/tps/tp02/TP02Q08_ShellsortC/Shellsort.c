@@ -353,23 +353,74 @@ void selecaoRecursivo(Pokemon *pokemonArray, int tam, int i, int *comparacoes, i
     selecaoRecursivo(pokemonArray, tam, i + 1, comparacoes, movimentacoes);
 }
 
-void insercao() {
-    for (int i = 1; i < n; i++) {
-        Pokemon tmp = array[i];
+void insercao(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes) {
+    for (int i = 1; i < tam; i++) {
+        Pokemon tmp = pokemonArray[i];
         int j = i - 1;
 
-        comparacoes++;
-        while ((j >= 0) && (array[j].getCaptureDate().compareTo(tmp.getCaptureDate()) > 0)) {
-            movimentacoes++;
-            array[j + 1] = array[j];
+        (*comparacoes)++;
+        while ((j >= 0) && pokemonArray[j].captureRate > tmp.captureRate) {
+            (*movimentacoes)++;
+            pokemonArray[j + 1] = pokemonArray[j];
             j--;
         }
-        array[j + 1] = tmp;
+        pokemonArray[j + 1] = tmp;
     }
 }
 
-shellsort(){
-    
+void shellsort(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes){
+    int i, j, h;
+    Pokemon tmp;
+
+    for(h = 1; h < tam; h = 3 * h + 1); // Calcula o h inicial
+
+    while(h > 0){
+        h = (h - 1) / 3; // Atualiza o valor de h
+
+        for(i = h; i < tam; i++){
+            tmp = pokemonArray[i];
+            j = i;
+
+            // Efetua comparações entre elementos com distância h
+            while(pokemonArray[j - h].weight > tmp.weight || 
+                 (pokemonArray[j - h].weight == tmp.weight && strcmp(pokemonArray[j - h].name, tmp.name) > 0)){
+                pokemonArray[j] = pokemonArray[j - h];
+                j -= h;
+
+                if(j < h)
+                    break;
+            }
+            pokemonArray[j] = tmp;
+        }
+    }
+}
+
+void shellsortTeste(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes) {
+    // Inicializando o gap
+    for (int gap = tam / 2; gap > 0; gap /= 2) {
+        // Aplicando inserção com gap
+        for (int i = gap; i < tam; i++) {
+            Pokemon temp = pokemonArray[i];
+            int j;
+
+            // Mover os elementos até encontrar a posição correta
+            for (j = i; j >= gap; j -= gap) {
+                (*comparacoes)++;
+                
+                // Se o peso for maior ou se o peso for igual e o nome for lexicograficamente maior
+                if (pokemonArray[j - gap].weight > temp.weight || 
+                    (pokemonArray[j - gap].weight == temp.weight && strcmp(pokemonArray[j - gap].name, temp.name) > 0)) {
+                    pokemonArray[j] = pokemonArray[j - gap];
+                    (*movimentacoes)++;
+                } else {
+                    break; // Caso o critério de ordenação seja satisfeito, não é necessário mais comparações
+                }
+            }
+
+            pokemonArray[j] = temp;
+            (*movimentacoes)++;
+        }
+    }
 }
 
 // -----------------------------
