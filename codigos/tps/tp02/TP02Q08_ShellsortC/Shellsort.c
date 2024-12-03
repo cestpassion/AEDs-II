@@ -60,6 +60,7 @@ void imprimir(Pokemon);                       // Função para imprimir os pokem
 void swap(Pokemon *, int, int, int *);
 void selecao(Pokemon *, int, int *, int *);
 void selecaoRecursivo(Pokemon *, int, int, int *, int *);
+void shellsort(Pokemon *, int, int *, int *);
 
 // Potótipos das funções de Pesquisa
 int searchSeq(Pokemon *, int, char *);
@@ -80,6 +81,7 @@ int main()
     ler(&storage);
 
     char str[10];
+    
     Pokemon *pokemonArray = (Pokemon *)malloc(1 * sizeof(Pokemon));
     int tam = 0;
 
@@ -97,7 +99,7 @@ int main()
 
     clock_t inicio = clock(); // Medir o tempo de execução
 
-    selecaoRecursivo(pokemonArray, tam, 0, &comparacoes, &movimentacoes);
+    shellsort(pokemonArray, tam, &comparacoes, &movimentacoes);
 
     clock_t fim = clock();
     double tempoExecucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC * 1000.0; // Em microssegundos
@@ -106,13 +108,13 @@ int main()
         imprimir(pokemonArray[i]);
 
     // Criar o arquivo de log
-    FILE *log = fopen("847503_shellsort", "w");
+    FILE *log = fopen("files/847503_shellsort.txt", "w");
     if (log == NULL)
     {
         perror("Erro ao criar o arquivo de log");
         return 1;
     }
-    fprintf(log, "847503\t%d\t%d\t%.2lf\n", comparacoes, movimentacoes, tempoExecucao);
+    fprintf(log, "847503\t%d\t%d\t%.6lf\n", comparacoes, movimentacoes, tempoExecucao);
     fclose(log);
 
     // Liberação da memória alocada
@@ -130,7 +132,7 @@ void start(PokemonStorage *storage)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("files/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");
@@ -311,6 +313,7 @@ void swap(Pokemon *pokemonArray, int i, int j, int *movimentacoes)
     Pokemon temp = pokemonArray[i];
     pokemonArray[i] = pokemonArray[j];
     pokemonArray[j] = temp;
+
     (*movimentacoes)++;
 }
 
@@ -353,13 +356,16 @@ void selecaoRecursivo(Pokemon *pokemonArray, int tam, int i, int *comparacoes, i
     selecaoRecursivo(pokemonArray, tam, i + 1, comparacoes, movimentacoes);
 }
 
-void insercao(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes) {
-    for (int i = 1; i < tam; i++) {
+void insercao(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes)
+{
+    for (int i = 1; i < tam; i++)
+    {
         Pokemon tmp = pokemonArray[i];
         int j = i - 1;
 
         (*comparacoes)++;
-        while ((j >= 0) && pokemonArray[j].captureRate > tmp.captureRate) {
+        while ((j >= 0) && pokemonArray[j].captureRate > tmp.captureRate)
+        {
             (*movimentacoes)++;
             pokemonArray[j + 1] = pokemonArray[j];
             j--;
@@ -368,57 +374,42 @@ void insercao(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentaco
     }
 }
 
-void shellsort(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes){
+void shellsort(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes)
+{
     int i, j, h;
     Pokemon tmp;
 
-    for(h = 1; h < tam; h = 3 * h + 1); // Calcula o h inicial
+    for (h = 1; h < tam; h = (3 * h) + 1)
+        ; // Calcula o h inicial a partir da geração da sequência de lacunas Knuth
 
-    while(h > 0){
+    while (h > 0)
+    {
         h = (h - 1) / 3; // Atualiza o valor de h
 
-        for(i = h; i < tam; i++){
+        for (i = h; i < tam; i++)
+        {
             tmp = pokemonArray[i];
             j = i;
 
             // Efetua comparações entre elementos com distância h
-            while(pokemonArray[j - h].weight > tmp.weight || 
-                 (pokemonArray[j - h].weight == tmp.weight && strcmp(pokemonArray[j - h].name, tmp.name) > 0)){
-                pokemonArray[j] = pokemonArray[j - h];
-                j -= h;
-
-                if(j < h)
-                    break;
-            }
-            pokemonArray[j] = tmp;
-        }
-    }
-}
-
-void shellsortTeste(Pokemon *pokemonArray, int tam, int *comparacoes, int *movimentacoes) {
-    // Inicializando o gap
-    for (int gap = tam / 2; gap > 0; gap /= 2) {
-        // Aplicando inserção com gap
-        for (int i = gap; i < tam; i++) {
-            Pokemon temp = pokemonArray[i];
-            int j;
-
-            // Mover os elementos até encontrar a posição correta
-            for (j = i; j >= gap; j -= gap) {
+            while (j >= h)
+            {
                 (*comparacoes)++;
-                
-                // Se o peso for maior ou se o peso for igual e o nome for lexicograficamente maior
-                if (pokemonArray[j - gap].weight > temp.weight || 
-                    (pokemonArray[j - gap].weight == temp.weight && strcmp(pokemonArray[j - gap].name, temp.name) > 0)) {
-                    pokemonArray[j] = pokemonArray[j - gap];
+
+                if (pokemonArray[j - h].weight > tmp.weight ||
+                    (pokemonArray[j - h].weight == tmp.weight && strcmp(pokemonArray[j - h].name, tmp.name) > 0))
+                {
+                    pokemonArray[j] = pokemonArray[j - h];
+                    j -= h;
+
                     (*movimentacoes)++;
-                } else {
+                }
+                else
+                {
                     break; // Caso o critério de ordenação seja satisfeito, não é necessário mais comparações
                 }
             }
-
-            pokemonArray[j] = temp;
-            (*movimentacoes)++;
+            pokemonArray[j] = tmp;
         }
     }
 }

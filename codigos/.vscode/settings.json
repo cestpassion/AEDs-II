@@ -63,6 +63,7 @@
     "stdlib.h": "c",
     "sss": "cpp",
     "typeinfo": "c",
-    "numbers": "c"
+    "numbers": "c",
+    "array": "c"
   }
 }

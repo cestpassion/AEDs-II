@@ -322,7 +322,7 @@ public class PesquisaSequencial {
     public static void main(String[] args){
         List<Pokemon> pokemonStorage = new ArrayList<>();
         
-        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+        try (BufferedReader br = new BufferedReader(new FileReader("files/pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
             String line;
 
             br.readLine(); // Lê a primeira linha (cabeçalho)
@@ -364,7 +364,7 @@ public class PesquisaSequencial {
         long tempoExecucao = fim - inicio; // Tempo em nanossegundos
         
         // Criar o arquivo de log
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("847503_sequencial.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/847503_sequencial.txt"))) {
             writer.write("847503" + "\t" + tempoExecucao + "\t" + comparacoes);
         } catch (IOException e) {
             System.err.println("Erro ao criar o arquivo de log: " + e.getMessage());

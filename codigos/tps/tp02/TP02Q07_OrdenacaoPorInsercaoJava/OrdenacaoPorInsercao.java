@@ -486,7 +486,7 @@ public class OrdenacaoPorInsercao {
     public static void main(String[] args){
         List<Pokemon> pokemonStorage = new ArrayList<>();
         
-        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+        try (BufferedReader br = new BufferedReader(new FileReader("files/pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
             String line;
 
             br.readLine(); // Lê a primeira linha (cabeçalho)
@@ -528,7 +528,7 @@ public class OrdenacaoPorInsercao {
             pokemonArray[i].imprimir();
         
         // Criar o arquivo de log
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("847503_insercao.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/847503_insercao.txt"))) {
             writer.write("847503" + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
         } catch (IOException e) {
             System.err.println("Erro ao criar o arquivo de log: " + e.getMessage());

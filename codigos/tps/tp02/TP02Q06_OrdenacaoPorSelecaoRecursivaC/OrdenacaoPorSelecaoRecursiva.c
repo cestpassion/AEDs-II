@@ -107,13 +107,13 @@ int main()
         imprimir(pokemonArray[i]);
 
     // Criar o arquivo de log
-    FILE *log = fopen("847503_selecaoRecursiva.txt", "w");
+    FILE *log = fopen("files/847503_selecaoRecursiva.txt", "w");
     if (log == NULL)
     {
         perror("Erro ao criar o arquivo de log");
         return 1;
     }
-    fprintf(log, "847503\t%d\t%d\t%.2lf\n", comparacoes, movimentacoes, tempoExecucao);
+    fprintf(log, "847503\t%d\t%d\t%.6lf\n", comparacoes, movimentacoes, tempoExecucao);
     fclose(log);
 
     // Liberação da memória alocada
@@ -131,7 +131,7 @@ void start(PokemonStorage *storage)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("files/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");

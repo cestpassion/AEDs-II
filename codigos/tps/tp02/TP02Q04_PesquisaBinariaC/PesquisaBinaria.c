@@ -125,12 +125,12 @@ int main()
     double tempoExecucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC * 1000.0; // Em microssegundos
 
     // Criar o arquivo de log
-    FILE *log = fopen("847503_binaria.txt", "w");
+    FILE *log = fopen("files/847503_binaria.txt", "w");
     if (log == NULL) {
         perror("Erro ao criar o arquivo de log");
         return 1;
     }
-    fprintf(log, "847503\t%.2lf\t%d\n", tempoExecucao, comp);
+    fprintf(log, "847503\t%.6lf\t%d\n", tempoExecucao, comp);
     fclose(log);
 
     // Liberação da memória alocada
@@ -148,7 +148,7 @@ void start(PokemonStorage *storage)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("files/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");
