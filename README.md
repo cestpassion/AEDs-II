@@ -126,7 +126,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 07: Tabelas e Dicionários:</summary>
 
 [Unidade 07](unidades/unidade07-tabelas-e-dicionarios)
-- [aaaaa](unidades/unidade047-tabelas-e-dicionarios/u07a-)
+- [Tabela Hash](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade07-tabelas-e-dicionarios/TabelaHash.md)
 </details>
 <details>
 <summary>Unidade 08: Árvores TRIE:</summary>
