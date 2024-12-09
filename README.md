@@ -112,7 +112,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 05: Árvores Binárias:</summary>
 
 [Unidade 05](unidades/unidade05-arvores-binarias)
-- [Árvore Binária]([unidades/unidade05-arvores-binarias/u05a-](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md))
+- [Árvore Binária](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md)
 </details>
 <details>
 <summary>Unidade 06: Balanceamento de Árvores:</summary>
