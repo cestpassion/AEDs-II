@@ -112,13 +112,15 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 05: Árvores Binárias:</summary>
 
 [Unidade 05](unidades/unidade05-arvores-binarias)
-- [aaaaa](unidades/unidade05-arvores-binarias/u05a-)
+- [Árvore Binária]([unidades/unidade05-arvores-binarias/u05a-](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md))
 </details>
 <details>
 <summary>Unidade 06: Balanceamento de Árvores:</summary>
 
 [Unidade 06](unidades/unidade06-balanceamento-de-arvores)
-- [aaaaa](unidades/unidade06-balanceamento-de-arvores/u06a-)
+- [Balanceamento de Árvore]([unidades/unidade06-balanceamento-de-arvores/u06a-](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade06-balanceamento-de-arvores/Balanceamento.md))
+- [Árvore AVL]([unidades/unidade06-balanceamento-de-arvores/u06a-](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade06-balanceamento-de-arvores/ArvoreAVL.md))
+- [Árvore Red Black](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade06-balanceamento-de-arvores/ArvoreRedBlack.md)
 </details>
 <details>
 <summary>Unidade 07: Tabelas e Dicionários:</summary>
