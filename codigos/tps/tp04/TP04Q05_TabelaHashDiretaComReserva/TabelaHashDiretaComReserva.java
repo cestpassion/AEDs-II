@@ -1,49 +1,24 @@
 /*
- * Refaça a questão anterior, contudo, considerando a estrutura de árvore de árvore. Nessa estrutura,
- * temos uma árvore binária tradicional na qual cada nó tem um ponteiro para outra árvore binária.
+ * Refaça a primeira questão deste trabalho com Tabela Hash Direta com Reserva. A função de
+ * transformação será (ASCII name) mod tamTab onde tamTab (tamanho da tabela) é 21.
  * 
- * Graficamente, a primeira árvore está no plano xy e a árvore de seus nós pode ser imaginada no espaço
- * tridimensional. Temos dois tipos de nós.
- * O primeiro tem um número inteiro como chave, os ponteiros esq e dir (ambos para nós do primeiro tipo)
- * e um ponteiro para nós do segundo tipo.
- * O outro nó tem uma String como chave e os ponteiros esq e dir (ambos para nós do segundo tipo).
+ * A área de reserva tem tamanho 9, fazendo com que o tamanho total da tabela seja igual a 30.
  * 
- * A chave de pesquisa da primeira árvore é o atributo captureRate mod 15 e, da outra, é o atributo name.
- * Conforme a figura abaixo.
+ * A saída padrão será a posição de cada elemento procurado na tabela (na hash ou na área de reserva).
+ * Se o elemento procurado não estiver na tabela, escreva a palavra NÃO.
  * 
- * Destaca-se que nossa pesquisa faz um “mostrar” na primeira árvore e um “mostrar” na segunda.
- * Faremos  * um “mostrar” na primeira árvore porque ela é organizada pelo captureRate mod 15, permitindo
- * que o valor desejado esteja na segunda árvore de qualquer um de seus nós.
- * Faremos o “mostrar” na segunda porque ela é organizada pelo atributo name.
- * 
- * Antes de inserir qualquer elemento, crie a primeira árvore, inserindo todos seus nós e respeitando a
- * ordem 7, 3, 11, 1, 5, 9, 13, 0, 2, 4, 6, 8, 10, 12 e 14. O arquivo de log será matrícula arvoreArvore.txt
- *                              ____________________________
- *                      🠗      |                            🠗
- *                      7      |                            TI                      
- *                  ⬋   🠗  ⬊  |                         ⬋     ⬊                  
- *               3      ☰     11                      TE        TU
- *            ⬋ 🠗 ⬊         ⬋   ⬊                  ⬋  ⬊      ⬋  ⬊
- *          1   ☰   5       9       13_______      TA   TER   TO   TUB     
- *        /🠗 ⬊   ⬋🠗 ⬊   ⬋ 🠗⬊    ⬋  ⬊      |
- *        |☰  □ 4 ☰   6 □  ☰ □  □     □    |
- *         ⬊  ⬋🠗⬊   ⬋🠗⬊                    🠗
- *           □ ☰ □  □ ☰ □                   VO
- *                                        ⬋     ⬊
- *                                      VE       VOB
- *                                    ⬋         ⬋  ⬊
- *                                   VA        VOA   VU
- */ 
+ * Além disso, o name do arquivode log será matrícula hashReserva.txt
+ */
 
 /* INFO:
  * 
  */
 
-/**
- * Árvore Binária de Árvore Binária em Java
- * @author Bruna Furtado da Fonseca
- * @version 2024-07-16
- */
+ /**
+  * Tabela Hash Direta com Reserva
+  * @author Bruna Furtado da Fonseca
+  * @version 2024-07-16
+  */
 
 import java.util.Date;
 import java.text.ParseException;
@@ -323,19 +298,154 @@ class Pokemon {
 }
 
 /**
+ * Representa uma reserva auxiliar para armazenar Pokémons que não podem ser alocados
+ * na tabela principal.
+ */
+class Reserva {
+    Pokemon[] reservaStorage; // Array que armazena os Pokémons na área de reserva.
+    int tam; // Tamanho da área de reserva.
+
+    /**
+     * Constrói uma nova reserva com o tamanho especificado.
+     *
+     * @param tamanho o tamanho da área de reserva.
+     */
+    Reserva(int tamanho) {
+        this.tam = tamanho;
+        reservaStorage = new Pokemon[tam];
+
+        // Inicializa todas as posições da reserva com null.
+        for (int i = 0; i < reservaStorage.length; i++) {
+            reservaStorage[i] = null;
+        }
+    }
+}
+
+/**
+ * Implementa uma tabela hash com área de reserva para lidar com colisões.
+ */
+class TabelaHash {
+    Pokemon[] tableHash; // Array que representa a tabela hash principal.
+    int tam; // Tamanho da tabela hash.
+    Reserva reserva; // Reserva auxiliar para armazenar Pokémons em caso de colisões.
+
+    /**
+     * Constrói uma tabela hash com tamanho fixo de 21 e reserva de tamanho 9.
+     */
+    TabelaHash() {
+        this.tam = 21;
+        this.tableHash = new Pokemon[21];
+
+        for (int i = 0; i < tableHash.length; i++) 
+            tableHash[i] = null;
+
+        this.reserva = new Reserva(9);
+    }
+
+    /**
+     * Insere um Pokémon na tabela hash ou na reserva em caso de colisão.
+     *
+     * @param pokemon o Pokémon a ser inserido.
+     */
+    public void inserir(Pokemon pokemon) {
+        int pos = hash(pokemon.getName());
+
+        if (tableHash[pos] == null) {
+            tableHash[pos] = pokemon;
+        } else {
+            // Insere na reserva caso a posição esteja ocupada.
+            for (int i = 0; i < reserva.reservaStorage.length; i++) {
+                if (reserva.reservaStorage[i] == null) {
+                    reserva.reservaStorage[i] = pokemon;
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Calcula a posição hash para uma string.
+     *
+     * @param name o nome a ser calculado.
+     * @return a posição na tabela hash.
+     */
+    private int hash(String name) {
+        int soma = 0;
+        for (int i = 0; i < name.length(); i++) {
+            soma += name.charAt(i);
+        }
+        return soma % tam;
+    }
+
+    /**
+     * Pesquisa um Pokémon pelo nome na tabela hash e na reserva.
+     *
+     * @param name o nome do Pokémon a ser pesquisado.
+     */
+    public void pesquisar(String name) {
+        int index = hash(name);
+
+        if (tableHash[index] != null && tableHash[index].getName().equals(name)) {
+            System.out.println(" (Posicao: " + index + ") SIM");
+        } else {
+            boolean encontrado = false;
+            for (int i = 0; i < reserva.reservaStorage.length; i++) {
+                if (reserva.reservaStorage[i] != null && reserva.reservaStorage[i].getName().equals(name)) {
+                    encontrado = true;
+                    System.out.println(" (Posicao: " + (21 + i) + ") SIM");
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                System.out.println(" NAO");
+            }
+        }
+    }
+
+    /**
+     * Exibe todos os Pokémons armazenados na tabela hash e na reserva.
+     */
+    public void mostra() {
+        for (int i = 0; i < tam; i++) {
+            if (tableHash[i] != null) {
+                tableHash[i].imprimir();
+                System.out.println();
+            }
+        }
+        for (int i = 0; i < reserva.tam; i++) {
+            if (reserva.reservaStorage[i] != null) {
+                reserva.reservaStorage[i].imprimir();
+                System.out.println();
+            }
+        }
+    }
+}
+
+/**
  * Classe principal
  */
-public class ABdeAB {
-    public static void main(String[] args){
-        List<Pokemon> pokemon = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+public class TabelaHashDiretaComReserva {
+    public static List<Pokemon> pokemonStorage;
+
+    public static Pokemon search(int id) {
+        for (Pokemon p : pokemonStorage) {
+            if (id == p.getId()) {
+                return p;
+            }
+        }
+        return null;
+    }
+    public static void main(String[] args) throws Exception {
+        try (BufferedReader br = new BufferedReader(new FileReader("/tmp/pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
             String line;
+            pokemonStorage = new ArrayList<>();
 
             br.readLine(); // Lê a primeira linha (cabeçalho)
             while ((line = br.readLine()) != null) {
                 Pokemon p = new Pokemon();
                 p.ler(line);
-                pokemon.add(p);
+                pokemonStorage.add(p);
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
@@ -343,16 +453,14 @@ public class ABdeAB {
 
         Scanner sc = new Scanner(System.in);
         String str;
-        int id;
+        TabelaHash abPokemon = new TabelaHash();
+
+        while(!(str = sc.nextLine()).equals("FIM"))
+           abPokemon.inserir(search(Integer.parseInt(str)));
 
         while(!(str = sc.nextLine()).equals("FIM")){
-            id = Integer.parseInt(str);
-            for(Pokemon p : pokemon){
-                if(id == p.getId()){
-                    p.imprimir();
-                    /* pokemons.add(p.clone()); */ // Chamada da função clone
-                }
-            }  
+            System.out.print("=> " + str + ":");
+            abPokemon.pesquisar(str);
         }
 
         sc.close();

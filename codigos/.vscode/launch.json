@@ -15,8 +15,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Bruna/Downloads",
-      "program": "c:/Users/Bruna/Downloads/build/Debug/outDebug",
+      "cwd": "c:/Users/1514551/Documents/Repositorios/AEDs-II/codigos/tps/tp04/TP04Q03_ArvoreAVLC",
+      "program": "c:/Users/1514551/Documents/Repositorios/AEDs-II/codigos/tps/tp04/TP04Q03_ArvoreAVLC/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

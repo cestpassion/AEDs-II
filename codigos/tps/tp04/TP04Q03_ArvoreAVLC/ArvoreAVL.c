@@ -57,21 +57,139 @@ void imprimir(Pokemon);                       // Função para imprimir os pokem
 // HEADER - Fim
 // -----------------------------
 
+typedef struct No{
+    Pokemon pokemon;
+    struct No* dir;
+    struct No* esq;
+}No;
+
+No* newNo(Pokemon pokemon){
+    No* new = (No*) malloc(sizeof(No));
+    new->pokemon = pokemon;
+    new->dir = new->esq = NULL;
+
+    return new;
+}
+
+typedef struct ArvoreAVL{
+    No* raiz;
+}ArvoreAVL;
+
+ArvoreAVL* newArvoreAVL(){
+    ArvoreAVL* new = (ArvoreAVL*) malloc(sizeof(ArvoreAVL));
+    new->raiz = NULL;
+
+    return new;
+}
+
+int compararNomeComPokemonPokemon(Pokemon a, Pokemon b){
+    return strcmp(a.name, b.name);
+} 
+
+int compararNomeComPokemon(char *name, Pokemon b){
+    return strcmp(name, b.name);
+} 
+
+No* rotacionarDir(No* i){
+        No* tmp = i->esq;
+        i->esq = tmp->dir;
+        tmp->dir = i;
+
+        return tmp;
+    }
+
+No* rotacionarEsq(No* i){
+        No* tmp = i->dir;
+        i->dir = tmp->esq;
+        tmp->esq = i;
+
+        return tmp;
+    }
+
+int getAltura(No* i){
+    if(i == NULL){
+        return -1;
+    }
+    int alturaEsq = getAltura(i->esq) + 1;
+    int alturaDir = getAltura(i->dir) + 1;
+
+    int altura = (alturaEsq > alturaDir ? alturaEsq : alturaDir);
+    return altura; 
+}
+
+int getFator(No* i){
+        int alturaEsq = getAltura(i->esq) + 1;
+        int alturaDir = getAltura(i->dir) + 1;
+
+        return (alturaDir - alturaEsq);
+
+}
+
+No* inserir(No* i, Pokemon pokemon){
+    if(i == NULL) {
+        i = newNo(pokemon);
+    } else if (compararNomeComPokemonPokemon(pokemon, i->pokemon) > 0){
+        i->dir = inserir(i->dir, pokemon);
+    } else if (compararNomeComPokemonPokemon(pokemon, i->pokemon) < 0){
+        i->esq = inserir(i->esq, pokemon);
+    } else {
+        printf("Erro!");
+    }
+
+    if(getFator(i) == -2) {
+            if(getFator(i->esq) == 1){
+                i->esq = rotacionarEsq(i->esq); 
+            }
+            i = rotacionarDir(i);
+
+        } else if(getFator(i) == 2) {
+            if(getFator(i->dir) == -1){
+                i->dir = rotacionarDir(i->dir);
+            }
+            i = rotacionarEsq(i);
+        }
+
+    return i;
+}
+
+void pesquisa(No* i, char *name){
+    if(i == NULL){
+        printf(" NAO\n");
+    }else if(compararNomeComPokemon(name, i->pokemon) > 0){
+        printf(" dir");
+        pesquisa(i->dir, name);
+    }else if(compararNomeComPokemon(name, i->pokemon) < 0){
+        printf(" esq");
+        pesquisa(i->esq, name);
+    }else{
+        printf(" SIM\n");
+    }
+}
+
 // FUNÇÃO PRINCIPAL
 int main()
 {
     PokemonStorage storage;
     Pokemon pokemon;
+    ArvoreAVL *avl = newArvoreAVL();
 
     start(&storage);
     ler(&storage);
 
-    char str[10];
+    char str[50];
 
     scanf("%s", str);
     while (strcmp(str, "FIM") != 0)
     {
-        imprimir(searchIdStorage(storage, atoi(str)));
+        avl->raiz = inserir(avl->raiz, searchIdStorage(storage, atoi(str)));
+        scanf("%s", str);
+    }
+
+    scanf("%s", str);
+    while (strcmp(str, "FIM") != 0)
+    {
+        printf("%s\nraiz", str);
+        pesquisa(avl->raiz, str);
         scanf("%s", str);
     }
 
@@ -92,7 +210,7 @@ void start(PokemonStorage *storage)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("/tmp/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");

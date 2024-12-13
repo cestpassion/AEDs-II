@@ -1,19 +1,8 @@
 /*
- * Crie uma árvore Binária, fazendo inserçães de registros conforme a entrada padrão. A chave de
- * pesquisa é o atributo name. Não insira um elemento se sua chave estiver na árvore.
- * 
- * Em seguida, pesquise se alguns registros estão cadastrados na árvore, mostrando seus respectivos
- * caminhos de pesquisa.
- * 
- * A entrada padrão é igual a da questão de “Pesquisa Sequencial”.
- * 
- * A saída padrão é composta por várias linhas, uma para cada pesquisa. Cada linha é composta pelo
- * caminho ou sequência de ponteiros (raiz, esq ou dir) utilizados na pesquisa e, no final, pelas
- * palavras SIM ou NAO.
- * 
- * Além disso, crie um arquivo de log na pasta corrente com o nome matrícula arvoreBinaria.txt com
- * uma única linha contendo sua matrícula, tempo de execução do seu algoritmo e número de comparaçães.
- * Todas as informaçães do arquivo de log devem ser separadas por uma tabulação ’\t’.
+ * Refaça a questão anterior com Tabela Hash Direta com Rehash.
+ * A primeira função de transformação será (ASCII name) mod tamTab onde tamTab (tamanho da tabela) é 21
+ * e a outra, (ASCII name + 1) mod tamTab.
+ * O nome do arquivo de log será matrícula hashRehash.txt
  */
 
 /* INFO:
@@ -21,7 +10,7 @@
  */
 
 /**
- * Árvore Binária em Java
+ * Tabela Hash Direta com Rehash
  * @author Bruna Furtado da Fonseca
  * @version 2024-07-16
  */
@@ -304,86 +293,112 @@ class Pokemon {
 }
 
 /**
- * Classe No
+ * Classe que implementa uma Tabela Hash para armazenar objetos do tipo Pokemon.
+ * A tabela hash usa um algoritmo de hashing simples para distribuir os Pokemons na tabela
+ * e rehashing para resolver colisões.
  */
-class No {
-    public Pokemon pokemon;
-    public No esq;
-    public No dir;
+class TabelaHash {
+    Pokemon[] tableHash;
+    int tam; // Tamanho da tabela hash
 
-    public No(Pokemon pokemon) {
-        this(pokemon, null, null);
+    /**
+     * Construtor da classe TabelaHash.
+     * Inicializa a tabela hash com um tamanho fixo de 21 e preenche a tabela com valores nulos.
+     */
+    TabelaHash() {
+        this.tam = 21;
+        this.tableHash = new Pokemon[21];
+
+        for (int i = 0; i < tableHash.length; i++) {
+            tableHash[i] = null;
+        }
     }
 
-    public No(Pokemon pokemon, No esq, No dir) {
-        this.pokemon = pokemon;
-        this.esq = esq;
-        this.dir = dir;
+    /**
+     * Insere um objeto Pokemon na tabela hash.
+     * Utiliza a função de hash para determinar a posição inicial.
+     * Caso ocorra uma colisão, tenta-se inserir o Pokemon em uma nova posição usando rehashing.
+     *
+     * @param pokemon O objeto Pokemon a ser inserido na tabela hash.
+     */
+    public void inserir(Pokemon pokemon) {
+        int pos = hash(pokemon.getName());
+
+        if (tableHash[pos] == null) {
+            tableHash[pos] = pokemon;
+        } else {
+            if (tableHash[rehash(pokemon.getName())] == null) {
+                tableHash[rehash(pokemon.getName())] = pokemon;
+            }
+        }
+    }
+
+    /**
+     * Função de hash que gera uma posição para um nome de Pokemon baseado na soma
+     * dos valores dos caracteres do nome.
+     * 
+     * @param name O nome do Pokemon.
+     * @return A posição gerada para o nome na tabela hash.
+     */
+    private int hash(String name) {
+        int soma = 0;
+        for (int i = 0; i < name.length(); i++) {
+            soma += name.charAt(i);
+        }
+        return soma % tam;
+    }
+
+    /**
+     * Função de rehashing que gera uma nova posição para o nome do Pokemon,
+     * caso ocorra uma colisão.
+     * 
+     * @param name O nome do Pokemon.
+     * @return A nova posição gerada para o nome após o rehashing.
+     */
+    private int rehash(String name) {
+        int soma = 1;
+        for (int i = 0; i < name.length(); i++) {
+            soma += name.charAt(i);
+        }
+        return soma % tam;
+    }
+
+    /**
+     * Exibe todos os Pokemons armazenados na tabela hash.
+     * Para cada Pokemon, chama o método de impressão definido na classe Pokemon.
+     */
+    public void mostrar() {
+        for (int i = 0; i < tam; i++) {
+            if (tableHash[i] != null) {
+                tableHash[i].imprimir();
+                System.out.println();
+            }
+        }
+    }
+
+    /**
+     * Pesquisa um Pokemon na tabela hash pelo nome.
+     * Exibe a posição do Pokemon se encontrado, caso contrário, exibe "NAO".
+     * 
+     * @param name O nome do Pokemon a ser pesquisado.
+     */
+    public void pesquisar(String name) {
+        int pos = hash(name);
+
+        if (tableHash[pos] != null && tableHash[pos].getName().equals(name)) {
+            System.out.println(" (Posicao: " + pos + ") SIM");
+        } else if (tableHash[rehash(name)] != null && tableHash[rehash(name)].getName().equals(name)) {
+            System.out.println(" (Posicao: " + rehash(name) + ") SIM");
+        } else {
+            System.out.println(" NAO");
+        }
     }
 }
-
-/**
- * Classe Árvore
- */
-class AB{
-    private No raiz;
-
-    public AB() {
-        raiz = null;
-    }
-
-    public No getRaiz() {
-        return raiz;
-    }
-
-    // Inserção em Java com Retorno de Referência
-    public void inserir(Pokemon pokemon) throws Exception {
-        raiz = inserir(pokemon, raiz);
-    }
-
-    public No inserir(Pokemon pokemon, No i) throws Exception {
-        if (i == null) {
-            i = new No(pokemon);
-        } else if(pokemon.getName().compareTo(i.pokemon.getName()) == 0){
-            throw new Exception("Erro! o pokemon " + pokemon.getName() + " ja foi inserido.");
-        } else if (pokemon.getName().compareTo(i.pokemon.getName()) < 0) {
-            i.esq = inserir(pokemon, i.esq);
-        } else if (pokemon.getName().compareTo(i.pokemon.getName()) > 0) {
-            i.dir = inserir(pokemon, i.dir);
-        } else {
-            throw new Exception("Erro!");
-        }
-
-        return i;
-    }
-
-    // Pesquisa
-    public String pesquisar(String pokemonName) {
-        return pesquisar(pokemonName, raiz);
-    }
-
-    public String pesquisar(String pokemonName, No i) {
-        String resp = "";
-
-        if (i == null) {
-            resp += " NAO";
-        } else if (pokemonName.compareTo(i.pokemon.getName()) == 0) {
-            resp += " SIM";
-        } else if (pokemonName.compareTo(i.pokemon.getName()) < 0) {
-            resp += " esq" + pesquisar(pokemonName, i.esq);
-        } else {
-            resp += " dir" + pesquisar(pokemonName, i.dir);
-        }
-        return resp;
-    }
-}
-
-
 
 /**
  * Classe principal
  */
-public class ArvoreBinaria {
+public class TabelaHashDiretacomRehash {
     public static List<Pokemon> pokemonStorage;
 
     public static Pokemon search(int id) {
@@ -411,16 +426,14 @@ public class ArvoreBinaria {
 
         Scanner sc = new Scanner(System.in);
         String str;
-        AB abPokemon = new AB();
+        TabelaHash abPokemon = new TabelaHash();
 
         while(!(str = sc.nextLine()).equals("FIM"))
            abPokemon.inserir(search(Integer.parseInt(str)));
 
-        String answer;
-
         while(!(str = sc.nextLine()).equals("FIM")){
-            answer = abPokemon.pesquisar(str);
-            System.out.println(str + "\n=>raiz" + answer);
+            System.out.print("=> " + str + ":");
+            abPokemon.pesquisar(str);
         }
 
         sc.close();

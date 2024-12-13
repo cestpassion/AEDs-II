@@ -1,27 +1,46 @@
 /*
- * Crie uma árvore Binária, fazendo inserçães de registros conforme a entrada padrão. A chave de
- * pesquisa é o atributo name. Não insira um elemento se sua chave estiver na árvore.
+ * Refaça a questão anterior, contudo, considerando a estrutura de árvore de árvore. Nessa estrutura,
+ * temos uma árvore binária tradicional na qual cada nó tem um ponteiro para outra árvore binária.
  * 
- * Em seguida, pesquise se alguns registros estão cadastrados na árvore, mostrando seus respectivos
- * caminhos de pesquisa.
+ * Graficamente, a primeira árvore está no plano xy e a árvore de seus nós pode ser imaginada no espaço
+ * tridimensional. Temos dois tipos de nós.
+ * O primeiro tem um número inteiro como chave, os ponteiros esq e dir (ambos para nós do primeiro tipo)
+ * e um ponteiro para nós do segundo tipo.
+ * O outro nó tem uma String como chave e os ponteiros esq e dir (ambos para nós do segundo tipo).
  * 
- * A entrada padrão é igual a da questão de “Pesquisa Sequencial”.
+ * A chave de pesquisa da primeira árvore é o atributo captureRate mod 15 e, da outra, é o atributo name.
+ * Conforme a figura abaixo.
  * 
- * A saída padrão é composta por várias linhas, uma para cada pesquisa. Cada linha é composta pelo
- * caminho ou sequência de ponteiros (raiz, esq ou dir) utilizados na pesquisa e, no final, pelas
- * palavras SIM ou NAO.
+ * Destaca-se que nossa pesquisa faz um “mostrar” na primeira árvore e um “mostrar” na segunda.
+ * Faremos um “mostrar” na primeira árvore porque ela é organizada pelo captureRate mod 15, permitindo
+ * que o valor desejado esteja na segunda árvore de qualquer um de seus nós.
+ * Faremos o “mostrar” na segunda porque ela é organizada pelo atributo name.
  * 
- * Além disso, crie um arquivo de log na pasta corrente com o nome matrícula arvoreBinaria.txt com
- * uma única linha contendo sua matrícula, tempo de execução do seu algoritmo e número de comparaçães.
- * Todas as informaçães do arquivo de log devem ser separadas por uma tabulação ’\t’.
- */
+ * Antes de inserir qualquer elemento, crie a primeira árvore, inserindo todos seus nós e respeitando a
+ * ordem 7, 3, 11, 1, 5, 9, 13, 0, 2, 4, 6, 8, 10, 12 e 14. O arquivo de log será matrícula arvoreArvore.txt
+ *                              ____________________________
+ *                      🠗      |                            🠗
+ *                      7      |                            TI                      
+ *                  ⬋   🠗  ⬊  |                         ⬋     ⬊                  
+ *               3      ☰     11                      TE        TU
+ *            ⬋ 🠗 ⬊         ⬋   ⬊                  ⬋  ⬊      ⬋  ⬊
+ *          1   ☰   5       9       13_______      TA   TER   TO   TUB     
+ *        /🠗 ⬊   ⬋🠗 ⬊   ⬋ 🠗⬊    ⬋  ⬊      |
+ *        |☰  □ 4 ☰   6 □  ☰ □  □     □    |
+ *         ⬊  ⬋🠗⬊   ⬋🠗⬊                    🠗
+ *           □ ☰ □  □ ☰ □                   VO
+ *                                        ⬋     ⬊
+ *                                      VE       VOB
+ *                                    ⬋         ⬋  ⬊
+ *                                   VA        VOA   VU
+ */ 
 
 /* INFO:
  * 
  */
 
 /**
- * Árvore Binária em Java
+ * Árvore Binária de Árvore Binária em Java
  * @author Bruna Furtado da Fonseca
  * @version 2024-07-16
  */
@@ -303,53 +322,61 @@ class Pokemon {
     }
 }
 
-/**
- * Classe No
- */
 class No {
-    public Pokemon pokemon;
+    public int elemento;
     public No esq;
     public No dir;
+    NoFilho raizfilho;
 
-    public No(Pokemon pokemon) {
-        this(pokemon, null, null);
+    public No(int elemento) {
+        this(elemento, null, null);
     }
 
-    public No(Pokemon pokemon, No esq, No dir) {
-        this.pokemon = pokemon;
+    public No(int elemento, No esq, No dir) {
+        this.elemento = elemento;
+        this.esq = esq;
+        this.dir = dir;
+        this.raizfilho = new NoFilho(null);
+    }
+}
+
+class NoFilho {
+    public Pokemon elemento;
+    public NoFilho esq;
+    public NoFilho dir;
+
+    public NoFilho(Pokemon elemento) {
+        this(elemento, null, null);
+    }
+
+    public NoFilho(Pokemon elemento, NoFilho esq, NoFilho dir) {
+        this.elemento = elemento;
         this.esq = esq;
         this.dir = dir;
     }
 }
 
-/**
- * Classe Árvore
- */
-class AB{
+class ABdeAB {
     private No raiz;
 
-    public AB() {
+    public ABdeAB() throws Exception {
         raiz = null;
+        inserirChaves();
     }
 
-    public No getRaiz() {
-        return raiz;
+    // MÉTODOS DE INSERÇÃO:
+
+    public void inserirChaves() throws Exception {
+        raiz = inserirChaves(x, raiz);
     }
 
-    // Inserção em Java com Retorno de Referência
-    public void inserir(Pokemon pokemon) throws Exception {
-        raiz = inserir(pokemon, raiz);
-    }
-
-    public No inserir(Pokemon pokemon, No i) throws Exception {
+    public No inserirChaves(int x, No i) throws Exception {
         if (i == null) {
-            i = new No(pokemon);
-        } else if(pokemon.getName().compareTo(i.pokemon.getName()) == 0){
-            throw new Exception("Erro! o pokemon " + pokemon.getName() + " ja foi inserido.");
-        } else if (pokemon.getName().compareTo(i.pokemon.getName()) < 0) {
-            i.esq = inserir(pokemon, i.esq);
-        } else if (pokemon.getName().compareTo(i.pokemon.getName()) > 0) {
-            i.dir = inserir(pokemon, i.dir);
+            i = new No(x);
+        } else if (x < i.elemento) {
+            i.esq = inserirChaves(x, i.esq);
+        } else if (x > i.elemento) {
+            i.dir = inserirChaves(x, i.dir);
         } else {
             throw new Exception("Erro!");
         }
@@ -357,33 +384,109 @@ class AB{
         return i;
     }
 
-    // Pesquisa
-    public String pesquisar(String pokemonName) {
-        return pesquisar(pokemonName, raiz);
+    // Inserção em Java com Retorno de Referência
+    public void inserir(int x) throws Exception {
+        raiz = inserir(x, raiz);
     }
 
-    public String pesquisar(String pokemonName, No i) {
-        String resp = "";
+    public No inserir(int x, No i) throws Exception {
+        if (i == null) {
+            i = new No(x);
+        } else if (x < i.elemento) {
+            i.esq = inserir(x, i.esq);
+        } else if (x > i.elemento) {
+            i.dir = inserir(x, i.dir);
+        } else {
+            throw new Exception("Erro!");
+        }
+
+        return i;
+    }
+
+    // Inserção em Java com passagem de pai
+    public void inserirPai(int x) throws Exception {
+        if (raiz == null) {
+            raiz = new No(x);
+        } else if (x < raiz.elemento) {
+            inserirPai(x, raiz.esq, raiz);
+        } else if (x > raiz.elemento) {
+            inserirPai(x, raiz.dir, raiz);
+        } else {
+            throw new Exception("Erro!");
+        }
+    }
+
+    public void inserirPai(int x, No i, No pai) throws Exception {
+        if (i == null) {
+            if (x < pai.elemento) {
+                pai.esq = new No(x);
+            } else {
+                pai.dir = new No(x);
+            }
+        } else if (x < i.elemento) {
+            inserirPai(x, i.esq, i);
+        } else if (x > i.elemento) {
+            inserirPai(x, i.dir, i);
+        } else {
+            throw new Exception("Erro!");
+        }
+    }
+
+    // Pesquisa
+    public boolean pesquisar(int x) {
+        return pesquisar(x, raiz);
+    }
+
+    public boolean pesquisar(int x, No i) {
+        boolean resp;
 
         if (i == null) {
-            resp += " NAO";
-        } else if (pokemonName.compareTo(i.pokemon.getName()) == 0) {
-            resp += " SIM";
-        } else if (pokemonName.compareTo(i.pokemon.getName()) < 0) {
-            resp += " esq" + pesquisar(pokemonName, i.esq);
+            resp = false;
+        } else if (x == i.elemento) {
+            resp = true;
+        } else if (x < i.elemento) {
+            resp = pesquisar(x, i.esq);
         } else {
-            resp += " dir" + pesquisar(pokemonName, i.dir);
+            resp = pesquisar(x, i.dir);
         }
         return resp;
     }
-}
 
+    // MÉTODOS DE CAMINHAMENTO:
+
+    // Caminhamento Central (ou em ordem)
+    public void caminharCentral(No i) {
+        if (i != null) {
+            caminharCentral(i.esq);
+            System.out.print(i.elemento + " ");
+            caminharCentral(i.dir);
+        }
+    }
+
+    // Caminhamento Pré-incremento (ou pré-fixado ou pré-ordem)
+    public void caminharPre(No i) {
+        if (i != null) {
+            System.out.print(i.elemento + " ");
+            caminharPre(i.esq);
+            caminharPre(i.dir);
+        }
+    }
+
+    // Caminhamento Pós-incremento (ou pós-fixado ou pós-ordem)
+    public void caminharPos(No i) {
+        if (i != null) {
+            caminharPos(i.esq);
+            caminharPos(i.dir);
+            System.out.println(i.elemento + " ");
+        }
+    }
+}
 
 
 /**
  * Classe principal
  */
-public class ArvoreBinaria {
+public class ArvoreDeArvore {
     public static List<Pokemon> pokemonStorage;
 
     public static Pokemon search(int id) {
@@ -394,8 +497,9 @@ public class ArvoreBinaria {
         }
         return null;
     }
+
     public static void main(String[] args) throws Exception {
-        try (BufferedReader br = new BufferedReader(new FileReader("/tmp/pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
+        try (BufferedReader br = new BufferedReader(new FileReader("pokemon.csv"))) { // verde.icei.pucminas.br/tmp/pokemon.csv
             String line;
             pokemonStorage = new ArrayList<>();
 
@@ -411,16 +515,14 @@ public class ArvoreBinaria {
 
         Scanner sc = new Scanner(System.in);
         String str;
-        AB abPokemon = new AB();
+        ABdeAB abPokemon = new ABdeAB();
 
         while(!(str = sc.nextLine()).equals("FIM"))
            abPokemon.inserir(search(Integer.parseInt(str)));
 
-        String answer;
-
         while(!(str = sc.nextLine()).equals("FIM")){
-            answer = abPokemon.pesquisar(str);
-            System.out.println(str + "\n=>raiz" + answer);
+            System.out.print("=> " + str + "\nraiz ");
+            //abPokemon.pesquisar(str);
         }
 
         sc.close();

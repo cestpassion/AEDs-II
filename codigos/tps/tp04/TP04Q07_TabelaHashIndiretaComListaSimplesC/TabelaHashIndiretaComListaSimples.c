@@ -54,15 +54,186 @@ Pokemon searchIdStorage(PokemonStorage, int); // Função para pesquisar pokemon
 void imprimir(Pokemon);                       // Função para imprimir os pokemons
 // void clone(int); // NÃO ESTÁ IMPLEMENTADA -----------------------------------------------------
 
+// Tipo Celula
+typedef struct Celula
+{
+    Pokemon pokemon;     // Elemento inserido na celula.
+    struct Celula *prox; // Aponta a celula prox.
+} Celula;
+
+Celula *newCelula(Pokemon pokemon)
+{
+    Celula *new = (Celula *)malloc(sizeof(Celula));
+    new->pokemon = pokemon;
+    new->prox = NULL;
+    return new;
+}
+
+// Construtor da classe que cria uma lista sem elementos
+typedef struct FlexList
+{
+    Celula *primeiro;
+    Celula *ultimo;
+} FlexList;
+
+FlexList* newFlexList() {
+    FlexList* list = (FlexList*)malloc(sizeof(FlexList));
+    list->primeiro = newCelula((Pokemon){0});
+    list->ultimo = list->primeiro;
+    return list;
+}
+
 // -----------------------------
 // HEADER - Fim
 // -----------------------------
+
+// -----------------------------
+// LISTA FLEXÍVEL: Início
+// -----------------------------
+
+// INSERIR:
+// Função para inserir no início da Lista Flexível
+void inserirInicio(FlexList *list, Pokemon pokemon)
+{
+    Celula *tmp = newCelula(pokemon);
+
+    tmp->prox = list->primeiro->prox;
+    list->primeiro->prox = tmp;
+
+    if (list->primeiro == list->ultimo)
+        list->ultimo = tmp;
+
+    tmp = NULL;
+}
+
+// Função para inserir no fim da Lista Flexível
+void inserirFim(FlexList *list, Pokemon pokemon)
+{
+    list->ultimo->prox = newCelula(pokemon);
+    list->ultimo = list->ultimo->prox;
+}
+
+int sizeFlexList(FlexList *list)
+{
+    int size = 0;
+    for (Celula *i = list->primeiro->prox; i != NULL; i = i->prox, size++);
+    return size;
+}
+
+// Função para inserir na p-ésima posição da Lista Flexível
+void inserir(FlexList *list, Pokemon pokemon, int pos)
+{
+    int size = sizeFlexList(list); // A alteração aqui foi para passar o ponteiro corretamente para sizeFlexList
+
+    if (pos < 0 || pos > size) // Corrigido o limite para incluir o último elemento válido
+    {
+        printf("Erro! Posição inválida.\nPosicoes validas = 0 a %d\nPosicao inserida = %d\n", size, pos);
+        exit(1);
+    }
+    else if (pos == 0)
+    {
+        inserirInicio(list, pokemon);
+    }
+    else if (pos == size)
+    {
+        inserirFim(list, pokemon);
+    }
+    else
+    {
+        // Caminhar até a posição anterior à inserção
+        Celula *i = list->primeiro;
+        for (int j = 0; j < pos; j++, i = i->prox);
+
+        Celula *tmp = newCelula(pokemon);
+
+        tmp->prox = i->prox;
+        i->prox = tmp;
+        tmp = i = NULL;
+    }
+}
+
+// MOSTRAR:
+// Função para imprimir os pokemons presentes na Lista Flexível
+void mostrar(FlexList *list)
+{
+    int index = 0;
+    for (Celula *i = list->primeiro->prox; i != NULL; i = i->prox)
+    {
+        printf("[%d] ", index++);
+        imprimir(i->pokemon); // Supondo que a função 'imprimir' exista
+    }
+}
+
+// -----------------------------
+// LISTA FLEXÍVEL: Fim
+// -----------------------------
+
+typedef struct Tabela{
+    FlexList* list[21];
+} Tabela;
+
+Tabela* construtorTabela(){
+    Tabela* tabela = (Tabela*)malloc(sizeof(Tabela));
+    Pokemon emptyPokemon = {0, 0, NULL, NULL, NULL, NULL, 0.0, 0.0, 0, NULL, NULL};
+
+    for(int i = 0; i < 21; i++){
+        tabela->list[i] = newFlexList();  // Modificado para usar newFlexList() e não newCelula
+    }
+
+    return tabela;
+}
+
+int hash(char name[]){
+    int soma = 0;
+
+    for(int i = 0; i < strlen(name); i++){
+        soma += name[i];
+    }
+
+    return soma % 21;
+}
+
+void inserirTabela(Tabela* table, Pokemon pokemon){
+    int pos = hash(pokemon.name);
+    inserir(table->list[pos], pokemon, sizeFlexList(table->list[pos]));  // Modificado para chamar 'inserir'
+}
+
+void mostra(Tabela *table) {
+    for (int i = 0; i < 21; i++) {
+        if (table->list[i]->primeiro->prox != NULL) {
+            mostrar(table->list[i]); // Modificado para passar corretamente a lista
+        }
+    }
+}
+
+int compara(char nome[], Pokemon a){
+    return strcmp(nome, a.name);
+}
+
+int pesquisaLista(FlexList* list, char nome[]){
+    for(Celula* i = list->primeiro->prox; i != NULL; i = i->prox){
+        if(compara(nome, i->pokemon) == 0){
+            return 1;  // Retorna 1 caso encontrado
+        }
+    }
+    return 0;  // Retorna 0 caso não encontrado
+}
+
+void pesquisa(Tabela* table, char *name){
+    if(pesquisaLista(table->list[hash(name)], name)){
+        printf(" (Posicao: %d) SIM\n", hash(name));
+    }
+    else {
+        printf(" NAO\n");
+    }
+}
 
 // FUNÇÃO PRINCIPAL
 int main()
 {
     PokemonStorage storage;
     Pokemon pokemon;
+    Tabela* tabela = construtorTabela();
 
     start(&storage);
     ler(&storage);
@@ -72,7 +243,15 @@ int main()
     scanf("%s", str);
     while (strcmp(str, "FIM") != 0)
     {
-        imprimir(searchIdStorage(storage, atoi(str)));
+        inserirTabela(tabela, searchIdStorage(storage, atoi(str)));
+        scanf("%s", str);
+    }
+
+    scanf("%s", str);
+    while (strcmp(str, "FIM") != 0)
+    {
+        printf("=> %s:", str);
+        pesquisa(tabela, str);
         scanf("%s", str);
     }
 
@@ -93,7 +272,7 @@ void start(PokemonStorage *storage)
 // Função para a leitura do csv
 void ler(PokemonStorage *s)
 {
-    FILE *file = fopen("pokemon.csv", "r");
+    FILE *file = fopen("/tmp/pokemon.csv", "r");
     if (!file)
     {
         printf("Erro ao abrir o arquivo!\n");
