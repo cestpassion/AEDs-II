@@ -367,7 +367,7 @@ class ABdeAB {
     // MÉTODOS DE INSERÇÃO:
 
     public void inserirChaves() throws Exception {
-        raiz = inserirChaves(x, raiz);
+        raiz = inserirChaves(, raiz);
     }
 
     public No inserirChaves(int x, No i) throws Exception {
