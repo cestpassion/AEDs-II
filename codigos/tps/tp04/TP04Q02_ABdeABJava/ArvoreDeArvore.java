@@ -21,18 +21,18 @@
  *                              ____________________________
  *                      🠗      |                            🠗
  *                      7      |                            TI                      
- *                  ⬋   🠗  ⬊  |                         ⬋     ⬊                  
- *               3      ☰     11                      TE        TU
+ *                  ⬋   🠗  ⬊   |                         ⬋     ⬊                  
+ *               3      ☰    11                      TE        TU
  *            ⬋ 🠗 ⬊         ⬋   ⬊                  ⬋  ⬊      ⬋  ⬊
- *          1   ☰   5       9       13_______      TA   TER   TO   TUB     
- *        /🠗 ⬊   ⬋🠗 ⬊   ⬋ 🠗⬊    ⬋  ⬊      |
- *        |☰  □ 4 ☰   6 □  ☰ □  □     □    |
- *         ⬊  ⬋🠗⬊   ⬋🠗⬊                    🠗
- *           □ ☰ □  □ ☰ □                   VO
- *                                        ⬋     ⬊
- *                                      VE       VOB
- *                                    ⬋         ⬋  ⬊
- *                                   VA        VOA   VU
+ *          1   ☰  5       9     13 _______      TA   TER   TO   TUB     
+ *         /🠗 ⬊    ⬋🠗 ⬊   ⬋ 🠗⬊    ⬋  ⬊      |
+ *        | ☰ □  4 ☰ 6  □ ☰ □  □   □      |
+ *         ⬊    ⬋🠗⬊   ⬋🠗⬊                   🠗
+ *            □ ☰ □  □ ☰ □                VO
+ *                                      ⬋     ⬊
+ *                                    VE       VOB
+ *                                   ⬋         ⬋  ⬊
+ *                                 VA        VOA   VU
  */ 
 
 /* INFO:
@@ -55,6 +55,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Classe Pokémon
@@ -323,7 +324,7 @@ class Pokemon {
 }
 
 class No {
-    public int elemento;
+    public int modCapRate;
     public No esq;
     public No dir;
     NoFilho raizfilho;
@@ -333,24 +334,24 @@ class No {
     }
 
     public No(int elemento, No esq, No dir) {
-        this.elemento = elemento;
+        this.modCapRate = elemento;
         this.esq = esq;
         this.dir = dir;
-        this.raizfilho = new NoFilho(null);
+        this.raizfilho = null;
     }
 }
 
 class NoFilho {
-    public Pokemon elemento;
+    public Pokemon pokemon;
     public NoFilho esq;
     public NoFilho dir;
 
-    public NoFilho(Pokemon elemento) {
-        this(elemento, null, null);
+    public NoFilho(Pokemon pokemon) {
+        this(pokemon, null, null);
     }
 
-    public NoFilho(Pokemon elemento, NoFilho esq, NoFilho dir) {
-        this.elemento = elemento;
+    public NoFilho(Pokemon pokemon, NoFilho esq, NoFilho dir) {
+        this.pokemon = pokemon;
         this.esq = esq;
         this.dir = dir;
     }
@@ -361,22 +362,26 @@ class ABdeAB {
 
     public ABdeAB() throws Exception {
         raiz = null;
-        inserirChaves();
+        inserirKeys();
     }
 
     // MÉTODOS DE INSERÇÃO:
 
-    public void inserirChaves() throws Exception {
-        raiz = inserirChaves(, raiz);
+    public void inserirKeys() throws Exception {
+        int[] keys = {7, 3, 11, 1, 5, 9, 13, 0, 2, 4, 6, 8, 10, 12, 14};
+
+        for(int i = 0; i < keys.length; i++){
+            raiz = inserirKeys(keys[i], raiz);
+        }   
     }
 
-    public No inserirChaves(int x, No i) throws Exception {
+    public No inserirKeys(int key, No i) throws Exception {
         if (i == null) {
-            i = new No(x);
-        } else if (x < i.elemento) {
-            i.esq = inserirChaves(x, i.esq);
-        } else if (x > i.elemento) {
-            i.dir = inserirChaves(x, i.dir);
+            i = new No(key);
+        } else if (key < i.modCapRate) {
+            i.esq = inserirKeys(key, i.esq);
+        } else if (key > i.modCapRate) {
+            i.dir = inserirKeys(key, i.dir);
         } else {
             throw new Exception("Erro!");
         }
@@ -385,17 +390,20 @@ class ABdeAB {
     }
 
     // Inserção em Java com Retorno de Referência
-    public void inserir(int x) throws Exception {
-        raiz = inserir(x, raiz);
+    public void inserir(Pokemon pokemon) throws Exception {
+        int key = pokemon.getCaptureRate() % 15;
+        raiz = inserir(pokemon, key, raiz);
     }
 
-    public No inserir(int x, No i) throws Exception {
+    public No inserir(Pokemon pokemon, int key, No i) throws Exception {
         if (i == null) {
-            i = new No(x);
-        } else if (x < i.elemento) {
-            i.esq = inserir(x, i.esq);
-        } else if (x > i.elemento) {
-            i.dir = inserir(x, i.dir);
+            throw new Exception("Erro! Chave inexistente.");
+        } else if(key == i.modCapRate){
+            i.raizfilho = inserirArvore2(pokemon, i.raizfilho);
+        } else if (key < i.modCapRate) {
+            i.esq = inserir(pokemon, key, i.esq);
+        } else if (key > i.modCapRate) {
+            i.dir = inserir(pokemon, key, i.dir);
         } else {
             throw new Exception("Erro!");
         }
@@ -403,85 +411,71 @@ class ABdeAB {
         return i;
     }
 
-    // Inserção em Java com passagem de pai
-    public void inserirPai(int x) throws Exception {
-        if (raiz == null) {
-            raiz = new No(x);
-        } else if (x < raiz.elemento) {
-            inserirPai(x, raiz.esq, raiz);
-        } else if (x > raiz.elemento) {
-            inserirPai(x, raiz.dir, raiz);
-        } else {
-            throw new Exception("Erro!");
-        }
-    }
-
-    public void inserirPai(int x, No i, No pai) throws Exception {
+    public NoFilho inserirArvore2(Pokemon pokemon, NoFilho i) throws Exception {
         if (i == null) {
-            if (x < pai.elemento) {
-                pai.esq = new No(x);
-            } else {
-                pai.dir = new No(x);
-            }
-        } else if (x < i.elemento) {
-            inserirPai(x, i.esq, i);
-        } else if (x > i.elemento) {
-            inserirPai(x, i.dir, i);
+            i = new NoFilho(pokemon);
+        } else if (i.pokemon == null) { // Caso base: substituir nó vazio
+            i.pokemon = pokemon;
+        } else if (pokemon.getName().compareTo(i.pokemon.getName()) < 0) {
+            i.esq = inserirArvore2(pokemon, i.esq);
+        } else if (pokemon.getName().compareTo(i.pokemon.getName()) > 0) {
+            i.dir = inserirArvore2(pokemon, i.dir);
         } else {
-            throw new Exception("Erro!");
+            throw new Exception("Erro! Pokémon já existe.");
         }
+        return i;
     }
+    
 
     // Pesquisa
-    public boolean pesquisar(int x) {
-        return pesquisar(x, raiz);
+    public void pesquisar(String name) {
+        if(pesquisar(name, raiz)){
+            System.out.println(" SIM");
+        } else {
+            System.out.println(" NAO");
+        }
     }
 
-    public boolean pesquisar(int x, No i) {
+    public boolean pesquisar(String name, No i) {
         boolean resp;
 
         if (i == null) {
             resp = false;
-        } else if (x == i.elemento) {
-            resp = true;
-        } else if (x < i.elemento) {
-            resp = pesquisar(x, i.esq);
         } else {
-            resp = pesquisar(x, i.dir);
+            resp = presquisarArvore2(name, i.raizfilho);
+
+            if(!resp){
+                System.out.print("  ESQ");
+                resp = pesquisar(name, i.esq);
+            }
+
+            if(!resp){
+                System.out.print("  DIR");
+                resp = pesquisar(name, i.dir);
+            }
         }
         return resp;
     }
 
-    // MÉTODOS DE CAMINHAMENTO:
+    public boolean presquisarArvore2(String name, NoFilho i){
+        boolean resp;
 
-    // Caminhamento Central (ou em ordem)
-    public void caminharCentral(No i) {
-        if (i != null) {
-            caminharCentral(i.esq);
-            System.out.print(i.elemento + " ");
-            caminharCentral(i.dir);
+        if(i == null){
+            resp = false;
+        } else{
+            if (name.compareTo(i.pokemon.getName()) == 0) {
+                resp = true;
+            } else if (name.compareTo(i.pokemon.getName()) < 0) {
+                System.out.print(" esq");
+                resp = presquisarArvore2(name, i.esq);
+            } else {
+                System.out.print(" dir");
+                resp = presquisarArvore2(name, i.dir);
+            }
         }
-    }
-
-    // Caminhamento Pré-incremento (ou pré-fixado ou pré-ordem)
-    public void caminharPre(No i) {
-        if (i != null) {
-            System.out.print(i.elemento + " ");
-            caminharPre(i.esq);
-            caminharPre(i.dir);
-        }
-    }
-
-    // Caminhamento Pós-incremento (ou pós-fixado ou pós-ordem)
-    public void caminharPos(No i) {
-        if (i != null) {
-            caminharPos(i.esq);
-            caminharPos(i.dir);
-            System.out.println(i.elemento + " ");
-        }
+        return resp;
     }
 }
-
 
 /**
  * Classe principal
@@ -515,14 +509,14 @@ public class ArvoreDeArvore {
 
         Scanner sc = new Scanner(System.in);
         String str;
-        ABdeAB abPokemon = new ABdeAB();
+        ABdeAB ababPokemon = new ABdeAB();
 
         while(!(str = sc.nextLine()).equals("FIM"))
-           abPokemon.inserir(search(Integer.parseInt(str)));
+           ababPokemon.inserir(search(Integer.parseInt(str)));
 
         while(!(str = sc.nextLine()).equals("FIM")){
-            System.out.print("=> " + str + "\nraiz ");
-            //abPokemon.pesquisar(str);
+            System.out.print("=> " + str + "\nraiz");
+            ababPokemon.pesquisar(str);
         }
 
         sc.close();
