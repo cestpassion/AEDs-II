@@ -106,7 +106,13 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 04: Estruturas de Dados Básicos Flexíveis:</summary>
 
 [Unidade 04](unidades/unidade04-estrutura-de-dados-basicos-flexiveis)
-- [aaaaa](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [Lista Simples Flexível](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [Lista Dupla Flexível](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [Fila Flexível](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [Pilha Flexível](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [Matriz Flexível](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [TAD Nativos](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
+- [TAD Flexíveis Híbridos](unidades/unidade04-estrutura-de-dados-basicos-flexiveis/u04a-)
 </details>
 <details>
 <summary>Unidade 05: Árvores Binárias:</summary>
@@ -127,12 +133,14 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 [Unidade 07](unidades/unidade07-tabelas-e-dicionarios)
 - [Tabela Hash](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade07-tabelas-e-dicionarios/TabelaHash.md)
+- [Tabela Doidona](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade07-tabelas-e-dicionarios/TabelaHash.md)
 </details>
 <details>
 <summary>Unidade 08: Árvores TRIE:</summary>
 
 [Unidade 08](unidades/unidade08-arvores-TRIE)
-- [aaaaa](unidades/unidade08-arvores-TRIE/u08a-)
+- [Árvore TRIE](unidades/unidade08-arvores-TRIE/u08a-)
+- [Árvore Patrícia](unidades/unidade08-arvores-TRIE/u08a-)
 </details>
 <br>
 
