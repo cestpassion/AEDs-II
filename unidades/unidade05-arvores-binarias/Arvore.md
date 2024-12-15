@@ -1,7 +1,7 @@
 # 🌲 Árvore Binária
 <br>
 
-# Sumário
+# 📄 Sumário
 
 1. [Definição](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#defini%C3%A7%C3%A3o)
 2. [Estrutura Básica](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#estrutura-b%C3%A1sica)
@@ -17,7 +17,7 @@
 
 <br>
 
-## Definição
+##  📘 Definição
 
 Uma **árvore** é uma estrutura de dados formada por um conjunto finito de **nós** (vértices) conectados por **arestas**. A árvore é estruturada de forma hierárquica, com um nó raiz e nós filhos conectados a ela. 
 
@@ -25,7 +25,7 @@ Uma **árvore** é uma estrutura de dados formada por um conjunto finito de **n�
 - A **raiz** está no nível 0, e os nós subsequentes possuem níveis incrementados conforme a distância da raiz.
 <br>
 
-## Estrutura Básica
+## 🔧 Estrutura Básica
 
 - **Nó Raiz**: O nó superior da árvore (nível 0).
 - **Nó Interno**: Nó que possui pelo menos um filho.
@@ -48,7 +48,7 @@ Uma **árvore** é uma estrutura de dados formada por um conjunto finito de **n�
 - Os nós 1, 2, e 4 formam uma **subárvore** com raiz no nó 3.
 <br>
   
-## Tipos de Árvore
+## 🌳 Tipos de Árvore
 
 ### 1. **Árvore Binária de Pesquisa (ABP)**
 
@@ -91,7 +91,7 @@ Uma **Árvore Balanceada** é uma árvore em que, para **todos os nós**, a dife
 
 <br>
 
-## Considerações
+## ⚖️ Considerações
 
 - A **Árvore Binária de Pesquisa (ABP)** também é chamada de **Árvore Binária de Busca (ABB)** ou **Binary Search Tree (BST)**.
 - Para este material, assume-se que todas as árvores binárias discutidas são do tipo **Árvore Binária de Pesquisa**.
@@ -109,10 +109,11 @@ Essas operações têm um custo **Θ(lg(n))** em uma árvore balanceada, mas pod
 
 As árvores binárias são fundamentais em estruturas de dados devido à sua eficiência em operações como inserção, remoção e pesquisa. Além disso, as árvores balanceadas, como a Árvore Binária de Pesquisa, são muito úteis em diversos algoritmos e aplicações que requerem eficiência no gerenciamento de dados ordenados.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-## Classe `No` em Java
+## 🪢 Classe `No` em Java
 
 A classe `No` representa a unidade básica de uma árvore binária. Cada nó contém um elemento (ou valor) e referências para seus filhos esquerdo e direito. Essa estrutura permite a construção de árvores binárias de forma dinâmica.
 
@@ -187,10 +188,11 @@ public class Main {
 
 A classe `No` é fundamental para a construção de árvores binárias, fornecendo a estrutura necessária para organizar os dados e possibilitar operações como inserção, remoção e pesquisa. Sua implementação simples e modular facilita a expansão para árvores mais complexas, como árvores balanceadas ou de busca binária.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-## Classe `ArvoreBinaria` em Java
+## 🌲💻 Classe `ArvoreBinaria` em Java
 
 A classe `ArvoreBinaria` implementa a estrutura de uma árvore binária. Ela é projetada para gerenciar os nós, permitindo operações como inserção, remoção, pesquisa e caminhamentos em diferentes ordens.
 
@@ -287,10 +289,11 @@ public class Main {
 
 A classe `ArvoreBinaria` fornece uma base poderosa para manipular árvores binárias em Java. Sua implementação modular permite fácil expansão para casos mais complexos, como árvores balanceadas ou otimizadas para desempenho específico. Além disso, os métodos implementados refletem os conceitos fundamentais de estruturas de dados em árvores, essenciais em Ciência da Computação.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-## Método de Inserção
+## ➕ Método de Inserção
 
 O método de inserção na árvore binária é responsável por adicionar novos elementos, mantendo a estrutura de uma **Árvore Binária de Pesquisa**. Ele organiza os valores de forma que os menores que um nó estejam à sua esquerda, e os maiores à sua direita.
 
@@ -420,10 +423,11 @@ O resultado final será:
 
 O método de inserção é essencial para manter a árvore organizada, servindo como base para operações como pesquisa e remoção.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-## Método de Remoção
+## ➖ Método de Remoção
 
 ### Funcionamento Básico
 
@@ -593,14 +597,15 @@ private No remover3(int x, No i) throws Exception {
 
 OBS: O desempenho depende diretamente da estrutura da árvore e do balanceamento dos nós.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-### MÉTODO DE PESQUISA
+## 🔍 Método de Pesquisa
 
 O método de pesquisa em uma árvore binária segue uma abordagem recursiva e busca determinar a existência de um elemento, retornando se ele está presente ou não. A ideia é, a partir da raiz, comparar o valor do nó com o elemento desejado e decidir em qual subárvore o elemento deve ser procurado, baseando-se no seu valor.
 
-#### Funcionamento Básico
+### Funcionamento Básico
 
 1. **Se a raiz estiver vazia**, isso significa que a árvore está vazia ou que o elemento não foi encontrado, retornando uma **pesquisa negativa**.
 2. **Se o elemento procurado for igual ao da raiz**, a busca foi bem-sucedida, e é retornado uma **pesquisa positiva**.
@@ -625,7 +630,7 @@ Caso quisermos buscar o número **40**, a sequência de passos seria:
 2. O próximo nó é **30**, e como **40** é maior que **30**, a pesquisa vai para a subárvore à direita (40).
 3. O nó **40** é encontrado, logo a pesquisa é **positiva**.
 
-#### Implementação: Algoritmo em Java
+### Implementação: Algoritmo em Java
 
 ```java
 // Método de pesquisa que chama a versão recursiva.
@@ -650,7 +655,7 @@ boolean pesquisar(int x, No i) {
 }
 ```
 
-#### Análise de Complexidade da Pesquisa
+### Análise de Complexidade da Pesquisa
 
 A análise de complexidade pode ser feita em termos de comparação de nós durante a busca:
 
@@ -660,10 +665,11 @@ A análise de complexidade pode ser feita em termos de comparação de nós dura
 
 Essa análise é importante para entender a eficiência da pesquisa em árvores binárias e como o balanceamento da árvore pode afetar a performance das operações de busca.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-### MÉTODOS DE CAMINHAMENTO
+## 🧭 Métodos de Caminhamento
 
 Os métodos de caminhamento (ou percorrimento) de uma árvore binária são usados para visitar e exibir todos os elementos presentes na árvore. Esse processo pode ser feito de diferentes formas, dependendo da ordem em que os nós são visitados. Cada tipo de caminhamento tem suas características e pode ser utilizado conforme a necessidade do algoritmo ou operação que se deseja realizar.
 
@@ -750,14 +756,14 @@ public void caminharPre(No i) {
 
 Para todos os métodos de caminhamento, a complexidade de tempo é **Θ(n)**, pois o algoritmo precisa visitar todos os nós da árvore, onde **n** é o número total de nós presentes. A complexidade é linear em relação ao número de nós na árvore.
 
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 ---
 <br>
 
-### MÉTODOS EXTRAS
+## ⚙️ Métodos Extras
 
 Os métodos extras descritos abaixo são funções adicionais que podem ser usadas para realizar operações específicas em uma árvore binária. Cada método é útil para diferentes tipos de análises e manipulações de dados dentro da árvore.
 
----
 <br>
 
 ### 1. **Altura da Árvore**
@@ -950,5 +956,7 @@ class TreeSort {
 - **Número de Elementos Pares:** Conta quantos elementos na árvore são pares.
 - **Divisível por 11:** Verifica se algum número na árvore é divisível por 11.
 - **TreeSort:** Implementa o algoritmo de ordenação TreeSort usando uma árvore binária para ordenar os elementos.
+
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
 
 Esses métodos adicionais fornecem funcionalidades úteis para análise e manipulação de dados em uma árvore binária. Cada um deles utiliza uma abordagem recursiva para percorrer a árvore e realizar operações específicas.
