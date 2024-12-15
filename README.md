@@ -18,6 +18,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 >### ❓ Ajuda:
 * **Orientações:** [Dicas, ajuda com C e Java e provas práticas e teóricas](ajuda/orientacoes/README.md)
+* **Provas:** [provas práticas e teóricas](ajuda/provas)
 * **Principais comandos (Linux, VIM, Java, C/C++, C#):** [Guia e Cheat Sheets](ajuda/comandos/)
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores/README.md)
 <br>
