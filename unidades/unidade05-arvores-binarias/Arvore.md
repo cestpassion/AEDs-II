@@ -3,17 +3,17 @@
 
 # Sumário
 
-1. [Definição](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#defini%C3%A7%C3%A3o)
-2. [Estrutura Básica](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#estrutura-b%C3%A1sica)
-3. [Tipos de Árvore](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#tipos-de-%C3%A1rvore)
-4. [Considerações](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#considera%C3%A7%C3%B5es)
-5. [Classe No em Java](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#classe-no-em-java)
-6. [Classe ArvoreBinaria em Java](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#classe-arvorebinaria-em-java)
-7. [Método de Inserção](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#m%C3%A9todo-de-inser%C3%A7%C3%A3o)
-8. [Método de Remoção](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#m%C3%A9todo-de-remo%C3%A7%C3%A3o)
-9. [Método de Pesquisa](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#m%C3%A9todo-de-pesquisa)
-10. [Métodos de Caminhamento](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#m%C3%A9todos-de-caminhamento)
-11. [Métodos Extras](https://github.com/cestpassion/AEDs-II/new/main/unidades/unidade05-arvores-binarias#m%C3%A9todos-extras)
+1. [Definição](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#defini%C3%A7%C3%A3o)
+2. [Estrutura Básica](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#estrutura-b%C3%A1sica)
+3. [Tipos de Árvore](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#tipos-de-%C3%A1rvore)
+4. [Considerações](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#considera%C3%A7%C3%B5es)
+5. [Classe No em Java](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#classe-no-em-java)
+6. [Classe ArvoreBinaria em Java](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#classe-arvorebinaria-em-java)
+7. [Método de Inserção](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#m%C3%A9todo-de-inser%C3%A7%C3%A3o)
+8. [Método de Remoção](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#m%C3%A9todo-de-remo%C3%A7%C3%A3o)
+9. [Método de Pesquisa](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#m%C3%A9todo-de-pesquisa)
+10. [Métodos de Caminhamento](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#m%C3%A9todos-de-caminhamento)
+11. [Métodos Extras](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#m%C3%A9todos-extras)
 
 <br>
 
