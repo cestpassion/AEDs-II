@@ -993,6 +993,6 @@ class TreeSort {
 - **Divisível por 11:** Verifica se algum número na árvore é divisível por 11.
 - **TreeSort:** Implementa o algoritmo de ordenação TreeSort usando uma árvore binária para ordenar os elementos.
 
-#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
-
 Esses métodos adicionais fornecem funcionalidades úteis para análise e manipulação de dados em uma árvore binária. Cada um deles utiliza uma abordagem recursiva para percorrer a árvore e realizar operações específicas.
+
+#### [Voltar ao Início 🔝](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-%C3%A1rvore-bin%C3%A1ria)
