@@ -22,19 +22,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **Compiladores:** [JDK, MinGW, GCC](ajuda/compiladores/README.md)
 <br>
 
->### 📄 Documentações oficiais:
-* [**Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**](documentacoesOficiais)
-<br>
-
->### 📚 Livros:
-
-* [**Livros úteis para a diciplina.**](bibliografia)
-<br>
-
->### 📁 Bibliotecas👈:
-* [**Pasta com as bibliotecas usadas na disciplina.**](bibliotecasCode)
-<br>
-
 >### [🐧 Linux](linux)👈:
 * **Dual Boot:** [Aprenda a realizar um Dual Boot na sua máquina](linux/DualBoot.md)
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/VMware.md)
@@ -149,6 +136,19 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * ⚙️ **Programas:** [Programas desenvolvidos](codigos/programas)
 * 🖱️ **Labs:** [Pasta com os exercícios de treinamento do laboratório](codigos/labs)
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
+<br>
+
+>### 📄 Documentações oficiais:
+* [**Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**](documentacoesOficiais)
+<br>
+
+>### 📚 Livros:
+
+* [**Livros úteis para a diciplina.**](bibliografia)
+<br>
+
+>### 📁 Bibliotecas👈:
+* [**Pasta com as bibliotecas usadas na disciplina.**](bibliotecasCode)
 <br>
 
 ## 🏋️ Prática:
