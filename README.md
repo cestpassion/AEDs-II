@@ -138,10 +138,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * **WSL:** [Aprenda com baixar e utilizar o terminal Linux](linux/WSL.md)
 <br>
 
->### 📄 Documentações oficiais:
-* [**Arquivo contendo links para as documentações oficiais de multiplas lingaguens de programação**](documentacoesOficiais)
-<br>
-
 >### 📚 Livros:
 
 * [**Livros úteis para a diciplina.**](bibliografia)
