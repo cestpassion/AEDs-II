@@ -405,6 +405,26 @@ A eficiência do método de inserção depende do formato da árvore:
 2. Depois, `5` vai para a direita de `3`.  
 3. `1` é inserido à esquerda de `3`, e assim por diante.
 
+```
+ 1)   🠗          2)   🠗            3)        🠗             4)        🠗                 5)        🠗                                        
+     |3|              3                     3                       3                           3
+   ⬋    ⬊           ⬋    ⬊                 ⬋  ⬊                    ⬋  ⬊                        ⬋  ⬊               
+                          |5|           |1|      5               1       5                   1       5     
+                          ⬋  ⬊         ⬋  ⬊     ⬋  ⬊           ⬋  ⬊     ⬋  ⬊               ⬋  ⬊     ⬋  ⬊
+                                                                            |8|               |2|       8 
+                                                                            ⬋ ⬊               ⬋ ⬊      ⬋ ⬊                                                                          
+ 6)        🠗              7)        🠗                    8)       🠗                                                
+           3                        3                             3               
+         ⬋  ⬊                      ⬋  ⬊                          ⬋  ⬊                   
+       1       5                 1       5                     1       5      
+     ⬋  ⬊     ⬋  ⬊             ⬋  ⬊     ⬋  ⬊                 ⬋  ⬊     ⬋  ⬊                                    
+         2  |4|   8                2   4    8                    2   4    8  
+        ⬋ ⬊ ⬋ ⬊  ⬋ ⬊              ⬋ ⬊ ⬋ ⬊  ⬋ ⬊                  ⬋ ⬊ ⬋ ⬊  ⬋ ⬊   
+                                             |7|                            7
+                                              ⬋⬊                           ⬋⬊
+                                                                         |6|
+```
+
 O resultado final será:
 
 ```
@@ -675,23 +695,19 @@ Os métodos de caminhamento (ou percorrimento) de uma árvore binária são usad
 
 A análise de complexidade para todos os métodos de caminhamento é **Θ(n)**, pois é necessário visitar todos os nós da árvore uma vez.
 
-#### Exemplo de Árvore Binária
-
-A árvore representada abaixo será utilizada nos exemplos dos caminhamentos:
-
-```
-           6
-         /   \
-       3      9
-     /  \    /  \
-    1    5  8    10
-   /  \  /  \   /  \
-  2   4 7   x  x   11
-```
-
 ### 1. Caminhamento Central ou **Em Ordem**
 
 No **caminhamento em ordem (ou in-order)**, o algoritmo visita primeiro a subárvore esquerda, depois o nó atual, e por fim a subárvore direita. Esse tipo de caminhamento é comumente utilizado em árvores binárias de busca, pois visita os elementos em ordem crescente.
+
+```
+            6
+         /     \
+       3         9
+    /   \       /   \
+  1      5     8     10
+/  \   /  \   /  \   /  \
+x  2   4  x   7  x   x  11
+```
 
 **Saída esperada (em ordem):** 1 2 3 4 5 6 7 8 9 10 11
 
@@ -711,6 +727,16 @@ public void caminharCentral(No i) {
 
 No **caminhamento pós-ordem (ou post-order)**, o algoritmo visita primeiro a subárvore esquerda, depois a subárvore direita, e por último o nó atual. Este tipo de caminhamento é útil em algoritmos que precisam processar primeiro os filhos e depois o nó pai, como na remoção de nós em uma árvore.
 
+```
+            6
+         /     \
+       3         9
+    /   \       /   \
+  1      5     8     10
+/  \   /  \   /  \   /  \
+x  2   4  x   7  x   x  11
+```
+
 **Saída esperada (pós-ordem):** 2 1 4 5 3 7 8 11 10 9 6
 
 #### Implementação em Java
@@ -728,6 +754,16 @@ public void caminharPos(No i) {
 ### 3. Caminhamento Pré-fixado ou **Pré-ordem**
 
 No **caminhamento pré-ordem (ou pre-order)**, o algoritmo visita primeiro o nó atual, depois a subárvore esquerda e por fim a subárvore direita. Esse tipo de caminhamento é útil quando precisamos processar o nó antes de seus filhos, como ao copiar ou criar uma árvore.
+
+```
+            6
+         /     \
+       3         9
+    /   \       /   \
+  1      5     8     10
+/  \   /  \   /  \   /  \
+x  2   4  x   7  x   x  11
+```
 
 **Saída esperada (pré-ordem):** 6 3 1 2 5 4 9 8 7 10 11
 
