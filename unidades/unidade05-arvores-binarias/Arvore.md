@@ -13,7 +13,7 @@
 >8. [**Método de Remoção**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-m%C3%A9todo-de-remo%C3%A7%C3%A3o)
 >9. [**Método de Pesquisa**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-m%C3%A9todo-de-pesquisa)
 >10. [**Métodos de Caminhamento**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#-m%C3%A9todos-de-caminhamento)
->11. [**Métodos Extras**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#%EF%B8%8F-m%C3%A9todos-extras)>
+>11. [**Métodos Extras**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade05-arvores-binarias/Arvore.md#%EF%B8%8F-m%C3%A9todos-extras)
 
 <br>
 
