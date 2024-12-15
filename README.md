@@ -132,6 +132,10 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 * ⌨️ **TPs:** [Pasta com os Trabalhos Práticos](codigos/tps)
 <br>
 
+>### 📁 Bibliotecas👈:
+* [**Pasta com as bibliotecas usadas na disciplina.**](bibliotecasCode)
+<br>
+
 >### [🐧 Linux](linux)👈:
 * **Dual Boot:** [Aprenda a realizar um Dual Boot na sua máquina](linux/DualBoot.md)
 * **VMware:** [Aprenda com baixar e utilizar uma máquina virtual](linux/VMware.md)
@@ -141,10 +145,6 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 >### 📚 Livros:
 
 * [**Livros úteis para a diciplina.**](bibliografia)
-<br>
-
->### 📁 Bibliotecas👈:
-* [**Pasta com as bibliotecas usadas na disciplina.**](bibliotecasCode)
 <br>
 
 ## 🏋️ Prática:
