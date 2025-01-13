@@ -1,7 +1,7 @@
 # Lista
 <br>
 
-# 📄 Sumário
+## 📄 Sumário
 
 >1. [**Conceitos Básicos**](https)
 >3. [**Métodos de Inserção**](https)
