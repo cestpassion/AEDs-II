@@ -1,9 +1,10 @@
-# Pilha
+# 📚 Pilha
 <br>
 
 ## 📄 Sumário
 
 >1. [**Conceitos Básicos**](https)
+>2. [**Header**](https)
 >3. [**Método de Inserção (push)**](https)
 >4. [**Método de Remoção (pop)**](https)
 >5. [**Método Mostrar**](https)
@@ -12,7 +13,7 @@
 ---
 <br>
 
-## Conceitos Básicos
+## 📘 Conceitos Básicos
 
 As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que entra é o último a sair
 
@@ -39,10 +40,14 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 - **Construtores** 
 
 - **Inserção de elemento**
-  - void push(elemento)
+  - void inserirInicio(elemento)
+  - void inserirFim(elemento)
+  - void inserir(elemento, posição)
     
 - **Remoção de elementos**
-  - elemento pop()
+  - elemento removerInicio()
+  - elemento removerFim()
+  - elemento remover(posição)
     
 - **Mostrar, pesquisar, ordenar, ...**
 
@@ -50,11 +55,40 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## Método de Inserção (push)
+## 📌 Header
 
+>### C:
 
+```c
 
-#### Teste de mesa
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+---
+<br>
+
+## ➕ Método de Inserção
+
+>### C:
+
+```c
+
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+<br>
+
+>### Teste de mesa
 
 
 
@@ -62,11 +96,23 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## Método de Remoção (pop)
+## ➖ Método de Remoção
 
+>### C:
 
+```c
 
-#### Teste de mesa
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+<br>
+
+>### Teste de mesa
 
 
 
@@ -74,11 +120,23 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## Método Mostrar
+## 👁️ Método Mostrar
 
+>### C:
 
+```c
 
-#### Teste de mesa
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+<br>
+
+>### Teste de mesa
 
 
 
@@ -86,11 +144,23 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## Método Pesquisar
+## 🔍 Método Pesquisar
 
+>### C:
 
+```c
 
-#### Teste de mesa
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+<br>
+
+>### Teste de mesa
 
 
 
@@ -98,11 +168,23 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## Método Ordenar
+## 🔄 Método Ordenar
 
+>### C:
 
+```c
 
-#### Teste de mesa
+```
+<br>
+
+>### Java:
+
+```java
+
+```
+<br>
+
+>### Teste de mesa
 
 
 
