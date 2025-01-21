@@ -210,7 +210,7 @@ Pokemon pop(Stack *pilha)
 void mostrar(Stack pilha)
 {
     for (int i = pilha.top; i >= 0; --i)
-    {****
+    {
         printf("[%d]\t%d", i, pilha.stack[i]);
     }
 }
