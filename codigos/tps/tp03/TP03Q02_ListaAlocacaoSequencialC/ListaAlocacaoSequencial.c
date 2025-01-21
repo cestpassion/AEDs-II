@@ -471,7 +471,6 @@ void inserir(Lista *list, Pokemon pokemon, int pos)
 
     list->pokemonList[pos] = pokemon;
     list->n++;
-    list->tamPokemonList++;
 }
 
 // REMOVER:
