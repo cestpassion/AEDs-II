@@ -3,8 +3,8 @@
 
 ## 📄 Sumário
 
->1. [**Conceitos Básicos**](https)
->2. [**Header**](https)
+>1. [**Conceitos Básicos**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-conceitos-b%C3%A1sicos)
+>2. [**Header**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-header)
 >3. [**Método de Inserção (push)**](https)
 >4. [**Método de Remoção (pop)**](https)
 >5. [**Método Mostrar**](https)
@@ -72,7 +72,7 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## ➕ Método de Inserção
+## ➕ Método de Inserção (push)
 
 >### C:
 
@@ -96,7 +96,7 @@ As pilhas são um Tipo Abstrato de Dados (TAD) no qual o primeiro elemento que e
 ---
 <br>
 
-## ➖ Método de Remoção
+## ➖ Método de Remoção (pop)
 
 >### C:
 
