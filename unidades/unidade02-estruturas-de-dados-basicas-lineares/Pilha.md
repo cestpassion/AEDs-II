@@ -9,7 +9,7 @@
 >4. [**Método de Remoção (pop)**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-de-remo%C3%A7%C3%A3o-pop)
 >5. [**Método Mostrar**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#%EF%B8%8F-m%C3%A9todo-mostrar)
 >6. [**Método Pesquisar**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-pesquisar)
->7. [**Método Ordenar**]([https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-pilha](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-ordenar))
+>7. [**Método Ordenar**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-ordenar)
 ---
 <br>
 
