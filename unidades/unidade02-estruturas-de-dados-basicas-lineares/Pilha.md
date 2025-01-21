@@ -96,17 +96,17 @@ Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
 ```c
 typedef struct Stack
 {
-    Pokemon *stack;
+    int *stack;
     int MAXTAM;
     int top;
 } Stack;
 
-List newStack(int tam){
+Stack newStack(int tam){
     Stack newStack;
 
-    newList.MAXTAM = tam;
-    newStack.stack = (int*)malloc(MAXTAM * sizeof(int));
-    newList.top = -1;
+    newStack.MAXTAM = tam;
+    newStack.stack = (int*)malloc(newStack.MAXTAM * sizeof(int));
+    newStack.top = -1;
 
     return newStack;
 }
