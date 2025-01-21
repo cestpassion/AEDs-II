@@ -5,7 +5,7 @@
 
 >1. [**Conceitos Básicos**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-conceitos-b%C3%A1sicos)
 >2. [**Header**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-header)
->3. [**Soluções](hhh)
+>3. [**Soluções**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-solu%C3%A7%C3%B5es)
 >4. [**Método de Inserção (push)**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-de-inser%C3%A7%C3%A3o-push)
 >5. [**Método de Remoção (pop)**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#-m%C3%A9todo-de-remo%C3%A7%C3%A3o-pop)
 >6. [**Método Mostrar**](https://github.com/cestpassion/AEDs-II/blob/main/unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md#%EF%B8%8F-m%C3%A9todo-mostrar)
