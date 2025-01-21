@@ -142,7 +142,7 @@ void push(Stack *pilha, int elemento)
         pilha->MAXTAM++;
         pilha->stack = (int *)realloc(pilha->stack, pilha->MAXTAM * sizeof(int));
 
-        if (!pilha->pokemonStack)
+        if (!pilha->stack)
         {
             printf("Erro de memória na realocação\n");
             pilha->stack--;
@@ -174,7 +174,7 @@ void push(Stack *pilha, int elemento)
 >### C:
 
 ```c
-Pokemon pop(Stack *pilha)
+int pop(Stack *pilha)
 {
     if (pilha->top == -1)
     {
