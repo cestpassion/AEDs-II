@@ -64,9 +64,9 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 02: Estruturas de Dados Básicas Lineares:</summary>
 
 [Unidade 02](unidades/unidade02-estruturas-de-dados-basicas-lineares)
-- [Lista](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02a-lista)
-- [Pilha](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02b-pilha)
-- [Fila](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02c-fila)
+- [Lista](unidades/unidade02-estruturas-de-dados-basicas-lineares/Lista.md)
+- [Pilha](unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md)
+- [Fila](unidades/unidade02-estruturas-de-dados-basicas-lineares/Fila.md)
 </details>
 <details>
 <summary>Unidade 03: Ordenação em Memória Principal:</summary>
