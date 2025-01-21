@@ -13,7 +13,7 @@
 ---
 <br>
 
-## Conceitos Básicos
+## 📘 Conceitos Básicos
 
 As listas são um Tipo Abstrato de Dados (TAD) no qual podemos inserir e remover elementos em qualquer posição
 
@@ -53,7 +53,7 @@ As listas são um Tipo Abstrato de Dados (TAD) no qual podemos inserir e remover
 ---
 <br>
 
-## Header
+## 📌 Header
 
 >### C:
 
@@ -130,7 +130,7 @@ class List {
 ---
 <br>
 
-## Métodos de Inserção
+## ➕ Métodos de Inserção
 
 ### Inserir no Início
 
@@ -307,7 +307,7 @@ public void inserir(int elemento, int pos) throws Exception {
 ---
 <br>
 
-## Métodos de Remoção
+## ➖ Métodos de Remoção
 
 ### Remover no Início
 
@@ -468,7 +468,7 @@ Pokemon remover(int pos) throws Exception {
 ---
 <br>
 
-## Método Mostrar
+## 👁️ Método Mostrar
 
 >### C:
 
@@ -504,7 +504,7 @@ public void mostrar() {
 ---
 <br>
 
-## Método Pesquisar
+## 🔍 Método Pesquisar
 
 >### C:
 
@@ -528,7 +528,7 @@ public void mostrar() {
 ---
 <br>
 
-## Método Ordenar
+## 🔄 Método Ordenar
 
 >### C:
 
