@@ -97,13 +97,15 @@ Por exemplo, inserindo o 1, 3, 5 e 7 e efetuando duas remoções teremos:
 typedef struct Stack
 {
     Pokemon *stack;
+    int MAXTAM;
     int top;
 } Stack;
 
 List newStack(int tam){
     Stack newStack;
 
-    newStack.stack = (int*)malloc(tam * sizeof(int));
+    newList.MAXTAM = tam;
+    newStack.stack = (int*)malloc(MAXTAM * sizeof(int));
     newList.top = -1;
 
     return newStack;
@@ -113,10 +115,10 @@ List newStack(int tam){
 void push(Stack *, int);
 int pop(Stack *);
 void mostrar(Stack);
-void invertStack(Stack *);
-void reverseStack(Stack *, int);
 int pesquisar(Stack);
 void ordenar(Stack);
+void invertStack(Stack *);
+void reverseStack(Stack *, int);
 ```
 <br>
 
@@ -133,7 +135,22 @@ void ordenar(Stack);
 >### C:
 
 ```c
+void push(Stack *pilha, int elemento)
+{
+    if (pilha->top >= pilha->MAXTAM)
+    {
+        pilha->MAXTAM++;
+        pilha->stack = (int *)realloc(pilha->stack, pilha->MAXTAM * sizeof(int));
 
+        if (!pilha->pokemonStack)
+        {
+            printf("Erro de memória na realocação\n");
+            pilha->stack--;
+            exit(1);
+        }
+    }
+    pilha->stack[++pilha->top] = elemento;
+}
 ```
 <br>
 
@@ -157,7 +174,16 @@ void ordenar(Stack);
 >### C:
 
 ```c
+Pokemon pop(Stack *pilha)
+{
+    if (pilha->top == -1)
+    {
+        printf("Erro! Não há elementos para remover.\n");
+        exit(1);
+    }
 
+    return pilha->stack[pilha->top--];
+}
 ```
 <br>
 
@@ -181,7 +207,13 @@ void ordenar(Stack);
 >### C:
 
 ```c
-
+void mostrar(Stack pilha)
+{
+    for (int i = pilha.top; i >= 0; --i)
+    {****
+        printf("[%d]\t%d", i, pilha.stack[i]);
+    }
+}
 ```
 <br>
 
