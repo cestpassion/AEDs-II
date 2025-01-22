@@ -137,16 +137,16 @@ void reverseStack(Stack *, int);
 ```c
 void push(Stack *pilha, int elemento)
 {
-    if (pilha->top >= pilha->MAXTAM)
+    if (pilha->top >= (pilha->MAXTAM - 1))
     {
         pilha->MAXTAM++;
         pilha->stack = (int *)realloc(pilha->stack, pilha->MAXTAM * sizeof(int));
 
         if (!pilha->stack)
         {
-            printf("Erro de memória na realocação\n");
-            pilha->stack--;
-            exit(1);
+            printf("Erro de memoria na realocacao\n");
+            pilha->MAXTAM--;
+            return;
         }
     }
     pilha->stack[++pilha->top] = elemento;
@@ -178,8 +178,8 @@ int pop(Stack *pilha)
 {
     if (pilha->top == -1)
     {
-        printf("Erro! Não há elementos para remover.\n");
-        exit(1);
+        printf("Erro! Nao ha elementos para remover.\n");
+        return -1;
     }
 
     return pilha->stack[pilha->top--];
@@ -209,9 +209,14 @@ int pop(Stack *pilha)
 ```c
 void mostrar(Stack pilha)
 {
+    if(pilha.top == -1){
+        printf("Erro! Não ha elementos para mostrar.\n");
+        return;
+    }
+
     for (int i = pilha.top; i >= 0; --i)
     {
-        printf("[%d]\t%d", i, pilha.stack[i]);
+        printf("[%d]\t%d\n", i, pilha.stack[i]);
     }
 }
 ```
