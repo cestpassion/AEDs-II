@@ -29,3 +29,62 @@
  * @author Bruna Furtado da Fonseca
  * @version 2024-07-16
  */
+
+import java.util.Scanner;
+
+class Stack{
+    // Atributos
+    private int[] stack;
+    private int top;
+
+    // Construtor 1
+    public Stack() {
+        this(10);
+    }
+
+    // Construtor 2
+    public Stack(int tam) {
+        this.stack = new int[tam];
+        this.top = -1;
+    }
+
+    // Métodos de Inserção
+    public void push(int elemento) throws Exception {
+        if(this.top >= (stack.length - 1))
+            throw new Exception("Erro ao inserir o elemento! Pilha cheia.");
+
+        stack[++top] = elemento;
+    }
+    
+    public int pop() throws Exception {
+        if(top == -1)
+            throw new Exception("Erro! Não há elementos para remover.");
+
+        return stack[top--];
+    }
+    
+
+    // Método Mostrar
+    public void mostrar() throws Exception {
+        if(top == -1)
+            throw new Exception("Erro! Não há elementos para mostrar");
+        
+        for(int i = top; i >= 0; --i)
+            System.out.println("[" + i + "]\t" + stack[i]);
+    }
+    
+
+    // // Método Pesquisar
+    // public boolean pesquisar() {
+    
+    // }
+
+    // // Método Ordenar
+    // public void ordenar() {
+    
+    // }
+}
+
+public class PilhaLinear{
+    int
+}
