@@ -10,7 +10,7 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 ❗ **Recursos Adicionais:** Dentro das pasta, você também encontrará links para recursos externos, como tutoriais em vídeo, fóruns de suporte e documentação oficial das ferramentas utilizadas.<br><br>
 
->### ⚠️ Status do Repositório: O repositório encontra-se em desenvolvimento, pois a matéria ainda está sendo cursada.
+>### ⚠️ Status do Repositório: O repositório encontra-se em desenvolvimento.
 <br>
 
 # Sumário:
@@ -64,9 +64,9 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 <summary>Unidade 02: Estruturas de Dados Básicas Lineares:</summary>
 
 [Unidade 02](unidades/unidade02-estruturas-de-dados-basicas-lineares)
-- [Lista](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02a-lista)
-- [Pilha](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02b-pilha)
-- [Fila](unidades/unidade02-estruturas-de-dados-basicas-lineares/u02c-fila)
+- [Lista](unidades/unidade02-estruturas-de-dados-basicas-lineares/Lista.md)
+- [Pilha](unidades/unidade02-estruturas-de-dados-basicas-lineares/Pilha.md)
+- [Fila](unidades/unidade02-estruturas-de-dados-basicas-lineares/Fila.md)
 </details>
 <details>
 <summary>Unidade 03: Ordenação em Memória Principal:</summary>
