@@ -25,6 +25,8 @@ Além disso, o conteúdo está organizado de forma a facilitar a navegação e o
 
 >### [🗃️ Unidades](unidades)👈:
 
+>#### ⚠️OS READMEs DAS UNIDADES AINDA ESTÃO EM CONTRUÇÃO, MAS OS CÓDIGOS ESTÃO PRONTOS NO LINK PARA A PASTA NO TÓPICO "[🔥Códigos](https://github.com/cestpassion/AEDs-II#-c%C3%B3digos)"
+
 <details>
 <summary>Unidade 00: Nivelamento:</summary>
 
